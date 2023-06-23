@@ -5,6 +5,9 @@ project:
 book:
   title: "wifi-sensing-for-urban-studies"
   author: "Norah Jones"
+  search: true
+  site-url: https://juhyeonpark.com/wifi-sensing-for-urban-studies/
+  repo-url: https://github.com/jhyeonpark/wifi-sensing-for-urban-studies/
   date: "2023. 6. 23."
   chapters:
     - index.qmd
