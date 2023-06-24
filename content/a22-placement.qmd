@@ -1,0 +1,25 @@
+# Placement and Coverage Considerations {.unnumbered}
+
+![](image/wifi-sensor-comp.png)
+
+| Item                      | Function                                    | Requirement                                                                                                                                                                       |
+|-------------------|----------------------------|-------------------------|
+| Laptop and LAN cable      | Accessing and controlling the sensor        |                                                                                                                                                                                   |
+| Raspberry Pi board        | Building the sensor                         | Pi 3B/3B+ or a higher model Pi                                                                                                                                                    |
+| WiFi adapter              | Capturing WiFi packets                      | Check chipset compatibility for 'monitoring mode' [(here)](https://unix.stackexchange.com/questions/614984/supported-chipset-for-monitor-mode-and-packet-injection-in-kali-linux) |
+| Micro SD card and adapter | Building and storing data                   | At least 16 GB size                                                                                                                                                               |
+| Ethernet cable            | Connecting the Pi to your laptop            |                                                                                                                                                                                   |
+| Portable power bank       | Powering the sensor in outdoor environments | Battery capacity: +20,000 mAh (lasts one day in our setting)                                                                                                                      |
+| Pi camera                 | Recording the scene in front of the sensor  |                                                                                                                                                                                   |
+
+### Software {.unnumbered}
+
+| Item                | Function                        | Link                                          |
+|-------------------|----------------------------|-------------------------|
+| PuTTY               | To access the Pi by your laptop | [here](https://www.putty.org/)                |
+| Raspberry Pi Imager | To build Raspberry Pi OS        | [here](https://www.raspberrypi.com/software/) |
+| Raspberry Pi Imager | To build Raspberry Pi OS        | [here](https://www.putty.org/)                |
+
+### Skill {.unnumbered}
+
+Learning R and Python will be necessary for sensor building and data analysis. I recommend these classes: [Data Science: Foundations using R Specialization](https://www.coursera.org/specializations/data-science-foundations-r) and [Python for Everybody Specialization](https://www.coursera.org/specializations/python)
