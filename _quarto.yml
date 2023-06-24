@@ -3,25 +3,41 @@ project:
   output-dir: docs
 
 book:
-  title: "wifi-sensing-for-urban-studies"
-  author: "Norah Jones"
+  title: "A Comprehensive Toolkit for WiFi Sensing: Decoding urban spaces"
+  author: Juhyeon Park
   search: true
   site-url: https://juhyeonpark.com/wifi-sensing-for-urban-studies/
   repo-url: https://github.com/jhyeonpark/wifi-sensing-for-urban-studies/
   date: "2023. 6. 23."
   chapters:
     - index.qmd
-    - intro.qmd
-    - summary.qmd
-    - references.qmd
+    - content/a10-intro.qmd
+    - part: content/a20-setting.qmd
+      chapters:
+      - content/a21-requirement.qmd
+      - content/a22-placement.qmd
+    - part: content/a30-collection.qmd
+      chapters:
+      - content/a31-guide.qmd
+    - part: content/a40-analysis.qmd
+      chapters:
+      - content/a41-overall.qmd    
+    - part: content/a50-application.qmd
+      chapters:
+      - content/a51-case.qmd
+    - part: content/a60-further.qmd
+      chapters:
+      - content/a61-paper.qmd
 
 bibliography: references.bib
 
 format:
   html:
-    theme: cosmo
+    theme:
+        light: [cosmo, theme.scss, anari-custom.scss]
+        dark: [cosmo, theme-dark.scss, anari-custom.scss]
+    css: styles.css
   pdf:
     documentclass: scrreprt
 
 editor: visual
-
