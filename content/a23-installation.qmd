@@ -7,4 +7,6 @@ Plug in your SD card on your laptop. Open the [Raspberry OS Imager](https://www.
 
 {{< video material/ch2/format-SD.mp4 >}}
 
+{{< video material/format-SD.mp4 >}}
+
 {{< video https://videos.example.com/video.mp4 >}}
