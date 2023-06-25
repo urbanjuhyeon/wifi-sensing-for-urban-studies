@@ -1,11 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://juhyeonpark.com/wifi-sensing-for-urban-studies/index.html</loc>
+    <lastmod>2023-06-25T06:12:04.785Z</lastmod>
+  </url>
+  <url>
+    <loc>https://juhyeonpark.com/wifi-sensing-for-urban-studies/content/a10-intro.html</loc>
+    <lastmod>2023-06-25T05:08:32.427Z</lastmod>
+  </url>
+  <url>
+    <loc>https://juhyeonpark.com/wifi-sensing-for-urban-studies/content/a20-setting.html</loc>
+    <lastmod>2023-06-25T06:45:55.403Z</lastmod>
+  </url>
+  <url>
     <loc>https://juhyeonpark.com/wifi-sensing-for-urban-studies/content/a21-requirement.html</loc>
-    <lastmod>2023-06-25T05:07:17.359Z</lastmod>
+    <lastmod>2023-06-25T05:08:50.819Z</lastmod>
+  </url>
+  <url>
+    <loc>https://juhyeonpark.com/wifi-sensing-for-urban-studies/content/a22-placement.html</loc>
+    <lastmod>2023-06-25T05:08:49.160Z</lastmod>
   </url>
   <url>
     <loc>https://juhyeonpark.com/wifi-sensing-for-urban-studies/content/a23-installation.html</loc>
-    <lastmod>2023-06-25T05:07:21.292Z</lastmod>
+    <lastmod>2023-06-25T06:45:45.853Z</lastmod>
+  </url>
+  <url>
+    <loc>https://juhyeonpark.com/wifi-sensing-for-urban-studies/content/a30-collection.html</loc>
+    <lastmod>2023-06-25T05:08:32.453Z</lastmod>
+  </url>
+  <url>
+    <loc>https://juhyeonpark.com/wifi-sensing-for-urban-studies/content/a31-guide.html</loc>
+    <lastmod>2023-06-25T05:11:21.220Z</lastmod>
+  </url>
+  <url>
+    <loc>https://juhyeonpark.com/wifi-sensing-for-urban-studies/content/a40-analysis.html</loc>
+    <lastmod>2023-06-25T05:08:32.461Z</lastmod>
+  </url>
+  <url>
+    <loc>https://juhyeonpark.com/wifi-sensing-for-urban-studies/content/a41-overall.html</loc>
+    <lastmod>2023-06-25T05:11:19.330Z</lastmod>
+  </url>
+  <url>
+    <loc>https://juhyeonpark.com/wifi-sensing-for-urban-studies/content/a50-application.html</loc>
+    <lastmod>2023-06-25T05:08:32.470Z</lastmod>
+  </url>
+  <url>
+    <loc>https://juhyeonpark.com/wifi-sensing-for-urban-studies/content/a51-case.html</loc>
+    <lastmod>2023-06-25T05:11:17.933Z</lastmod>
+  </url>
+  <url>
+    <loc>https://juhyeonpark.com/wifi-sensing-for-urban-studies/content/a60-further.html</loc>
+    <lastmod>2023-06-25T05:11:16.308Z</lastmod>
+  </url>
+  <url>
+    <loc>https://juhyeonpark.com/wifi-sensing-for-urban-studies/content/a61-paper.html</loc>
+    <lastmod>2023-06-25T05:09:10.940Z</lastmod>
+  </url>
+  <url>
+    <loc>https://juhyeonpark.com/wifi-sensing-for-urban-studies/A-Comprehensive-Toolkit-for-WiFi-Sensing--Decoding-urban-spaces.pdf</loc>
+    <lastmod>2023-06-25T05:08:32.177Z</lastmod>
   </url>
 </urlset>

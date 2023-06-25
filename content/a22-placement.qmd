@@ -1,6 +1,5 @@
 # Placement and Coverage Considerations {.unnumbered}
 
-![](image/wifi-sensor-comp.png)
 
 | Item                      | Function                                    | Requirement                                                                                                                                                                       |
 |-------------------|----------------------------|-------------------------|
