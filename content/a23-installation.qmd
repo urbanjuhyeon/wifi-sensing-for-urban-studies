@@ -2,20 +2,10 @@
 
 ## 2.3.1. Getting started with Pi
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-library(knitr)
-library(kableExtra)
-library(dplyr, quietly=T)
-library(tidyr)
-```
-
 ### Step 1: Install the Raspberry Pi's OS on your SD card
 Insert your SD card into your laptop and launch the [Raspberry Pi Imager](https://www.raspberrypi.com/software/) and select the format option to prepare your SD card before the installation.
 
 ![](material/ch2/format-SD.mp4)
-
-{{< video material/ch2/format-SD.mp4 >}}
 
 ### Step 2: Flash the Raspberry Pi OS onto your SD card. 
 Before initiating the writing process, make sure to enable `ssh` and set the username and password to 'pi' and 'raspberry' respectively in the settings.
@@ -24,12 +14,14 @@ Before initiating the writing process, make sure to enable `ssh` and set the use
 The default username and password are 'pi' and 'raspberry' respectively for Raspberry Pi OS, but it's always recommended to change these for security reasons once your system is set up.
 :::
 
-{{< video material/ch2/write-SD.mp4 >}}
+
+![](material/ch2/write-SD.mp4)
+
 
 ### Step 3: Activate the Internet Connection Sharing Option
 On your laptop, navigate to the network settings and enable the `internet connection sharing option`. This action will allow your laptop, once connected to the internet, to share its internet connection with your Raspberry Pi via an Ethernet cable
 
-{{< video material/ch2/share-network.mp4 >}}
+![](material/ch2/share-network.mp4)
 
 
 ### Step 4: Connect the Pi and your laptop
@@ -37,5 +29,152 @@ Use an Ethernet cable to connect your Pi to your laptop
 
 ![](material/ch2/connect-pi.jpg)
 
-Step 5: Use PuTTY 
-opeen putty remotely access the Pi using SSH (Secure Shell), a protocol available on Linux systems that allows you to execute commands on the Pi from your local computer. This method enables you to access the Pi over an Ethernet cable, eliminating the need for a mouse and monitor. SSH should be enabled during the Raspberry Pi OS installation process (refer to Step 2).
+### Step 5: Access the Pi remotely using PuTTY
+PuTTY is a free and open-source terminal emulator supporting SSH, which is a protocol available on Linux systems that allows you to execute commands on a remote machine - in this case, your Raspberry Pi. This method enables you to interact with your Raspberry Pi over an Ethernet cable, eliminating the need for a mouse and monitor.
+
+Here's how to use PuTTY to remotely access your Raspberry Pi:
+
+**Prerequisite:** SSH should have been enabled during the Raspberry Pi OS installation process (refer to Step 2).
+
+**1. Access your Pi:** Open PuTTY: and in the window, enter `raspberrypi.local` as a host name of your Pi locally connected with your laptop.
+
+**2. Click 'Open':** If this is the first time you're connecting to your Raspberry Pi from this computer, you'll see a security alert. Accept it by clicking 'Yes'.
+
+**3. Type ID and password:** A terminal window will open asking for your username and password. By default, the username is 'pi' and the password is 'raspberry'. After entering these, you'll have access to your Raspberry Pi's command line.
+
+![](material/ch2/putty.mp4)
+
+### Step 6: Verify Internet Connectivity of Your Raspberry Pi
+Now that you have remote access to your Raspberry Pi over the SSH session, it's important to make sure that the Pi is connected to the internet. This can be checked easily using the ping command followed by the IP address of a well-known site.
+
+1. Ping Google's Public DNS Server. In the terminal window, type ping `8.8.8.8` and press enter.
+
+2. If the Pi is connected to the internet, you will see lines starting with '64 bytes from 8.8.8.8' and a summary of the ping at the end. This output shows that network packets are being sent to 8.8.8.8 and responses are being received.
+
+![](material/ch2/pi-ping.mp4)
+
+::: {.callout-note}
+In some cases, such as when you're **connected to a network with enhanced security** (for example, a university network), you might need to register your Raspberry Pi's MAC address on a separate website before you can establish a PuTTY connection. Consult with your network administrator or IT support for the specific procedures of your network.
+
+![](material/ch2/network-unist.png){width=500}
+:::
+
+### Step 7: Additional considerations
+
+If you have multiple Raspberry Pi devices connected to your network and you wish to **SSH into a specific one,** you can directly enter its IP address as the host name in PuTTY. Here's how you can identify the IP address of a particular Raspberry Pi:
+
+1. Open Command Prompt: Press the Windows key and type cmd. Press Enter to open the command prompt.
+
+2. List Network Devices: Type arp -a and press Enter to list all devices connected to your network.
+
+3. Identify the Raspberry Pi's IP Address: Find the IP address of your Raspberry Pi by checking the physical addresses in the list. Raspberry Pi devices have MAC addresses that start with either `B8:27:EB:xx:xx:xx` or `DC:A6:32:xx:xx:xx`.
+
+![](material/ch2/find-ip-raspberry.mp4)
+
+
+Accessing Raspberry Pi on a Secured Network:
+
+
+## 2.3.2. Preparing your Pi for sensing
+
+### Step 1: Update Your Raspberry Pi OS
+
+The first thing you should do is update your Raspberry Pi's operating system (OS) to the latest version. Open a terminal window and type the following commands:
+
+```bash
+sudo apt-get update -y && sudo apt-get upgrade -y
+```
+
+After your updates are finished, restart your Raspberry Pi with this command:
+
+```bash
+sudo reboot
+```
+
+::: {.callout-note}
+The `sudo` keyword means superuser do in Linux systems, analogous to Run As Administrator in Windows. The -y flag automatically affirms any prompts during the update process. The apt-get update command refreshes the available packages and their versions, while apt-get upgrade installs the latest versions.
+:::
+
+### Step 2: Configure the Network Settings
+
+This step ensures your Raspberry Pi can synchronize its system time with the internet at boot. Unlike your laptop, the Raspberry Pi does not have a real-time clock to keep track of the time when it's not powered on (more details [here](https://dayne.broderson.org/2020/03/12/the_time_is_now.html)). This means that your Pi needs to fetch the current time from the internet when it boots.
+
+Here's how to configure the setting:
+
+**1. Setting your mobile's hotspot:** Start by setting up your hotspot, which your Raspberry Pi will use to synchronize its time.  
+![](material/ch2/mobile-hotspot.png){width=500}
+**2. Edit the Pi's network configuration:** Type this commend.
+
+```bash
+sudo nano /etc/wpa_supplicant/wpa_supplicant.conf    
+```
+
+**3. Put the information of your hotspot:** Go to the bottom of the file and add this information below (to me, *juhyeon9087* for both SSID and password of my mobile phone hotspot).
+
+```powershell
+
+country=GB
+network={
+  ssid="juhyeon9087"
+  psk="juhyeon9087"
+  key_mgmt=WPA-PSK
+}
+
+```
+
+**4. Close the terminal:** After modifying the Wi-Fi connection details, press `Ctrl + X` and then press `Y` followed by `Enter` to save the changes. After rebooting your Raspberry Pi, the changes should take effect.
+
+### Step 3: Set up a file server on your Pi
+
+This process creates **Samba shares** in Linux on your Pi to back up and share contents from your laptop, anywhere on the network. The Samba is the Server Message Block (SMB) protocol for transferring data between a client and a server. With the Samba activated, we can conveniently copy files from/to a laptop on your network to a Pi using the direct Ethernet connection.
+
+**1. Install Samba:** Type the following command in your terminal to install Samba.  
+
+```bash
+sudo apt-get install samba samba-common-bin -y
+```
+
+**2. Modify the Samba Config File:** Share the folder of your Pi by modifying the Samba config file using the following command:
+
+```bash
+sudo nano /etc/samba/smb.conf
+```
+
+**3. Edit the File**: Jump to the end of the file by pressing `Ctrl + w` and `Ctrl + v` and type this: 
+
+```powershell
+[share]
+path = /home/pi
+writeable=Yes
+create mast=0777
+directory mast=0777
+public=no
+```
+Save it by pressing `Ctrl + x` then `y` followed by `Enter`.
+
+**4. Set up a Samba User**: Set up a user for our Samba share on your Pi by typing this command:
+
+```bash
+sudo smbpasswd -a pi
+```
+
+Afterwards, enter the password twice as prompted by the command.
+
+**5. Restart Samba Services:** Now restart the Samba services to make the changes effective.
+```bash
+sudo service smbd restart
+sudo service nmbd restart
+```
+
+**6. Test:** Before checking the connection, create a text file by typing the following command:
+```bash
+sudo nano test.txt
+```
+
+After typing anything in the file press `Ctrl + x` then `y` followed by `Enter`.
+
+**7. Connect to Pi on Windows:** To connect to the Pi on Windows, open the File Explorer (press `Win + E`) and type `raspberrypi/pi` within the folder textbox.  
+   <img src="./static/image/sambaType.png" width="50%" height= auto>
+
+8. Check the File: Finally, you can see the `\home\pi\test.txt` file.  
+   <img src="./static/image/sambaCheck.png" width="50%" height= auto>
