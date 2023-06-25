@@ -13,6 +13,8 @@ library(tidyr)
 ### Step 1: Install the Raspberry Pi's OS on your SD card
 Insert your SD card into your laptop and launch the [Raspberry Pi Imager](https://www.raspberrypi.com/software/) and select the format option to prepare your SD card before the installation.
 
+![](material/ch2/format-SD.mp4)
+
 {{< video material/ch2/format-SD.mp4 >}}
 
 ### Step 2: Flash the Raspberry Pi OS onto your SD card. 
