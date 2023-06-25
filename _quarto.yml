@@ -38,9 +38,5 @@ format:
         light: [cosmo, theme.scss, anari-custom.scss]
         dark: [cosmo, theme-dark.scss, anari-custom.scss]
     css: styles.css
-  pdf:
-    documentclass: scrreprt
-    template-partials:
-      - graphics.tex
 
 editor: source

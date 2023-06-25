@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -43,8 +77,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<script src="../site_libs/quarto-contrib/videojs/video.min.js"></script>
-<link href="../site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -232,6 +264,15 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#step-2-flash-the-raspberry-pi-os-onto-your-sd-card." id="toc-step-2-flash-the-raspberry-pi-os-onto-your-sd-card." class="nav-link" data-scroll-target="#step-2-flash-the-raspberry-pi-os-onto-your-sd-card.">Step 2: Flash the Raspberry Pi OS onto your SD card.</a></li>
   <li><a href="#step-3-activate-the-internet-connection-sharing-option" id="toc-step-3-activate-the-internet-connection-sharing-option" class="nav-link" data-scroll-target="#step-3-activate-the-internet-connection-sharing-option">Step 3: Activate the Internet Connection Sharing Option</a></li>
   <li><a href="#step-4-connect-the-pi-and-your-laptop" id="toc-step-4-connect-the-pi-and-your-laptop" class="nav-link" data-scroll-target="#step-4-connect-the-pi-and-your-laptop">Step 4: Connect the Pi and your laptop</a></li>
+  <li><a href="#step-5-access-the-pi-remotely-using-putty" id="toc-step-5-access-the-pi-remotely-using-putty" class="nav-link" data-scroll-target="#step-5-access-the-pi-remotely-using-putty">Step 5: Access the Pi remotely using PuTTY</a></li>
+  <li><a href="#step-6-verify-internet-connectivity-of-your-raspberry-pi" id="toc-step-6-verify-internet-connectivity-of-your-raspberry-pi" class="nav-link" data-scroll-target="#step-6-verify-internet-connectivity-of-your-raspberry-pi">Step 6: Verify Internet Connectivity of Your Raspberry Pi</a></li>
+  <li><a href="#step-7-additional-considerations" id="toc-step-7-additional-considerations" class="nav-link" data-scroll-target="#step-7-additional-considerations">Step 7: Additional considerations</a></li>
+  </ul></li>
+  <li><a href="#preparing-your-pi-for-sensing" id="toc-preparing-your-pi-for-sensing" class="nav-link" data-scroll-target="#preparing-your-pi-for-sensing">2.3.2. Preparing your Pi for sensing</a>
+  <ul class="collapse">
+  <li><a href="#step-1-update-your-raspberry-pi-os" id="toc-step-1-update-your-raspberry-pi-os" class="nav-link" data-scroll-target="#step-1-update-your-raspberry-pi-os">Step 1: Update Your Raspberry Pi OS</a></li>
+  <li><a href="#step-2-configure-the-network-settings" id="toc-step-2-configure-the-network-settings" class="nav-link" data-scroll-target="#step-2-configure-the-network-settings">Step 2: Configure the Network Settings</a></li>
+  <li><a href="#step-3-set-up-a-file-server-on-your-pi" id="toc-step-3-set-up-a-file-server-on-your-pi" class="nav-link" data-scroll-target="#step-3-set-up-a-file-server-on-your-pi">Step 3: Set up a file server on your Pi</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -262,7 +303,6 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="step-1-install-the-raspberry-pis-os-on-your-sd-card">Step 1: Install the Raspberry Pi’s OS on your SD card</h3>
 <p>Insert your SD card into your laptop and launch the <a href="https://www.raspberrypi.com/software/">Raspberry Pi Imager</a> and select the format option to prepare your SD card before the installation.</p>
 <p><video src="material/ch2/format-SD.mp4" class="img-fluid" controls=""><a href="material/ch2/format-SD.mp4">Video</a></video></p>
-<div class="quarto-video"><video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="material/ch2/format-SD.mp4"></video></div>
 </section>
 <section id="step-2-flash-the-raspberry-pi-os-onto-your-sd-card." class="level3">
 <h3 class="anchored" data-anchor-id="step-2-flash-the-raspberry-pi-os-onto-your-sd-card.">Step 2: Flash the Raspberry Pi OS onto your SD card.</h3>
@@ -280,18 +320,132 @@ Note
 <p>The default username and password are ‘pi’ and ‘raspberry’ respectively for Raspberry Pi OS, but it’s always recommended to change these for security reasons once your system is set up.</p>
 </div>
 </div>
-<div class="quarto-video"><video id="video_shortcode_videojs_video2" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="material/ch2/write-SD.mp4"></video></div>
+<p><video src="material/ch2/write-SD.mp4" class="img-fluid" controls=""><a href="material/ch2/write-SD.mp4">Video</a></video></p>
 </section>
 <section id="step-3-activate-the-internet-connection-sharing-option" class="level3">
 <h3 class="anchored" data-anchor-id="step-3-activate-the-internet-connection-sharing-option">Step 3: Activate the Internet Connection Sharing Option</h3>
 <p>On your laptop, navigate to the network settings and enable the <code>internet connection sharing option</code>. This action will allow your laptop, once connected to the internet, to share its internet connection with your Raspberry Pi via an Ethernet cable</p>
-<div class="quarto-video"><video id="video_shortcode_videojs_video3" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="material/ch2/share-network.mp4"></video></div>
+<p><video src="material/ch2/share-network.mp4" class="img-fluid" controls=""><a href="material/ch2/share-network.mp4">Video</a></video></p>
 </section>
 <section id="step-4-connect-the-pi-and-your-laptop" class="level3">
 <h3 class="anchored" data-anchor-id="step-4-connect-the-pi-and-your-laptop">Step 4: Connect the Pi and your laptop</h3>
 <p>Use an Ethernet cable to connect your Pi to your laptop</p>
 <p><img src="material/ch2/connect-pi.jpg" class="img-fluid"></p>
-<p>Step 5: Use PuTTY opeen putty remotely access the Pi using SSH (Secure Shell), a protocol available on Linux systems that allows you to execute commands on the Pi from your local computer. This method enables you to access the Pi over an Ethernet cable, eliminating the need for a mouse and monitor. SSH should be enabled during the Raspberry Pi OS installation process (refer to Step 2).</p>
+</section>
+<section id="step-5-access-the-pi-remotely-using-putty" class="level3">
+<h3 class="anchored" data-anchor-id="step-5-access-the-pi-remotely-using-putty">Step 5: Access the Pi remotely using PuTTY</h3>
+<p>PuTTY is a free and open-source terminal emulator supporting SSH, which is a protocol available on Linux systems that allows you to execute commands on a remote machine - in this case, your Raspberry Pi. This method enables you to interact with your Raspberry Pi over an Ethernet cable, eliminating the need for a mouse and monitor.</p>
+<p>Here’s how to use PuTTY to remotely access your Raspberry Pi:</p>
+<p><strong>Prerequisite:</strong> SSH should have been enabled during the Raspberry Pi OS installation process (refer to Step 2).</p>
+<p><strong>1. Access your Pi:</strong> Open PuTTY: and in the window, enter <code>raspberrypi.local</code> as a host name of your Pi locally connected with your laptop.</p>
+<p><strong>2. Click ‘Open’:</strong> If this is the first time you’re connecting to your Raspberry Pi from this computer, you’ll see a security alert. Accept it by clicking ‘Yes’.</p>
+<p><strong>3. Type ID and password:</strong> A terminal window will open asking for your username and password. By default, the username is ‘pi’ and the password is ‘raspberry’. After entering these, you’ll have access to your Raspberry Pi’s command line.</p>
+<p><video src="material/ch2/putty.mp4" class="img-fluid" controls=""><a href="material/ch2/putty.mp4">Video</a></video></p>
+</section>
+<section id="step-6-verify-internet-connectivity-of-your-raspberry-pi" class="level3">
+<h3 class="anchored" data-anchor-id="step-6-verify-internet-connectivity-of-your-raspberry-pi">Step 6: Verify Internet Connectivity of Your Raspberry Pi</h3>
+<p>Now that you have remote access to your Raspberry Pi over the SSH session, it’s important to make sure that the Pi is connected to the internet. This can be checked easily using the ping command followed by the IP address of a well-known site.</p>
+<ol type="1">
+<li><p>Ping Google’s Public DNS Server. In the terminal window, type ping <code>8.8.8.8</code> and press enter.</p></li>
+<li><p>If the Pi is connected to the internet, you will see lines starting with ‘64 bytes from 8.8.8.8’ and a summary of the ping at the end. This output shows that network packets are being sent to 8.8.8.8 and responses are being received.</p></li>
+</ol>
+<p><video src="material/ch2/pi-ping.mp4" class="img-fluid" controls=""><a href="material/ch2/pi-ping.mp4">Video</a></video></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In some cases, such as when you’re <strong>connected to a network with enhanced security</strong> (for example, a university network), you might need to register your Raspberry Pi’s MAC address on a separate website before you can establish a PuTTY connection. Consult with your network administrator or IT support for the specific procedures of your network.</p>
+<p><img src="material/ch2/network-unist.png" class="img-fluid" width="500"></p>
+</div>
+</div>
+</section>
+<section id="step-7-additional-considerations" class="level3">
+<h3 class="anchored" data-anchor-id="step-7-additional-considerations">Step 7: Additional considerations</h3>
+<p>If you have multiple Raspberry Pi devices connected to your network and you wish to <strong>SSH into a specific one,</strong> you can directly enter its IP address as the host name in PuTTY. Here’s how you can identify the IP address of a particular Raspberry Pi:</p>
+<ol type="1">
+<li><p>Open Command Prompt: Press the Windows key and type cmd. Press Enter to open the command prompt.</p></li>
+<li><p>List Network Devices: Type arp -a and press Enter to list all devices connected to your network.</p></li>
+<li><p>Identify the Raspberry Pi’s IP Address: Find the IP address of your Raspberry Pi by checking the physical addresses in the list. Raspberry Pi devices have MAC addresses that start with either <code>B8:27:EB:xx:xx:xx</code> or <code>DC:A6:32:xx:xx:xx</code>.</p></li>
+</ol>
+<p><video src="material/ch2/find-ip-raspberry.mp4" class="img-fluid" controls=""><a href="material/ch2/find-ip-raspberry.mp4">Video</a></video></p>
+<p>Accessing Raspberry Pi on a Secured Network:</p>
+</section>
+</section>
+<section id="preparing-your-pi-for-sensing" class="level2">
+<h2 class="anchored" data-anchor-id="preparing-your-pi-for-sensing">2.3.2. Preparing your Pi for sensing</h2>
+<section id="step-1-update-your-raspberry-pi-os" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-update-your-raspberry-pi-os">Step 1: Update Your Raspberry Pi OS</h3>
+<p>The first thing you should do is update your Raspberry Pi’s operating system (OS) to the latest version. Open a terminal window and type the following commands:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get update <span class="at">-y</span> <span class="kw">&amp;&amp;</span> <span class="fu">sudo</span> apt-get upgrade <span class="at">-y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>After your updates are finished, restart your Raspberry Pi with this command:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> reboot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <code>sudo</code> keyword means superuser do in Linux systems, analogous to Run As Administrator in Windows. The -y flag automatically affirms any prompts during the update process. The apt-get update command refreshes the available packages and their versions, while apt-get upgrade installs the latest versions.</p>
+</div>
+</div>
+</section>
+<section id="step-2-configure-the-network-settings" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-configure-the-network-settings">Step 2: Configure the Network Settings</h3>
+<p>This step ensures your Raspberry Pi can synchronize its system time with the internet at boot. Unlike your laptop, the Raspberry Pi does not have a real-time clock to keep track of the time when it’s not powered on (more details <a href="https://dayne.broderson.org/2020/03/12/the_time_is_now.html">here</a>). This means that your Pi needs to fetch the current time from the internet when it boots.</p>
+<p>Here’s how to configure the setting:</p>
+<p><strong>1. Setting your mobile’s hotspot:</strong> Start by setting up your hotspot, which your Raspberry Pi will use to synchronize its time.<br>
+<img src="material/ch2/mobile-hotspot.png" class="img-fluid" width="500"> <strong>2. Edit the Pi’s network configuration:</strong> Type this commend.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nano /etc/wpa_supplicant/wpa_supplicant.conf    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>3. Put the information of your hotspot:</strong> Go to the bottom of the file and add this information below (to me, <em>juhyeon9087</em> for both SSID and password of my mobile phone hotspot).</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>country<span class="op">=</span>GB</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>network<span class="op">={</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  ssid<span class="op">=</span><span class="st">"juhyeon9087"</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  psk<span class="op">=</span><span class="st">"juhyeon9087"</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  key_mgmt<span class="op">=</span>WPA<span class="op">-</span>PSK</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>4. Close the terminal:</strong> After modifying the Wi-Fi connection details, press <code>Ctrl + X</code> and then press <code>Y</code> followed by <code>Enter</code> to save the changes. After rebooting your Raspberry Pi, the changes should take effect.</p>
+</section>
+<section id="step-3-set-up-a-file-server-on-your-pi" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-set-up-a-file-server-on-your-pi">Step 3: Set up a file server on your Pi</h3>
+<p>This process creates <strong>Samba shares</strong> in Linux on your Pi to back up and share contents from your laptop, anywhere on the network. The Samba is the Server Message Block (SMB) protocol for transferring data between a client and a server. With the Samba activated, we can conveniently copy files from/to a laptop on your network to a Pi using the direct Ethernet connection.</p>
+<p><strong>1. Install Samba:</strong> Type the following command in your terminal to install Samba.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install samba samba-common-bin <span class="at">-y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>2. Modify the Samba Config File:</strong> Share the folder of your Pi by modifying the Samba config file using the following command:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nano /etc/samba/smb.conf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>3. Edit the File</strong>: Jump to the end of the file by pressing <code>Ctrl + w</code> and <code>Ctrl + v</code> and type this:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="op">[</span>share<span class="op">]</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>path <span class="op">=</span> <span class="op">/</span>home<span class="op">/</span>pi</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>writeable<span class="op">=</span>Yes</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>create mast<span class="op">=</span>0777</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>directory mast<span class="op">=</span>0777</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>public<span class="op">=</span>no</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Save it by pressing <code>Ctrl + x</code> then <code>y</code> followed by <code>Enter</code>.</p>
+<p><strong>4. Set up a Samba User</strong>: Set up a user for our Samba share on your Pi by typing this command:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> smbpasswd <span class="at">-a</span> pi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Afterwards, enter the password twice as prompted by the command.</p>
+<p><strong>5. Restart Samba Services:</strong> Now restart the Samba services to make the changes effective.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> service smbd restart</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> service nmbd restart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>6. Test:</strong> Before checking the connection, create a text file by typing the following command:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nano test.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>After typing anything in the file press <code>Ctrl + x</code> then <code>y</code> followed by <code>Enter</code>.</p>
+<p><strong>7. Connect to Pi on Windows:</strong> To connect to the Pi on Windows, open the File Explorer (press <code>Win + E</code>) and type <code>raspberrypi/pi</code> within the folder textbox.<br>
+<img src="./static/image/sambaType.png" width="50%" height="auto"></p>
+<ol start="8" type="1">
+<li>Check the File: Finally, you can see the <code>\home\pi\test.txt</code> file.<br>
+<img src="./static/image/sambaCheck.png" width="50%" height="auto"></li>
+</ol>
 
 
 </section>
@@ -659,9 +813,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>videojs(video_shortcode_videojs_video1);</script>
-<script>videojs(video_shortcode_videojs_video2);</script>
-<script>videojs(video_shortcode_videojs_video3);</script>
 
 
 
