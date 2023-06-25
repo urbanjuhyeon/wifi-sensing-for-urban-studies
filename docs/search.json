@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "content/a23-installation.html#getting-started-with-pi",
+    "href": "content/a23-installation.html#getting-started-with-pi",
+    "title": "2.3. Installation steps",
+    "section": "2.3.1. Getting started with Pi",
+    "text": "2.3.1. Getting started with Pi\n\nStep 1: Install the Raspberry Pi’s OS on your SD card\nPlug in your SD card on your laptop. Open the Raspberry OS Imager and format your SD card before the installation."
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "A Comprehensive Toolkit for WiFi Sensing: Decoding urban spaces",
@@ -12,19 +19,5 @@
     "title": "A Comprehensive Toolkit for WiFi Sensing: Decoding urban spaces",
     "section": "",
     "text": "Duives, D. C., van Oijen, T., & Hoogendoorn, S. P. (2020). Enhancing Crowd Monitoring System Functionality through Data Fusion: Estimating Flow Rate from Wi-Fi Traces and Automated Counting System Data. Sensors (Basel), 20(21). https://doi.org/10.3390/s20216032↩︎\nSoundararaj, B., Cheshire, J., & Longley, P. (2019). Estimating real-time high-street footfall from Wi-Fi probe requests. International Journal of Geographical Information Science, 34(2), 325-343,. https://doi.org/10.1080/13658816.2019.1587616↩︎\nZhou, Y., Lau, B. P. L., Koh, Z., Yuen, C., & Ng, B. K. K. (2020). Understanding Crowd Behaviors in a Social Event by Passive WiFi Sensing and Data Mining. IEEE internet of things journal, 1-1,. https://doi.org/10.1109/jiot.2020.2972062↩︎"
-  },
-  {
-    "objectID": "content/a21-requirement.html#hardware-requirements",
-    "href": "content/a21-requirement.html#hardware-requirements",
-    "title": "2  Hardware Requirements",
-    "section": "Hardware Requirements",
-    "text": "Hardware Requirements\n\n\n\nItem\nFunction\nRequirement\n\n\n\n\nLaptop and LAN cable\nAccessing and controlling the sensor\n\n\n\nRaspberry Pi board\nBuilding the sensor\nPi 3B/3B+ or a higher model Pi\n\n\nWiFi adapter\nCapturing WiFi packets\nCheck chipset compatibility for ‘monitoring mode’ (here)\n\n\nMicro SD card and adapter\nBuilding and storing data\nAt least 16 GB size\n\n\nEthernet cable\nConnecting the Pi to your laptop\n\n\n\nPortable power bank\nPowering the sensor in outdoor environments\nBattery capacity: +20,000 mAh (lasts one day in our setting)\n\n\nPi camera\nRecording the scene in front of the sensor\n\n\n\n\n\nSoftware\n\n\n\nItem\nFunction\nLink\n\n\n\n\nPuTTY\nTo access the Pi by your laptop\nhere\n\n\nRaspberry Pi Imager\nTo build Raspberry Pi OS\nhere\n\n\nRaspberry Pi Imager\nTo build Raspberry Pi OS\nhere\n\n\n\n\n\nSkill\nLearning R and Python will be necessary for sensor building and data analysis. I recommend these classes: Data Science: Foundations using R Specialization and Python for Everybody Specialization"
-  },
-  {
-    "objectID": "content/a22-placement.html",
-    "href": "content/a22-placement.html",
-    "title": "Placement and Coverage Considerations",
-    "section": "",
-    "text": "Item\nFunction\nRequirement\n\n\n\n\nLaptop and LAN cable\nAccessing and controlling the sensor\n\n\n\nRaspberry Pi board\nBuilding the sensor\nPi 3B/3B+ or a higher model Pi\n\n\nWiFi adapter\nCapturing WiFi packets\nCheck chipset compatibility for ‘monitoring mode’ (here)\n\n\nMicro SD card and adapter\nBuilding and storing data\nAt least 16 GB size\n\n\nEthernet cable\nConnecting the Pi to your laptop\n\n\n\nPortable power bank\nPowering the sensor in outdoor environments\nBattery capacity: +20,000 mAh (lasts one day in our setting)\n\n\nPi camera\nRecording the scene in front of the sensor\n\n\n\n\n\nSoftware\n\n\n\nItem\nFunction\nLink\n\n\n\n\nPuTTY\nTo access the Pi by your laptop\nhere\n\n\nRaspberry Pi Imager\nTo build Raspberry Pi OS\nhere\n\n\nRaspberry Pi Imager\nTo build Raspberry Pi OS\nhere\n\n\n\n\n\nSkill\nLearning R and Python will be necessary for sensor building and data analysis. I recommend these classes: Data Science: Foundations using R Specialization and Python for Everybody Specialization"
   }
 ]

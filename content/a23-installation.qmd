@@ -1,0 +1,10 @@
+# 2.3. Installation steps {.unnumbered}
+
+## 2.3.1. Getting started with Pi
+
+### Step 1: Install the Raspberry Pi's OS on your SD card {-}
+Plug in your SD card on your laptop. Open the [Raspberry OS Imager](https://www.raspberrypi.com/software/) and `format` your SD card before the installation.
+
+{{< video material/ch2/format-SD.mp4 >}}
+
+{{< video https://videos.example.com/video.mp4 >}}

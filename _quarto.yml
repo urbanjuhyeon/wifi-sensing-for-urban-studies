@@ -16,6 +16,7 @@ book:
       chapters:
       - content/a21-requirement.qmd
       - content/a22-placement.qmd
+      - content/a23-installation.qmd
     - part: content/a30-collection.qmd
       chapters:
       - content/a31-guide.qmd
