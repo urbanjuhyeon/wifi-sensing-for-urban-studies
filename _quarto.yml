@@ -40,5 +40,7 @@ format:
     css: styles.css
   pdf:
     documentclass: scrreprt
+    template-partials:
+      - graphics.tex
 
-editor: visual
+editor: source
