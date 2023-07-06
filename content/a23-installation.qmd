@@ -241,9 +241,45 @@ You can learn basic Linux commands on sites like [this](https://www.hostinger.co
 
 ## 2.3.3. Test your Pi
 
+### Step 1: Test WiFi adapter
+
+This can be used to test a monitor mode on the WiFi adaptor, allowing collecting WiFi packets.
+
+**1. Install aircrack pcakage:** Download the package by typing this commend:
+
 ```bash
-root@raspberrypi:/home
+sudo apt-get install -y aircrack-ng
 ```
+
+**2. Check the status of wireless interface:** Get the list of wireless interface in your Pi by typing this commend:
+
+```bash
+airmon-ng
+```
+
+Before inserting the WiFi adaopter, only internal wireless interface on your Pi is found.
+
+![](material/ch2/aircrack-before.png) 
+
+With your WiFi adatoper, addtional wireelss interface you can see that.
+
+![](material/ch2/aircrack-connected.jpg)
+
+![](material/ch2/aircrack-after.png) 
+
+**3. Change the monitor mode:** Change the adapter mode to monitor mode by following this command:
+
+```bash
+airmon-ng start wlan1
+```
+
+**4. Excuete monitor mode:** Collect the WiFi packets by following this command:
+
+```bash
+airodump-ng wlan1mon
+```
+
+![](material/ch2/aircrack-test.mp4) 
 
 
 

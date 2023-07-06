@@ -60,6 +60,6 @@
     "href": "content/a23-installation.html#test-your-pi",
     "title": "2.3. Installation steps",
     "section": "2.3.3. Test your Pi",
-    "text": "2.3.3. Test your Pi\nroot@raspberrypi:/home"
+    "text": "2.3.3. Test your Pi\n\nStep 1: Test WiFi adapter\nThis can be used to test a monitor mode on the WiFi adaptor, allowing collecting WiFi packets.\n1. Install aircrack pcakage: Download the package by typing this commend:\nsudo apt-get install -y aircrack-ng\n2. Check the status of wireless interface: Get the list of wireless interface in your Pi by typing this commend:\nairmon-ng\nBefore inserting the WiFi adaopter, only internal wireless interface on your Pi is found.\n\nWith your WiFi adatoper, addtional wireelss interface you can see that.\n\n\n3. Change the monitor mode: Change the adapter mode to monitor mode by following this command:\nairmon-ng start wlan1\n4. Excuete monitor mode: Collect the WiFi packets by following this command:\nairodump-ng wlan1mon\nVideo"
   }
 ]

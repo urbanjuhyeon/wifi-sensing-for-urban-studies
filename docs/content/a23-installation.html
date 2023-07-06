@@ -274,7 +274,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#step-3-turn-your-pi-into-a-file-server" id="toc-step-3-turn-your-pi-into-a-file-server" class="nav-link" data-scroll-target="#step-3-turn-your-pi-into-a-file-server">Step 3: Turn your Pi into a file server</a></li>
   <li><a href="#step-4-configure-cloud-storage-access-on-your-pi" id="toc-step-4-configure-cloud-storage-access-on-your-pi" class="nav-link" data-scroll-target="#step-4-configure-cloud-storage-access-on-your-pi">Step 4: Configure Cloud Storage Access on Your Pi</a></li>
   </ul></li>
-  <li><a href="#test-your-pi" id="toc-test-your-pi" class="nav-link" data-scroll-target="#test-your-pi">2.3.3. Test your Pi</a></li>
+  <li><a href="#test-your-pi" id="toc-test-your-pi" class="nav-link" data-scroll-target="#test-your-pi">2.3.3. Test your Pi</a>
+  <ul class="collapse">
+  <li><a href="#step-1-test-wifi-adapter" id="toc-step-1-test-wifi-adapter" class="nav-link" data-scroll-target="#step-1-test-wifi-adapter">Step 1: Test WiFi adapter</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -478,9 +481,26 @@ Note
 </section>
 <section id="test-your-pi" class="level2">
 <h2 class="anchored" data-anchor-id="test-your-pi">2.3.3. Test your Pi</h2>
-<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">root@raspberrypi:/home</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="step-1-test-wifi-adapter" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-test-wifi-adapter">Step 1: Test WiFi adapter</h3>
+<p>This can be used to test a monitor mode on the WiFi adaptor, allowing collecting WiFi packets.</p>
+<p><strong>1. Install aircrack pcakage:</strong> Download the package by typing this commend:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install <span class="at">-y</span> aircrack-ng</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>2. Check the status of wireless interface:</strong> Get the list of wireless interface in your Pi by typing this commend:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">airmon-ng</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Before inserting the WiFi adaopter, only internal wireless interface on your Pi is found.</p>
+<p><img src="material/ch2/aircrack-before.png" class="img-fluid"></p>
+<p>With your WiFi adatoper, addtional wireelss interface you can see that.</p>
+<p><img src="material/ch2/aircrack-connected.jpg" class="img-fluid"></p>
+<p><img src="material/ch2/aircrack-after.png" class="img-fluid"></p>
+<p><strong>3. Change the monitor mode:</strong> Change the adapter mode to monitor mode by following this command:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">airmon-ng</span> start wlan1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>4. Excuete monitor mode:</strong> Collect the WiFi packets by following this command:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">airodump-ng</span> wlan1mon</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><video src="material/ch2/aircrack-test.mp4" class="img-fluid" controls=""><a href="material/ch2/aircrack-test.mp4">Video</a></video></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
