@@ -1,68 +1,77 @@
-# 2.3. Installation steps {.unnumbered}
+# 2.3. Installation Steps {.unnumbered}
 
-## 2.3.1. Getting started with Pi
+## 2.3.1. Initiating Your Raspberry Pi
 
-### Step 1: Install the Pi's OS on your SD card
+### Step 1: Installing the Pi Operating System on the SD Card
 
-**1. Format your SD card:** Insert a SD card into your laptop. Launch the [Raspberry Pi Imager](https://www.raspberrypi.com/software/) and select the format option to prepare your SD card before the installation.
+**1. Format your SD card:** After inserting an SD card into your laptop, launch the [Raspberry Pi Imager](https://www.raspberrypi.com/software/) and select the `Format SD Card` option to prepare your SD card for the installation.
 
 ![](material/ch2/format-SD.mp4)
 
-**2. Flash the OS on your SD card:** Choose the appropriate version of OS and your SD card storage. Before initiating the writing process, make sure to enable `ssh` and set the username and password to 'pi' and 'raspberry' respectively in the settings.
+**2. Flash the OS onto your SD card:** Select the appropriate version of OS and your SD card storage. Before initiating the writing process, make sure to enable `ssh` and set the username and password as 'pi' and 'raspberry', respectively, in the settings.
 
 ::: {.callout-note}
-The default username and password are 'pi' and 'raspberry' respectively for Raspberry Pi OS, but it's always recommended to change these for security reasons once your system is set up.
+The default username and password are 'pi' and 'raspberry' respectively for Raspberry Pi OS. However, for security reasons, it's recommended to change these once your system is set up.
 :::
 
 ![](material/ch2/write-SD.mp4)
 
-### Step 2: Activate the Internet Connection Sharing Option
-On your laptop, navigate to the network settings and enable the `internet connection sharing option`. This action will allow your laptop, once connected to the internet, to share its internet connection with your Raspberry Pi via an Ethernet cable
+### Step 2: 
+
+**3. Connecting the Pi to Your Laptop:** Inser
+
+### Step 2: Enabling Internet Connection Sharing
+
+On your laptop, navigate to the network settings and enable the `Internet Connection Sharing` option. This will allow your laptop, once connected to the internet, to share its internet connection with your Raspberry Pi via an Ethernet cable.
 
 ![](material/ch2/share-network.mp4)
 
-### Step 3: Connect the Pi and your laptop
-Use an Ethernet cable to connect your Pi to your laptop
 
-![](material/ch2/connect-pi.jpg)
 
-### Step 4: Access the Pi remotely using PuTTY
-This enables you to interact with your Raspberry Pi over an Ethernet cable, eliminating the need for a mouse and monitor. The PuTTY is a free and open-source terminal emulator supporting SSH, which is a protocol available on Linux systems that allows you to execute commands on a remote machine - in this case, your Raspberry Pi. 
 
-**Prerequisite:** SSH should have been enabled during the Pi OS installation process (refer to Step 2).
+### Step 3: Connecting the Pi to Your Laptop
 
-**1. Access your Pi:** Open the PuTTY and enter `raspberrypi.local` in the window as a host name of your Pi locally connected with your laptop.
+Use an Ethernet cable to connect your Pi to your laptop.
 
-**2. Click 'Open':** If this is the first time you're connecting to your Raspberry Pi from this computer, you'll see a security alert. Accept it by clicking 'Yes'.
+![Connect Pi to Laptop](material/ch2/connect-pi.jpg)
 
-**3. Type ID and password:** A terminal window will open asking for your username and password. By default, the username is 'pi' and the password is 'raspberry'. After entering these, you'll have access to your Raspberry Pi's command line.
+### Step 4: Accessing the Pi via SSH
 
-![](material/ch2/putty.mp4)
+On a Windows 10 or 11 PC, you can leverage PowerShell to SSH into your Raspberry Pi. 
 
-### Step 5: Verify Internet Connectivity of Your Raspberry Pi
-Now that you have remote access to your Raspberry Pi over the SSH session, it's important to make sure that the Pi is connected to the internet. This can be checked easily using the ping command followed by the IP address of a well-known site.
+**Prerequisite:** SSH should have been enabled during the Pi OS installation process (refer to Step 1).
 
-Ping Google's Public DNS Server by typing `ping 8.8.8.8` and press enter. If the Pi is connected to the internet, you will see lines starting with '64 bytes from 8.8.8.8' and a summary of the ping at the end. This output shows that network packets are being sent to 8.8.8.8 and responses are being received.
+1. **Open Command Prompt:** You can access the Command Prompt by pressing `Ctrl + R`, typing `cmd`, and hitting `Enter`. Alternatively, you can open it by pressing `Ctrl + Shift + P`.
+   
+2. **Access Your Raspberry Pi:** To establish an SSH connection with your Raspberry Pi, enter the following command: `ssh pi@raspberrypi`.
 
-![](material/ch2/pi-ping.mp4)
+3. **Enter Password:** By default, the username is 'pi' and the password is 'raspberry'. Enter this default password when prompted.
+
+
+![Access Pi via PuTTY](material/ch2/putty.mp4)
+
+### Step 5: Verifying Your Raspberry Pi's Internet Connectivity
+
+To ensure your Raspberry Pi is connected to the internet, use the ping command followed by the IP address of a well-known site. Ping Google's Public DNS Server by typing `ping 8.8.8.8` and press enter. If the Pi is connected to the internet, you will see lines starting with '64 bytes from 8.8.8.8' and a summary of the ping at the end.
+
+![Verify Pi's Internet Connectivity](material/ch2/pi-ping.mp4)
 
 ::: {.callout-note}
-In some cases, such as when you're **connected to a network with enhanced security** (for example, a university network), you might need to register your Raspberry Pi's MAC address on a separate website before you can establish a PuTTY connection. Consult with your network administrator or IT support for the specific procedures of your network.
-
-![](material/ch2/network-unist.png){width=500}
+If you're connected to a network with enhanced security (like a university network), you may need to register your Raspberry Pi's MAC address on a separate website before you can establish a PuTTY connection. Consult your network administrator or IT support for the specific procedures of your network.
 :::
 
-### Step 6: Additional considerations
+![Register MAC Address](material/ch2/network-unist.png){width=500}
 
-If you have multiple Raspberry Pi devices connected to your network and you wish to **SSH into a specific one,** you can directly enter its IP address as the host name in PuTTY. Here's how you can identify the IP address of a particular Raspberry Pi:
+### Step 6: Important Additional Considerations
 
-**1. Open Command Prompt:** Press the Windows key and type cmd. Press Enter to open the command prompt.
+If you have multiple Raspberry Pi devices connected to your network and wish to SSH into a specific one, you can directly enter its IP address as the hostname in PuTTY. Here's how you can identify the IP address of a particular Raspberry Pi:
 
-**2. List Network Devices:** Type `arp -a` and press Enter to list all devices connected to your network.
+1. **Open Command Prompt:** Press the Windows key and type cmd. Press Enter to open the command prompt.
+2. **List Network Devices:** Type `arp -a` and press Enter to list all devices connected to your network.
+3. **Identify the Pi's IP Address:** Find the IP address of your Raspberry Pi by checking the physical addresses in the list. Raspberry Pi devices have MAC addresses that start with either `B8:27:EB:xx:xx:xx` or `DC:A6:32:xx:xx:xx`.
 
-**3. Identify the Pi's IP Address:** Find the IP address of your Raspberry Pi by checking the physical addresses in the list. Raspberry Pi devices have MAC addresses that start with either `B8:27:EB:xx:xx:xx` or `DC:A6:32:xx:xx:xx`.
+![Find Raspberry Pi IP Address](material/ch2/find-ip-raspberry.mp4)
 
-![](material/ch2/find-ip-raspberry.mp4)
 
 ## 2.3.2. Setting your Pi as a sensor
 
@@ -243,7 +252,7 @@ You can learn basic Linux commands on sites like [this](https://www.hostinger.co
 
 ### Step 1: Test WiFi adapter
 
-This can be used to test a monitor mode on the WiFi adaptor, allowing collecting WiFi packets.
+This can be used to test a monitor mode on the WiFi adapter, allowing collecting WiFi packets.
 
 **1. Install aircrack pcakage:** Download the package by typing this commend:
 

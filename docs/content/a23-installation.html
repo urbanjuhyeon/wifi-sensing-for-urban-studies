@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>A Comprehensive Toolkit for WiFi Sensing: Decoding urban spaces - 2.3. Installation steps</title>
+<title>A Comprehensive Toolkit for WiFi Sensing: Decoding urban spaces - 2.3. Installation Steps</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -110,7 +110,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/a20-setting.html">2. Setting up WiFi Sensors</a></li><li class="breadcrumb-item"><a href="../content/a23-installation.html">2.3. Installation steps</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/a20-setting.html">2. Setting up WiFi Sensors</a></li><li class="breadcrumb-item"><a href="../content/a23-installation.html">2.3. Installation Steps</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -175,7 +175,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../content/a23-installation.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">2.3. Installation steps</span></a>
+ <span class="menu-text">2.3. Installation Steps</span></a>
   </div>
 </li>
       </ul>
@@ -258,14 +258,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#getting-started-with-pi" id="toc-getting-started-with-pi" class="nav-link active" data-scroll-target="#getting-started-with-pi">2.3.1. Getting started with Pi</a>
+  <li><a href="#initiating-your-raspberry-pi" id="toc-initiating-your-raspberry-pi" class="nav-link active" data-scroll-target="#initiating-your-raspberry-pi">2.3.1. Initiating Your Raspberry Pi</a>
   <ul class="collapse">
-  <li><a href="#step-1-install-the-pis-os-on-your-sd-card" id="toc-step-1-install-the-pis-os-on-your-sd-card" class="nav-link" data-scroll-target="#step-1-install-the-pis-os-on-your-sd-card">Step 1: Install the Pi’s OS on your SD card</a></li>
-  <li><a href="#step-2-activate-the-internet-connection-sharing-option" id="toc-step-2-activate-the-internet-connection-sharing-option" class="nav-link" data-scroll-target="#step-2-activate-the-internet-connection-sharing-option">Step 2: Activate the Internet Connection Sharing Option</a></li>
-  <li><a href="#step-3-connect-the-pi-and-your-laptop" id="toc-step-3-connect-the-pi-and-your-laptop" class="nav-link" data-scroll-target="#step-3-connect-the-pi-and-your-laptop">Step 3: Connect the Pi and your laptop</a></li>
-  <li><a href="#step-4-access-the-pi-remotely-using-putty" id="toc-step-4-access-the-pi-remotely-using-putty" class="nav-link" data-scroll-target="#step-4-access-the-pi-remotely-using-putty">Step 4: Access the Pi remotely using PuTTY</a></li>
-  <li><a href="#step-5-verify-internet-connectivity-of-your-raspberry-pi" id="toc-step-5-verify-internet-connectivity-of-your-raspberry-pi" class="nav-link" data-scroll-target="#step-5-verify-internet-connectivity-of-your-raspberry-pi">Step 5: Verify Internet Connectivity of Your Raspberry Pi</a></li>
-  <li><a href="#step-6-additional-considerations" id="toc-step-6-additional-considerations" class="nav-link" data-scroll-target="#step-6-additional-considerations">Step 6: Additional considerations</a></li>
+  <li><a href="#step-1-installing-the-pi-operating-system-on-the-sd-card" id="toc-step-1-installing-the-pi-operating-system-on-the-sd-card" class="nav-link" data-scroll-target="#step-1-installing-the-pi-operating-system-on-the-sd-card">Step 1: Installing the Pi Operating System on the SD Card</a></li>
+  <li><a href="#step-2" id="toc-step-2" class="nav-link" data-scroll-target="#step-2">Step 2:</a></li>
+  <li><a href="#step-2-enabling-internet-connection-sharing" id="toc-step-2-enabling-internet-connection-sharing" class="nav-link" data-scroll-target="#step-2-enabling-internet-connection-sharing">Step 2: Enabling Internet Connection Sharing</a></li>
+  <li><a href="#step-3-connecting-the-pi-to-your-laptop" id="toc-step-3-connecting-the-pi-to-your-laptop" class="nav-link" data-scroll-target="#step-3-connecting-the-pi-to-your-laptop">Step 3: Connecting the Pi to Your Laptop</a></li>
+  <li><a href="#step-4-accessing-the-pi-via-ssh" id="toc-step-4-accessing-the-pi-via-ssh" class="nav-link" data-scroll-target="#step-4-accessing-the-pi-via-ssh">Step 4: Accessing the Pi via SSH</a></li>
+  <li><a href="#step-5-verifying-your-raspberry-pis-internet-connectivity" id="toc-step-5-verifying-your-raspberry-pis-internet-connectivity" class="nav-link" data-scroll-target="#step-5-verifying-your-raspberry-pis-internet-connectivity">Step 5: Verifying Your Raspberry Pi’s Internet Connectivity</a></li>
+  <li><a href="#step-6-important-additional-considerations" id="toc-step-6-important-additional-considerations" class="nav-link" data-scroll-target="#step-6-important-additional-considerations">Step 6: Important Additional Considerations</a></li>
   </ul></li>
   <li><a href="#setting-your-pi-as-a-sensor" id="toc-setting-your-pi-as-a-sensor" class="nav-link" data-scroll-target="#setting-your-pi-as-a-sensor">2.3.2. Setting your Pi as a sensor</a>
   <ul class="collapse">
@@ -286,7 +287,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">2.3. Installation steps</h1>
+<h1 class="title">2.3. Installation Steps</h1>
 </div>
 
 
@@ -301,13 +302,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="getting-started-with-pi" class="level2">
-<h2 class="anchored" data-anchor-id="getting-started-with-pi">2.3.1. Getting started with Pi</h2>
-<section id="step-1-install-the-pis-os-on-your-sd-card" class="level3">
-<h3 class="anchored" data-anchor-id="step-1-install-the-pis-os-on-your-sd-card">Step 1: Install the Pi’s OS on your SD card</h3>
-<p><strong>1. Format your SD card:</strong> Insert a SD card into your laptop. Launch the <a href="https://www.raspberrypi.com/software/">Raspberry Pi Imager</a> and select the format option to prepare your SD card before the installation.</p>
+<section id="initiating-your-raspberry-pi" class="level2">
+<h2 class="anchored" data-anchor-id="initiating-your-raspberry-pi">2.3.1. Initiating Your Raspberry Pi</h2>
+<section id="step-1-installing-the-pi-operating-system-on-the-sd-card" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-installing-the-pi-operating-system-on-the-sd-card">Step 1: Installing the Pi Operating System on the SD Card</h3>
+<p><strong>1. Format your SD card:</strong> After inserting an SD card into your laptop, launch the <a href="https://www.raspberrypi.com/software/">Raspberry Pi Imager</a> and select the <code>Format SD Card</code> option to prepare your SD card for the installation.</p>
 <p><video src="material/ch2/format-SD.mp4" class="img-fluid" controls=""><a href="material/ch2/format-SD.mp4">Video</a></video></p>
-<p><strong>2. Flash the OS on your SD card:</strong> Choose the appropriate version of OS and your SD card storage. Before initiating the writing process, make sure to enable <code>ssh</code> and set the username and password to ‘pi’ and ‘raspberry’ respectively in the settings.</p>
+<p><strong>2. Flash the OS onto your SD card:</strong> Select the appropriate version of OS and your SD card storage. Before initiating the writing process, make sure to enable <code>ssh</code> and set the username and password as ‘pi’ and ‘raspberry’, respectively, in the settings.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -318,35 +319,55 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The default username and password are ‘pi’ and ‘raspberry’ respectively for Raspberry Pi OS, but it’s always recommended to change these for security reasons once your system is set up.</p>
+<p>The default username and password are ‘pi’ and ‘raspberry’ respectively for Raspberry Pi OS. However, for security reasons, it’s recommended to change these once your system is set up.</p>
 </div>
 </div>
 <p><video src="material/ch2/write-SD.mp4" class="img-fluid" controls=""><a href="material/ch2/write-SD.mp4">Video</a></video></p>
 </section>
-<section id="step-2-activate-the-internet-connection-sharing-option" class="level3">
-<h3 class="anchored" data-anchor-id="step-2-activate-the-internet-connection-sharing-option">Step 2: Activate the Internet Connection Sharing Option</h3>
-<p>On your laptop, navigate to the network settings and enable the <code>internet connection sharing option</code>. This action will allow your laptop, once connected to the internet, to share its internet connection with your Raspberry Pi via an Ethernet cable</p>
+<section id="step-2" class="level3">
+<h3 class="anchored" data-anchor-id="step-2">Step 2:</h3>
+<p><strong>3. Connecting the Pi to Your Laptop:</strong> Inser</p>
+</section>
+<section id="step-2-enabling-internet-connection-sharing" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-enabling-internet-connection-sharing">Step 2: Enabling Internet Connection Sharing</h3>
+<p>On your laptop, navigate to the network settings and enable the <code>Internet Connection Sharing</code> option. This will allow your laptop, once connected to the internet, to share its internet connection with your Raspberry Pi via an Ethernet cable.</p>
 <p><video src="material/ch2/share-network.mp4" class="img-fluid" controls=""><a href="material/ch2/share-network.mp4">Video</a></video></p>
 </section>
-<section id="step-3-connect-the-pi-and-your-laptop" class="level3">
-<h3 class="anchored" data-anchor-id="step-3-connect-the-pi-and-your-laptop">Step 3: Connect the Pi and your laptop</h3>
-<p>Use an Ethernet cable to connect your Pi to your laptop</p>
-<p><img src="material/ch2/connect-pi.jpg" class="img-fluid"></p>
+<section id="step-3-connecting-the-pi-to-your-laptop" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-connecting-the-pi-to-your-laptop">Step 3: Connecting the Pi to Your Laptop</h3>
+<p>Use an Ethernet cable to connect your Pi to your laptop.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="material/ch2/connect-pi.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Connect Pi to Laptop</figcaption>
+</figure>
+</div>
 </section>
-<section id="step-4-access-the-pi-remotely-using-putty" class="level3">
-<h3 class="anchored" data-anchor-id="step-4-access-the-pi-remotely-using-putty">Step 4: Access the Pi remotely using PuTTY</h3>
-<p>This enables you to interact with your Raspberry Pi over an Ethernet cable, eliminating the need for a mouse and monitor. The PuTTY is a free and open-source terminal emulator supporting SSH, which is a protocol available on Linux systems that allows you to execute commands on a remote machine - in this case, your Raspberry Pi.</p>
-<p><strong>Prerequisite:</strong> SSH should have been enabled during the Pi OS installation process (refer to Step 2).</p>
-<p><strong>1. Access your Pi:</strong> Open the PuTTY and enter <code>raspberrypi.local</code> in the window as a host name of your Pi locally connected with your laptop.</p>
-<p><strong>2. Click ‘Open’:</strong> If this is the first time you’re connecting to your Raspberry Pi from this computer, you’ll see a security alert. Accept it by clicking ‘Yes’.</p>
-<p><strong>3. Type ID and password:</strong> A terminal window will open asking for your username and password. By default, the username is ‘pi’ and the password is ‘raspberry’. After entering these, you’ll have access to your Raspberry Pi’s command line.</p>
+<section id="step-4-accessing-the-pi-via-ssh" class="level3">
+<h3 class="anchored" data-anchor-id="step-4-accessing-the-pi-via-ssh">Step 4: Accessing the Pi via SSH</h3>
+<p>On a Windows 10 or 11 PC, you can leverage PowerShell to SSH into your Raspberry Pi.</p>
+<p><strong>Prerequisite:</strong> SSH should have been enabled during the Pi OS installation process (refer to Step 1).</p>
+<ol type="1">
+<li><p><strong>Open Command Prompt:</strong> You can access the Command Prompt by pressing <code>Ctrl + R</code>, typing <code>cmd</code>, and hitting <code>Enter</code>. Alternatively, you can open it by pressing <code>Ctrl + Shift + P</code>.</p></li>
+<li><p><strong>Access Your Raspberry Pi:</strong> To establish an SSH connection with your Raspberry Pi, enter the following command: <code>ssh pi@raspberrypi</code>.</p></li>
+<li><p><strong>Enter Password:</strong> By default, the username is ‘pi’ and the password is ‘raspberry’. Enter this default password when prompted.</p></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
 <p><video src="material/ch2/putty.mp4" class="img-fluid" controls=""><a href="material/ch2/putty.mp4">Video</a></video></p>
+<figcaption class="figure-caption">Access Pi via PuTTY</figcaption>
+</figure>
+</div>
 </section>
-<section id="step-5-verify-internet-connectivity-of-your-raspberry-pi" class="level3">
-<h3 class="anchored" data-anchor-id="step-5-verify-internet-connectivity-of-your-raspberry-pi">Step 5: Verify Internet Connectivity of Your Raspberry Pi</h3>
-<p>Now that you have remote access to your Raspberry Pi over the SSH session, it’s important to make sure that the Pi is connected to the internet. This can be checked easily using the ping command followed by the IP address of a well-known site.</p>
-<p>Ping Google’s Public DNS Server by typing <code>ping 8.8.8.8</code> and press enter. If the Pi is connected to the internet, you will see lines starting with ‘64 bytes from 8.8.8.8’ and a summary of the ping at the end. This output shows that network packets are being sent to 8.8.8.8 and responses are being received.</p>
+<section id="step-5-verifying-your-raspberry-pis-internet-connectivity" class="level3">
+<h3 class="anchored" data-anchor-id="step-5-verifying-your-raspberry-pis-internet-connectivity">Step 5: Verifying Your Raspberry Pi’s Internet Connectivity</h3>
+<p>To ensure your Raspberry Pi is connected to the internet, use the ping command followed by the IP address of a well-known site. Ping Google’s Public DNS Server by typing <code>ping 8.8.8.8</code> and press enter. If the Pi is connected to the internet, you will see lines starting with ‘64 bytes from 8.8.8.8’ and a summary of the ping at the end.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
 <p><video src="material/ch2/pi-ping.mp4" class="img-fluid" controls=""><a href="material/ch2/pi-ping.mp4">Video</a></video></p>
+<figcaption class="figure-caption">Verify Pi’s Internet Connectivity</figcaption>
+</figure>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -357,18 +378,30 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>In some cases, such as when you’re <strong>connected to a network with enhanced security</strong> (for example, a university network), you might need to register your Raspberry Pi’s MAC address on a separate website before you can establish a PuTTY connection. Consult with your network administrator or IT support for the specific procedures of your network.</p>
-<p><img src="material/ch2/network-unist.png" class="img-fluid" width="500"></p>
+<p>If you’re connected to a network with enhanced security (like a university network), you may need to register your Raspberry Pi’s MAC address on a separate website before you can establish a PuTTY connection. Consult your network administrator or IT support for the specific procedures of your network.</p>
 </div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="material/ch2/network-unist.png" class="img-fluid figure-img" width="500"></p>
+<figcaption class="figure-caption">Register MAC Address</figcaption>
+</figure>
 </div>
 </section>
-<section id="step-6-additional-considerations" class="level3">
-<h3 class="anchored" data-anchor-id="step-6-additional-considerations">Step 6: Additional considerations</h3>
-<p>If you have multiple Raspberry Pi devices connected to your network and you wish to <strong>SSH into a specific one,</strong> you can directly enter its IP address as the host name in PuTTY. Here’s how you can identify the IP address of a particular Raspberry Pi:</p>
-<p><strong>1. Open Command Prompt:</strong> Press the Windows key and type cmd. Press Enter to open the command prompt.</p>
-<p><strong>2. List Network Devices:</strong> Type <code>arp -a</code> and press Enter to list all devices connected to your network.</p>
-<p><strong>3. Identify the Pi’s IP Address:</strong> Find the IP address of your Raspberry Pi by checking the physical addresses in the list. Raspberry Pi devices have MAC addresses that start with either <code>B8:27:EB:xx:xx:xx</code> or <code>DC:A6:32:xx:xx:xx</code>.</p>
+<section id="step-6-important-additional-considerations" class="level3">
+<h3 class="anchored" data-anchor-id="step-6-important-additional-considerations">Step 6: Important Additional Considerations</h3>
+<p>If you have multiple Raspberry Pi devices connected to your network and wish to SSH into a specific one, you can directly enter its IP address as the hostname in PuTTY. Here’s how you can identify the IP address of a particular Raspberry Pi:</p>
+<ol type="1">
+<li><strong>Open Command Prompt:</strong> Press the Windows key and type cmd. Press Enter to open the command prompt.</li>
+<li><strong>List Network Devices:</strong> Type <code>arp -a</code> and press Enter to list all devices connected to your network.</li>
+<li><strong>Identify the Pi’s IP Address:</strong> Find the IP address of your Raspberry Pi by checking the physical addresses in the list. Raspberry Pi devices have MAC addresses that start with either <code>B8:27:EB:xx:xx:xx</code> or <code>DC:A6:32:xx:xx:xx</code>.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
 <p><video src="material/ch2/find-ip-raspberry.mp4" class="img-fluid" controls=""><a href="material/ch2/find-ip-raspberry.mp4">Video</a></video></p>
+<figcaption class="figure-caption">Find Raspberry Pi IP Address</figcaption>
+</figure>
+</div>
 </section>
 </section>
 <section id="setting-your-pi-as-a-sensor" class="level2">
@@ -483,7 +516,7 @@ Note
 <h2 class="anchored" data-anchor-id="test-your-pi">2.3.3. Test your Pi</h2>
 <section id="step-1-test-wifi-adapter" class="level3">
 <h3 class="anchored" data-anchor-id="step-1-test-wifi-adapter">Step 1: Test WiFi adapter</h3>
-<p>This can be used to test a monitor mode on the WiFi adaptor, allowing collecting WiFi packets.</p>
+<p>This can be used to test a monitor mode on the WiFi adapter, allowing collecting WiFi packets.</p>
 <p><strong>1. Install aircrack pcakage:</strong> Download the package by typing this commend:</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install <span class="at">-y</span> aircrack-ng</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>2. Check the status of wireless interface:</strong> Get the list of wireless interface in your Pi by typing this commend:</p>
