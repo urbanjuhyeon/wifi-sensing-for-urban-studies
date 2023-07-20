@@ -4,19 +4,29 @@
 
 ### Step 1: Installing the Pi Operating System on the SD Card
 
-**1. Format your SD card:** After inserting an SD card into your laptop, launch the [Raspberry Pi Imager](https://www.raspberrypi.com/software/) and select the `Format SD Card` option to prepare your SD card for the installation.
+**1. Download the Pi Imager:** 
 
-![](material/ch2/format-SD.mp4)
+To get started, you will need to download the Raspberry Pi Imager to your computer. This software is used to install the operating system on your Pi. You can download it from the [official Raspberry Pi website](https://www.raspberrypi.com/software/) . Choose the version appropriate for your operating system (Windows, macOS, or Ubuntu) and run the installer to set it up on your computer.
 
-**2. Flash the OS onto your SD card:** Select the appropriate version of OS and your SD card storage. Before initiating the writing process, make sure to enable `ssh` and set the username and password as 'pi' and 'raspberry', respectively, in the settings.
+**2. Format your SD card:**  After inserting an SD card into your laptop, launch the Raspberry Pi Imager that you just installed. From the utility's main menu, select the `CHOOSE OS` option, and then pick the `Erase` option, followed by `Format SD Card`. This process prepares your SD card for the Pi OS installation.
+
+![Formatting the SD card](https://chat.openai.com/material/ch2/format-SD.mp4) 
+
+
+**3. Flash the OS onto your SD card:**  Once your SD card is formatted, return to the Raspberry Pi Imager main menu. Select `CHOOSE OS`, then pick the version of the Raspberry Pi OS you want to install. Next, select `CHOOSE SD CARD`, and choose your SD card from the list.
+
+Before you click `WRITE` to initiate the writing process, ensure to enable `ssh` to allow remote access. To do this, create an empty file named `ssh` in the boot partition of the SD card. Also, set the username and password as 'pi' and 'raspberry', respectively, in the settings.
 
 ::: {.callout-note}
 The default username and password are 'pi' and 'raspberry' respectively for Raspberry Pi OS. However, for security reasons, it's recommended to change these once your system is set up.
 :::
 
-![](material/ch2/write-SD.mp4)
+![Flashing the OS onto the SD card](https://chat.openai.com/material/ch2/write-SD.mp4) 
 
-### Step 2: 
+
+Please note that the process of writing the operating system to the SD card might take a while, so please be patient. Once it's done, you'll see a success message, and your SD card is ready to be inserted into the Raspberry Pi.
+
+In the next section, we'll look at setting up your Raspberry Pi with this freshly prepared SD card.
 
 **3. Connecting the Pi to Your Laptop:** Inser
 

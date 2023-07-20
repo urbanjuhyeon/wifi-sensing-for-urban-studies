@@ -261,7 +261,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#initiating-your-raspberry-pi" id="toc-initiating-your-raspberry-pi" class="nav-link active" data-scroll-target="#initiating-your-raspberry-pi">2.3.1. Initiating Your Raspberry Pi</a>
   <ul class="collapse">
   <li><a href="#step-1-installing-the-pi-operating-system-on-the-sd-card" id="toc-step-1-installing-the-pi-operating-system-on-the-sd-card" class="nav-link" data-scroll-target="#step-1-installing-the-pi-operating-system-on-the-sd-card">Step 1: Installing the Pi Operating System on the SD Card</a></li>
-  <li><a href="#step-2" id="toc-step-2" class="nav-link" data-scroll-target="#step-2">Step 2:</a></li>
   <li><a href="#step-2-enabling-internet-connection-sharing" id="toc-step-2-enabling-internet-connection-sharing" class="nav-link" data-scroll-target="#step-2-enabling-internet-connection-sharing">Step 2: Enabling Internet Connection Sharing</a></li>
   <li><a href="#step-3-connecting-the-pi-to-your-laptop" id="toc-step-3-connecting-the-pi-to-your-laptop" class="nav-link" data-scroll-target="#step-3-connecting-the-pi-to-your-laptop">Step 3: Connecting the Pi to Your Laptop</a></li>
   <li><a href="#step-4-accessing-the-pi-via-ssh" id="toc-step-4-accessing-the-pi-via-ssh" class="nav-link" data-scroll-target="#step-4-accessing-the-pi-via-ssh">Step 4: Accessing the Pi via SSH</a></li>
@@ -306,9 +305,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="initiating-your-raspberry-pi">2.3.1. Initiating Your Raspberry Pi</h2>
 <section id="step-1-installing-the-pi-operating-system-on-the-sd-card" class="level3">
 <h3 class="anchored" data-anchor-id="step-1-installing-the-pi-operating-system-on-the-sd-card">Step 1: Installing the Pi Operating System on the SD Card</h3>
-<p><strong>1. Format your SD card:</strong> After inserting an SD card into your laptop, launch the <a href="https://www.raspberrypi.com/software/">Raspberry Pi Imager</a> and select the <code>Format SD Card</code> option to prepare your SD card for the installation.</p>
-<p><video src="material/ch2/format-SD.mp4" class="img-fluid" controls=""><a href="material/ch2/format-SD.mp4">Video</a></video></p>
-<p><strong>2. Flash the OS onto your SD card:</strong> Select the appropriate version of OS and your SD card storage. Before initiating the writing process, make sure to enable <code>ssh</code> and set the username and password as ‘pi’ and ‘raspberry’, respectively, in the settings.</p>
+<p><strong>1. Download the Pi Imager:</strong></p>
+<p>To get started, you will need to download the Raspberry Pi Imager to your computer. This software is used to install the operating system on your Pi. You can download it from the <a href="https://www.raspberrypi.com/software/">official Raspberry Pi website</a> . Choose the version appropriate for your operating system (Windows, macOS, or Ubuntu) and run the installer to set it up on your computer.</p>
+<p><strong>2. Format your SD card:</strong> After inserting an SD card into your laptop, launch the Raspberry Pi Imager that you just installed. From the utility’s main menu, select the <code>CHOOSE OS</code> option, and then pick the <code>Erase</code> option, followed by <code>Format SD Card</code>. This process prepares your SD card for the Pi OS installation.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><video src="https://chat.openai.com/material/ch2/format-SD.mp4" class="img-fluid" controls=""><a href="https://chat.openai.com/material/ch2/format-SD.mp4">Video</a></video></p>
+<figcaption class="figure-caption">Formatting the SD card</figcaption>
+</figure>
+</div>
+<p><strong>3. Flash the OS onto your SD card:</strong> Once your SD card is formatted, return to the Raspberry Pi Imager main menu. Select <code>CHOOSE OS</code>, then pick the version of the Raspberry Pi OS you want to install. Next, select <code>CHOOSE SD CARD</code>, and choose your SD card from the list.</p>
+<p>Before you click <code>WRITE</code> to initiate the writing process, ensure to enable <code>ssh</code> to allow remote access. To do this, create an empty file named <code>ssh</code> in the boot partition of the SD card. Also, set the username and password as ‘pi’ and ‘raspberry’, respectively, in the settings.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -322,10 +329,14 @@ Note
 <p>The default username and password are ‘pi’ and ‘raspberry’ respectively for Raspberry Pi OS. However, for security reasons, it’s recommended to change these once your system is set up.</p>
 </div>
 </div>
-<p><video src="material/ch2/write-SD.mp4" class="img-fluid" controls=""><a href="material/ch2/write-SD.mp4">Video</a></video></p>
-</section>
-<section id="step-2" class="level3">
-<h3 class="anchored" data-anchor-id="step-2">Step 2:</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><video src="https://chat.openai.com/material/ch2/write-SD.mp4" class="img-fluid" controls=""><a href="https://chat.openai.com/material/ch2/write-SD.mp4">Video</a></video></p>
+<figcaption class="figure-caption">Flashing the OS onto the SD card</figcaption>
+</figure>
+</div>
+<p>Please note that the process of writing the operating system to the SD card might take a while, so please be patient. Once it’s done, you’ll see a success message, and your SD card is ready to be inserted into the Raspberry Pi.</p>
+<p>In the next section, we’ll look at setting up your Raspberry Pi with this freshly prepared SD card.</p>
 <p><strong>3. Connecting the Pi to Your Laptop:</strong> Inser</p>
 </section>
 <section id="step-2-enabling-internet-connection-sharing" class="level3">
