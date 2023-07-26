@@ -1,0 +1,160 @@
+# 2.3. Installation Steps {.unnumbered}
+## 2.3.1. Initiating Your Raspberry Pi
+### Step 1: Installing the Pi Operating System on the SD Card
+
+1. Download the Pi Imager:  Begin by downloading the Raspberry Pi Imager, a tool for installing the operating system on your Pi. This software is available on the [official Raspberry Pi website](https://www.raspberrypi.com/software/) . Select the version compatible with your operating system (Windows, macOS, or Ubuntu) and install it on your computer.
+
+**2. Format your SD card:**  Insert an SD card into your computer, then launch the Raspberry Pi Imager you just installed. Click `CHOOSE OS`, then select the `Erase` option followed by `Format SD Card`. This prepares your SD card for the Pi OS installation.
+
+![](material/ch2/format-SD.mp4) 
+
+**3. Flash the OS onto your SD card:** 
+
+### Step 2: Connect your laptop to access the Pi
+
+**1. Connect your Pi to your laptop:**  With the Pi-equipped SD card, connect your Pi to your laptop using an Ethernet cable.
+
+![](material/ch2/connect-pi.jpg) 
+
+
+**2. Enable internet connection sharing:**  
+
+### Step 3: Accessing Your Pi Remotely
+
+**1. Open the command prompt:**  Having installed the Windows Terminal from the Microsoft Store, you can access the Command Prompt by pressing `Ctrl + R`, typing `cmd`, and hitting `Enter`. Alternatively, you can open it by pressing `Ctrl + Shift + P`. This is what you should see:
+  
+  ![](material/ch2/cmd-screen.png) 
+
+
+**2. Access Your Raspberry Pi via SSH:**  To establish an SSH connection with your Raspberry Pi, enter the following command:
+  
+  ```bash
+ssh pi@raspberrypi
+```
+
+By default, the password is 'raspberry'. Enter this default password when prompted.
+
+![](material/ch2/access_cmd.mp4) 
+
+**3. Verify Your Pi's Internet Connectivity:** 
+
+## 2.3.2. Configuring Your Pi as a Sensor
+
+### Step 1: Update Your Raspberry Pi OS
+
+
+  
+
+### Step 3: Transform Your Pi into a File Server
+
+
+
+**1. Install Samba:** 
+
+
+**2. Modify the Samba Config File:**  
+
+
+**3. Edit the File:**  
+
+Save the changes by pressing `Ctrl + x`, then `y`, followed by `Enter`.
+
+**4. Set Up a Samba User:**  
+
+**5. Restart Samba Services:**  
+
+
+
+**6. Access the Pi Directory:**  
+
+
+**7. Create and Verify the Test File:**  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Step 4: Set Up Cloud Storage Access on Your Pi
+
+This step shows how to enable your Raspberry Pi to send data to your cloud storage. This functionality is useful when you need to verify the files sent by your Pi during its setup process.
+
+For example, when installing a sensor, it can be hard to determine the remaining storage on the sensor's SD card. To resolve this, you can create a file that includes details about the available storage space and configure your Pi to send this file to your cloud storage upon booting. This allows you to check this file on your mobile device during the installation phase.
+
+**1. Create a Dropbox App:**  We'll use Dropbox as our cloud storage service. Create your app on [Dropbox developers](https://www.dropbox.com/developers/)  .
+
+![](material/ch2/dropbox_create1.png) 
+
+![](material/ch2/dropbox_create2.png) 
+
+**2. Modify the Permission:**  Update the setting to allow your app to view and manage files and folders. In this case, all options in the permission settings have been selected.
+
+![](material/ch2/dropbox_permission.png) 
+
+**3. Install the Necessary Packages:**  Ensure that the `curl` and `git` packages are installed by entering the following command:
+  
+  ```bash
+sudo apt install curl git
+```
+
+**4. Install the Dropbox Uploader:**  Clone the [Dropbox Uploader](https://github.com/andreafabrizi/Dropbox-Uploader/)  script on your Pi using the following command.
+
+```bash
+git clone https://github.com/andreafabrizi/Dropbox-Uploader.git
+```
+
+**5. Provide execution permission:**  Navigate to the cloned folder and grant executable permission to the script using the following commands:
+  
+  ```bash
+cd Dropbox-Uploader
+```
+
+```bash
+sudo chmod +x dropbox_uploader.sh
+```
+
+```bash
+./dropbox_uploader.sh
+```
+
+**6. Grant Your App Permissions on the Pi:** Paste your app key and app secret into the terminal:
+  
+  ![](material/ch2/dropbox_register1.png) 
+
+
+Paste the URL into a web browser and click 'Continue' and 'Allow' to authorize the permissions.
+
+![](material/ch2/dropbox_register2.png) 
+
+Provide the access code generated to the terminal.
+
+![](material/ch2/dropbox_register3.png) 
+
+
+**7. Test the Dropbox Uploader App:**  Use the `upload` function to send a 'README.md' file
+
+![](material/ch2/test_dropbox_upload.mp4) 
+
+
+
+
+
+
+# 2.3.1.
+
+
+dd
+
+dox2unix
+
+

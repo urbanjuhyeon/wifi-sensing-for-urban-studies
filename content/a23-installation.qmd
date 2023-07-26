@@ -1,157 +1,151 @@
 # 2.3. Installation Steps {.unnumbered}
-
 ## 2.3.1. Initiating Your Raspberry Pi
+### Step 1: Download the Pi Imager
 
-### Step 1: Installing the Pi Operating System on the SD Card
+Begin by downloading the Raspberry Pi Imager, a tool for installing the operating system on your Pi. This software is available on the [official Raspberry Pi website](https://www.raspberrypi.com/software/). Select the version compatible with your operating system (Windows, macOS, or Ubuntu) and install it on your computer.
 
-**1. Download the Pi Imager:** 
+### Step 2: Format your SD Card
 
-To get started, you will need to download the Raspberry Pi Imager to your computer. This software is used to install the operating system on your Pi. You can download it from the [official Raspberry Pi website](https://www.raspberrypi.com/software/) . Choose the version appropriate for your operating system (Windows, macOS, or Ubuntu) and run the installer to set it up on your computer.
+Insert an SD card into your computer, then launch the Raspberry Pi Imager you just installed. Click `CHOOSE OS`, then select the `Erase` option followed by `Format SD Card`.
 
-**2. Format your SD card:**  After inserting an SD card into your laptop, launch the Raspberry Pi Imager that you just installed. From the utility's main menu, select the `CHOOSE OS` option, and then pick the `Erase` option, followed by `Format SD Card`. This process prepares your SD card for the Pi OS installation.
+![](material/ch2/format_SD.mp4) 
 
-![Formatting the SD card](https://chat.openai.com/material/ch2/format-SD.mp4) 
+### Step 3: Flash the OS onto your SD Card
 
+Once your SD card is formatted, navigate back to the Raspberry Pi Imager main menu. Click `CHOOSE OS`, then select the Raspberry Pi OS version you wish to install. Afterward, select `CHOOSE SD CARD` and pick your SD card from the list.
 
-**3. Flash the OS onto your SD card:**  Once your SD card is formatted, return to the Raspberry Pi Imager main menu. Select `CHOOSE OS`, then pick the version of the Raspberry Pi OS you want to install. Next, select `CHOOSE SD CARD`, and choose your SD card from the list.
-
-Before you click `WRITE` to initiate the writing process, ensure to enable `ssh` to allow remote access. To do this, create an empty file named `ssh` in the boot partition of the SD card. Also, set the username and password as 'pi' and 'raspberry', respectively, in the settings.
+Before you click `WRITE` to start the writing process, remember to enable `ssh` for remote access. You can do this by creating an empty file named `ssh` in the boot partition of the SD card. Also, set the username and password as 'pi' and 'raspberry' respectively in the settings.
 
 ::: {.callout-note}
-The default username and password are 'pi' and 'raspberry' respectively for Raspberry Pi OS. However, for security reasons, it's recommended to change these once your system is set up.
+The Raspberry Pi OS's default username and password are 'pi' and 'raspberry'. However, it's advisable to change these for security reasons once your system is up and running.
 :::
+  
+![](material/ch2/write_SD.mp4)
 
-![Flashing the OS onto the SD card](https://chat.openai.com/material/ch2/write-SD.mp4) 
+### Step 4: Connect your Pi to your Laptop
+With the Pi-equipped SD card, connect your Pi to your laptop using an Ethernet cable.
 
+![](material/ch2/connect_pi.jpg) 
 
-Please note that the process of writing the operating system to the SD card might take a while, so please be patient. Once it's done, you'll see a success message, and your SD card is ready to be inserted into the Raspberry Pi.
+### Step 5: Enable Internet Connection Sharing
 
-In the next section, we'll look at setting up your Raspberry Pi with this freshly prepared SD card.
-
-**3. Connecting the Pi to Your Laptop:** Inser
-
-### Step 2: Enabling Internet Connection Sharing
-
-On your laptop, navigate to the network settings and enable the `Internet Connection Sharing` option. This will allow your laptop, once connected to the internet, to share its internet connection with your Raspberry Pi via an Ethernet cable.
+Navigate to your laptop's network settings and enable the `Internet Connection Sharing` option. This will allow your laptop to share its internet connection with the Raspberry Pi via the Ethernet cable, provided it's connected to the internet.
 
 ![](material/ch2/share-network.mp4)
 
+### Step 6: Access Your Raspberry Pi via SSH
 
+Having installed the Windows Terminal from the Microsoft Store, you can access the Command Prompt by pressing `Ctrl + R`, typing `cmd`, and hitting `Enter`. Alternatively, you can open it by pressing `Ctrl + Shift + P`. This is what you should see:
+  
+![](material/ch2/cmd_screen.png) 
 
+To establish an SSH connection with your Raspberry Pi, enter the following command:
+  
+```bash
+ssh pi@raspberrypi
+```
 
-### Step 3: Connecting the Pi to Your Laptop
+By default, the password is 'raspberry'. Enter this default password when prompted.
 
-Use an Ethernet cable to connect your Pi to your laptop.
+![](material/ch2/access_cmd.mp4) 
 
-![Connect Pi to Laptop](material/ch2/connect-pi.jpg)
+### Step 7: Verify Your Pi's Internet Connectivity
 
-### Step 4: Accessing the Pi via SSH
+To confirm your Raspberry Pi's internet connection, use the ping command followed by the IP address of a well-known site. For example, ping Google's Public DNS Server by typing this command:
 
-On a Windows 10 or 11 PC, you can leverage PowerShell to SSH into your Raspberry Pi. 
+```bash
+ping 8.8.8.8
+```
 
-**Prerequisite:** SSH should have been enabled during the Pi OS installation process (refer to Step 1).
+If the Pi is connected to the internet, you will see lines starting with '64 bytes from 8.8.8.8' and a summary of the ping at the end.
 
-1. **Open Command Prompt:** You can access the Command Prompt by pressing `Ctrl + R`, typing `cmd`, and hitting `Enter`. Alternatively, you can open it by pressing `Ctrl + Shift + P`.
-   
-2. **Access Your Raspberry Pi:** To establish an SSH connection with your Raspberry Pi, enter the following command: `ssh pi@raspberrypi`.
-
-3. **Enter Password:** By default, the username is 'pi' and the password is 'raspberry'. Enter this default password when prompted.
-
-
-![Access Pi via PuTTY](material/ch2/putty.mp4)
-
-### Step 5: Verifying Your Raspberry Pi's Internet Connectivity
-
-To ensure your Raspberry Pi is connected to the internet, use the ping command followed by the IP address of a well-known site. Ping Google's Public DNS Server by typing `ping 8.8.8.8` and press enter. If the Pi is connected to the internet, you will see lines starting with '64 bytes from 8.8.8.8' and a summary of the ping at the end.
-
-![Verify Pi's Internet Connectivity](material/ch2/pi-ping.mp4)
+![](material/ch2/cmd_ping.mp4)
 
 ::: {.callout-note}
-If you're connected to a network with enhanced security (like a university network), you may need to register your Raspberry Pi's MAC address on a separate website before you can establish a PuTTY connection. Consult your network administrator or IT support for the specific procedures of your network.
+If you're using a **network with enhanced security**, such as a university network, you may need to register your Raspberry Pi's MAC address. The following figure is an example of what I did using my university network. If needed, consult your network administrator or IT support for the specific procedures of your network.
+
+![Example of a Webpage Used to Register a MAC Address at a University](material/ch2/network_unist.png){width=500}
+
 :::
 
-![Register MAC Address](material/ch2/network-unist.png){width=500}
+## 2.3.2. Configuring Your Pi as a Wireless Sensor 
 
-### Step 6: Important Additional Considerations
+This step allows **your Pi to synchronize its system time** with the internet during boot. Since Raspberry Pi doesn't have a real-time clock to keep track of time when it's not powered on (more details [here](https://dayne.broderson.org/2020/03/12/the_time_is_now.html)), it must fetch the current time from the internet upon booting.
 
-If you have multiple Raspberry Pi devices connected to your network and wish to SSH into a specific one, you can directly enter its IP address as the hostname in PuTTY. Here's how you can identify the IP address of a particular Raspberry Pi:
+#### Step 1. Update Your Raspberry Pi OS
 
-1. **Open Command Prompt:** Press the Windows key and type cmd. Press Enter to open the command prompt.
-2. **List Network Devices:** Type `arp -a` and press Enter to list all devices connected to your network.
-3. **Identify the Pi's IP Address:** Find the IP address of your Raspberry Pi by checking the physical addresses in the list. Raspberry Pi devices have MAC addresses that start with either `B8:27:EB:xx:xx:xx` or `DC:A6:32:xx:xx:xx`.
-
-![Find Raspberry Pi IP Address](material/ch2/find-ip-raspberry.mp4)
-
-
-## 2.3.2. Setting your Pi as a sensor
-
-### Step 1: Update Your Raspberry Pi OS
-
-The first thing you should do is update your Raspberry Pi's operating system (OS) to the latest version. Open a terminal window and type the following commands:
-
+Start by updating your Raspberry Pi's operating system (OS) to its latest version. Open a terminal window and enter the following commands:
+  
 ```bash
 sudo apt-get update -y && sudo apt-get upgrade -y
 ```
 
-After your updates are finished, restart your Raspberry Pi with this command:
+::: {.callout-note}
+In Linux systems, `sudo` stands for "superuser do", similar to "Run As Administrator" in Windows. The `-y` flag automatically confirms any prompts during the update process. The `apt-get update` command refreshes the list of available packages and their versions, while `apt-get upgrade` installs the latest versions. You can learn basic Linux commands on websites like [this](https://www.hostinger.com/tutorials/linux-commands).
+:::
+
+The given command should be placed like this:
+  
+![](material/ch2/update_ex.png)
+
+After the updates are complete, restart your Raspberry Pi using this command:
 
 ```bash
 sudo reboot
 ```
 
-::: {.callout-note}
-The `sudo` keyword means superuser do in Linux systems, analogous to Run As Administrator in Windows. The -y flag automatically affirms any prompts during the update process. The apt-get update command refreshes the available packages and their versions, while apt-get upgrade installs the latest versions.
-:::
+### Step 2. Set Up Your Mobile's Hotspot
 
-### Step 2: Configure the network settings
+We'll establish your mobile phone's hotspot as the network provider, which the Raspberry Pi will utilize for time synchronization. Set up your hotspot like this:
 
-This step ensures your Pi can synchronize its system time with the internet at boot. Unlike your laptop, the Raspberry Pi does not have a real-time clock to keep track of the time when it's not powered on (more details [here](https://dayne.broderson.org/2020/03/12/the_time_is_now.html)). This means that your Pi needs to fetch the current time from the internet when it boots.
+![](material/ch2/mobile_hotspot.png){width=500}
 
-Here's how to configure the setting:
-
-**1. Setting your mobile's hotspot:** Start by setting up your hotspot, which your Raspberry Pi will use to synchronize its time.  
-![](material/ch2/mobile-hotspot.png){width=500}
-
-**2. Edit the Pi's network configuration:** Access the network configuration info by typing this commend:
+### Step 3. Edit the Pi's Network Configuration
+Access the network configuration information by entering this command:
 
 ```bash
-sudo nano /etc/wpa_supplicant/wpa_supplicant.conf    
+sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
 ```
 
-**3. Add your hotspot information:** Go to the bottom of the file and add this information below (to me, *juhyeon9087* for both SSID and password of my mobile phone hotspot).
+#### Step 4. Add Your Hotspot Information
+
+Add the following details (in this case, *juhyeon9087* is used for both SSID and password of my mobile phone hotspot).
 
 ```powershell
-
 country=GB
 network={
   ssid="juhyeon9087"
   psk="juhyeon9087"
   key_mgmt=WPA-PSK
 }
-
 ```
 
-![](material/ch2/network_config.png)
+![](material/ch2/network_config.png) 
 
-**4. Close the terminal:** After modifying the Wi-Fi connection details, press `Ctrl + X` and then press `Y` followed by `Enter` to save the changes. After rebooting your Raspberry Pi, the changes should take effect.
+After updating the WiFi connection details, press `Ctrl + X`, then `Y`, followed by `Enter` to save the changes. Reboot your Raspberry Pi to implement the changes.
 
-### Step 3: Turn your Pi into a file server
+## 2.3.3. Transforming Your Pi into a File Server
 
-This process enables the **effortless sharing of files between a Raspberry Pi and other devices,** such as laptops and PCs. Samba, an open-source secure network file sharing system, facilitates this transfer. By activating Samba, files can be easily transferred from or to a laptop within your network to a Raspberry Pi, via a direct Ethernet connection.
+This process allows **easy sharing of files between a Raspberry Pi and other devices,**  such as laptops and PCs. `Samba`, an open-source secure network file-sharing system, enables this transfer. By setting up Samba, files can be conveniently transferred to and from a laptop within your network to a Raspberry Pi, via a direct Ethernet connection.
 
-**1. Install Samba:** Type the following command in your terminal to install Samba.  
+### Step 1. Install Samba
+
+Enter the following command in your terminal to install Samba:
 
 ```bash
 sudo apt-get install samba samba-common-bin -y
 ```
 
-**2. Modify the Samba Config File:** Share the folder of your Pi by modifying the Samba config file using the following command:
+### Step 2. Modify the Samba Config File
 
+To share the Pi's folder, modify the Samba config file using the following command:
+  
 ```bash
 sudo nano /etc/samba/smb.conf
 ```
 
-**3. Edit the File**: Jump to the end of the file by pressing `Ctrl + w` and `Ctrl + v` and type this: 
+Move to the end line by pressing `Alt + /`  and add this:
+  
 ```powershell
 [share]
 path = /home/pi
@@ -163,144 +157,172 @@ public=no
 
 ![](material/ch2/samba-setting.png)
 
-Save it by pressing `Ctrl + x` then `y` followed by `Enter`.
+Press `Ctrl + X`, then `Y`, followed by `Enter` to save the changes.
 
-**4. Set up a Samba User**: Set up a user for our Samba share on your Pi by typing this command:
-
+### Step 3. Set Up a Samba User
+Set up a user for your Samba share on your Pi using this command:
+  
 ```bash
 sudo smbpasswd -a pi
 ```
 
-Afterwards, enter the password twice as prompted by the command. My password is `raspberry`.
+Then, enter the password twice as prompted by the command. In this case, the password is `raspberry`.
 
-**5. Restart Samba Services:** Restart the Samba services to make the changes effective.
+### Step 4. Restart Samba Services
+Restart the Samba services to apply the changes by typing this:
 
 ```bash
 sudo service smbd restart
+```
+
+```bash
 sudo service nmbd restart
 ```
 
-**6. Access the Pi directory:** Open the File Explorer (press `Win + E`), add the address `raspberrypi/pi` and then, type the Pi's name and password as the network credentials.
+### Step 5. Access the Pi Directory
 
-![](material/ch2/samba-access.mp4)
+Open the File Explorer (press `Win + E`), type in the address `raspberrypi/pi`, then enter the Pi's name and password as network credentials.
 
-**7. Create and check the test file test file:** Make a text file on directory of your Pi by typing the following command.
+![](material/ch2/samba_access.mp4) 
+
+### Step 6. Create and Verify the Test File
+
+Create a text file in your Pi's directory using the following command.
 
 ```bash
 sudo nano test.txt
 ```
 
-After typing anything (e.g., 'gg') in the file press `Ctrl + x` then `y` followed by `Enter`. Then, you can see the file in your laptop.
+After typing anything (e.g., 'gg') in the file, press `Ctrl + x`, then `y`, followed by `Enter`. You should then be able to see the file on your laptop.
 
-![](material/ch2/samba_check.mp4)
-
-### Step 4: Configure Cloud Storage Access on Your Pi
-
-This step will guide you on how to equip your Raspberry Pi to send data to your cloud storage. This functionality can prove beneficial in scenarios where you need to verify the files transmitted by your Pi during its setup process.
-
-For instance, when installing a sensor, determining the remaining storage on the sensor's SD card can be a challenge. To address this, you can create a file that includes details about the available storage space and configure your Pi to transmit this file to your cloud storage upon booting. This way, you can inspect this file on your mobile device during the installation phase.
-
-**1. Create a Dropbox App:**  We'll utilize Dropbox as our cloud storage service provider. Create your app on [Dropbox developers](https://www.dropbox.com/developers/) .
-
-![](material/ch2/dropbox_create1.png) 
+![](material/ch2/samba_check.mp4) 
 
 
-![](material/ch2/dropbox_create2.png) 
+## 2.3.4. Setting Up Cloud Storage Access on Your Pi
 
+This step involves **configuring your Raspberry Pi to send status data to your cloud storage**. It's essential to ensure that your Pi is properly set up before or during its installation. Typically, you might consider connecting a monitor, mouse, and keyboard to your Pi to check its status, but that's not always practical or convenient. 
 
-**2. Change the Permission:**  Alter the setting to allow your app to view and manage files and folders. I've selected all options in the permission settings.
+Instead, we recommend setting up your Pi to relay status updates - such as available storage space - to your chosen cloud storage. Once your Pi starts sending these updates, you can easily monitor its status by accessing and reviewing these files in the cloud storage. This method allows you to remotely track the setup progress and address any potential issues promptly.
 
-![](material/ch2/dropbox_permission.png) 
+### Step 1. Create a Dropbox App
 
+In this guide, we will be utilizing Dropbox as our cloud storage service. You need to first set up an app on Dropbox to interface with the service. Follow the steps below:
 
-**3. Install Necessary Packages:**  Ensure that the `curl` and `git` packages are installed by typing the following command:
+1. Navigate to the [Dropbox developer page](https://www.dropbox.com/developers/).
+2. Sign in or create an account if you haven't done so already.
+3. Once you're logged in, proceed to create a new application.
+
+![](material/ch2/dropbox_create.png) 
+### Step 2. Modify the Permission
+
+Configure your application to permit the viewing and management of files and folders. In this instance, we've selected all the available options in the permission settings.
+
+![](material/ch2/dropbox_permission.png)
+
+### Step 3. Install the Necessary Packages
+
+Make sure that curl and git packages are installed on your Pi. You can do this by entering the following command:
 
 ```bash
 sudo apt install curl git
 ```
 
-**4. Install the Dropbox Uploader:**  Clone the [Dropbox Uploader](https://github.com/andreafabrizi/Dropbox-Uploader/)  script on your Pi by typing the following command.
+### Step 4. Install the Dropbox Uploader
+
+Download the [Dropbox Uploader script](https://github.com/andreafabrizi/Dropbox-Uploader/) onto your Pi using this command:
 
 ```bash
 git clone https://github.com/andreafabrizi/Dropbox-Uploader.git
 ```
 
-**5. Execute the Uploader Script:**  Navigate to the newly cloned folder and grant the script executable permission by typing the following command.
+### Step 5. Assign Execution Permission
+
+Move into the cloned directory and bestow the executable permission to the script by using these commands:
 
 ```bash
 cd Dropbox-Uploader
 ```
 
-```command
+```bash
 sudo chmod +x dropbox_uploader.sh
 ```
 
-::: {.callout-note}
-You can learn basic Linux commands on sites like [this](https://www.hostinger.com/tutorials/linux-commands) .
-:::
+### Step 6. Validate App Permissions on Your Pi
 
-**6. Link Your Account to the Uploader:**  Copy and paste your App Key and App Secret into the terminal.
+Begin the Dropbox Uploader configuration with the following command:
 
+```bash
+./dropbox_uploader.sh
+```
+
+Enter your app key and app secret in the terminal:
+  
 ![](material/ch2/dropbox_register1.png) 
 
-
-**7. Grant Your App Permissions on the Pi:**  Copy and paste the URL into the web browser. Click 'Continue' to grant the permissions.
+Copy and paste the given URL into a web browser, then click 'Continue' and 'Allow' to authorize the permissions.
 
 ![](material/ch2/dropbox_register2.png) 
 
+Copy and paste the generated access code to the terminal.
 
-**8. Test the Dropbox Uploader App:**  Use the `upload` function to send a 'README.md' file to your Dropbox cloud storage. Before executing the following command, the file was empty, but after the command, the file was sent.
+![](material/ch2/dropbox_register3.png) 
+
+### Step 7. Verify Cloud Storage Access
+
+Employ the upload function to transmit a 'README.md' file by executing this command:
 
 ```bash
 ./dropbox_uploader.sh upload README.md /
 ```
 
-![](material/ch2/dropbox_check.mp4) 
+You should be able to view the file that was sent by executing the command.
 
+![](material/ch2/test_dropbox_upload.mp4) 
 
-## 2.3.3. Test your Pi
+## 2.3.5. Software Setup
 
-### Step 1: Test WiFi adapter
+#### 2.3.5.1. Execute the Requirement.sh Script
 
-This can be used to test a monitor mode on the WiFi adapter, allowing collecting WiFi packets.
+Download the files [here](material/ch2/files.zip) and move them in to the Pi.
 
-**1. Install aircrack pcakage:** Download the package by typing this commend:
+![](material/ch2/move_file_to_pi.png)
 
-```bash
-sudo apt-get install -y aircrack-ng
-```
+### Step 2. Running the requirement file
 
-**2. Check the status of wireless interface:** Get the list of wireless interface in your Pi by typing this commend:
-
-```bash
-airmon-ng
-```
-
-Before inserting the WiFi adaopter, only internal wireless interface on your Pi is found.
-
-![](material/ch2/aircrack-before.png) 
-
-With your WiFi adatoper, addtional wireelss interface you can see that.
-
-![](material/ch2/aircrack-connected.jpg)
-
-![](material/ch2/aircrack-after.png) 
-
-**3. Change the monitor mode:** Change the adapter mode to monitor mode by following this command:
+Run the `requirement.sh` file by typing this command:
 
 ```bash
-airmon-ng start wlan1
+./requirement.sh
 ```
 
-**4. Excuete monitor mode:** Collect the WiFi packets by following this command:
+This file is setup for installation:
+
+- Update system packages.
+- Install Python3, Pip3, libpcap, and Git.
+- Install Python packages: pcapy and dpkt.
+- Install Bluetooth library.
+- Check for Bluelog directory, clone and install Bluelog if not present.
+
+::: {.callout-note}
+
+Dos2Unix is a package that includes dos2unix and unix2dos commands that allows to convert line endings in a text file from DOS/Windows to Unix/Linux and vice versa.
+:::
+
+## 2.3.6. Operation and Testing
+
+### Step 1. Running the code
 
 ```bash
-airodump-ng wlan1mon
+python3 start.py
 ```
 
-![](material/ch2/aircrack-test.mp4) 
+#### 2.3.5.3. Set the Code to Run at Boot
 
 
 
 
 
+### 2.3.6. Operation and Testing
+
+#### 2.3.6.1. Test WiFi Monitors with Adapters
+#### 2.3.6.2. Open the Generated File
