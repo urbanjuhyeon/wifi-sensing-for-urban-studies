@@ -98,7 +98,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-sidebar floating">
@@ -260,23 +260,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#initiating-your-raspberry-pi" id="toc-initiating-your-raspberry-pi" class="nav-link active" data-scroll-target="#initiating-your-raspberry-pi">2.3.1. Initiating Your Raspberry Pi</a>
   <ul class="collapse">
-  <li><a href="#step-1-installing-the-pi-operating-system-on-the-sd-card" id="toc-step-1-installing-the-pi-operating-system-on-the-sd-card" class="nav-link" data-scroll-target="#step-1-installing-the-pi-operating-system-on-the-sd-card">Step 1: Installing the Pi Operating System on the SD Card</a></li>
-  <li><a href="#step-2-enabling-internet-connection-sharing" id="toc-step-2-enabling-internet-connection-sharing" class="nav-link" data-scroll-target="#step-2-enabling-internet-connection-sharing">Step 2: Enabling Internet Connection Sharing</a></li>
-  <li><a href="#step-3-connecting-the-pi-to-your-laptop" id="toc-step-3-connecting-the-pi-to-your-laptop" class="nav-link" data-scroll-target="#step-3-connecting-the-pi-to-your-laptop">Step 3: Connecting the Pi to Your Laptop</a></li>
-  <li><a href="#step-4-accessing-the-pi-via-ssh" id="toc-step-4-accessing-the-pi-via-ssh" class="nav-link" data-scroll-target="#step-4-accessing-the-pi-via-ssh">Step 4: Accessing the Pi via SSH</a></li>
-  <li><a href="#step-5-verifying-your-raspberry-pis-internet-connectivity" id="toc-step-5-verifying-your-raspberry-pis-internet-connectivity" class="nav-link" data-scroll-target="#step-5-verifying-your-raspberry-pis-internet-connectivity">Step 5: Verifying Your Raspberry Pi’s Internet Connectivity</a></li>
-  <li><a href="#step-6-important-additional-considerations" id="toc-step-6-important-additional-considerations" class="nav-link" data-scroll-target="#step-6-important-additional-considerations">Step 6: Important Additional Considerations</a></li>
+  <li><a href="#step-1-download-the-pi-imager" id="toc-step-1-download-the-pi-imager" class="nav-link" data-scroll-target="#step-1-download-the-pi-imager">Step 1: Download the Pi Imager</a></li>
+  <li><a href="#step-2-format-your-sd-card" id="toc-step-2-format-your-sd-card" class="nav-link" data-scroll-target="#step-2-format-your-sd-card">Step 2: Format your SD Card</a></li>
+  <li><a href="#step-3-flash-the-os-onto-your-sd-card" id="toc-step-3-flash-the-os-onto-your-sd-card" class="nav-link" data-scroll-target="#step-3-flash-the-os-onto-your-sd-card">Step 3: Flash the OS onto your SD Card</a></li>
+  <li><a href="#step-4-connect-your-pi-to-your-laptop" id="toc-step-4-connect-your-pi-to-your-laptop" class="nav-link" data-scroll-target="#step-4-connect-your-pi-to-your-laptop">Step 4: Connect your Pi to your Laptop</a></li>
+  <li><a href="#step-5-enable-internet-connection-sharing" id="toc-step-5-enable-internet-connection-sharing" class="nav-link" data-scroll-target="#step-5-enable-internet-connection-sharing">Step 5: Enable Internet Connection Sharing</a></li>
+  <li><a href="#step-6-access-your-raspberry-pi-via-ssh" id="toc-step-6-access-your-raspberry-pi-via-ssh" class="nav-link" data-scroll-target="#step-6-access-your-raspberry-pi-via-ssh">Step 6: Access Your Raspberry Pi via SSH</a></li>
+  <li><a href="#step-7-verify-your-pis-internet-connectivity" id="toc-step-7-verify-your-pis-internet-connectivity" class="nav-link" data-scroll-target="#step-7-verify-your-pis-internet-connectivity">Step 7: Verify Your Pi’s Internet Connectivity</a></li>
   </ul></li>
-  <li><a href="#setting-your-pi-as-a-sensor" id="toc-setting-your-pi-as-a-sensor" class="nav-link" data-scroll-target="#setting-your-pi-as-a-sensor">2.3.2. Setting your Pi as a sensor</a>
+  <li><a href="#configuring-your-pi-as-a-wireless-sensor" id="toc-configuring-your-pi-as-a-wireless-sensor" class="nav-link" data-scroll-target="#configuring-your-pi-as-a-wireless-sensor">2.3.2. Configuring Your Pi as a Wireless Sensor</a>
   <ul class="collapse">
-  <li><a href="#step-1-update-your-raspberry-pi-os" id="toc-step-1-update-your-raspberry-pi-os" class="nav-link" data-scroll-target="#step-1-update-your-raspberry-pi-os">Step 1: Update Your Raspberry Pi OS</a></li>
-  <li><a href="#step-2-configure-the-network-settings" id="toc-step-2-configure-the-network-settings" class="nav-link" data-scroll-target="#step-2-configure-the-network-settings">Step 2: Configure the network settings</a></li>
-  <li><a href="#step-3-turn-your-pi-into-a-file-server" id="toc-step-3-turn-your-pi-into-a-file-server" class="nav-link" data-scroll-target="#step-3-turn-your-pi-into-a-file-server">Step 3: Turn your Pi into a file server</a></li>
-  <li><a href="#step-4-configure-cloud-storage-access-on-your-pi" id="toc-step-4-configure-cloud-storage-access-on-your-pi" class="nav-link" data-scroll-target="#step-4-configure-cloud-storage-access-on-your-pi">Step 4: Configure Cloud Storage Access on Your Pi</a></li>
+  <li><a href="#step-2.-set-up-your-mobiles-hotspot" id="toc-step-2.-set-up-your-mobiles-hotspot" class="nav-link" data-scroll-target="#step-2.-set-up-your-mobiles-hotspot">Step 2. Set Up Your Mobile’s Hotspot</a></li>
+  <li><a href="#step-3.-edit-the-pis-network-configuration" id="toc-step-3.-edit-the-pis-network-configuration" class="nav-link" data-scroll-target="#step-3.-edit-the-pis-network-configuration">Step 3. Edit the Pi’s Network Configuration</a></li>
   </ul></li>
-  <li><a href="#test-your-pi" id="toc-test-your-pi" class="nav-link" data-scroll-target="#test-your-pi">2.3.3. Test your Pi</a>
+  <li><a href="#transforming-your-pi-into-a-file-server" id="toc-transforming-your-pi-into-a-file-server" class="nav-link" data-scroll-target="#transforming-your-pi-into-a-file-server">2.3.3. Transforming Your Pi into a File Server</a>
   <ul class="collapse">
-  <li><a href="#step-1-test-wifi-adapter" id="toc-step-1-test-wifi-adapter" class="nav-link" data-scroll-target="#step-1-test-wifi-adapter">Step 1: Test WiFi adapter</a></li>
+  <li><a href="#step-1.-install-samba" id="toc-step-1.-install-samba" class="nav-link" data-scroll-target="#step-1.-install-samba">Step 1. Install Samba</a></li>
+  <li><a href="#step-2.-modify-the-samba-config-file" id="toc-step-2.-modify-the-samba-config-file" class="nav-link" data-scroll-target="#step-2.-modify-the-samba-config-file">Step 2. Modify the Samba Config File</a></li>
+  <li><a href="#step-3.-set-up-a-samba-user" id="toc-step-3.-set-up-a-samba-user" class="nav-link" data-scroll-target="#step-3.-set-up-a-samba-user">Step 3. Set Up a Samba User</a></li>
+  <li><a href="#step-4.-restart-samba-services" id="toc-step-4.-restart-samba-services" class="nav-link" data-scroll-target="#step-4.-restart-samba-services">Step 4. Restart Samba Services</a></li>
+  <li><a href="#step-5.-access-the-pi-directory" id="toc-step-5.-access-the-pi-directory" class="nav-link" data-scroll-target="#step-5.-access-the-pi-directory">Step 5. Access the Pi Directory</a></li>
+  <li><a href="#step-6.-create-and-verify-the-test-file" id="toc-step-6.-create-and-verify-the-test-file" class="nav-link" data-scroll-target="#step-6.-create-and-verify-the-test-file">Step 6. Create and Verify the Test File</a></li>
+  </ul></li>
+  <li><a href="#setting-up-cloud-storage-access-on-your-pi" id="toc-setting-up-cloud-storage-access-on-your-pi" class="nav-link" data-scroll-target="#setting-up-cloud-storage-access-on-your-pi">2.3.4. Setting Up Cloud Storage Access on Your Pi</a>
+  <ul class="collapse">
+  <li><a href="#step-1.-create-a-dropbox-app" id="toc-step-1.-create-a-dropbox-app" class="nav-link" data-scroll-target="#step-1.-create-a-dropbox-app">Step 1. Create a Dropbox App</a></li>
+  <li><a href="#step-3.-install-the-necessary-packages" id="toc-step-3.-install-the-necessary-packages" class="nav-link" data-scroll-target="#step-3.-install-the-necessary-packages">Step 3. Install the Necessary Packages</a></li>
+  <li><a href="#step-4.-install-the-dropbox-uploader" id="toc-step-4.-install-the-dropbox-uploader" class="nav-link" data-scroll-target="#step-4.-install-the-dropbox-uploader">Step 4. Install the Dropbox Uploader</a></li>
+  <li><a href="#step-5.-assign-execution-permission" id="toc-step-5.-assign-execution-permission" class="nav-link" data-scroll-target="#step-5.-assign-execution-permission">Step 5. Assign Execution Permission</a></li>
+  <li><a href="#step-6.-validate-app-permissions-on-your-pi" id="toc-step-6.-validate-app-permissions-on-your-pi" class="nav-link" data-scroll-target="#step-6.-validate-app-permissions-on-your-pi">Step 6. Validate App Permissions on Your Pi</a></li>
+  <li><a href="#step-7.-verify-cloud-storage-access" id="toc-step-7.-verify-cloud-storage-access" class="nav-link" data-scroll-target="#step-7.-verify-cloud-storage-access">Step 7. Verify Cloud Storage Access</a></li>
+  </ul></li>
+  <li><a href="#software-setup" id="toc-software-setup" class="nav-link" data-scroll-target="#software-setup">2.3.5. Software Setup</a>
+  <ul class="collapse">
+  <li><a href="#step-2.-running-the-requirement-file" id="toc-step-2.-running-the-requirement-file" class="nav-link" data-scroll-target="#step-2.-running-the-requirement-file">Step 2. Running the requirement file</a></li>
+  </ul></li>
+  <li><a href="#operation-and-testing" id="toc-operation-and-testing" class="nav-link" data-scroll-target="#operation-and-testing">2.3.6. Operation and Testing</a>
+  <ul class="collapse">
+  <li><a href="#step-1.-running-the-code" id="toc-step-1.-running-the-code" class="nav-link" data-scroll-target="#step-1.-running-the-code">Step 1. Running the code</a></li>
+  <li><a href="#operation-and-testing-1" id="toc-operation-and-testing-1" class="nav-link" data-scroll-target="#operation-and-testing-1">2.3.6. Operation and Testing</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -303,19 +325,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="initiating-your-raspberry-pi" class="level2">
 <h2 class="anchored" data-anchor-id="initiating-your-raspberry-pi">2.3.1. Initiating Your Raspberry Pi</h2>
-<section id="step-1-installing-the-pi-operating-system-on-the-sd-card" class="level3">
-<h3 class="anchored" data-anchor-id="step-1-installing-the-pi-operating-system-on-the-sd-card">Step 1: Installing the Pi Operating System on the SD Card</h3>
-<p><strong>1. Download the Pi Imager:</strong></p>
-<p>To get started, you will need to download the Raspberry Pi Imager to your computer. This software is used to install the operating system on your Pi. You can download it from the <a href="https://www.raspberrypi.com/software/">official Raspberry Pi website</a> . Choose the version appropriate for your operating system (Windows, macOS, or Ubuntu) and run the installer to set it up on your computer.</p>
-<p><strong>2. Format your SD card:</strong> After inserting an SD card into your laptop, launch the Raspberry Pi Imager that you just installed. From the utility’s main menu, select the <code>CHOOSE OS</code> option, and then pick the <code>Erase</code> option, followed by <code>Format SD Card</code>. This process prepares your SD card for the Pi OS installation.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><video src="https://chat.openai.com/material/ch2/format-SD.mp4" class="img-fluid" controls=""><a href="https://chat.openai.com/material/ch2/format-SD.mp4">Video</a></video></p>
-<figcaption class="figure-caption">Formatting the SD card</figcaption>
-</figure>
-</div>
-<p><strong>3. Flash the OS onto your SD card:</strong> Once your SD card is formatted, return to the Raspberry Pi Imager main menu. Select <code>CHOOSE OS</code>, then pick the version of the Raspberry Pi OS you want to install. Next, select <code>CHOOSE SD CARD</code>, and choose your SD card from the list.</p>
-<p>Before you click <code>WRITE</code> to initiate the writing process, ensure to enable <code>ssh</code> to allow remote access. To do this, create an empty file named <code>ssh</code> in the boot partition of the SD card. Also, set the username and password as ‘pi’ and ‘raspberry’, respectively, in the settings.</p>
+<section id="step-1-download-the-pi-imager" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-download-the-pi-imager">Step 1: Download the Pi Imager</h3>
+<p>Begin by downloading the Raspberry Pi Imager, a tool for installing the operating system on your Pi. This software is available on the <a href="https://www.raspberrypi.com/software/">official Raspberry Pi website</a>. Select the version compatible with your operating system (Windows, macOS, or Ubuntu) and install it on your computer.</p>
+</section>
+<section id="step-2-format-your-sd-card" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-format-your-sd-card">Step 2: Format your SD Card</h3>
+<p>Insert an SD card into your computer, then launch the Raspberry Pi Imager you just installed. Click <code>CHOOSE OS</code>, then select the <code>Erase</code> option followed by <code>Format SD Card</code>.</p>
+<p><video src="material/ch2/format_SD.mp4" class="img-fluid" controls=""><a href="material/ch2/format_SD.mp4">Video</a></video></p>
+</section>
+<section id="step-3-flash-the-os-onto-your-sd-card" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-flash-the-os-onto-your-sd-card">Step 3: Flash the OS onto your SD Card</h3>
+<p>Once your SD card is formatted, navigate back to the Raspberry Pi Imager main menu. Click <code>CHOOSE OS</code>, then select the Raspberry Pi OS version you wish to install. Afterward, select <code>CHOOSE SD CARD</code> and pick your SD card from the list.</p>
+<p>Before you click <code>WRITE</code> to start the writing process, remember to enable <code>ssh</code> for remote access. You can do this by creating an empty file named <code>ssh</code> in the boot partition of the SD card. Also, set the username and password as ‘pi’ and ‘raspberry’ respectively in the settings.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -326,59 +348,36 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The default username and password are ‘pi’ and ‘raspberry’ respectively for Raspberry Pi OS. However, for security reasons, it’s recommended to change these once your system is set up.</p>
+<p>The Raspberry Pi OS’s default username and password are ‘pi’ and ‘raspberry’. However, it’s advisable to change these for security reasons once your system is up and running.</p>
 </div>
 </div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><video src="https://chat.openai.com/material/ch2/write-SD.mp4" class="img-fluid" controls=""><a href="https://chat.openai.com/material/ch2/write-SD.mp4">Video</a></video></p>
-<figcaption class="figure-caption">Flashing the OS onto the SD card</figcaption>
-</figure>
-</div>
-<p>Please note that the process of writing the operating system to the SD card might take a while, so please be patient. Once it’s done, you’ll see a success message, and your SD card is ready to be inserted into the Raspberry Pi.</p>
-<p>In the next section, we’ll look at setting up your Raspberry Pi with this freshly prepared SD card.</p>
-<p><strong>3. Connecting the Pi to Your Laptop:</strong> Inser</p>
+<p><video src="material/ch2/write_SD.mp4" class="img-fluid" controls=""><a href="material/ch2/write_SD.mp4">Video</a></video></p>
 </section>
-<section id="step-2-enabling-internet-connection-sharing" class="level3">
-<h3 class="anchored" data-anchor-id="step-2-enabling-internet-connection-sharing">Step 2: Enabling Internet Connection Sharing</h3>
-<p>On your laptop, navigate to the network settings and enable the <code>Internet Connection Sharing</code> option. This will allow your laptop, once connected to the internet, to share its internet connection with your Raspberry Pi via an Ethernet cable.</p>
+<section id="step-4-connect-your-pi-to-your-laptop" class="level3">
+<h3 class="anchored" data-anchor-id="step-4-connect-your-pi-to-your-laptop">Step 4: Connect your Pi to your Laptop</h3>
+<p>With the Pi-equipped SD card, connect your Pi to your laptop using an Ethernet cable.</p>
+<p><img src="material/ch2/connect_pi.jpg" class="img-fluid"></p>
+</section>
+<section id="step-5-enable-internet-connection-sharing" class="level3">
+<h3 class="anchored" data-anchor-id="step-5-enable-internet-connection-sharing">Step 5: Enable Internet Connection Sharing</h3>
+<p>Navigate to your laptop’s network settings and enable the <code>Internet Connection Sharing</code> option. This will allow your laptop to share its internet connection with the Raspberry Pi via the Ethernet cable, provided it’s connected to the internet.</p>
 <p><video src="material/ch2/share-network.mp4" class="img-fluid" controls=""><a href="material/ch2/share-network.mp4">Video</a></video></p>
 </section>
-<section id="step-3-connecting-the-pi-to-your-laptop" class="level3">
-<h3 class="anchored" data-anchor-id="step-3-connecting-the-pi-to-your-laptop">Step 3: Connecting the Pi to Your Laptop</h3>
-<p>Use an Ethernet cable to connect your Pi to your laptop.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="material/ch2/connect-pi.jpg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Connect Pi to Laptop</figcaption>
-</figure>
-</div>
+<section id="step-6-access-your-raspberry-pi-via-ssh" class="level3">
+<h3 class="anchored" data-anchor-id="step-6-access-your-raspberry-pi-via-ssh">Step 6: Access Your Raspberry Pi via SSH</h3>
+<p>Having installed the Windows Terminal from the Microsoft Store, you can access the Command Prompt by pressing <code>Ctrl + R</code>, typing <code>cmd</code>, and hitting <code>Enter</code>. Alternatively, you can open it by pressing <code>Ctrl + Shift + P</code>. This is what you should see:</p>
+<p><img src="material/ch2/cmd_screen.png" class="img-fluid"></p>
+<p>To establish an SSH connection with your Raspberry Pi, enter the following command:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> pi@raspberrypi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>By default, the password is ‘raspberry’. Enter this default password when prompted.</p>
+<p><video src="material/ch2/access_cmd.mp4" class="img-fluid" controls=""><a href="material/ch2/access_cmd.mp4">Video</a></video></p>
 </section>
-<section id="step-4-accessing-the-pi-via-ssh" class="level3">
-<h3 class="anchored" data-anchor-id="step-4-accessing-the-pi-via-ssh">Step 4: Accessing the Pi via SSH</h3>
-<p>On a Windows 10 or 11 PC, you can leverage PowerShell to SSH into your Raspberry Pi.</p>
-<p><strong>Prerequisite:</strong> SSH should have been enabled during the Pi OS installation process (refer to Step 1).</p>
-<ol type="1">
-<li><p><strong>Open Command Prompt:</strong> You can access the Command Prompt by pressing <code>Ctrl + R</code>, typing <code>cmd</code>, and hitting <code>Enter</code>. Alternatively, you can open it by pressing <code>Ctrl + Shift + P</code>.</p></li>
-<li><p><strong>Access Your Raspberry Pi:</strong> To establish an SSH connection with your Raspberry Pi, enter the following command: <code>ssh pi@raspberrypi</code>.</p></li>
-<li><p><strong>Enter Password:</strong> By default, the username is ‘pi’ and the password is ‘raspberry’. Enter this default password when prompted.</p></li>
-</ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><video src="material/ch2/putty.mp4" class="img-fluid" controls=""><a href="material/ch2/putty.mp4">Video</a></video></p>
-<figcaption class="figure-caption">Access Pi via PuTTY</figcaption>
-</figure>
-</div>
-</section>
-<section id="step-5-verifying-your-raspberry-pis-internet-connectivity" class="level3">
-<h3 class="anchored" data-anchor-id="step-5-verifying-your-raspberry-pis-internet-connectivity">Step 5: Verifying Your Raspberry Pi’s Internet Connectivity</h3>
-<p>To ensure your Raspberry Pi is connected to the internet, use the ping command followed by the IP address of a well-known site. Ping Google’s Public DNS Server by typing <code>ping 8.8.8.8</code> and press enter. If the Pi is connected to the internet, you will see lines starting with ‘64 bytes from 8.8.8.8’ and a summary of the ping at the end.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><video src="material/ch2/pi-ping.mp4" class="img-fluid" controls=""><a href="material/ch2/pi-ping.mp4">Video</a></video></p>
-<figcaption class="figure-caption">Verify Pi’s Internet Connectivity</figcaption>
-</figure>
-</div>
+<section id="step-7-verify-your-pis-internet-connectivity" class="level3">
+<h3 class="anchored" data-anchor-id="step-7-verify-your-pis-internet-connectivity">Step 7: Verify Your Pi’s Internet Connectivity</h3>
+<p>To confirm your Raspberry Pi’s internet connection, use the ping command followed by the IP address of a well-known site. For example, ping Google’s Public DNS Server by typing this command:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ping</span> 8.8.8.8</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If the Pi is connected to the internet, you will see lines starting with ‘64 bytes from 8.8.8.8’ and a summary of the ping at the end.</p>
+<p><video src="material/ch2/cmd_ping.mp4" class="img-fluid" controls=""><a href="material/ch2/cmd_ping.mp4">Video</a></video></p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -389,40 +388,24 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If you’re connected to a network with enhanced security (like a university network), you may need to register your Raspberry Pi’s MAC address on a separate website before you can establish a PuTTY connection. Consult your network administrator or IT support for the specific procedures of your network.</p>
-</div>
-</div>
+<p>If you’re using a <strong>network with enhanced security</strong>, such as a university network, you may need to register your Raspberry Pi’s MAC address. The following figure is an example of what I did using my university network. If needed, consult your network administrator or IT support for the specific procedures of your network.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="material/ch2/network-unist.png" class="img-fluid figure-img" width="500"></p>
-<figcaption class="figure-caption">Register MAC Address</figcaption>
+<p><img src="material/ch2/network_unist.png" class="img-fluid figure-img" width="500"></p>
+<figcaption class="figure-caption">Example of a Webpage Used to Register a MAC Address at a University</figcaption>
 </figure>
 </div>
-</section>
-<section id="step-6-important-additional-considerations" class="level3">
-<h3 class="anchored" data-anchor-id="step-6-important-additional-considerations">Step 6: Important Additional Considerations</h3>
-<p>If you have multiple Raspberry Pi devices connected to your network and wish to SSH into a specific one, you can directly enter its IP address as the hostname in PuTTY. Here’s how you can identify the IP address of a particular Raspberry Pi:</p>
-<ol type="1">
-<li><strong>Open Command Prompt:</strong> Press the Windows key and type cmd. Press Enter to open the command prompt.</li>
-<li><strong>List Network Devices:</strong> Type <code>arp -a</code> and press Enter to list all devices connected to your network.</li>
-<li><strong>Identify the Pi’s IP Address:</strong> Find the IP address of your Raspberry Pi by checking the physical addresses in the list. Raspberry Pi devices have MAC addresses that start with either <code>B8:27:EB:xx:xx:xx</code> or <code>DC:A6:32:xx:xx:xx</code>.</li>
-</ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><video src="material/ch2/find-ip-raspberry.mp4" class="img-fluid" controls=""><a href="material/ch2/find-ip-raspberry.mp4">Video</a></video></p>
-<figcaption class="figure-caption">Find Raspberry Pi IP Address</figcaption>
-</figure>
+</div>
 </div>
 </section>
 </section>
-<section id="setting-your-pi-as-a-sensor" class="level2">
-<h2 class="anchored" data-anchor-id="setting-your-pi-as-a-sensor">2.3.2. Setting your Pi as a sensor</h2>
-<section id="step-1-update-your-raspberry-pi-os" class="level3">
-<h3 class="anchored" data-anchor-id="step-1-update-your-raspberry-pi-os">Step 1: Update Your Raspberry Pi OS</h3>
-<p>The first thing you should do is update your Raspberry Pi’s operating system (OS) to the latest version. Open a terminal window and type the following commands:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get update <span class="at">-y</span> <span class="kw">&amp;&amp;</span> <span class="fu">sudo</span> apt-get upgrade <span class="at">-y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>After your updates are finished, restart your Raspberry Pi with this command:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> reboot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="configuring-your-pi-as-a-wireless-sensor" class="level2">
+<h2 class="anchored" data-anchor-id="configuring-your-pi-as-a-wireless-sensor">2.3.2. Configuring Your Pi as a Wireless Sensor</h2>
+<p>This step allows <strong>your Pi to synchronize its system time</strong> with the internet during boot. Since Raspberry Pi doesn’t have a real-time clock to keep track of time when it’s not powered on (more details <a href="https://dayne.broderson.org/2020/03/12/the_time_is_now.html">here</a>), it must fetch the current time from the internet upon booting.</p>
+<section id="step-1.-update-your-raspberry-pi-os" class="level4">
+<h4 class="anchored" data-anchor-id="step-1.-update-your-raspberry-pi-os">Step 1. Update Your Raspberry Pi OS</h4>
+<p>Start by updating your Raspberry Pi’s operating system (OS) to its latest version. Open a terminal window and enter the following commands:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get update <span class="at">-y</span> <span class="kw">&amp;&amp;</span> <span class="fu">sudo</span> apt-get upgrade <span class="at">-y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -433,74 +416,154 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The <code>sudo</code> keyword means superuser do in Linux systems, analogous to Run As Administrator in Windows. The -y flag automatically affirms any prompts during the update process. The apt-get update command refreshes the available packages and their versions, while apt-get upgrade installs the latest versions.</p>
+<p>In Linux systems, <code>sudo</code> stands for “superuser do”, similar to “Run As Administrator” in Windows. The <code>-y</code> flag automatically confirms any prompts during the update process. The <code>apt-get update</code> command refreshes the list of available packages and their versions, while <code>apt-get upgrade</code> installs the latest versions. You can learn basic Linux commands on websites like <a href="https://www.hostinger.com/tutorials/linux-commands">this</a>.</p>
 </div>
 </div>
+<p>The given command should be placed like this:</p>
+<p><img src="material/ch2/update_ex.png" class="img-fluid"></p>
+<p>After the updates are complete, restart your Raspberry Pi using this command:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> reboot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="step-2-configure-the-network-settings" class="level3">
-<h3 class="anchored" data-anchor-id="step-2-configure-the-network-settings">Step 2: Configure the network settings</h3>
-<p>This step ensures your Pi can synchronize its system time with the internet at boot. Unlike your laptop, the Raspberry Pi does not have a real-time clock to keep track of the time when it’s not powered on (more details <a href="https://dayne.broderson.org/2020/03/12/the_time_is_now.html">here</a>). This means that your Pi needs to fetch the current time from the internet when it boots.</p>
-<p>Here’s how to configure the setting:</p>
-<p><strong>1. Setting your mobile’s hotspot:</strong> Start by setting up your hotspot, which your Raspberry Pi will use to synchronize its time.<br>
-<img src="material/ch2/mobile-hotspot.png" class="img-fluid" width="500"></p>
-<p><strong>2. Edit the Pi’s network configuration:</strong> Access the network configuration info by typing this commend:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nano /etc/wpa_supplicant/wpa_supplicant.conf    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>3. Add your hotspot information:</strong> Go to the bottom of the file and add this information below (to me, <em>juhyeon9087</em> for both SSID and password of my mobile phone hotspot).</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>country<span class="op">=</span>GB</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>network<span class="op">={</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  ssid<span class="op">=</span><span class="st">"juhyeon9087"</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  psk<span class="op">=</span><span class="st">"juhyeon9087"</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  key_mgmt<span class="op">=</span>WPA<span class="op">-</span>PSK</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="step-2.-set-up-your-mobiles-hotspot" class="level3">
+<h3 class="anchored" data-anchor-id="step-2.-set-up-your-mobiles-hotspot">Step 2. Set Up Your Mobile’s Hotspot</h3>
+<p>We’ll establish your mobile phone’s hotspot as the network provider, which the Raspberry Pi will utilize for time synchronization. Set up your hotspot like this:</p>
+<p><img src="material/ch2/mobile_hotspot.png" class="img-fluid" width="500"></p>
+</section>
+<section id="step-3.-edit-the-pis-network-configuration" class="level3">
+<h3 class="anchored" data-anchor-id="step-3.-edit-the-pis-network-configuration">Step 3. Edit the Pi’s Network Configuration</h3>
+<p>Access the network configuration information by entering this command:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nano /etc/wpa_supplicant/wpa_supplicant.conf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="step-4.-add-your-hotspot-information" class="level4">
+<h4 class="anchored" data-anchor-id="step-4.-add-your-hotspot-information">Step 4. Add Your Hotspot Information</h4>
+<p>Add the following details (in this case, <em>juhyeon9087</em> is used for both SSID and password of my mobile phone hotspot).</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>country<span class="op">=</span>GB</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>network<span class="op">={</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  ssid<span class="op">=</span><span class="st">"juhyeon9087"</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  psk<span class="op">=</span><span class="st">"juhyeon9087"</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  key_mgmt<span class="op">=</span>WPA<span class="op">-</span>PSK</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><img src="material/ch2/network_config.png" class="img-fluid"></p>
-<p><strong>4. Close the terminal:</strong> After modifying the Wi-Fi connection details, press <code>Ctrl + X</code> and then press <code>Y</code> followed by <code>Enter</code> to save the changes. After rebooting your Raspberry Pi, the changes should take effect.</p>
+<p>After updating the WiFi connection details, press <code>Ctrl + X</code>, then <code>Y</code>, followed by <code>Enter</code> to save the changes. Reboot your Raspberry Pi to implement the changes.</p>
 </section>
-<section id="step-3-turn-your-pi-into-a-file-server" class="level3">
-<h3 class="anchored" data-anchor-id="step-3-turn-your-pi-into-a-file-server">Step 3: Turn your Pi into a file server</h3>
-<p>This process enables the <strong>effortless sharing of files between a Raspberry Pi and other devices,</strong> such as laptops and PCs. Samba, an open-source secure network file sharing system, facilitates this transfer. By activating Samba, files can be easily transferred from or to a laptop within your network to a Raspberry Pi, via a direct Ethernet connection.</p>
-<p><strong>1. Install Samba:</strong> Type the following command in your terminal to install Samba.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install samba samba-common-bin <span class="at">-y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>2. Modify the Samba Config File:</strong> Share the folder of your Pi by modifying the Samba config file using the following command:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nano /etc/samba/smb.conf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>3. Edit the File</strong>: Jump to the end of the file by pressing <code>Ctrl + w</code> and <code>Ctrl + v</code> and type this:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="op">[</span>share<span class="op">]</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>path <span class="op">=</span> <span class="op">/</span>home<span class="op">/</span>pi</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>writeable<span class="op">=</span>Yes</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>create mast<span class="op">=</span>0777</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>directory mast<span class="op">=</span>0777</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>public<span class="op">=</span>no</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="transforming-your-pi-into-a-file-server" class="level2">
+<h2 class="anchored" data-anchor-id="transforming-your-pi-into-a-file-server">2.3.3. Transforming Your Pi into a File Server</h2>
+<p>This process allows <strong>easy sharing of files between a Raspberry Pi and other devices,</strong> such as laptops and PCs. <code>Samba</code>, an open-source secure network file-sharing system, enables this transfer. By setting up Samba, files can be conveniently transferred to and from a laptop within your network to a Raspberry Pi, via a direct Ethernet connection.</p>
+<section id="step-1.-install-samba" class="level3">
+<h3 class="anchored" data-anchor-id="step-1.-install-samba">Step 1. Install Samba</h3>
+<p>Enter the following command in your terminal to install Samba:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install samba samba-common-bin <span class="at">-y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="step-2.-modify-the-samba-config-file" class="level3">
+<h3 class="anchored" data-anchor-id="step-2.-modify-the-samba-config-file">Step 2. Modify the Samba Config File</h3>
+<p>To share the Pi’s folder, modify the Samba config file using the following command:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nano /etc/samba/smb.conf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Move to the end line by pressing <code>Alt + /</code> and add this:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="op">[</span>share<span class="op">]</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>path <span class="op">=</span> <span class="op">/</span>home<span class="op">/</span>pi</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>writeable<span class="op">=</span>Yes</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>create mast<span class="op">=</span>0777</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>directory mast<span class="op">=</span>0777</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>public<span class="op">=</span>no</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><img src="material/ch2/samba-setting.png" class="img-fluid"></p>
-<p>Save it by pressing <code>Ctrl + x</code> then <code>y</code> followed by <code>Enter</code>.</p>
-<p><strong>4. Set up a Samba User</strong>: Set up a user for our Samba share on your Pi by typing this command:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> smbpasswd <span class="at">-a</span> pi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Afterwards, enter the password twice as prompted by the command. My password is <code>raspberry</code>.</p>
-<p><strong>5. Restart Samba Services:</strong> Restart the Samba services to make the changes effective.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> service smbd restart</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> service nmbd restart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>6. Access the Pi directory:</strong> Open the File Explorer (press <code>Win + E</code>), add the address <code>raspberrypi/pi</code> and then, type the Pi’s name and password as the network credentials.</p>
-<p><video src="material/ch2/samba-access.mp4" class="img-fluid" controls=""><a href="material/ch2/samba-access.mp4">Video</a></video></p>
-<p><strong>7. Create and check the test file test file:</strong> Make a text file on directory of your Pi by typing the following command.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nano test.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>After typing anything (e.g., ‘gg’) in the file press <code>Ctrl + x</code> then <code>y</code> followed by <code>Enter</code>. Then, you can see the file in your laptop.</p>
+<p>Press <code>Ctrl + X</code>, then <code>Y</code>, followed by <code>Enter</code> to save the changes.</p>
+</section>
+<section id="step-3.-set-up-a-samba-user" class="level3">
+<h3 class="anchored" data-anchor-id="step-3.-set-up-a-samba-user">Step 3. Set Up a Samba User</h3>
+<p>Set up a user for your Samba share on your Pi using this command:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> smbpasswd <span class="at">-a</span> pi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Then, enter the password twice as prompted by the command. In this case, the password is <code>raspberry</code>.</p>
+</section>
+<section id="step-4.-restart-samba-services" class="level3">
+<h3 class="anchored" data-anchor-id="step-4.-restart-samba-services">Step 4. Restart Samba Services</h3>
+<p>Restart the Samba services to apply the changes by typing this:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> service smbd restart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> service nmbd restart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="step-5.-access-the-pi-directory" class="level3">
+<h3 class="anchored" data-anchor-id="step-5.-access-the-pi-directory">Step 5. Access the Pi Directory</h3>
+<p>Open the File Explorer (press <code>Win + E</code>), type in the address <code>raspberrypi/pi</code>, then enter the Pi’s name and password as network credentials.</p>
+<p><video src="material/ch2/samba_access.mp4" class="img-fluid" controls=""><a href="material/ch2/samba_access.mp4">Video</a></video></p>
+</section>
+<section id="step-6.-create-and-verify-the-test-file" class="level3">
+<h3 class="anchored" data-anchor-id="step-6.-create-and-verify-the-test-file">Step 6. Create and Verify the Test File</h3>
+<p>Create a text file in your Pi’s directory using the following command.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nano test.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>After typing anything (e.g., ‘gg’) in the file, press <code>Ctrl + x</code>, then <code>y</code>, followed by <code>Enter</code>. You should then be able to see the file on your laptop.</p>
 <p><video src="material/ch2/samba_check.mp4" class="img-fluid" controls=""><a href="material/ch2/samba_check.mp4">Video</a></video></p>
 </section>
-<section id="step-4-configure-cloud-storage-access-on-your-pi" class="level3">
-<h3 class="anchored" data-anchor-id="step-4-configure-cloud-storage-access-on-your-pi">Step 4: Configure Cloud Storage Access on Your Pi</h3>
-<p>This step will guide you on how to equip your Raspberry Pi to send data to your cloud storage. This functionality can prove beneficial in scenarios where you need to verify the files transmitted by your Pi during its setup process.</p>
-<p>For instance, when installing a sensor, determining the remaining storage on the sensor’s SD card can be a challenge. To address this, you can create a file that includes details about the available storage space and configure your Pi to transmit this file to your cloud storage upon booting. This way, you can inspect this file on your mobile device during the installation phase.</p>
-<p><strong>1. Create a Dropbox App:</strong> We’ll utilize Dropbox as our cloud storage service provider. Create your app on <a href="https://www.dropbox.com/developers/">Dropbox developers</a> .</p>
-<p><img src="material/ch2/dropbox_create1.png" class="img-fluid"></p>
-<p><img src="material/ch2/dropbox_create2.png" class="img-fluid"></p>
-<p><strong>2. Change the Permission:</strong> Alter the setting to allow your app to view and manage files and folders. I’ve selected all options in the permission settings.</p>
+</section>
+<section id="setting-up-cloud-storage-access-on-your-pi" class="level2">
+<h2 class="anchored" data-anchor-id="setting-up-cloud-storage-access-on-your-pi">2.3.4. Setting Up Cloud Storage Access on Your Pi</h2>
+<p>This step involves <strong>configuring your Raspberry Pi to send status data to your cloud storage</strong>. It’s essential to ensure that your Pi is properly set up before or during its installation. Typically, you might consider connecting a monitor, mouse, and keyboard to your Pi to check its status, but that’s not always practical or convenient.</p>
+<p>Instead, we recommend setting up your Pi to relay status updates - such as available storage space - to your chosen cloud storage. Once your Pi starts sending these updates, you can easily monitor its status by accessing and reviewing these files in the cloud storage. This method allows you to remotely track the setup progress and address any potential issues promptly.</p>
+<section id="step-1.-create-a-dropbox-app" class="level3">
+<h3 class="anchored" data-anchor-id="step-1.-create-a-dropbox-app">Step 1. Create a Dropbox App</h3>
+<p>In this guide, we will be utilizing Dropbox as our cloud storage service. You need to first set up an app on Dropbox to interface with the service. Follow the steps below:</p>
+<ol type="1">
+<li>Navigate to the <a href="https://www.dropbox.com/developers/">Dropbox developer page</a>.</li>
+<li>Sign in or create an account if you haven’t done so already.</li>
+<li>Once you’re logged in, proceed to create a new application.</li>
+</ol>
+<p><img src="material/ch2/dropbox_create.png" class="img-fluid"> ### Step 2. Modify the Permission</p>
+<p>Configure your application to permit the viewing and management of files and folders. In this instance, we’ve selected all the available options in the permission settings.</p>
 <p><img src="material/ch2/dropbox_permission.png" class="img-fluid"></p>
-<p><strong>3. Install Necessary Packages:</strong> Ensure that the <code>curl</code> and <code>git</code> packages are installed by typing the following command:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install curl git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>4. Install the Dropbox Uploader:</strong> Clone the <a href="https://github.com/andreafabrizi/Dropbox-Uploader/">Dropbox Uploader</a> script on your Pi by typing the following command.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/andreafabrizi/Dropbox-Uploader.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>5. Execute the Uploader Script:</strong> Navigate to the newly cloned folder and grant the script executable permission by typing the following command.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> Dropbox-Uploader</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre class="command"><code>sudo chmod +x dropbox_uploader.sh</code></pre>
+</section>
+<section id="step-3.-install-the-necessary-packages" class="level3">
+<h3 class="anchored" data-anchor-id="step-3.-install-the-necessary-packages">Step 3. Install the Necessary Packages</h3>
+<p>Make sure that curl and git packages are installed on your Pi. You can do this by entering the following command:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install curl git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="step-4.-install-the-dropbox-uploader" class="level3">
+<h3 class="anchored" data-anchor-id="step-4.-install-the-dropbox-uploader">Step 4. Install the Dropbox Uploader</h3>
+<p>Download the <a href="https://github.com/andreafabrizi/Dropbox-Uploader/">Dropbox Uploader script</a> onto your Pi using this command:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/andreafabrizi/Dropbox-Uploader.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="step-5.-assign-execution-permission" class="level3">
+<h3 class="anchored" data-anchor-id="step-5.-assign-execution-permission">Step 5. Assign Execution Permission</h3>
+<p>Move into the cloned directory and bestow the executable permission to the script by using these commands:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> Dropbox-Uploader</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> chmod +x dropbox_uploader.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="step-6.-validate-app-permissions-on-your-pi" class="level3">
+<h3 class="anchored" data-anchor-id="step-6.-validate-app-permissions-on-your-pi">Step 6. Validate App Permissions on Your Pi</h3>
+<p>Begin the Dropbox Uploader configuration with the following command:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./dropbox_uploader.sh</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Enter your app key and app secret in the terminal:</p>
+<p><img src="material/ch2/dropbox_register1.png" class="img-fluid"></p>
+<p>Copy and paste the given URL into a web browser, then click ‘Continue’ and ‘Allow’ to authorize the permissions.</p>
+<p><img src="material/ch2/dropbox_register2.png" class="img-fluid"></p>
+<p>Copy and paste the generated access code to the terminal.</p>
+<p><img src="material/ch2/dropbox_register3.png" class="img-fluid"></p>
+</section>
+<section id="step-7.-verify-cloud-storage-access" class="level3">
+<h3 class="anchored" data-anchor-id="step-7.-verify-cloud-storage-access">Step 7. Verify Cloud Storage Access</h3>
+<p>Employ the upload function to transmit a ‘README.md’ file by executing this command:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./dropbox_uploader.sh</span> upload README.md /</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You should be able to view the file that was sent by executing the command.</p>
+<p><video src="material/ch2/test_dropbox_upload.mp4" class="img-fluid" controls=""><a href="material/ch2/test_dropbox_upload.mp4">Video</a></video></p>
+</section>
+</section>
+<section id="software-setup" class="level2">
+<h2 class="anchored" data-anchor-id="software-setup">2.3.5. Software Setup</h2>
+<section id="execute-the-requirement.sh-script" class="level4">
+<h4 class="anchored" data-anchor-id="execute-the-requirement.sh-script">2.3.5.1. Execute the Requirement.sh Script</h4>
+<p>Download the files <a href="material/ch2/files.zip">here</a> and move them in to the Pi.</p>
+<p><img src="material/ch2/move_file_to_pi.png" class="img-fluid"></p>
+</section>
+<section id="step-2.-running-the-requirement-file" class="level3">
+<h3 class="anchored" data-anchor-id="step-2.-running-the-requirement-file">Step 2. Running the requirement file</h3>
+<p>Run the <code>requirement.sh</code> file by typing this command:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./requirement.sh</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This file is setup for installation:</p>
+<ul>
+<li>Update system packages.</li>
+<li>Install Python3, Pip3, libpcap, and Git.</li>
+<li>Install Python packages: pcapy and dpkt.</li>
+<li>Install Bluetooth library.</li>
+<li>Check for Bluelog directory, clone and install Bluelog if not present.</li>
+</ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -511,39 +574,30 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>You can learn basic Linux commands on sites like <a href="https://www.hostinger.com/tutorials/linux-commands">this</a> .</p>
+<p>Dos2Unix is a package that includes dos2unix and unix2dos commands that allows to convert line endings in a text file from DOS/Windows to Unix/Linux and vice versa.</p>
 </div>
 </div>
-<p><strong>6. Link Your Account to the Uploader:</strong> Copy and paste your App Key and App Secret into the terminal.</p>
-<p><img src="material/ch2/dropbox_register1.png" class="img-fluid"></p>
-<p><strong>7. Grant Your App Permissions on the Pi:</strong> Copy and paste the URL into the web browser. Click ‘Continue’ to grant the permissions.</p>
-<p><img src="material/ch2/dropbox_register2.png" class="img-fluid"></p>
-<p><strong>8. Test the Dropbox Uploader App:</strong> Use the <code>upload</code> function to send a ‘README.md’ file to your Dropbox cloud storage. Before executing the following command, the file was empty, but after the command, the file was sent.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./dropbox_uploader.sh</span> upload README.md /</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><video src="material/ch2/dropbox_check.mp4" class="img-fluid" controls=""><a href="material/ch2/dropbox_check.mp4">Video</a></video></p>
 </section>
 </section>
-<section id="test-your-pi" class="level2">
-<h2 class="anchored" data-anchor-id="test-your-pi">2.3.3. Test your Pi</h2>
-<section id="step-1-test-wifi-adapter" class="level3">
-<h3 class="anchored" data-anchor-id="step-1-test-wifi-adapter">Step 1: Test WiFi adapter</h3>
-<p>This can be used to test a monitor mode on the WiFi adapter, allowing collecting WiFi packets.</p>
-<p><strong>1. Install aircrack pcakage:</strong> Download the package by typing this commend:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install <span class="at">-y</span> aircrack-ng</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>2. Check the status of wireless interface:</strong> Get the list of wireless interface in your Pi by typing this commend:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">airmon-ng</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Before inserting the WiFi adaopter, only internal wireless interface on your Pi is found.</p>
-<p><img src="material/ch2/aircrack-before.png" class="img-fluid"></p>
-<p>With your WiFi adatoper, addtional wireelss interface you can see that.</p>
-<p><img src="material/ch2/aircrack-connected.jpg" class="img-fluid"></p>
-<p><img src="material/ch2/aircrack-after.png" class="img-fluid"></p>
-<p><strong>3. Change the monitor mode:</strong> Change the adapter mode to monitor mode by following this command:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">airmon-ng</span> start wlan1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>4. Excuete monitor mode:</strong> Collect the WiFi packets by following this command:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">airodump-ng</span> wlan1mon</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><video src="material/ch2/aircrack-test.mp4" class="img-fluid" controls=""><a href="material/ch2/aircrack-test.mp4">Video</a></video></p>
+<section id="operation-and-testing" class="level2">
+<h2 class="anchored" data-anchor-id="operation-and-testing">2.3.6. Operation and Testing</h2>
+<section id="step-1.-running-the-code" class="level3">
+<h3 class="anchored" data-anchor-id="step-1.-running-the-code">Step 1. Running the code</h3>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> start.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="set-the-code-to-run-at-boot" class="level4">
+<h4 class="anchored" data-anchor-id="set-the-code-to-run-at-boot">2.3.5.3. Set the Code to Run at Boot</h4>
+</section>
+</section>
+<section id="operation-and-testing-1" class="level3">
+<h3 class="anchored" data-anchor-id="operation-and-testing-1">2.3.6. Operation and Testing</h3>
+<section id="test-wifi-monitors-with-adapters" class="level4">
+<h4 class="anchored" data-anchor-id="test-wifi-monitors-with-adapters">2.3.6.1. Test WiFi Monitors with Adapters</h4>
+</section>
+<section id="open-the-generated-file" class="level4">
+<h4 class="anchored" data-anchor-id="open-the-generated-file">2.3.6.2. Open the Generated File</h4>
 
 
+</section>
 </section>
 </section>
 
