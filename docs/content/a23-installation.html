@@ -295,8 +295,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#software-setup" id="toc-software-setup" class="nav-link" data-scroll-target="#software-setup">2.3.5. Software Setup</a>
   <ul class="collapse">
   <li><a href="#step-1.-retrieve-required-scripts" id="toc-step-1.-retrieve-required-scripts" class="nav-link" data-scroll-target="#step-1.-retrieve-required-scripts">Step 1. Retrieve Required Scripts</a></li>
-  <li><a href="#step-2.-execute-the-scripts" id="toc-step-2.-execute-the-scripts" class="nav-link" data-scroll-target="#step-2.-execute-the-scripts">Step 2. Execute the Scripts</a></li>
-  <li><a href="#step-3.-testing" id="toc-step-3.-testing" class="nav-link" data-scroll-target="#step-3.-testing">Step 3. Testing</a></li>
+  <li><a href="#step-2.-install-necessary-packages" id="toc-step-2.-install-necessary-packages" class="nav-link" data-scroll-target="#step-2.-install-necessary-packages">Step 2. Install necessary packages</a></li>
+  <li><a href="#step-3.-configure-setting" id="toc-step-3.-configure-setting" class="nav-link" data-scroll-target="#step-3.-configure-setting">Step 3. Configure setting</a></li>
+  </ul></li>
+  <li><a href="#testing-the-sensing-service" id="toc-testing-the-sensing-service" class="nav-link" data-scroll-target="#testing-the-sensing-service">2.3.6. Testing the Sensing Service</a>
+  <ul class="collapse">
+  <li><a href="#step-1-prepare-the-environment" id="toc-step-1-prepare-the-environment" class="nav-link" data-scroll-target="#step-1-prepare-the-environment">Step 1: Prepare the Environment</a></li>
+  <li><a href="#step-2-execute-the-code" id="toc-step-2-execute-the-code" class="nav-link" data-scroll-target="#step-2-execute-the-code">Step 2: Execute the Code</a></li>
+  <li><a href="#step-3-verify-the-results" id="toc-step-3-verify-the-results" class="nav-link" data-scroll-target="#step-3-verify-the-results">Step 3: Verify the Results</a></li>
+  <li><a href="#step-4-verify-the-results-without-ethernet" id="toc-step-4-verify-the-results-without-ethernet" class="nav-link" data-scroll-target="#step-4-verify-the-results-without-ethernet">Step 4: Verify the results without ethernet</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -591,50 +598,96 @@ Note
 <div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./dropbox_uploader.sh</span> upload README.md /</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>You should be able to view the file that was sent by executing the command.</p>
 <p><video src="material/ch2/test_dropbox_upload.mp4" class="img-fluid" controls=""><a href="material/ch2/test_dropbox_upload.mp4">Video</a></video></p>
+<p>Go back to the home directory by executing the command:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /home/pi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="software-setup" class="level2">
 <h2 class="anchored" data-anchor-id="software-setup">2.3.5. Software Setup</h2>
 <section id="step-1.-retrieve-required-scripts" class="level3">
 <h3 class="anchored" data-anchor-id="step-1.-retrieve-required-scripts">Step 1. Retrieve Required Scripts</h3>
-<p>The <a href="https://github.com/jhyeonpark/urban-sensing-raspi">urban-sensing-raspi</a> GitHub repository hosts the scripts needed to set up the sensing service on a Raspberry Pi. Here’s a brief overview of the included files:</p>
+<p>To set up the sensing service on your Raspberry Pi, you’ll need to access the scripts located in the <a href="https://github.com/jhyeonpark/urban-sensing-raspi">urban-sensing-raspi</a> GitHub repository.</p>
+<p>Before you proceed, ensure that your current directory is <code>/home/pi</code>. If you’re in a different directory, use the following command to navigate to the correct location:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /home/pi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Next, download the repository by executing the following command:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/jhyeonpark/urban-sensing-raspi.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This repository contains several files, which are briefly explained below:</p>
+<pre><code>.
+├── install.sh
+├── configure.sh
+├── code
+│   ├── default
+│   │   └── start.py
+│   └── ... (additional directories/files as needed)
+└── README.md</code></pre>
 <ul>
-<li><p><code>install.sh</code>: This shell script automates the installation process for the Urban Sensing Service. It installs necessary system packages and Python libraries, sets up the Bluetooth logger, and handles other initial setup tasks.</p></li>
-<li><p><code>configure.sh</code>: This shell script handles the configuration of the Wi-Fi Sensing Service. It sets up udev rules to ensure consistent network interface naming and creates a systemd service to run the sensing service automatically at boot.</p></li>
-<li><p><code>start.py</code>: In the ‘code/default’, this Python script is the main program for the Sensing Service. As a default, it configures WiFi monitoring on three different channels, collects WiFi packet data, parses the data, and stores relevant information in a SQLite database. It also collects Bluetooth data, too.</p></li>
+<li><p><code>install.sh</code>: This script automates the installation of the Urban Sensing Service. It handles tasks such as installing necessary system packages and Python libraries, setting up the Bluetooth logger, and conducting other initial setup tasks.</p></li>
+<li><p><code>configure.sh</code>: This script manages the configuration of the Urban Sensing Service. It sets up udev rules for consistent network interface naming and creates a systemd service to run the sensing service automatically at boot.</p></li>
+<li><p><code>start.py</code>: Located in the ‘code/default’ directory, this Python script is the main program for the Urban Sensing Service. By default, it configures WiFi monitoring on three different channels, collects WiFi packet data, parses this data, and stores relevant information in a SQLite database. It also collects Bluetooth data.</p></li>
 </ul>
-<p>Once you have completed the tests and verified that everything is functioning as expected, navigate back to the home directory. This can be done by executing the following command:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /home/pi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>To download these files, you can clone the repository using the following command:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/jhyeonpark/urban-sensing-raspi.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="step-2.-execute-the-scripts" class="level3">
-<h3 class="anchored" data-anchor-id="step-2.-execute-the-scripts">Step 2. Execute the Scripts</h3>
-<p>After downloading the necessary scripts, you’ll need to run both the <code>install.sh</code> and <code>configure.sh</code> scripts to set up your urban sensing environment.</p>
-<p>Start by navigating to the directory that contains the scripts. If you aren’t already there, you can get there with the following command:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> urban-sensing-raspi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Next, run the <code>install.sh</code> script. This script installs all the necessary system packages and Python libraries, sets up the Bluetooth logger, and handles other initial setup tasks. Execute it with the following command:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> install.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Once the installation script completes, proceed with the <code>configure.sh</code> script. This script sets up udev rules for consistent network interface naming and creates a systemd service to run the sensing service automatically at boot. Run it with this command:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> configure.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Each script will provide progress messages in the terminal, allowing you to monitor the process and troubleshoot any issues that may arise. After successfully running both scripts, your Raspberry Pi is now ready to start sensing!</p>
-<section id="temporarily-stopping-the-sensing-service" class="level4">
-<h4 class="anchored" data-anchor-id="temporarily-stopping-the-sensing-service">Temporarily Stopping the Sensing Service</h4>
-<p>From now, your Raspberry Pi will run <code>start.py</code> at boot time to begin the sensing operations.</p>
-<p>If you wish to perform other tasks (like testing, moving files, etc.) without triggering the sensing script, you’ll need to stop the service temporarily by executing the following command in the terminal:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">systemctl</span> stop sensing.service</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<blockquote class="blockquote">
-<p><code>start.py</code> contains a <code>time.sleep</code> function, introducing a 30-second pause after startup to stabilize the system. If the sensing service is manually stopped within this window using <code>systemctl stop sensing.service</code>, the sensing operations and other processes in <code>start.py</code> won’t initiate.</p>
-</blockquote>
+<section id="step-2.-install-necessary-packages" class="level3">
+<h3 class="anchored" data-anchor-id="step-2.-install-necessary-packages">Step 2. Install necessary packages</h3>
+<p>Once you download the repository, move your working directory to the repository with the following command:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> urban-sensing-raspi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Next, run the <code>install.sh</code> script by executing this command:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> install.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="step-3.-configure-setting" class="level3">
+<h3 class="anchored" data-anchor-id="step-3.-configure-setting">Step 3. Configure setting</h3>
+<p>run the <code>configure.sh</code> script by executing this command:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> install.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Once the installation script completes, proceed with the <code>configure.sh</code> script. This script sets up udev rules for consistent network interface naming and creates a systemd service to run the sensing service automatically at boot.</p>
 <p>Remember to start the service again when you’re ready to resume sensing operations.</p>
 </section>
 </section>
-<section id="step-3.-testing" class="level3">
-<h3 class="anchored" data-anchor-id="step-3.-testing">Step 3. Testing</h3>
-<p>Navigate back to the home by executing the following command:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /home/pi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>When you run start.py and press <code>ctrl+C</code> to stop the code after 1 minute. You could check these:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> urban-sensing-raspi/code/default/start.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="testing-the-sensing-service" class="level2">
+<h2 class="anchored" data-anchor-id="testing-the-sensing-service">2.3.6. Testing the Sensing Service</h2>
+<section id="step-1-prepare-the-environment" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-prepare-the-environment">Step 1: Prepare the Environment</h3>
+<p>Prior to initiating the testing process, ensure to restart your Raspberry Pi:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> reboot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>After restarting your Pi, stop the Urban Sensing Service that automatically starts up due to <code>configure.sh</code>:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="ex">systemctl</span> stop sensing.service</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><video src="material/ch2/prepare_envir.mp4" class="img-fluid" controls=""><a href="material/ch2/prepare_envir.mp4">Video</a></video></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <code>start.py</code> script contains a <code>time.sleep</code> function, which introduces a 30-second delay after the system’s initialization to ensure stability. If the sensing service is manually interrupted within this window using <code>systemctl stop sensing.service</code>, the sensing operations and other processes encapsulated in <code>start.py</code> won’t be initiated.</p>
+</div>
+</div>
+</section>
+<section id="step-2-execute-the-code" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-execute-the-code">Step 2: Execute the Code</h3>
+<p>Plug WiFi adapters on your Pi.</p>
+<p><img src="material/ch2/pi_plugged.jpg" class="img-fluid"></p>
+<p>Run the Urban Sensing code using the following command:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> urban-sensing-raspi/code/default/start.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>2 minutes later, use the <code>Ctrl+C</code> to stop the code.</p>
+</section>
+<section id="step-3-verify-the-results" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-verify-the-results">Step 3: Verify the Results</h3>
+<p>To stop the code, use the <code>ctrl+C</code> command.</p>
+<p>Afterward, verify the following: 1. Inspect the ‘stats’ folder: - Has a file been generated? - Are the files named correctly, incorporating the date and time when you executed the script? - Were the files from the ‘stats’ folder successfully transferred to your Dropbox Storage?</p>
+<p><video src="material/ch2/verify_result_1.mp4" class="img-fluid" controls=""><a href="material/ch2/verify_result_1.mp4">Video</a></video></p>
+<ol start="3" type="1">
+<li>Look through the ‘data’ folder:</li>
+</ol>
+<ul>
+<li>Was the Blueglog file generated?</li>
+<li>Was the WiFi packet file created? Open the sqlite file by <a href="https://sqlitebrowser.org/">DB Browser for SQLite</a></li>
+</ul>
+<p><video src="material/ch2/verify_result_2.mp4" class="img-fluid" controls=""><a href="material/ch2/verify_result_2.mp4">Video</a></video></p>
+</section>
+<section id="step-4-verify-the-results-without-ethernet" class="level3">
+<h3 class="anchored" data-anchor-id="step-4-verify-the-results-without-ethernet">Step 4: Verify the results without ethernet</h3>
 
 
 </section>
