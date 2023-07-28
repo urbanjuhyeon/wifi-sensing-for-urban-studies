@@ -322,93 +322,139 @@ Employ the upload function to transmit a 'README.md' file by executing this comm
 
 You should be able to view the file that was sent by executing the command.
 
-![](material/ch2/test_dropbox_upload.mp4) 
+![](material/ch2/test_dropbox_upload.mp4)
+
+Go back to the home directory by executing the command:
+
+```bash
+cd /home/pi
+```
 
 ## 2.3.5. Software Setup
 
 ### Step 1. Retrieve Required Scripts
 
-The [urban-sensing-raspi](https://github.com/jhyeonpark/urban-sensing-raspi) GitHub repository hosts the scripts needed to set up the sensing service on a Raspberry Pi. Here's a brief overview of the included files: 
+To set up the sensing service on your Raspberry Pi, you'll need to access the scripts located in the [urban-sensing-raspi](https://github.com/jhyeonpark/urban-sensing-raspi) GitHub repository.
 
-- `install.sh`: This shell script automates the installation process for the Urban Sensing Service. It installs necessary system packages and Python libraries, sets up the Bluetooth logger, and handles other initial setup tasks. 
-
-- `configure.sh`: This shell script handles the configuration of the Wi-Fi Sensing Service. It sets up udev rules to ensure consistent network interface naming and creates a systemd service to run the sensing service automatically at boot. 
-
-- `start.py`: In the 'code/default', this Python script is the main program for the Sensing Service. As a default, it configures WiFi monitoring on three different channels, collects WiFi packet data, parses the data, and stores relevant information in a SQLite database. It also collects Bluetooth data, too.
-
-Once you have completed the tests and verified that everything is functioning as expected, navigate back to the home directory. This can be done by executing the following command:
+Before you proceed, ensure that your current directory is `/home/pi`. If you're in a different directory, use the following command to navigate to the correct location:
 
 ```bash
 cd /home/pi
 ```
 
-To download these files, you can clone the repository using the following command:
+Next, download the repository by executing the following command:
 
 ```bash
 git clone https://github.com/jhyeonpark/urban-sensing-raspi.git
 ```
-### Step 2. Execute the Scripts
 
-After downloading the necessary scripts, you'll need to run both the `install.sh` and `configure.sh` scripts to set up your urban sensing environment.
+This repository contains several files, which are briefly explained below:
 
-Start by navigating to the directory that contains the scripts. If you aren't already there, you can get there with the following command:
+```
+.
+├── install.sh
+├── configure.sh
+├── code
+│   ├── default
+│   │   └── start.py
+│   └── ... (additional directories/files as needed)
+└── README.md
+```
+
+- `install.sh`: This script automates the installation of the Urban Sensing Service. It handles tasks such as installing necessary system packages and Python libraries, setting up the Bluetooth logger, and conducting other initial setup tasks. 
+
+- `configure.sh`: This script manages the configuration of the Urban Sensing Service. It sets up udev rules for consistent network interface naming and creates a systemd service to run the sensing service automatically at boot. 
+
+- `start.py`: Located in the 'code/default' directory, this Python script is the main program for the Urban Sensing Service. By default, it configures WiFi monitoring on three different channels, collects WiFi packet data, parses this data, and stores relevant information in a SQLite database. It also collects Bluetooth data.
+
+### Step 2. Install necessary packages
+
+Once you download the repository, move your working directory to the repository with the following command:
 
 ```bash
 cd urban-sensing-raspi
 ```
 
-Next, run the `install.sh` script. This script installs all the necessary system packages and Python libraries, sets up the Bluetooth logger, and handles other initial setup tasks. Execute it with the following command:
+Next, run the `install.sh` script by executing this command:
 
 ```bash
 bash install.sh
 ```
 
-Once the installation script completes, proceed with the `configure.sh` script. This script sets up udev rules for consistent network interface naming and creates a systemd service to run the sensing service automatically at boot. Run it with this command:
+### Step 3. Configure setting
+
+run the `configure.sh` script by executing this command:
 
 ```bash
-bash configure.sh
+bash install.sh
 ```
 
-Each script will provide progress messages in the terminal, allowing you to monitor the process and troubleshoot any issues that may arise. After successfully running both scripts, your Raspberry Pi is now ready to start sensing!
+Once the installation script completes, proceed with the `configure.sh` script. This script sets up udev rules for consistent network interface naming and creates a systemd service to run the sensing service automatically at boot.
 
-#### Temporarily Stopping the Sensing Service
+Remember to start the service again when you're ready to resume sensing operations.
 
-From now, your Raspberry Pi will run `start.py` at boot time to begin the sensing operations.
+## 2.3.6. Testing the Sensing Service
 
-If you wish to perform other tasks (like testing, moving files, etc.) without triggering the sensing script, you'll need to stop the service temporarily by executing the following command in the terminal:
+### Step 1: Prepare the Environment
+
+Prior to initiating the testing process, ensure to restart your Raspberry Pi:
+
+```bash
+sudo reboot
+```
+
+After restarting your Pi, stop the Urban Sensing Service that automatically starts up due to `configure.sh`:
 
 ```bash
 systemctl stop sensing.service
 ```
 
-> `start.py` contains a `time.sleep` function, introducing a 30-second pause after startup to stabilize the system. If the sensing service is manually stopped within this window using `systemctl stop sensing.service`, the sensing operations and other processes in `start.py` won't initiate.
+![](material/ch2/prepare_envir.mp4)
 
-Remember to start the service again when you're ready to resume sensing operations.
 
-### Step 3. Testing 
+::: {.callout-note}
+The `start.py` script contains a `time.sleep` function, which introduces a 30-second delay after the system's initialization to ensure stability. If the sensing service is manually interrupted within this window using `systemctl stop sensing.service`, the sensing operations and other processes encapsulated in `start.py` won't be initiated.
+:::
 
-Navigate back to the home by executing the following command:
 
-```bash
-cd /home/pi
-```
+### Step 2: Execute the Code
 
-When you run start.py and press `ctrl+C` to stop the code after 1 minute. You could check these: 
+Plug WiFi adapters on your Pi.
+
+![](material/ch2/pi_plugged.jpg)
+
+Run the Urban Sensing code using the following command:
 
 ```bash
 python3 urban-sensing-raspi/code/default/start.py
 ```
 
+2 minutes later, use the `Ctrl+C` to stop the code.
+
+### Step 3: Verify the Results
+
+To stop the code, use the `ctrl+C` command.
+
+Afterward, verify the following: 
+1. Inspect the 'stats' folder:
+- Has a file been generated?
+- Are the files named correctly, incorporating the date and time when you executed the script? 
+- Were the files from the 'stats' folder successfully transferred to your Dropbox Storage?
+
+![](material/ch2/verify_result_1.mp4)
+
+3. Look through the 'data' folder:
+- Was the Blueglog file generated?
+- Was the WiFi packet file created? Open the sqlite file by [DB Browser for SQLite
+](https://sqlitebrowser.org/)
+
+![](material/ch2/verify_result_2.mp4)
+
+### Step 4: Verify the results without ethernet
 
 
-
-
-
-
-
-
-
-
-
-
-
+  
+  
+  
+  
+  
