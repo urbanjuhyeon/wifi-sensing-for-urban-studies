@@ -285,6 +285,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#setting-up-cloud-storage-access-on-your-pi" id="toc-setting-up-cloud-storage-access-on-your-pi" class="nav-link" data-scroll-target="#setting-up-cloud-storage-access-on-your-pi">2.3.4. Setting Up Cloud Storage Access on Your Pi</a>
   <ul class="collapse">
   <li><a href="#step-1.-create-a-dropbox-app" id="toc-step-1.-create-a-dropbox-app" class="nav-link" data-scroll-target="#step-1.-create-a-dropbox-app">Step 1. Create a Dropbox App</a></li>
+  <li><a href="#step-2.-modify-the-permission" id="toc-step-2.-modify-the-permission" class="nav-link" data-scroll-target="#step-2.-modify-the-permission">Step 2. Modify the Permission</a></li>
   <li><a href="#step-3.-install-the-necessary-packages" id="toc-step-3.-install-the-necessary-packages" class="nav-link" data-scroll-target="#step-3.-install-the-necessary-packages">Step 3. Install the Necessary Packages</a></li>
   <li><a href="#step-4.-install-the-dropbox-uploader" id="toc-step-4.-install-the-dropbox-uploader" class="nav-link" data-scroll-target="#step-4.-install-the-dropbox-uploader">Step 4. Install the Dropbox Uploader</a></li>
   <li><a href="#step-5.-assign-execution-permission" id="toc-step-5.-assign-execution-permission" class="nav-link" data-scroll-target="#step-5.-assign-execution-permission">Step 5. Assign Execution Permission</a></li>
@@ -293,12 +294,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#software-setup" id="toc-software-setup" class="nav-link" data-scroll-target="#software-setup">2.3.5. Software Setup</a>
   <ul class="collapse">
-  <li><a href="#step-2.-running-the-requirement-file" id="toc-step-2.-running-the-requirement-file" class="nav-link" data-scroll-target="#step-2.-running-the-requirement-file">Step 2. Running the requirement file</a></li>
-  </ul></li>
-  <li><a href="#operation-and-testing" id="toc-operation-and-testing" class="nav-link" data-scroll-target="#operation-and-testing">2.3.6. Operation and Testing</a>
-  <ul class="collapse">
-  <li><a href="#step-1.-running-the-code" id="toc-step-1.-running-the-code" class="nav-link" data-scroll-target="#step-1.-running-the-code">Step 1. Running the code</a></li>
-  <li><a href="#operation-and-testing-1" id="toc-operation-and-testing-1" class="nav-link" data-scroll-target="#operation-and-testing-1">2.3.6. Operation and Testing</a></li>
+  <li><a href="#step-1.-retrieve-required-scripts" id="toc-step-1.-retrieve-required-scripts" class="nav-link" data-scroll-target="#step-1.-retrieve-required-scripts">Step 1. Retrieve Required Scripts</a></li>
+  <li><a href="#step-2.-execute-the-scripts" id="toc-step-2.-execute-the-scripts" class="nav-link" data-scroll-target="#step-2.-execute-the-scripts">Step 2. Execute the Scripts</a></li>
+  <li><a href="#step-3.-testing" id="toc-step-3.-testing" class="nav-link" data-scroll-target="#step-3.-testing">Step 3. Testing</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -361,7 +359,7 @@ Note
 <section id="step-5-enable-internet-connection-sharing" class="level3">
 <h3 class="anchored" data-anchor-id="step-5-enable-internet-connection-sharing">Step 5: Enable Internet Connection Sharing</h3>
 <p>Navigate to your laptop’s network settings and enable the <code>Internet Connection Sharing</code> option. This will allow your laptop to share its internet connection with the Raspberry Pi via the Ethernet cable, provided it’s connected to the internet.</p>
-<p><video src="material/ch2/share-network.mp4" class="img-fluid" controls=""><a href="material/ch2/share-network.mp4">Video</a></video></p>
+<p><video src="material/ch2/share_network.mp4" class="img-fluid" controls=""><a href="material/ch2/share_network.mp4">Video</a></video></p>
 </section>
 <section id="step-6-access-your-raspberry-pi-via-ssh" class="level3">
 <h3 class="anchored" data-anchor-id="step-6-access-your-raspberry-pi-via-ssh">Step 6: Access Your Raspberry Pi via SSH</h3>
@@ -369,13 +367,42 @@ Note
 <p><img src="material/ch2/cmd_screen.png" class="img-fluid"></p>
 <p>To establish an SSH connection with your Raspberry Pi, enter the following command:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> pi@raspberrypi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>By default, the password is ‘raspberry’. Enter this default password when prompted.</p>
-<p><video src="material/ch2/access_cmd.mp4" class="img-fluid" controls=""><a href="material/ch2/access_cmd.mp4">Video</a></video></p>
+<section id="locating-your-raspberry-pis-ip-address-using-mac-address" class="level4">
+<h4 class="anchored" data-anchor-id="locating-your-raspberry-pis-ip-address-using-mac-address">Locating Your Raspberry Pi’s IP Address using MAC Address</h4>
+<p>You can determine your Raspberry Pi’s IP address using its MAC address. Here’s how to do it:</p>
+<p><strong>1. Open Command Prompt:</strong> Press the <code>Windows</code> key on your keyboard, type <code>cmd</code> and hit <code>Enter</code>.</p>
+<p><strong>2. Execute the <code>arp -a</code> command:</strong> This command displays the IP and MAC addresses of devices on your network.</p>
+<p><strong>3. Identify your Raspberry Pi:</strong> Raspberry Pi devices have MAC addresses that start with <code>B8:27:EB:xx:xx:xx</code> or <code>DC:A6:32:xx:xx:xx</code>. Find the device in the list with a physical address that starts with these characters - that’s your Raspberry Pi’s IP address.</p>
+<blockquote class="blockquote">
+<p><strong>Note:</strong> These are the MAC address prefixes specific to Raspberry Pi Foundation devices. Your device’s MAC address may start with a different prefix.</p>
+</blockquote>
+<p><video src="material/ch2/access_with_mac.mp4" class="img-fluid" controls=""><a href="material/ch2/access_with_mac.mp4">Video</a></video></p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+‘WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!’
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>This warning message means that the remote system you are trying to connect to has a different identification from what your system was expecting. This often happens when the system has been re-installed or the SSH key on the server has changed.</p>
+<p><img src="material/ch2/ssh_error.png" class="img-fluid"></p>
+<p>You can fix the error by editing your <code>~/.ssh/known_hosts</code> file and removing the old key for the Raspberry Pi. Here’s how to remove the old key:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-R</span> raspberrypi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Once done, try to re-establish the SSH connection.</p>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="step-7-verify-your-pis-internet-connectivity" class="level3">
 <h3 class="anchored" data-anchor-id="step-7-verify-your-pis-internet-connectivity">Step 7: Verify Your Pi’s Internet Connectivity</h3>
 <p>To confirm your Raspberry Pi’s internet connection, use the ping command followed by the IP address of a well-known site. For example, ping Google’s Public DNS Server by typing this command:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ping</span> 8.8.8.8</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ping</span> 8.8.8.8</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>If the Pi is connected to the internet, you will see lines starting with ‘64 bytes from 8.8.8.8’ and a summary of the ping at the end.</p>
 <p><video src="material/ch2/cmd_ping.mp4" class="img-fluid" controls=""><a href="material/ch2/cmd_ping.mp4">Video</a></video></p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -405,7 +432,25 @@ Note
 <section id="step-1.-update-your-raspberry-pi-os" class="level4">
 <h4 class="anchored" data-anchor-id="step-1.-update-your-raspberry-pi-os">Step 1. Update Your Raspberry Pi OS</h4>
 <p>Start by updating your Raspberry Pi’s operating system (OS) to its latest version. Open a terminal window and enter the following commands:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get update <span class="at">-y</span> <span class="kw">&amp;&amp;</span> <span class="fu">sudo</span> apt-get upgrade <span class="at">-y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get update <span class="at">-y</span> <span class="kw">&amp;&amp;</span> <span class="fu">sudo</span> apt-get upgrade <span class="at">-y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+How to copy/paste in Linux terminal
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For copy, you could click this icon to copy the command:</p>
+<p><img src="ex_copy.png" class="img-fluid"></p>
+<p>For paste, there are various ways; please visit <a href="https://www.maketecheasier.com/enable-copy-paste-command-prompt-windows10/">this</a> when Ctrl+V doesn’t work in the terminal.</p>
+</div>
+</div>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -422,7 +467,7 @@ Note
 <p>The given command should be placed like this:</p>
 <p><img src="material/ch2/update_ex.png" class="img-fluid"></p>
 <p>After the updates are complete, restart your Raspberry Pi using this command:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> reboot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> reboot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="step-2.-set-up-your-mobiles-hotspot" class="level3">
 <h3 class="anchored" data-anchor-id="step-2.-set-up-your-mobiles-hotspot">Step 2. Set Up Your Mobile’s Hotspot</h3>
@@ -432,16 +477,16 @@ Note
 <section id="step-3.-edit-the-pis-network-configuration" class="level3">
 <h3 class="anchored" data-anchor-id="step-3.-edit-the-pis-network-configuration">Step 3. Edit the Pi’s Network Configuration</h3>
 <p>Access the network configuration information by entering this command:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nano /etc/wpa_supplicant/wpa_supplicant.conf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nano /etc/wpa_supplicant/wpa_supplicant.conf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="step-4.-add-your-hotspot-information" class="level4">
 <h4 class="anchored" data-anchor-id="step-4.-add-your-hotspot-information">Step 4. Add Your Hotspot Information</h4>
 <p>Add the following details (in this case, <em>juhyeon9087</em> is used for both SSID and password of my mobile phone hotspot).</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>country<span class="op">=</span>GB</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>network<span class="op">={</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  ssid<span class="op">=</span><span class="st">"juhyeon9087"</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  psk<span class="op">=</span><span class="st">"juhyeon9087"</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  key_mgmt<span class="op">=</span>WPA<span class="op">-</span>PSK</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>country<span class="op">=</span>GB</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>network<span class="op">={</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  ssid<span class="op">=</span><span class="st">"juhyeon9087"</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  psk<span class="op">=</span><span class="st">"juhyeon9087"</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  key_mgmt<span class="op">=</span>WPA<span class="op">-</span>PSK</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><img src="material/ch2/network_config.png" class="img-fluid"></p>
 <p>After updating the WiFi connection details, press <code>Ctrl + X</code>, then <code>Y</code>, followed by <code>Enter</code> to save the changes. Reboot your Raspberry Pi to implement the changes.</p>
 </section>
@@ -453,33 +498,33 @@ Note
 <section id="step-1.-install-samba" class="level3">
 <h3 class="anchored" data-anchor-id="step-1.-install-samba">Step 1. Install Samba</h3>
 <p>Enter the following command in your terminal to install Samba:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install samba samba-common-bin <span class="at">-y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install samba samba-common-bin <span class="at">-y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="step-2.-modify-the-samba-config-file" class="level3">
 <h3 class="anchored" data-anchor-id="step-2.-modify-the-samba-config-file">Step 2. Modify the Samba Config File</h3>
 <p>To share the Pi’s folder, modify the Samba config file using the following command:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nano /etc/samba/smb.conf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nano /etc/samba/smb.conf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Move to the end line by pressing <code>Alt + /</code> and add this:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="op">[</span>share<span class="op">]</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>path <span class="op">=</span> <span class="op">/</span>home<span class="op">/</span>pi</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>writeable<span class="op">=</span>Yes</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>create mast<span class="op">=</span>0777</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>directory mast<span class="op">=</span>0777</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>public<span class="op">=</span>no</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><img src="material/ch2/samba-setting.png" class="img-fluid"></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="op">[</span>share<span class="op">]</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>path <span class="op">=</span> <span class="op">/</span>home<span class="op">/</span>pi</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>writeable<span class="op">=</span>Yes</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>create mast<span class="op">=</span>0777</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>directory mast<span class="op">=</span>0777</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>public<span class="op">=</span>no</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="material/ch2/samba_setting.png" class="img-fluid"></p>
 <p>Press <code>Ctrl + X</code>, then <code>Y</code>, followed by <code>Enter</code> to save the changes.</p>
 </section>
 <section id="step-3.-set-up-a-samba-user" class="level3">
 <h3 class="anchored" data-anchor-id="step-3.-set-up-a-samba-user">Step 3. Set Up a Samba User</h3>
 <p>Set up a user for your Samba share on your Pi using this command:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> smbpasswd <span class="at">-a</span> pi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> smbpasswd <span class="at">-a</span> pi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Then, enter the password twice as prompted by the command. In this case, the password is <code>raspberry</code>.</p>
 </section>
 <section id="step-4.-restart-samba-services" class="level3">
 <h3 class="anchored" data-anchor-id="step-4.-restart-samba-services">Step 4. Restart Samba Services</h3>
 <p>Restart the Samba services to apply the changes by typing this:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> service smbd restart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> service nmbd restart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> service smbd restart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> service nmbd restart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="step-5.-access-the-pi-directory" class="level3">
 <h3 class="anchored" data-anchor-id="step-5.-access-the-pi-directory">Step 5. Access the Pi Directory</h3>
@@ -489,7 +534,7 @@ Note
 <section id="step-6.-create-and-verify-the-test-file" class="level3">
 <h3 class="anchored" data-anchor-id="step-6.-create-and-verify-the-test-file">Step 6. Create and Verify the Test File</h3>
 <p>Create a text file in your Pi’s directory using the following command.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nano test.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nano test.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>After typing anything (e.g., ‘gg’) in the file, press <code>Ctrl + x</code>, then <code>y</code>, followed by <code>Enter</code>. You should then be able to see the file on your laptop.</p>
 <p><video src="material/ch2/samba_check.mp4" class="img-fluid" controls=""><a href="material/ch2/samba_check.mp4">Video</a></video></p>
 </section>
@@ -506,30 +551,33 @@ Note
 <li>Sign in or create an account if you haven’t done so already.</li>
 <li>Once you’re logged in, proceed to create a new application.</li>
 </ol>
-<p><img src="material/ch2/dropbox_create.png" class="img-fluid"> ### Step 2. Modify the Permission</p>
-<p>Configure your application to permit the viewing and management of files and folders. In this instance, we’ve selected all the available options in the permission settings.</p>
+<p><img src="material/ch2/dropbox_create.png" class="img-fluid"></p>
+</section>
+<section id="step-2.-modify-the-permission" class="level3">
+<h3 class="anchored" data-anchor-id="step-2.-modify-the-permission">Step 2. Modify the Permission</h3>
+<p>Configure your application to permit the viewing and management of files and folders. In this instance, we’ve selected all the available options in the permission settings (for the <strong>indivisual scope</strong>).</p>
 <p><img src="material/ch2/dropbox_permission.png" class="img-fluid"></p>
 </section>
 <section id="step-3.-install-the-necessary-packages" class="level3">
 <h3 class="anchored" data-anchor-id="step-3.-install-the-necessary-packages">Step 3. Install the Necessary Packages</h3>
 <p>Make sure that curl and git packages are installed on your Pi. You can do this by entering the following command:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install curl git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install curl git <span class="at">-y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="step-4.-install-the-dropbox-uploader" class="level3">
 <h3 class="anchored" data-anchor-id="step-4.-install-the-dropbox-uploader">Step 4. Install the Dropbox Uploader</h3>
 <p>Download the <a href="https://github.com/andreafabrizi/Dropbox-Uploader/">Dropbox Uploader script</a> onto your Pi using this command:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/andreafabrizi/Dropbox-Uploader.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/andreafabrizi/Dropbox-Uploader.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="step-5.-assign-execution-permission" class="level3">
 <h3 class="anchored" data-anchor-id="step-5.-assign-execution-permission">Step 5. Assign Execution Permission</h3>
 <p>Move into the cloned directory and bestow the executable permission to the script by using these commands:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> Dropbox-Uploader</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> chmod +x dropbox_uploader.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> Dropbox-Uploader</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> chmod +x dropbox_uploader.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="step-6.-validate-app-permissions-on-your-pi" class="level3">
 <h3 class="anchored" data-anchor-id="step-6.-validate-app-permissions-on-your-pi">Step 6. Validate App Permissions on Your Pi</h3>
 <p>Begin the Dropbox Uploader configuration with the following command:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./dropbox_uploader.sh</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./dropbox_uploader.sh</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Enter your app key and app secret in the terminal:</p>
 <p><img src="material/ch2/dropbox_register1.png" class="img-fluid"></p>
 <p>Copy and paste the given URL into a web browser, then click ‘Continue’ and ‘Allow’ to authorize the permissions.</p>
@@ -540,64 +588,55 @@ Note
 <section id="step-7.-verify-cloud-storage-access" class="level3">
 <h3 class="anchored" data-anchor-id="step-7.-verify-cloud-storage-access">Step 7. Verify Cloud Storage Access</h3>
 <p>Employ the upload function to transmit a ‘README.md’ file by executing this command:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./dropbox_uploader.sh</span> upload README.md /</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./dropbox_uploader.sh</span> upload README.md /</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>You should be able to view the file that was sent by executing the command.</p>
 <p><video src="material/ch2/test_dropbox_upload.mp4" class="img-fluid" controls=""><a href="material/ch2/test_dropbox_upload.mp4">Video</a></video></p>
 </section>
 </section>
 <section id="software-setup" class="level2">
 <h2 class="anchored" data-anchor-id="software-setup">2.3.5. Software Setup</h2>
-<section id="execute-the-requirement.sh-script" class="level4">
-<h4 class="anchored" data-anchor-id="execute-the-requirement.sh-script">2.3.5.1. Execute the Requirement.sh Script</h4>
-<p>Download the files <a href="material/ch2/files.zip">here</a> and move them in to the Pi.</p>
-<p><img src="material/ch2/move_file_to_pi.png" class="img-fluid"></p>
-</section>
-<section id="step-2.-running-the-requirement-file" class="level3">
-<h3 class="anchored" data-anchor-id="step-2.-running-the-requirement-file">Step 2. Running the requirement file</h3>
-<p>Run the <code>requirement.sh</code> file by typing this command:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./requirement.sh</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This file is setup for installation:</p>
+<section id="step-1.-retrieve-required-scripts" class="level3">
+<h3 class="anchored" data-anchor-id="step-1.-retrieve-required-scripts">Step 1. Retrieve Required Scripts</h3>
+<p>The <a href="https://github.com/jhyeonpark/urban-sensing-raspi">urban-sensing-raspi</a> GitHub repository hosts the scripts needed to set up the sensing service on a Raspberry Pi. Here’s a brief overview of the included files:</p>
 <ul>
-<li>Update system packages.</li>
-<li>Install Python3, Pip3, libpcap, and Git.</li>
-<li>Install Python packages: pcapy and dpkt.</li>
-<li>Install Bluetooth library.</li>
-<li>Check for Bluelog directory, clone and install Bluelog if not present.</li>
+<li><p><code>install.sh</code>: This shell script automates the installation process for the Urban Sensing Service. It installs necessary system packages and Python libraries, sets up the Bluetooth logger, and handles other initial setup tasks.</p></li>
+<li><p><code>configure.sh</code>: This shell script handles the configuration of the Wi-Fi Sensing Service. It sets up udev rules to ensure consistent network interface naming and creates a systemd service to run the sensing service automatically at boot.</p></li>
+<li><p><code>start.py</code>: In the ‘code/default’, this Python script is the main program for the Sensing Service. As a default, it configures WiFi monitoring on three different channels, collects WiFi packet data, parses the data, and stores relevant information in a SQLite database. It also collects Bluetooth data, too.</p></li>
 </ul>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Dos2Unix is a package that includes dos2unix and unix2dos commands that allows to convert line endings in a text file from DOS/Windows to Unix/Linux and vice versa.</p>
-</div>
-</div>
+<p>Once you have completed the tests and verified that everything is functioning as expected, navigate back to the home directory. This can be done by executing the following command:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /home/pi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To download these files, you can clone the repository using the following command:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/jhyeonpark/urban-sensing-raspi.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="step-2.-execute-the-scripts" class="level3">
+<h3 class="anchored" data-anchor-id="step-2.-execute-the-scripts">Step 2. Execute the Scripts</h3>
+<p>After downloading the necessary scripts, you’ll need to run both the <code>install.sh</code> and <code>configure.sh</code> scripts to set up your urban sensing environment.</p>
+<p>Start by navigating to the directory that contains the scripts. If you aren’t already there, you can get there with the following command:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> urban-sensing-raspi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Next, run the <code>install.sh</code> script. This script installs all the necessary system packages and Python libraries, sets up the Bluetooth logger, and handles other initial setup tasks. Execute it with the following command:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> install.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Once the installation script completes, proceed with the <code>configure.sh</code> script. This script sets up udev rules for consistent network interface naming and creates a systemd service to run the sensing service automatically at boot. Run it with this command:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> configure.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Each script will provide progress messages in the terminal, allowing you to monitor the process and troubleshoot any issues that may arise. After successfully running both scripts, your Raspberry Pi is now ready to start sensing!</p>
+<section id="temporarily-stopping-the-sensing-service" class="level4">
+<h4 class="anchored" data-anchor-id="temporarily-stopping-the-sensing-service">Temporarily Stopping the Sensing Service</h4>
+<p>From now, your Raspberry Pi will run <code>start.py</code> at boot time to begin the sensing operations.</p>
+<p>If you wish to perform other tasks (like testing, moving files, etc.) without triggering the sensing script, you’ll need to stop the service temporarily by executing the following command in the terminal:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">systemctl</span> stop sensing.service</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<blockquote class="blockquote">
+<p><code>start.py</code> contains a <code>time.sleep</code> function, introducing a 30-second pause after startup to stabilize the system. If the sensing service is manually stopped within this window using <code>systemctl stop sensing.service</code>, the sensing operations and other processes in <code>start.py</code> won’t initiate.</p>
+</blockquote>
+<p>Remember to start the service again when you’re ready to resume sensing operations.</p>
 </section>
 </section>
-<section id="operation-and-testing" class="level2">
-<h2 class="anchored" data-anchor-id="operation-and-testing">2.3.6. Operation and Testing</h2>
-<section id="step-1.-running-the-code" class="level3">
-<h3 class="anchored" data-anchor-id="step-1.-running-the-code">Step 1. Running the code</h3>
-<div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> start.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="set-the-code-to-run-at-boot" class="level4">
-<h4 class="anchored" data-anchor-id="set-the-code-to-run-at-boot">2.3.5.3. Set the Code to Run at Boot</h4>
-</section>
-</section>
-<section id="operation-and-testing-1" class="level3">
-<h3 class="anchored" data-anchor-id="operation-and-testing-1">2.3.6. Operation and Testing</h3>
-<section id="test-wifi-monitors-with-adapters" class="level4">
-<h4 class="anchored" data-anchor-id="test-wifi-monitors-with-adapters">2.3.6.1. Test WiFi Monitors with Adapters</h4>
-</section>
-<section id="open-the-generated-file" class="level4">
-<h4 class="anchored" data-anchor-id="open-the-generated-file">2.3.6.2. Open the Generated File</h4>
+<section id="step-3.-testing" class="level3">
+<h3 class="anchored" data-anchor-id="step-3.-testing">Step 3. Testing</h3>
+<p>Navigate back to the home by executing the following command:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /home/pi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>When you run start.py and press <code>ctrl+C</code> to stop the code after 1 minute. You could check these:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> urban-sensing-raspi/code/default/start.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
-</section>
 </section>
 </section>
 
