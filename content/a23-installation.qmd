@@ -31,7 +31,7 @@ With the Pi-equipped SD card, connect your Pi to your laptop using an Ethernet c
 
 Navigate to your laptop's network settings and enable the `Internet Connection Sharing` option. This will allow your laptop to share its internet connection with the Raspberry Pi via the Ethernet cable, provided it's connected to the internet.
 
-![](material/ch2/share-network.mp4)
+![](material/ch2/share_network.mp4)
 
 ### Step 6: Access Your Raspberry Pi via SSH
 
@@ -45,9 +45,37 @@ To establish an SSH connection with your Raspberry Pi, enter the following comma
 ssh pi@raspberrypi
 ```
 
-By default, the password is 'raspberry'. Enter this default password when prompted.
+#### Locating Your Raspberry Pi's IP Address using MAC Address
 
-![](material/ch2/access_cmd.mp4) 
+You can determine your Raspberry Pi's IP address using its MAC address. Here's how to do it: 
+
+**1. Open Command Prompt:** Press the `Windows` key on your keyboard, type `cmd` and hit `Enter`. 
+
+**2. Execute the `arp -a` command:** This command displays the IP and MAC addresses of devices on your network. 
+
+**3. Identify your Raspberry Pi:** Raspberry Pi devices have MAC addresses that start with `B8:27:EB:xx:xx:xx` or `DC:A6:32:xx:xx:xx`. Find the device in the list with a physical address that starts with these characters - that's your Raspberry Pi's IP address.
+
+> **Note:**  These are the MAC address prefixes specific to Raspberry Pi Foundation devices. Your device's MAC address may start with a different prefix.
+
+  
+![](material/ch2/access_with_mac.mp4)
+
+::: {.callout-caution collapse="true"}
+## 'WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!'
+
+This warning message means that the remote system you are trying to connect to has a different identification from what your system was expecting. This often happens when the system has been re-installed or the SSH key on the server has changed.
+
+![](material/ch2/ssh_error.png)
+
+You can fix the error by editing your `~/.ssh/known_hosts` file and removing the old key for the Raspberry Pi. Here's how to remove the old key:
+
+```bash
+ssh-keygen -R raspberrypi
+```
+
+Once done, try to re-establish the SSH connection.
+:::
+
 
 ### Step 7: Verify Your Pi's Internet Connectivity
 
@@ -66,6 +94,11 @@ If you're using a **network with enhanced security**, such as a university netwo
 
 ![Example of a Webpage Used to Register a MAC Address at a University](material/ch2/network_unist.png){width=500}
 
+
+
+
+
+
 :::
 
 ## 2.3.2. Configuring Your Pi as a Wireless Sensor 
@@ -79,6 +112,17 @@ Start by updating your Raspberry Pi's operating system (OS) to its latest versio
 ```bash
 sudo apt-get update -y && sudo apt-get upgrade -y
 ```
+
+
+::: {.callout-caution collapse="true"}
+## How to copy/paste in Linux terminal
+
+For copy, you could click this icon to copy the command:
+
+![](ex_copy.png)
+
+For paste, there are various ways; please visit [this](https://www.maketecheasier.com/enable-copy-paste-command-prompt-windows10/) when Ctrl+V doesn't work in the terminal.
+:::
 
 ::: {.callout-note}
 In Linux systems, `sudo` stands for "superuser do", similar to "Run As Administrator" in Windows. The `-y` flag automatically confirms any prompts during the update process. The `apt-get update` command refreshes the list of available packages and their versions, while `apt-get upgrade` installs the latest versions. You can learn basic Linux commands on websites like [this](https://www.hostinger.com/tutorials/linux-commands).
@@ -155,7 +199,7 @@ directory mast=0777
 public=no
 ```
 
-![](material/ch2/samba-setting.png)
+![](material/ch2/samba_setting.png)
 
 Press `Ctrl + X`, then `Y`, followed by `Enter` to save the changes.
 
@@ -213,9 +257,10 @@ In this guide, we will be utilizing Dropbox as our cloud storage service. You ne
 3. Once you're logged in, proceed to create a new application.
 
 ![](material/ch2/dropbox_create.png) 
+
 ### Step 2. Modify the Permission
 
-Configure your application to permit the viewing and management of files and folders. In this instance, we've selected all the available options in the permission settings.
+Configure your application to permit the viewing and management of files and folders. In this instance, we've selected all the available options in the permission settings (for the **indivisual scope**).
 
 ![](material/ch2/dropbox_permission.png)
 
@@ -224,7 +269,7 @@ Configure your application to permit the viewing and management of files and fol
 Make sure that curl and git packages are installed on your Pi. You can do this by entering the following command:
 
 ```bash
-sudo apt install curl git
+sudo apt install curl git -y
 ```
 
 ### Step 4. Install the Dropbox Uploader
@@ -281,48 +326,89 @@ You should be able to view the file that was sent by executing the command.
 
 ## 2.3.5. Software Setup
 
-#### 2.3.5.1. Execute the Requirement.sh Script
+### Step 1. Retrieve Required Scripts
 
-Download the files [here](material/ch2/files.zip) and move them in to the Pi.
+The [urban-sensing-raspi](https://github.com/jhyeonpark/urban-sensing-raspi) GitHub repository hosts the scripts needed to set up the sensing service on a Raspberry Pi. Here's a brief overview of the included files: 
 
-![](material/ch2/move_file_to_pi.png)
+- `install.sh`: This shell script automates the installation process for the Urban Sensing Service. It installs necessary system packages and Python libraries, sets up the Bluetooth logger, and handles other initial setup tasks. 
 
-### Step 2. Running the requirement file
+- `configure.sh`: This shell script handles the configuration of the Wi-Fi Sensing Service. It sets up udev rules to ensure consistent network interface naming and creates a systemd service to run the sensing service automatically at boot. 
 
-Run the `requirement.sh` file by typing this command:
+- `start.py`: In the 'code/default', this Python script is the main program for the Sensing Service. As a default, it configures WiFi monitoring on three different channels, collects WiFi packet data, parses the data, and stores relevant information in a SQLite database. It also collects Bluetooth data, too.
 
-```bash
-./requirement.sh
-```
-
-This file is setup for installation:
-
-- Update system packages.
-- Install Python3, Pip3, libpcap, and Git.
-- Install Python packages: pcapy and dpkt.
-- Install Bluetooth library.
-- Check for Bluelog directory, clone and install Bluelog if not present.
-
-::: {.callout-note}
-
-Dos2Unix is a package that includes dos2unix and unix2dos commands that allows to convert line endings in a text file from DOS/Windows to Unix/Linux and vice versa.
-:::
-
-## 2.3.6. Operation and Testing
-
-### Step 1. Running the code
+Once you have completed the tests and verified that everything is functioning as expected, navigate back to the home directory. This can be done by executing the following command:
 
 ```bash
-python3 start.py
+cd /home/pi
 ```
 
-#### 2.3.5.3. Set the Code to Run at Boot
+To download these files, you can clone the repository using the following command:
+
+```bash
+git clone https://github.com/jhyeonpark/urban-sensing-raspi.git
+```
+### Step 2. Execute the Scripts
+
+After downloading the necessary scripts, you'll need to run both the `install.sh` and `configure.sh` scripts to set up your urban sensing environment.
+
+Start by navigating to the directory that contains the scripts. If you aren't already there, you can get there with the following command:
+
+```bash
+cd urban-sensing-raspi
+```
+
+Next, run the `install.sh` script. This script installs all the necessary system packages and Python libraries, sets up the Bluetooth logger, and handles other initial setup tasks. Execute it with the following command:
+
+```bash
+bash install.sh
+```
+
+Once the installation script completes, proceed with the `configure.sh` script. This script sets up udev rules for consistent network interface naming and creates a systemd service to run the sensing service automatically at boot. Run it with this command:
+
+```bash
+bash configure.sh
+```
+
+Each script will provide progress messages in the terminal, allowing you to monitor the process and troubleshoot any issues that may arise. After successfully running both scripts, your Raspberry Pi is now ready to start sensing!
+
+#### Temporarily Stopping the Sensing Service
+
+From now, your Raspberry Pi will run `start.py` at boot time to begin the sensing operations.
+
+If you wish to perform other tasks (like testing, moving files, etc.) without triggering the sensing script, you'll need to stop the service temporarily by executing the following command in the terminal:
+
+```bash
+systemctl stop sensing.service
+```
+
+> `start.py` contains a `time.sleep` function, introducing a 30-second pause after startup to stabilize the system. If the sensing service is manually stopped within this window using `systemctl stop sensing.service`, the sensing operations and other processes in `start.py` won't initiate.
+
+Remember to start the service again when you're ready to resume sensing operations.
+
+### Step 3. Testing 
+
+Navigate back to the home by executing the following command:
+
+```bash
+cd /home/pi
+```
+
+When you run start.py and press `ctrl+C` to stop the code after 1 minute. You could check these: 
+
+```bash
+python3 urban-sensing-raspi/code/default/start.py
+```
 
 
 
 
 
-### 2.3.6. Operation and Testing
 
-#### 2.3.6.1. Test WiFi Monitors with Adapters
-#### 2.3.6.2. Open the Generated File
+
+
+
+
+
+
+
+
