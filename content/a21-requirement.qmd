@@ -1,36 +1,45 @@
-# 2.1. Requirements {.unnumbered}
+# 2.1. Prerequisites {.unnumbered}
 
-## 2.1.1. Hardware Requirements {.unnumbered}
+Before beginning the process of setting up a WiFi sensor, it's essential to ensure you have the necessary hardware *(2.1.1.)*, software *(2.1.2.)*, and skills *(2.1.3.)*.
 
-This is the hardware setup illustrating the necessary components required for Wi-Fi sensing:
+## 2.1.1. Hardware Components {.unnumbered}
 
-![](material/ch2/sensor-comp.png)
+This is the hardware setup illustrating the necessary components required for WiFi sensing:
 
-To build up this WiFi sensor, you'll need the following hardware:
+![](material/ch2/sensor_comp.png)
 
-| Item                      | Function                                    | Requirement                                                                                                                                                                       |
-|------------------|------------------|-----------------------------------|
-| Laptop and LAN cable      | Accessing and controlling the sensor        |                                                                                                                                                                                   |
-| Raspberry Pi board        | Building the sensor                         | Pi 3B/3B+ or a higher model Pi                                                                                                                                                    |
-| WiFi adapter              | Capturing WiFi packets                      | Check chipset compatibility for 'monitoring mode' [(here)](https://unix.stackexchange.com/questions/614984/supported-chipset-for-monitor-mode-and-packet-injection-in-kali-linux) |
-| Micro SD card and adapter | Building and storing data                   | At least 16 GB size                                                                                                                                                               |
-| Ethernet cable            | Connecting the Pi to your laptop            |                                                                                                                                                                                   |
-| Portable power bank       | Powering the sensor in outdoor environments | Battery capacity: +20,000 mAh (lasts one day in our setting)                                                                                                                      |
-| Pi camera                 | Recording the scene in front of the sensor  |                                                                                                                                                                                   |
+The required hardware components for this WiFi sensor include:
 
-## 2.1.2. Software {.unnumbered}
+| Hardware                | Description                                  | Specific Recommendation                       |
+|-------------------------|----------------------------------------------|-----------------------------------------------|
+| Raspberry Pi board      | Core of our sensor                           | Pi 3B/3B+ or higher                           |
+| WiFi adapter            | Captures WiFi packets                        | Check chipset compatibility for 'monitoring mode' |
+| Micro SD card and adapter | For system building and data storage       | At least 16 GB                                |
+| Laptop and Ethernet cable | For accessing and controlling the sensor   | ---                                           |
+| Portable power bank     | Powers the sensor in outdoor environments    | Battery capacity: +20,000 mAh                 |
 
-This is a list of the main programs needed to build a Wi-Fi sensor and handle the sensor data. I will also provide the download link for each step later.
+Besides these essentials, other hardware components may be attached to the sensor depending on your project requirements, such as:
 
-| Item                | Function                                           | Link                           |
+- **Pi camera:** This can be used to record the scene in front of the sensor.
+- **Air pollution sensor:** If you want to monitor air quality in addition to WiFi sensing.
+Temperature and humidity sensor: Useful for environmental monitoring and adjusting sensor performance based on climatic changes.
+- **Temperature and humidity sensor:** Useful for environmental monitoring and adjusting sensor performance based on climatic changes.
+
+
+## 2.1.2 Required Software {.unnumbered}
+
+The key software programs necessary to build a WiFi sensor and manage the sensor data are:
+
+| Software                | Purpose                                           | Download Link                           |
 |------------------|-----------------------|-------------------------------|
-| PuTTY               | To access the Raspberry Pi remotely                | [here](https://www.putty.org/) |
-| SQLite              | Database program to store sensor data              | [here](https://www.putty.org/) |
-| Raspberry Pi Imager | Tool to write Raspberry Pi OS images onto SD cards | [here](https://www.putty.org/) |
+| Raspberry Pi Imager | Tool for writing Pi OS images onto SD cards	 | [Link](https://www.putty.org/) |
+| DB Browser for SQLite | Tool for view database written as SQLlite (WiFi packet file type) | [Link](https://sqlitebrowser.org/) |
 
-## 2.1.3. Skill required {.unnumbered}
+Feel free to download these programs in advance. If needed, we will provide the download links again when each step requires these tools.
 
-You should have a basic understanding of programming, specifically in R and Python. You should be able to write, edit, and debug code. If you need to brush up on these skills or are just starting out, I recommend the following courses: Data Science: Foundations using R Specialization:
+## 2.1.3. Necessary Skills {.unnumbered}
 
--   [Data Science: Foundations using R Specialization](https://www.coursera.org/specializations/data-science-foundations-r): This course will help you build a strong foundation in data science using R.
--   [Python for Everybody Specialization](https://www.coursera.org/specializations/python): This course is a great introduction to programming in Python and covers the basics you'll need for this project.
+Basic programming skills, specifically in R and Python, are required. You should be able to write, edit, and debug code. To improve these skills, consider the following courses:
+
+-   [Data Science: Foundations using R Specialization](https://www.coursera.org/specializations/data-science-foundations-r) for a strong foundation in data science using R.
+-   [Python for Everybody Specialization](https://www.coursera.org/specializations/python) to learn programming basics in Python.

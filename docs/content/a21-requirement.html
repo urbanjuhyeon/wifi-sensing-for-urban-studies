@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>A Comprehensive Toolkit for WiFi Sensing: Decoding urban spaces - 2.1. Requirements</title>
+<title>A Comprehensive Toolkit for WiFi Sensing: Decoding urban spaces - 2.1. Prerequisites</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../content/a22-placement.html" rel="next">
+<link href="../content/a22-initial.html" rel="next">
 <link href="../content/a20-setting.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -76,7 +76,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/a20-setting.html">2. Setting up WiFi Sensors</a></li><li class="breadcrumb-item"><a href="../content/a21-requirement.html">2.1. Requirements</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/a20-setting.html">2. Setting up WiFi Sensors</a></li><li class="breadcrumb-item"><a href="../content/a21-requirement.html">2.1. Prerequisites</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -129,19 +129,31 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../content/a21-requirement.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">2.1. Requirements</span></a>
+ <span class="menu-text">2.1. Prerequisites</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a22-placement.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Placement and Coverage Considerations</span></a>
+  <a href="../content/a22-initial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.2. Initial Setup</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a23-installation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2.3. Installation Steps</span></a>
+  <a href="../content/a23-advanced.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.3. Pi Sharing Setting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/a24-software.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.4. Software Setup</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/a25-imp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.5. Implementation</span></a>
   </div>
 </li>
       </ul>
@@ -224,9 +236,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#hardware-requirements" id="toc-hardware-requirements" class="nav-link active" data-scroll-target="#hardware-requirements">2.1.1. Hardware Requirements</a></li>
-  <li><a href="#software" id="toc-software" class="nav-link" data-scroll-target="#software">2.1.2. Software</a></li>
-  <li><a href="#skill-required" id="toc-skill-required" class="nav-link" data-scroll-target="#skill-required">2.1.3. Skill required</a></li>
+  <li><a href="#hardware-components" id="toc-hardware-components" class="nav-link active" data-scroll-target="#hardware-components">2.1.1. Hardware Components</a></li>
+  <li><a href="#required-software" id="toc-required-software" class="nav-link" data-scroll-target="#required-software">2.1.2 Required Software</a></li>
+  <li><a href="#necessary-skills" id="toc-necessary-skills" class="nav-link" data-scroll-target="#necessary-skills">2.1.3. Necessary Skills</a></li>
   </ul>
 </nav>
     </div>
@@ -235,7 +247,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">2.1. Requirements</h1>
+<h1 class="title">2.1. Prerequisites</h1>
 </div>
 
 
@@ -250,94 +262,92 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="hardware-requirements" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="hardware-requirements">2.1.1. Hardware Requirements</h2>
-<p>This is the hardware setup illustrating the necessary components required for Wi-Fi sensing:</p>
-<p><img src="material/ch2/sensor-comp.png" class="img-fluid"></p>
-<p>To build up this WiFi sensor, you’ll need the following hardware:</p>
+<p>Before beginning the process of setting up a WiFi sensor, it’s essential to ensure you have the necessary hardware <em>(2.1.1.)</em>, software <em>(2.1.2.)</em>, and skills <em>(2.1.3.)</em>.</p>
+<section id="hardware-components" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="hardware-components">2.1.1. Hardware Components</h2>
+<p>This is the hardware setup illustrating the necessary components required for WiFi sensing:</p>
+<p><img src="material/ch2/sensor_comp.png" class="img-fluid"></p>
+<p>The required hardware components for this WiFi sensor include:</p>
 <table class="table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 38%">
+<col style="width: 39%">
+</colgroup>
 <thead>
 <tr class="header">
-<th>Item</th>
-<th>Function</th>
-<th>Requirement</th>
+<th>Hardware</th>
+<th>Description</th>
+<th>Specific Recommendation</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Laptop and LAN cable</td>
-<td>Accessing and controlling the sensor</td>
-<td></td>
-</tr>
-<tr class="even">
 <td>Raspberry Pi board</td>
-<td>Building the sensor</td>
-<td>Pi 3B/3B+ or a higher model Pi</td>
+<td>Core of our sensor</td>
+<td>Pi 3B/3B+ or higher</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>WiFi adapter</td>
-<td>Capturing WiFi packets</td>
-<td>Check chipset compatibility for ‘monitoring mode’ <a href="https://unix.stackexchange.com/questions/614984/supported-chipset-for-monitor-mode-and-packet-injection-in-kali-linux">(here)</a></td>
+<td>Captures WiFi packets</td>
+<td>Check chipset compatibility for ‘monitoring mode’</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Micro SD card and adapter</td>
-<td>Building and storing data</td>
-<td>At least 16 GB size</td>
-</tr>
-<tr class="odd">
-<td>Ethernet cable</td>
-<td>Connecting the Pi to your laptop</td>
-<td></td>
+<td>For system building and data storage</td>
+<td>At least 16 GB</td>
 </tr>
 <tr class="even">
-<td>Portable power bank</td>
-<td>Powering the sensor in outdoor environments</td>
-<td>Battery capacity: +20,000 mAh (lasts one day in our setting)</td>
+<td>Laptop and Ethernet cable</td>
+<td>For accessing and controlling the sensor</td>
+<td>—</td>
 </tr>
 <tr class="odd">
-<td>Pi camera</td>
-<td>Recording the scene in front of the sensor</td>
-<td></td>
+<td>Portable power bank</td>
+<td>Powers the sensor in outdoor environments</td>
+<td>Battery capacity: +20,000 mAh</td>
 </tr>
 </tbody>
 </table>
+<p>Besides these essentials, other hardware components may be attached to the sensor depending on your project requirements, such as:</p>
+<ul>
+<li><strong>Pi camera:</strong> This can be used to record the scene in front of the sensor.</li>
+<li><strong>Air pollution sensor:</strong> If you want to monitor air quality in addition to WiFi sensing. Temperature and humidity sensor: Useful for environmental monitoring and adjusting sensor performance based on climatic changes.</li>
+<li><strong>Temperature and humidity sensor:</strong> Useful for environmental monitoring and adjusting sensor performance based on climatic changes.</li>
+</ul>
 </section>
-<section id="software" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="software">2.1.2. Software</h2>
-<p>This is a list of the main programs needed to build a Wi-Fi sensor and handle the sensor data. I will also provide the download link for each step later.</p>
+<section id="required-software" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="required-software">2.1.2 Required Software</h2>
+<p>The key software programs necessary to build a WiFi sensor and manage the sensor data are:</p>
 <table class="table">
 <thead>
 <tr class="header">
-<th>Item</th>
-<th>Function</th>
-<th>Link</th>
+<th>Software</th>
+<th>Purpose</th>
+<th>Download Link</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td>PuTTY</td>
-<td>To access the Raspberry Pi remotely</td>
-<td><a href="https://www.putty.org/">here</a></td>
-</tr>
-<tr class="even">
-<td>SQLite</td>
-<td>Database program to store sensor data</td>
-<td><a href="https://www.putty.org/">here</a></td>
-</tr>
 <tr class="odd">
 <td>Raspberry Pi Imager</td>
-<td>Tool to write Raspberry Pi OS images onto SD cards</td>
-<td><a href="https://www.putty.org/">here</a></td>
+<td>Tool for writing Pi OS images onto SD cards</td>
+<td><a href="https://www.putty.org/">Link</a></td>
+</tr>
+<tr class="even">
+<td>DB Browser for SQLite</td>
+<td>Tool for view database written as SQLlite (WiFi packet file type)</td>
+<td><a href="https://sqlitebrowser.org/">Link</a></td>
 </tr>
 </tbody>
 </table>
+<p>Feel free to download these programs in advance. If needed, we will provide the download links again when each step requires these tools.</p>
 </section>
-<section id="skill-required" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="skill-required">2.1.3. Skill required</h2>
-<p>You should have a basic understanding of programming, specifically in R and Python. You should be able to write, edit, and debug code. If you need to brush up on these skills or are just starting out, I recommend the following courses: Data Science: Foundations using R Specialization:</p>
+<section id="necessary-skills" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="necessary-skills">2.1.3. Necessary Skills</h2>
+<p>Basic programming skills, specifically in R and Python, are required. You should be able to write, edit, and debug code. To improve these skills, consider the following courses:</p>
 <ul>
-<li><a href="https://www.coursera.org/specializations/data-science-foundations-r">Data Science: Foundations using R Specialization</a>: This course will help you build a strong foundation in data science using R.</li>
-<li><a href="https://www.coursera.org/specializations/python">Python for Everybody Specialization</a>: This course is a great introduction to programming in Python and covers the basics you’ll need for this project.</li>
+<li><a href="https://www.coursera.org/specializations/data-science-foundations-r">Data Science: Foundations using R Specialization</a> for a strong foundation in data science using R.</li>
+<li><a href="https://www.coursera.org/specializations/python">Python for Everybody Specialization</a> to learn programming basics in Python.</li>
 </ul>
 
 
@@ -699,8 +709,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../content/a22-placement.html" class="pagination-link">
-        <span class="nav-page-text">Placement and Coverage Considerations</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../content/a22-initial.html" class="pagination-link">
+        <span class="nav-page-text">2.2. Initial Setup</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

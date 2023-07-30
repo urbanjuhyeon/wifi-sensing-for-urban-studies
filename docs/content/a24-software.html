@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>A Comprehensive Toolkit for WiFi Sensing: Decoding urban spaces - Placement and Coverage Considerations</title>
+<title>A Comprehensive Toolkit for WiFi Sensing: Decoding urban spaces - 2.4. Software Setup</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../content/a23-installation.html" rel="next">
-<link href="../content/a21-requirement.html" rel="prev">
+<link href="../content/a25-imp.html" rel="next">
+<link href="../content/a23-advanced.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -76,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/a20-setting.html">2. Setting up WiFi Sensors</a></li><li class="breadcrumb-item"><a href="../content/a22-placement.html">Placement and Coverage Considerations</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/a20-setting.html">2. Setting up WiFi Sensors</a></li><li class="breadcrumb-item"><a href="../content/a24-software.html">2.4. Software Setup</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -129,19 +163,31 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../content/a21-requirement.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2.1. Requirements</span></a>
+ <span class="menu-text">2.1. Prerequisites</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a22-placement.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Placement and Coverage Considerations</span></a>
+  <a href="../content/a22-initial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.2. Initial Setup</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a23-installation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2.3. Installation Steps</span></a>
+  <a href="../content/a23-advanced.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.3. Pi Sharing Setting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/a24-software.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">2.4. Software Setup</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/a25-imp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.5. Implementation</span></a>
   </div>
 </li>
       </ul>
@@ -224,8 +270,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#software" id="toc-software" class="nav-link active" data-scroll-target="#software">Software</a></li>
-  <li><a href="#skill" id="toc-skill" class="nav-link" data-scroll-target="#skill">Skill</a></li>
+  <li><a href="#retrieve-required-scripts" id="toc-retrieve-required-scripts" class="nav-link active" data-scroll-target="#retrieve-required-scripts">2.4.1. Retrieve Required Scripts</a></li>
+  <li><a href="#install-necessary-packages" id="toc-install-necessary-packages" class="nav-link" data-scroll-target="#install-necessary-packages">2.4.2. Install necessary packages</a></li>
+  <li><a href="#configure-setting" id="toc-configure-setting" class="nav-link" data-scroll-target="#configure-setting">2.4.3. Configure setting</a></li>
   </ul>
 </nav>
     </div>
@@ -234,7 +281,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Placement and Coverage Considerations</h1>
+<h1 class="title">2.4. Software Setup</h1>
 </div>
 
 
@@ -249,84 +296,49 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<table class="table">
-<thead>
-<tr class="header">
-<th>Item</th>
-<th>Function</th>
-<th>Requirement</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Laptop and LAN cable</td>
-<td>Accessing and controlling the sensor</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Raspberry Pi board</td>
-<td>Building the sensor</td>
-<td>Pi 3B/3B+ or a higher model Pi</td>
-</tr>
-<tr class="odd">
-<td>WiFi adapter</td>
-<td>Capturing WiFi packets</td>
-<td>Check chipset compatibility for ‘monitoring mode’ <a href="https://unix.stackexchange.com/questions/614984/supported-chipset-for-monitor-mode-and-packet-injection-in-kali-linux">(here)</a></td>
-</tr>
-<tr class="even">
-<td>Micro SD card and adapter</td>
-<td>Building and storing data</td>
-<td>At least 16 GB size</td>
-</tr>
-<tr class="odd">
-<td>Ethernet cable</td>
-<td>Connecting the Pi to your laptop</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Portable power bank</td>
-<td>Powering the sensor in outdoor environments</td>
-<td>Battery capacity: +20,000 mAh (lasts one day in our setting)</td>
-</tr>
-<tr class="odd">
-<td>Pi camera</td>
-<td>Recording the scene in front of the sensor</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<section id="software" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="software">Software</h3>
-<table class="table">
-<thead>
-<tr class="header">
-<th>Item</th>
-<th>Function</th>
-<th>Link</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>PuTTY</td>
-<td>To access the Pi by your laptop</td>
-<td><a href="https://www.putty.org/">here</a></td>
-</tr>
-<tr class="even">
-<td>Raspberry Pi Imager</td>
-<td>To build Raspberry Pi OS</td>
-<td><a href="https://www.raspberrypi.com/software/">here</a></td>
-</tr>
-<tr class="odd">
-<td>Raspberry Pi Imager</td>
-<td>To build Raspberry Pi OS</td>
-<td><a href="https://www.putty.org/">here</a></td>
-</tr>
-</tbody>
-</table>
+<p>This section introduces how to retrieve the necessary scripts from the GitHub repository and execute them for the setup of the Urban Sensing Service on your Raspberry Pi.</p>
+<section id="retrieve-required-scripts" class="level2">
+<h2 class="anchored" data-anchor-id="retrieve-required-scripts">2.4.1. Retrieve Required Scripts</h2>
+<p>To set up the sensing service on your Raspberry Pi, you’ll need to access the scripts located in the <a href="https://github.com/jhyeonpark/urban-sensing-raspi">urban-sensing-raspi</a> GitHub repository.</p>
+<p>Before you proceed, ensure that your current directory is <code>/home/pi</code>. If you’re in a different directory, use the following command to navigate to the correct location:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /home/pi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Next, download the repository by executing the following command:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/jhyeonpark/urban-sensing-raspi.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="material/ch2/clone_raspi.png" class="img-fluid"></p>
+<section id="short-description-of-repository" class="level4">
+<h4 class="anchored" data-anchor-id="short-description-of-repository">Short description of repository</h4>
+<p>This repository contains several files, which are briefly explained below:</p>
+<pre><code>.
+├── install.sh
+├── configure.sh
+├── code
+│   ├── default
+│   │   └── start.py
+│   └── ... (additional directories/files as needed)
+└── README.md</code></pre>
+<ul>
+<li><p><code>install.sh</code>: This script automates the installation of the Urban Sensing Service. It handles tasks such as installing necessary system packages and Python libraries, setting up the Bluetooth logger, and conducting other initial setup tasks.</p></li>
+<li><p><code>configure.sh</code>: This script manages the configuration of the Urban Sensing Service. It sets up udev rules for consistent network interface naming and creates a systemd service to run the sensing service automatically at boot.</p></li>
+<li><p><code>start.py</code>: Located in the ‘code/default’ directory, this Python script is the main program for the Urban Sensing Service. By default, it configures WiFi monitoring on three different channels, collects WiFi packet data, parses this data, and stores relevant information in a SQLite database. It also collects Bluetooth data.</p></li>
+</ul>
 </section>
-<section id="skill" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="skill">Skill</h3>
-<p>Learning R and Python will be necessary for sensor building and data analysis. I recommend these classes: <a href="https://www.coursera.org/specializations/data-science-foundations-r">Data Science: Foundations using R Specialization</a> and <a href="https://www.coursera.org/specializations/python">Python for Everybody Specialization</a></p>
+</section>
+<section id="install-necessary-packages" class="level2">
+<h2 class="anchored" data-anchor-id="install-necessary-packages">2.4.2. Install necessary packages</h2>
+<p>Once you download the repository, move your working directory to the repository with the following command:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> urban-sensing-raspi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Switch to a superuser shell session by typing this command:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> su</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Next, run the <code>install.sh</code> script by executing this command:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> install.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><video src="material/ch2/bash_install.mp4" class="img-fluid" controls=""><a href="material/ch2/bash_install.mp4">Video</a></video></p>
+</section>
+<section id="configure-setting" class="level2">
+<h2 class="anchored" data-anchor-id="configure-setting">2.4.3. Configure setting</h2>
+<p>run the <code>configure.sh</code> script by executing this command:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> configure.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Once the installation script completes, proceed with the <code>configure.sh</code> script. This script sets up udev rules for consistent network interface naming and creates a systemd service to run the sensing service automatically at boot.</p>
+<p>Remember to start the service again when you’re ready to resume sensing operations.</p>
 
 
 </section>
@@ -682,13 +694,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../content/a21-requirement.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">2.1. Requirements</span>
+      <a href="../content/a23-advanced.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">2.3. Pi Sharing Setting</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../content/a23-installation.html" class="pagination-link">
-        <span class="nav-page-text">2.3. Installation Steps</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../content/a25-imp.html" class="pagination-link">
+        <span class="nav-page-text">2.5. Implementation</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

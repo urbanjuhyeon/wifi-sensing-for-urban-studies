@@ -1,0 +1,146 @@
+# 2.5. Implementation {.unnumbered}
+
+This chapter describes how to implement and test the Urban Sensing Service on a Raspberry Pi, both locally and in real-world conditions.
+
+
+
+## 2.5.1. Testing the Sensing Service
+
+### Step 1: Prepare the Environment
+
+Before testing, ensure to restart your Raspberry Pi:
+
+```bash
+sudo reboot
+```
+
+After restarting your Pi, switch to a superuser shell session by typing this command:
+
+```bash
+sudo su
+```
+
+Stop the Urban Sensing Service that automatically starts up due to `configure.sh`:
+
+```bash
+systemctl stop sensing.service
+```
+
+![](material/ch2/prepare_envir.mp4)
+
+::: {.callout-note}
+The `start.py` script contains a `time.sleep` function, which introduces a 30-second delay after the system's initialization to ensure stability. If the sensing service is manually interrupted within this window using `systemctl stop sensing.service`, the sensing operations and other processes encapsulated in `start.py` won't be initiated.
+:::
+
+### Step 2: Plug WiFi adapters on your Pi
+
+Connect a WIFI adapter capable of monitor mode to the Raspberry Pi as follows:
+
+![](material/ch2/pi_plugged.jpg)
+
+### Step 3: Run the script
+
+Run the Urban Sensing code using the following command:
+
+```bash
+python3 urban-sensing-raspi/code/default/start.py
+```
+
+2 minutes later, use the `Ctrl+C` to stop the code.
+
+![](material/ch2/run_script.mp4)
+
+### Step 3: Verify the Results
+
+To stop the code, use the `ctrl+C` command.
+
+Afterward, verify the following: 
+
+1. Inspect the 'stats' folder:
+- Has a file been generated?
+- Are the files named correctly, incorporating the date and time when you executed the script? 
+- Were the files from the 'stats' folder successfully transferred to your Dropbox Storage?
+
+![](material/ch2/verify_result_1.mp4)
+
+2. Look through the 'data' folder:
+- Was the Blueglog file generated?
+- Was the WiFi packet file created? Open the sqlite file by [DB Browser for SQLite
+](https://sqlitebrowser.org/)
+
+![](material/ch2/verify_result_2.mp4)
+
+## 2.5.2. Test the Sensing Service in Real World
+
+In this section, we'll test the sensing service without ethernet, mimicking a real-world application. Follow these detailed steps for a successful setup and operation.
+
+### Step 1. Activate Mobile Hotspot
+
+Activate the hotspot on your mobile device. It will provide internet connectivity to the Raspberry Pi, crucial for time synchronization and status updates via Dropbox.
+
+![](material/ch2/turnon_hotspot.jpg){width=50%}
+
+### Step 2. Connect the External Battery
+
+Attach an external battery to power your Raspberry Pi and the WiFi adapters.
+
+![](material/ch2/plug_external.jpg)
+
+### Step 3. Monitor WiFi Adapter Activity
+
+Check for indicator lights on the WiFi adapter. In station mode, when the adapter is networking, the lights should turn on. You should also see the Raspberry Pi appear on your mobile hotspot interface. 
+
+![](material/ch2/adapter_light.jpg)
+
+Observe the WiFi adapter's status lights. When networked (station mode), these should illuminate. Concurrently, you'll see the Raspberry Pi connect to your mobile hotspot interface.
+
+![](material/ch2/check_hotspot.jpg){width=50%}
+
+::: {.callout-note}
+
+If the status lights remain off or no connections appear on your hotspot interface, the adapter may be faulty. Consider replacing it.
+
+:::
+
+
+### Step 4. Validate Dropbox Connectivity
+
+With a secure network connection and correct Dropbox settings, you'll start seeing files from your Raspberry Pi in your Dropbox.
+
+![](material/ch2/check_dropbox_upload.png)
+
+### Step 5. Check the WiFi adapter going on monitor mode
+
+In monitor mode, the WiFi adapter's status light will turn off
+
+![](material/ch2/plug_external.jpg)
+
+Its connection will disappear from your mobile hotspot interface.
+
+![](material/ch2/check_hotspot_off.jpg){width=50%}
+
+### Step 6. Wait for Sensing Operation
+
+During the designated sensing period, the service will collect WiFi and Bluetooth packets.
+
+### Step 7. End Sensing Operation
+
+Unplug the battery to halt the sensing operation when you're finished.
+
+### Step 8. Review Sensing Results
+
+Use ethernet to access and review the generated sensing results, which include WiFi packet data and Bluetooth logs.
+
+
+
+![](material/ch2/final_check.mp4)
+
+
+
+
+
+
+
+
+
+
