@@ -103,5 +103,26 @@
     "title": "2.5. Implementation",
     "section": "2.5.2. Test the Sensing Service in Real World",
     "text": "2.5.2. Test the Sensing Service in Real World\nIn this section, we’ll test the sensing service without ethernet, mimicking a real-world application. Follow these detailed steps for a successful setup and operation.\n\nStep 1. Activate Mobile Hotspot\nActivate the hotspot on your mobile device. It will provide internet connectivity to the Raspberry Pi, crucial for time synchronization and status updates via Dropbox.\n\n\n\nStep 2. Connect the External Battery\nAttach an external battery to power your Raspberry Pi and the WiFi adapters.\n\n\n\nStep 3. Monitor WiFi Adapter Activity\nCheck for indicator lights on the WiFi adapter. In station mode, when the adapter is networking, the lights should turn on. You should also see the Raspberry Pi appear on your mobile hotspot interface.\n\nObserve the WiFi adapter’s status lights. When networked (station mode), these should illuminate. Concurrently, you’ll see the Raspberry Pi connect to your mobile hotspot interface.\n\n\n\n\n\n\n\nNote\n\n\n\nIf the status lights remain off or no connections appear on your hotspot interface, the adapter may be faulty. Consider replacing it.\n\n\n\n\nStep 4. Validate Dropbox Connectivity\nWith a secure network connection and correct Dropbox settings, you’ll start seeing files from your Raspberry Pi in your Dropbox.\n\n\n\nStep 5. Check the WiFi adapter going on monitor mode\nIn monitor mode, the WiFi adapter’s status light will turn off\n\nIts connection will disappear from your mobile hotspot interface.\n\n\n\nStep 6. Wait for Sensing Operation\nDuring the designated sensing period, the service will collect WiFi and Bluetooth packets.\n\n\nStep 7. End Sensing Operation\nUnplug the battery to halt the sensing operation when you’re finished.\n\n\nStep 8. Review Sensing Results\nUse ethernet to access and review the generated sensing results, which include WiFi packet data and Bluetooth logs.\nVideo"
+  },
+  {
+    "objectID": "content/a61-paper.html#recovering-a-malformed-sqlite3-database",
+    "href": "content/a61-paper.html#recovering-a-malformed-sqlite3-database",
+    "title": "5.1. Further Consideration",
+    "section": "Recovering a Malformed SQLite3 Database",
+    "text": "Recovering a Malformed SQLite3 Database\nAre you facing the “database disk image is malformed” error in SQLite3? This error indicates a corrupt database file, possibly due to an application crash, hardware failure, or programming error. This guide will walk you through the steps to recover as much data as possible from a corrupted SQLite3 database. ## Step 1: Update SQLite3 to the Latest Version {.unnumbered}\nTo begin, ensure you have a recent version of SQLite3 that supports the .recover command. Introduced in SQLite3 version 3.29.0 (released on 2019-07-10), this command aids in database recovery. Download the latest SQLite3 version from the official SQLite3 download page .\n\nDownload the sqlite3.exe file to the folder containing the malformed SQLite3 file."
+  },
+  {
+    "objectID": "content/a61-paper.html#step-2-generate-a-sql-dump-with-the-.recover-command",
+    "href": "content/a61-paper.html#step-2-generate-a-sql-dump-with-the-.recover-command",
+    "title": "5.1. Further Consideration",
+    "section": "Step 2: Generate a SQL Dump with the .recover Command",
+    "text": "Step 2: Generate a SQL Dump with the .recover Command\nThe SQLite3 .recover command recovers as much data as possible from a corrupted database file. It parses the database file byte-by-byte and generates SQL commands to recreate the database.\nOpen the Command Prompt and navigate to the directory containing the corrupted SQLite3 file. Assuming C:\\Users\\UNIST\\Documents\\malf is the directory containing broken.sqlite3, the corrupted database, use the following command:\ncd C:\\Users\\UNIST\\Documents\\malf\nThen, use the .recover command as follows:\nsqlite3 broken.sqlite3\nsqlite&gt; .mode insert\nsqlite&gt; .output recover.sql\nsqlite&gt; .recover\nsqlite&gt; .exit\nThese commands generate a recover.sql file containing SQL commands to recreate the database."
+  },
+  {
+    "objectID": "content/a61-paper.html#step-3-recreate-the-database-using-the-recovered-sql",
+    "href": "content/a61-paper.html#step-3-recreate-the-database-using-the-recovered-sql",
+    "title": "5.1. Further Consideration",
+    "section": "Step 3: Recreate the Database Using the Recovered SQL",
+    "text": "Step 3: Recreate the Database Using the Recovered SQL\nThe final step involves creating a new SQLite3 database using the SQL commands in recover.sql. Execute the following command:\nsqlite3 new_database.db &lt; recover.sql\nThis creates a new SQLite3 database named new_database.db using the SQL commands in recover.sql.\n\nNote: This method may not recover all your data, especially if the corruption is severe. Some rows or even entire tables might be missing or incomplete in the new database.\n\nWatch this video to understand the entire process:\nVideo"
   }
 ]
