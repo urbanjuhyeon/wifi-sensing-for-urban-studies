@@ -1,3 +1,55 @@
+# 5.1. Further Consideration {.unnumbered}
 
-{{< video image/access-1.mp4 >}}
+## Recovering a Malformed SQLite3 Database {.unnumbered}
 
+Are you facing the "database disk image is malformed" error in SQLite3? This error indicates a corrupt database file, possibly due to an application crash, hardware failure, or programming error. This guide will walk you through the steps to recover as much data as possible from a corrupted SQLite3 database.
+## Step 1: Update SQLite3 to the Latest Version {.unnumbered}
+
+To begin, ensure you have a recent version of SQLite3 that supports the `.recover` command. Introduced in SQLite3 version 3.29.0 (released on 2019-07-10), this command aids in database recovery. Download the latest SQLite3 version from the [official SQLite3 download page](https://www.sqlite.org/download.html) .
+
+![](material/download_sqlite3.png) 
+
+
+Download the `sqlite3.exe` file to the folder containing the malformed SQLite3 file.
+
+![](material/sqlite3_folder.png) 
+
+## Step 2: Generate a SQL Dump with the `.recover` Command {.unnumbered}
+
+The SQLite3 `.recover` command recovers as much data as possible from a corrupted database file. It parses the database file byte-by-byte and generates SQL commands to recreate the database.
+
+Open the Command Prompt and navigate to the directory containing the corrupted SQLite3 file. Assuming `C:\Users\UNIST\Documents\malf` is the directory containing `broken.sqlite3`, the corrupted database, use the following command:
+
+```bash
+cd C:\Users\UNIST\Documents\malf
+```
+
+Then, use the `.recover` command as follows:
+
+```bash
+sqlite3 broken.sqlite3
+sqlite> .mode insert
+sqlite> .output recover.sql
+sqlite> .recover
+sqlite> .exit
+```
+
+These commands generate a `recover.sql` file containing SQL commands to recreate the database.
+
+## Step 3: Recreate the Database Using the Recovered SQL {.unnumbered}
+
+The final step involves creating a new SQLite3 database using the SQL commands in `recover.sql`. Execute the following command:
+
+```bash
+sqlite3 new_database.db < recover.sql
+```
+
+
+
+This creates a new SQLite3 database named `new_database.db` using the SQL commands in `recover.sql`.
+
+> **Note:**  This method may not recover all your data, especially if the corruption is severe. Some rows or even entire tables might be missing or incomplete in the new database.
+
+Watch this video to understand the entire process:
+
+![](material/error_malformed.mp4) 

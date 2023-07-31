@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>A Comprehensive Toolkit for WiFi Sensing: Decoding urban spaces – a61-paper</title>
+<title>A Comprehensive Toolkit for WiFi Sensing: Decoding urban spaces - 5.1. Further Consideration</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -42,8 +76,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<script src="../site_libs/quarto-contrib/videojs/video.min.js"></script>
-<link href="../site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -68,7 +100,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-sidebar floating fullcontent">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -77,7 +109,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/a60-further.html">Further</a></li><li class="breadcrumb-item"><a href="../content/a61-paper.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">a61-paper.html</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/a60-further.html">Further</a></li><li class="breadcrumb-item"><a href="../content/a61-paper.html">5.1. Further Consideration</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -222,7 +254,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../content/a61-paper.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">a61-paper.html</span></span></a>
+ <span class="menu-text">5.1. Further Consideration</span></a>
   </div>
 </li>
       </ul>
@@ -232,15 +264,71 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#recovering-a-malformed-sqlite3-database" id="toc-recovering-a-malformed-sqlite3-database" class="nav-link active" data-scroll-target="#recovering-a-malformed-sqlite3-database">Recovering a Malformed SQLite3 Database</a></li>
+  <li><a href="#step-2-generate-a-sql-dump-with-the-.recover-command" id="toc-step-2-generate-a-sql-dump-with-the-.recover-command" class="nav-link" data-scroll-target="#step-2-generate-a-sql-dump-with-the-.recover-command">Step 2: Generate a SQL Dump with the <code>.recover</code> Command</a></li>
+  <li><a href="#step-3-recreate-the-database-using-the-recovered-sql" id="toc-step-3-recreate-the-database-using-the-recovered-sql" class="nav-link" data-scroll-target="#step-3-recreate-the-database-using-the-recovered-sql">Step 3: Recreate the Database Using the Recovered SQL</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">5.1. Further Consideration</h1>
+</div>
 
 
-<div class="quarto-video"><video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="image/access-1.mp4"></video></div>
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="recovering-a-malformed-sqlite3-database" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="recovering-a-malformed-sqlite3-database">Recovering a Malformed SQLite3 Database</h2>
+<p>Are you facing the “database disk image is malformed” error in SQLite3? This error indicates a corrupt database file, possibly due to an application crash, hardware failure, or programming error. This guide will walk you through the steps to recover as much data as possible from a corrupted SQLite3 database. ## Step 1: Update SQLite3 to the Latest Version {.unnumbered}</p>
+<p>To begin, ensure you have a recent version of SQLite3 that supports the <code>.recover</code> command. Introduced in SQLite3 version 3.29.0 (released on 2019-07-10), this command aids in database recovery. Download the latest SQLite3 version from the <a href="https://www.sqlite.org/download.html">official SQLite3 download page</a> .</p>
+<p><img src="material/download_sqlite3.png" class="img-fluid"></p>
+<p>Download the <code>sqlite3.exe</code> file to the folder containing the malformed SQLite3 file.</p>
+<p><img src="material/sqlite3_folder.png" class="img-fluid"></p>
+</section>
+<section id="step-2-generate-a-sql-dump-with-the-.recover-command" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="step-2-generate-a-sql-dump-with-the-.recover-command">Step 2: Generate a SQL Dump with the <code>.recover</code> Command</h2>
+<p>The SQLite3 <code>.recover</code> command recovers as much data as possible from a corrupted database file. It parses the database file byte-by-byte and generates SQL commands to recreate the database.</p>
+<p>Open the Command Prompt and navigate to the directory containing the corrupted SQLite3 file. Assuming <code>C:\Users\UNIST\Documents\malf</code> is the directory containing <code>broken.sqlite3</code>, the corrupted database, use the following command:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> C:<span class="dt">\U</span>sers<span class="dt">\U</span>NIST<span class="dt">\D</span>ocuments<span class="dt">\m</span>alf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Then, use the <code>.recover</code> command as follows:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sqlite3</span> broken.sqlite3</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">sqlite</span><span class="op">&gt;</span> .mode insert</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">sqlite</span><span class="op">&gt;</span> .output recover.sql</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">sqlite</span><span class="op">&gt;</span> .recover</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">sqlite</span><span class="op">&gt;</span> .exit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>These commands generate a <code>recover.sql</code> file containing SQL commands to recreate the database.</p>
+</section>
+<section id="step-3-recreate-the-database-using-the-recovered-sql" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="step-3-recreate-the-database-using-the-recovered-sql">Step 3: Recreate the Database Using the Recovered SQL</h2>
+<p>The final step involves creating a new SQLite3 database using the SQL commands in <code>recover.sql</code>. Execute the following command:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sqlite3</span> new_database.db <span class="op">&lt;</span> recover.sql</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This creates a new SQLite3 database named <code>new_database.db</code> using the SQL commands in <code>recover.sql</code>.</p>
+<blockquote class="blockquote">
+<p><strong>Note:</strong> This method may not recover all your data, especially if the corruption is severe. Some rows or even entire tables might be missing or incomplete in the new database.</p>
+</blockquote>
+<p>Watch this video to understand the entire process:</p>
+<p><video src="material/error_malformed.mp4" class="img-fluid" controls=""><a href="material/error_malformed.mp4">Video</a></video></p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -601,7 +689,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>videojs(video_shortcode_videojs_video1);</script>
 
 
 
