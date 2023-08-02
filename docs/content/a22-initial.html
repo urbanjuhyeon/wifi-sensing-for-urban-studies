@@ -175,7 +175,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../content/a23-advanced.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2.3. Pi Sharing Setting</span></a>
+ <span class="menu-text">2.3. Raspberry Pi Setup</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -276,18 +276,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#step-2-format-your-sd-card" id="toc-step-2-format-your-sd-card" class="nav-link" data-scroll-target="#step-2-format-your-sd-card">Step 2: Format your SD Card</a></li>
   <li><a href="#step-3-flash-the-os-onto-your-sd-card" id="toc-step-3-flash-the-os-onto-your-sd-card" class="nav-link" data-scroll-target="#step-3-flash-the-os-onto-your-sd-card">Step 3: Flash the OS onto your SD Card</a></li>
   </ul></li>
-  <li><a href="#connecting-and-accessing-your-raspberry-pi" id="toc-connecting-and-accessing-your-raspberry-pi" class="nav-link" data-scroll-target="#connecting-and-accessing-your-raspberry-pi">2.2.2. Connecting and Accessing Your Raspberry Pi</a>
+  <li><a href="#choose-the-access-remotely-way" id="toc-choose-the-access-remotely-way" class="nav-link" data-scroll-target="#choose-the-access-remotely-way">2.2.2. Choose the Access Remotely Way</a></li>
+  <li><a href="#sec-way1" id="toc-sec-way1" class="nav-link" data-scroll-target="#sec-way1">2.2.3. Access Your Pi Using an Ethernet Cable</a>
   <ul class="collapse">
   <li><a href="#step-1-connect-your-pi-to-your-laptop" id="toc-step-1-connect-your-pi-to-your-laptop" class="nav-link" data-scroll-target="#step-1-connect-your-pi-to-your-laptop">Step 1: Connect your Pi to your Laptop</a></li>
   <li><a href="#step-2-enable-internet-connection-sharing" id="toc-step-2-enable-internet-connection-sharing" class="nav-link" data-scroll-target="#step-2-enable-internet-connection-sharing">Step 2: Enable Internet Connection Sharing</a></li>
   <li><a href="#step-3-access-your-raspberry-pi-via-ssh" id="toc-step-3-access-your-raspberry-pi-via-ssh" class="nav-link" data-scroll-target="#step-3-access-your-raspberry-pi-via-ssh">Step 3: Access Your Raspberry Pi via SSH</a></li>
-  <li><a href="#step-4-locating-your-raspberry-pis-ip-address-using-mac-address-if-needed" id="toc-step-4-locating-your-raspberry-pis-ip-address-using-mac-address-if-needed" class="nav-link" data-scroll-target="#step-4-locating-your-raspberry-pis-ip-address-using-mac-address-if-needed">Step 4: Locating Your Raspberry Pi’s IP Address using MAC Address (If needed)</a></li>
-  <li><a href="#step-5-verify-your-pis-internet-connectivity" id="toc-step-5-verify-your-pis-internet-connectivity" class="nav-link" data-scroll-target="#step-5-verify-your-pis-internet-connectivity">Step 5: Verify Your Pi’s Internet Connectivity</a></li>
   </ul></li>
-  <li><a href="#configuring-your-pi-as-a-wireless-sensor" id="toc-configuring-your-pi-as-a-wireless-sensor" class="nav-link" data-scroll-target="#configuring-your-pi-as-a-wireless-sensor">2.2.3. Configuring Your Pi as a Wireless Sensor</a>
+  <li><a href="#sec-way2" id="toc-sec-way2" class="nav-link" data-scroll-target="#sec-way2">2.2.4. Access Your Pi Using Your Phone as a Network Provider</a>
   <ul class="collapse">
-  <li><a href="#step-2.-set-up-your-mobiles-hotspot" id="toc-step-2.-set-up-your-mobiles-hotspot" class="nav-link" data-scroll-target="#step-2.-set-up-your-mobiles-hotspot">Step 2. Set Up Your Mobile’s Hotspot</a></li>
-  <li><a href="#step-3.-edit-the-pis-network-configuration" id="toc-step-3.-edit-the-pis-network-configuration" class="nav-link" data-scroll-target="#step-3.-edit-the-pis-network-configuration">Step 3. Edit the Pi’s Network Configuration</a></li>
+  <li><a href="#step-1-set-up-your-mobile-hotspot" id="toc-step-1-set-up-your-mobile-hotspot" class="nav-link" data-scroll-target="#step-1-set-up-your-mobile-hotspot">Step 1: Set Up Your Mobile Hotspot</a></li>
+  <li><a href="#step-2-power-up-your-pi" id="toc-step-2-power-up-your-pi" class="nav-link" data-scroll-target="#step-2-power-up-your-pi">Step 2: Power Up Your Pi</a></li>
+  <li><a href="#step-3-connect-your-laptop-to-your-mobile-hotspot" id="toc-step-3-connect-your-laptop-to-your-mobile-hotspot" class="nav-link" data-scroll-target="#step-3-connect-your-laptop-to-your-mobile-hotspot">Step 3: Connect Your Laptop to Your Mobile Hotspot</a></li>
+  <li><a href="#step-3-verify-connections-in-your-mobile-hotspot-interface" id="toc-step-3-verify-connections-in-your-mobile-hotspot-interface" class="nav-link" data-scroll-target="#step-3-verify-connections-in-your-mobile-hotspot-interface">Step 3: Verify Connections in Your Mobile Hotspot Interface</a></li>
+  <li><a href="#step-4-access-your-pi-via-ssh" id="toc-step-4-access-your-pi-via-ssh" class="nav-link" data-scroll-target="#step-4-access-your-pi-via-ssh">Step 4: Access Your Pi via SSH</a></li>
+  </ul></li>
+  <li><a href="#verify-your-pis-internet-connectivity" id="toc-verify-your-pis-internet-connectivity" class="nav-link" data-scroll-target="#verify-your-pis-internet-connectivity">2.2.5. Verify Your Pi’s Internet Connectivity</a></li>
+  <li><a href="#issues-of-initial-setup" id="toc-issues-of-initial-setup" class="nav-link" data-scroll-target="#issues-of-initial-setup">2.2.6. Issues of initial setup</a>
+  <ul class="collapse">
+  <li><a href="#locating-your-raspberry-pis-ip-address-using-mac-address" id="toc-locating-your-raspberry-pis-ip-address-using-mac-address" class="nav-link" data-scroll-target="#locating-your-raspberry-pis-ip-address-using-mac-address">1. Locating Your Raspberry Pi’s IP Address using MAC Address</a></li>
+  <li><a href="#warning-remote-host-identification-has-changed" id="toc-warning-remote-host-identification-has-changed" class="nav-link" data-scroll-target="#warning-remote-host-identification-has-changed">2. ‘WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!’</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -312,7 +320,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>This segment guides you through setting up a Raspberry Pi as a WiFi sensor. It includes steps for installing the operating system <em>(2.2.1.)</em>, connecting and accessing your Pi <em>(2.2.2.)</em>, and configuring it as a wireless sensor <em>(2.2.3.)</em>.</p>
+<p>This segment guides you through the complete process of setting up a Raspberry Pi, including the installation of the operating system <em>(2.2.1.)</em>, various methods for connecting and accessing your Pi remotely <em>(2.2.2., 2.2.4., 2.2.5.)</em>, and configuring it as a wireless sensor <em>(2.2.3.)</em>. Additional troubleshooting and advanced setup tips are also provided in section <em>(2.2.6.)</em>.</p>
 <section id="setting-up-the-raspberry-pi-operating-system" class="level2">
 <h2 class="anchored" data-anchor-id="setting-up-the-raspberry-pi-operating-system">2.2.1. Setting Up the Raspberry Pi Operating System</h2>
 <section id="step-1-download-the-pi-imager" class="level3">
@@ -327,26 +335,51 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="step-3-flash-the-os-onto-your-sd-card" class="level3">
 <h3 class="anchored" data-anchor-id="step-3-flash-the-os-onto-your-sd-card">Step 3: Flash the OS onto your SD Card</h3>
-<p>Once your SD card is formatted, navigate back to the Raspberry Pi Imager main menu. Click <code>CHOOSE OS</code>, then select the Raspberry Pi OS version you wish to install. Afterward, select <code>CHOOSE SD CARD</code> and pick your SD card from the list.</p>
-<p>Before you click <code>WRITE</code> to start the writing process, remember to enable <code>ssh</code> for remote access. You can do this by creating an empty file named <code>ssh</code> in the boot partition of the SD card. Also, set the username and password as ‘pi’ and ‘raspberry’ respectively in the settings.</p>
+<p>Once your SD card is formatted, you can proceed to install the Raspberry Pi OS:</p>
+<ol type="1">
+<li><strong>Open Raspberry Pi Imager</strong> : Navigate back to the Raspberry Pi Imager main menu.</li>
+<li><strong>Choose the OS</strong> : Click <code>CHOOSE OS</code> and select the Raspberry Pi OS version you wish to install.</li>
+<li><strong>Choose the SD Card</strong> : Select <code>CHOOSE SD CARD</code> and pick your SD card from the list.</li>
+<li><strong>Enable SSH</strong> : This will allow remote access to the Raspberry Pi.</li>
+<li><strong>Set Username and Password</strong> : The Raspberry Pi OS’s default username and password are ‘pi’ and ‘raspberry’. For security reasons, it’s advisable to change these once your system is up and running.</li>
+<li><strong>Configure Wireless LAN</strong> : This step allows you to connect with WiFi. For this project, you will use your mobile hotspot as a network provider. This will synchronize the Pi’s time at boot by connecting to the network. Please set this up using your mobile hotspot information.</li>
+<li><strong>Write the OS</strong> : Finally, click <code>WRITE</code> to start the writing process. This will flash the selected OS onto your SD card.</li>
+</ol>
+<p>Please note that the exact steps for enabling SSH and configuring the WLAN might vary depending on the version of the Raspberry Pi OS and the Imager tool you are using. Refer to the specific documentation if you encounter any issues.</p>
+<p><video src="material/ch2/write_SD.mp4" class="img-fluid" controls=""><a href="material/ch2/write_SD.mp4">Video</a></video></p>
+<p>Once the process is complete, your SD card will be ready, and you can insert it into the Raspberry Pi to boot up the new operating system.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Why Do We Use Our Mobile Hotspot for This Project?
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>The Raspberry Pi OS’s default username and password are ‘pi’ and ‘raspberry’. However, it’s advisable to change these for security reasons once your system is up and running.</p>
+<p>The Raspberry Pi lacks a real-time clock, which means it can’t keep track of time when powered off. To fetch the current time when booting up, it needs access to the internet. More details on this can be found <a href="https://dayne.broderson.org/2020/03/12/the_time_is_now.html">here</a>.</p>
+<p>To provide the necessary internet connection for time synchronization, we’ll use your mobile phone’s hotspot. By establishing this connection, the Raspberry Pi can easily access the current time, ensuring accurate system operation. Here’s how you can set up your hotspot:</p>
+<p><img src="material/ch2/mobile_hotspot.png" class="img-fluid" style="width:50.0%"></p>
+<p>This approach leverages your mobile phone’s data connection, creating a seamless integration between the Raspberry Pi and the internet, which is vital for the project’s success.</p>
 </div>
 </div>
-<p><video src="material/ch2/write_SD.mp4" class="img-fluid" controls=""><a href="material/ch2/write_SD.mp4">Video</a></video></p>
+</div>
 </section>
 </section>
-<section id="connecting-and-accessing-your-raspberry-pi" class="level2">
-<h2 class="anchored" data-anchor-id="connecting-and-accessing-your-raspberry-pi">2.2.2. Connecting and Accessing Your Raspberry Pi</h2>
+<section id="choose-the-access-remotely-way" class="level2">
+<h2 class="anchored" data-anchor-id="choose-the-access-remotely-way">2.2.2. Choose the Access Remotely Way</h2>
+<p>Choosing the correct method for remote access depends on your specific setup and requirements. Below are the detailed instructions for both methods, allowing smooth access and control of the Raspberry Pi:</p>
+<p><img src="material/ch2/choose_remote.png" class="img-fluid" style="width:85.0%"></p>
+<ul>
+<li><p>When you use a desktop (without WLAN card) to use access and control the Pi, choose the <code>(1)</code> and follow the instructions in Section 2.2.4., <a href="#sec-way1"><span>Section&nbsp;3</span></a>.</p></li>
+<li><p>When you use a laptop (capable WLAN card) to use access and control the Pi, choose the <code>(2)</code> and follow the instructions in Section 2.2.5., <a href="#sec-way2"><span>Section&nbsp;4</span></a>.</p></li>
+</ul>
+</section>
+<section id="sec-way1" class="level2">
+<h2 class="anchored" data-anchor-id="sec-way1">2.2.3. Access Your Pi Using an Ethernet Cable</h2>
 <section id="step-1-connect-your-pi-to-your-laptop" class="level3">
 <h3 class="anchored" data-anchor-id="step-1-connect-your-pi-to-your-laptop">Step 1: Connect your Pi to your Laptop</h3>
 <p>With the Pi-equipped SD card, connect your Pi to your laptop using an Ethernet cable.</p>
@@ -365,41 +398,46 @@ Note
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> pi@raspberrypi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><video src="material/ch2/access_cmd.mp4" class="img-fluid" controls=""><a href="material/ch2/access_cmd.mp4">Video</a></video></p>
 </section>
-<section id="step-4-locating-your-raspberry-pis-ip-address-using-mac-address-if-needed" class="level3">
-<h3 class="anchored" data-anchor-id="step-4-locating-your-raspberry-pis-ip-address-using-mac-address-if-needed">Step 4: Locating Your Raspberry Pi’s IP Address using MAC Address (If needed)</h3>
-<p>You can determine your Raspberry Pi’s IP address using its MAC address. Here’s how to do it:</p>
-<p><strong>1. Open Command Prompt:</strong> Press the <code>Windows</code> key on your keyboard, type <code>cmd</code> and hit <code>Enter</code>.</p>
-<p><strong>2. Execute the <code>arp -a</code> command:</strong> This command displays the IP and MAC addresses of devices on your network.</p>
-<p><strong>3. Identify your Raspberry Pi:</strong> Raspberry Pi devices have MAC addresses that start with <code>B8:27:EB:xx:xx:xx</code> or <code>DC:A6:32:xx:xx:xx</code>. Find the device in the list with a physical address that starts with these characters - that’s your Raspberry Pi’s IP address.</p>
-<p><strong>Note:</strong> These are the MAC address prefixes specific to Raspberry Pi Foundation devices. Your device’s MAC address may start with a different prefix.</p>
-<p><video src="material/ch2/access_with_mac.mp4" class="img-fluid" controls=""><a href="material/ch2/access_with_mac.mp4">Video</a></video></p>
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-‘WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!’
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>This warning message means that the remote system you are trying to connect to has a different identification from what your system was expecting. This often happens when the system has been re-installed or the SSH key on the server has changed.</p>
-<p><img src="material/ch2/ssh_error.png" class="img-fluid"></p>
-<p>You can fix the error by editing your <code>~/.ssh/known_hosts</code> file and removing the old key for the Raspberry Pi. Here’s how to remove the old key:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-R</span> raspberrypi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Once done, try to re-establish the SSH connection.</p>
-</div>
-</div>
-</div>
 </section>
-<section id="step-5-verify-your-pis-internet-connectivity" class="level3">
-<h3 class="anchored" data-anchor-id="step-5-verify-your-pis-internet-connectivity">Step 5: Verify Your Pi’s Internet Connectivity</h3>
+<section id="sec-way2" class="level2">
+<h2 class="anchored" data-anchor-id="sec-way2">2.2.4. Access Your Pi Using Your Phone as a Network Provider</h2>
+<section id="step-1-set-up-your-mobile-hotspot" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-set-up-your-mobile-hotspot">Step 1: Set Up Your Mobile Hotspot</h3>
+<p>Enable your mobile hotspot with the same settings you used when flashing the SD card:</p>
+<p><img src="material/ch2/hotspot_default.jpg" class="img-fluid" style="width:50.0%"></p>
+</section>
+<section id="step-2-power-up-your-pi" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-power-up-your-pi">Step 2: Power Up Your Pi</h3>
+<p>Insert the prepared SD card into your Pi and plug in the power:</p>
+<p><img src="material/ch2/plug_pi_wifi.jpg" class="img-fluid"></p>
+</section>
+<section id="step-3-connect-your-laptop-to-your-mobile-hotspot" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-connect-your-laptop-to-your-mobile-hotspot">Step 3: Connect Your Laptop to Your Mobile Hotspot</h3>
+<p>Configure your laptop’s WiFi to connect to the mobile hotspot:</p>
+<p><img src="material/ch2/laptop_wifi.png" class="img-fluid" style="width:50.0%"></p>
+</section>
+<section id="step-3-verify-connections-in-your-mobile-hotspot-interface" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-verify-connections-in-your-mobile-hotspot-interface">Step 3: Verify Connections in Your Mobile Hotspot Interface</h3>
+<p>After waiting a few seconds, you should see two connected devices in your interface:</p>
+<p><strong>1. raspberrypi:</strong> The Raspberry Pi - after waiting a few seconds, you should see the Raspberry Pi appear in your mobile hotspot interface.</p>
+<p><strong>2. your laptop:</strong> Your laptop’s name, as it appears on the network.</p>
+</section>
+<section id="step-4-access-your-pi-via-ssh" class="level3">
+<h3 class="anchored" data-anchor-id="step-4-access-your-pi-via-ssh">Step 4: Access Your Pi via SSH</h3>
+<p>First, open the Command Prompt. If you have installed the Windows Terminal from the Microsoft Store, you can access the Command Prompt by pressing Ctrl + R, typing cmd, and hitting Enter. Alternatively, you can open it by pressing Ctrl + Shift + P. You should see the following:</p>
+<p><img src="material/ch2/cmd_screen.png" class="img-fluid"></p>
+<p>Now, establish an SSH connection with your Raspberry Pi by entering this command:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> pi@raspberrypi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><video src="material/ch2/ssh_laptop.mp4" class="img-fluid" controls=""><a href="material/ch2/ssh_laptop.mp4">Video</a></video></p>
+</section>
+</section>
+<section id="verify-your-pis-internet-connectivity" class="level2">
+<h2 class="anchored" data-anchor-id="verify-your-pis-internet-connectivity">2.2.5. Verify Your Pi’s Internet Connectivity</h2>
 <p>To confirm your Raspberry Pi’s internet connection, use the ping command followed by the IP address of a well-known site. For example, ping Google’s Public DNS Server by typing this command:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ping</span> 8.8.8.8</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>If the Pi is connected to the internet, you will see lines starting with ‘64 bytes from 8.8.8.8’ and a summary of the ping at the end.</p>
 <p><video src="material/ch2/cmd_ping.mp4" class="img-fluid" controls=""><a href="material/ch2/cmd_ping.mp4">Video</a></video></p>
+<p>You can stop the ping process by pressing <code>Ctrl + C</code>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -411,78 +449,28 @@ Note
 </div>
 <div class="callout-body-container callout-body">
 <p>If you’re using a <strong>network with enhanced security</strong>, such as a university network, you may need to register your Raspberry Pi’s MAC address. The following figure is an example of what I did using my university network. If needed, consult your network administrator or IT support for the specific procedures of your network.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="material/ch2/network_unist.png" class="img-fluid figure-img" width="500"></p>
-<figcaption class="figure-caption">Example of a Webpage Used to Register a MAC Address at a University</figcaption>
-</figure>
-</div>
+<p><img src="material/ch2/network_unist.png" class="img-fluid" width="500"></p>
 </div>
 </div>
 </section>
+<section id="issues-of-initial-setup" class="level2">
+<h2 class="anchored" data-anchor-id="issues-of-initial-setup">2.2.6. Issues of initial setup</h2>
+<section id="locating-your-raspberry-pis-ip-address-using-mac-address" class="level3">
+<h3 class="anchored" data-anchor-id="locating-your-raspberry-pis-ip-address-using-mac-address">1. Locating Your Raspberry Pi’s IP Address using MAC Address</h3>
+<p>If you need to access your Pi with a specific IP address, especially when connected to multiple Pis, follow these guidelines:</p>
+<p><strong>1. Open Command Prompt:</strong> Press the <code>Windows</code> key on your keyboard, type <code>cmd</code> and hit <code>Enter</code>.</p>
+<p><strong>2. Execute the <code>arp -a</code> command:</strong> This command displays the IP and MAC addresses of devices on your network.</p>
+<p><strong>3. Identify your Raspberry Pi:</strong> Raspberry Pi devices have MAC addresses that start with <code>B8:27:EB:xx:xx:xx</code> or <code>DC:A6:32:xx:xx:xx</code>. Find the device in the list with a physical address that starts with these characters - that’s your Raspberry Pi’s IP address.</p>
+<p><strong>Note:</strong> These are the MAC address prefixes specific to Raspberry Pi Foundation devices. Your device’s MAC address may start with a different prefix.</p>
+<p><video src="material/ch2/access_with_mac.mp4" class="img-fluid" controls=""><a href="material/ch2/access_with_mac.mp4">Video</a></video></p>
 </section>
-<section id="configuring-your-pi-as-a-wireless-sensor" class="level2">
-<h2 class="anchored" data-anchor-id="configuring-your-pi-as-a-wireless-sensor">2.2.3. Configuring Your Pi as a Wireless Sensor</h2>
-<p>This step allows <strong>your Pi to synchronize its system time</strong> with the internet during boot. Since Raspberry Pi doesn’t have a real-time clock to keep track of time when it’s not powered on (more details <a href="https://dayne.broderson.org/2020/03/12/the_time_is_now.html">here</a>), it must fetch the current time from the internet upon booting.</p>
-<section id="step-1.-update-your-raspberry-pi-os" class="level4">
-<h4 class="anchored" data-anchor-id="step-1.-update-your-raspberry-pi-os">Step 1. Update Your Raspberry Pi OS</h4>
-<p>Start by updating your Raspberry Pi’s operating system (OS) to its latest version. Open a terminal window and enter the following commands:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get update <span class="at">-y</span> <span class="kw">&amp;&amp;</span> <span class="fu">sudo</span> apt-get upgrade <span class="at">-y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-How to copy/paste in Linux terminal
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>For copy, you could click this icon to copy the command:</p>
-<p><img src="material/ch2/ex_copy.png" class="img-fluid"></p>
-<p>For paste, there are various ways; please visit <a href="https://www.maketecheasier.com/enable-copy-paste-command-prompt-windows10/">this</a> when Ctrl+V doesn’t work in the terminal.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>In Linux systems, <code>sudo</code> stands for “superuser do”, similar to “Run As Administrator” in Windows. The <code>-y</code> flag automatically confirms any prompts during the update process. The <code>apt-get update</code> command refreshes the list of available packages and their versions, while <code>apt-get upgrade</code> installs the latest versions. You can learn basic Linux commands on websites like <a href="https://www.hostinger.com/tutorials/linux-commands">this</a>.</p>
-</div>
-</div>
-<p>The given command should be placed like this:</p>
-<p><video src="material/ch2/initial_update.mp4" class="img-fluid" controls=""><a href="material/ch2/initial_update.mp4">Video</a></video></p>
-<p>After the updates are complete, restart your Raspberry Pi using this command:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> reboot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="step-2.-set-up-your-mobiles-hotspot" class="level3">
-<h3 class="anchored" data-anchor-id="step-2.-set-up-your-mobiles-hotspot">Step 2. Set Up Your Mobile’s Hotspot</h3>
-<p>We’ll establish your mobile phone’s hotspot as the network provider, which the Raspberry Pi will utilize for time synchronization. Set up your hotspot like this:</p>
-<p><img src="material/ch2/mobile_hotspot.png" class="img-fluid" width="500"></p>
-</section>
-<section id="step-3.-edit-the-pis-network-configuration" class="level3">
-<h3 class="anchored" data-anchor-id="step-3.-edit-the-pis-network-configuration">Step 3. Edit the Pi’s Network Configuration</h3>
-<p>Access the network configuration information by entering this command:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nano /etc/wpa_supplicant/wpa_supplicant.conf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Add the following details (in this case, <em>juhyeon9087</em> is used for both SSID and password of my mobile phone hotspot).</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>country<span class="op">=</span>GB</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>network<span class="op">={</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  ssid<span class="op">=</span><span class="st">"juhyeon9087"</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  psk<span class="op">=</span><span class="st">"juhyeon9087"</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  key_mgmt<span class="op">=</span>WPA<span class="op">-</span>PSK</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><img src="material/ch2/network_config.png" class="img-fluid"></p>
-<p>After updating the WiFi connection details, press <code>Ctrl + X</code>, then <code>Y</code>, followed by <code>Enter</code> to save the changes. Reboot your Raspberry Pi to implement the changes.</p>
-<p><video src="material/ch2/edit_network.mp4" class="img-fluid" controls=""><a href="material/ch2/edit_network.mp4">Video</a></video></p>
+<section id="warning-remote-host-identification-has-changed" class="level3">
+<h3 class="anchored" data-anchor-id="warning-remote-host-identification-has-changed">2. ‘WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!’</h3>
+<p>This warning appears when the remote system has different identification than expected, such as after a system re-installation or SSH key change.</p>
+<p><img src="material/ch2/ssh_error.png" class="img-fluid"></p>
+<p>You can fix this error by removing the old key for the Raspberry Pi:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-R</span> raspberrypi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Afterwards, try to re-establish the SSH connection.</p>
 
 
 </section>
@@ -845,7 +833,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="../content/a23-advanced.html" class="pagination-link">
-        <span class="nav-page-text">2.3. Pi Sharing Setting</span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text">2.3. Raspberry Pi Setup</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

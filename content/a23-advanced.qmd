@@ -1,10 +1,56 @@
-# 2.3. Pi Sharing Setting {.unnumbered}
+# 2.3. Raspberry Pi Setup {.unnumbered}
 
-This section details how to transform your Raspberry Pi into a file server for easy file sharing between it and other devices *(2.3.1.)*, and how to set it up to send status updates to cloud storage for remote monitoring *(2.3.2.)*.
+This section covers preparing your Raspberry Pi OS *(2.3.1)*, transforming it into a file server for easy file sharing *(2.3.2)*, and configuring it to send status updates to cloud storage for remote monitoring *(2.3.3)*.
 
-## 2.3.1. Transforming Your Pi into a File Server
+## 2.3.1. Prepare Your Raspberry Pi OS
+
+### Step 1: Update Your Pi
+
+Start by updating your Raspberry Pi's operating system (OS) to its latest version. Open a terminal window and enter the following commands:
+  
+```bash
+sudo apt-get update -y && sudo apt-get upgrade -y
+```
+
+
+::: {.callout-note collapse="true"}
+## How to copy/paste in Linux terminal
+
+For copy, you could click this icon to copy the command:
+
+![](material/ch2/ex_copy.png)
+
+For paste, there are various ways; please visit [this](https://www.maketecheasier.com/enable-copy-paste-command-prompt-windows10/) when Ctrl+V doesn't work in the terminal.
+:::
+
+
+::: {.callout-note}
+In Linux systems, `sudo` stands for "superuser do", similar to "Run As Administrator" in Windows. The `-y` flag automatically confirms any prompts during the update process. The `apt-get update` command refreshes the list of available packages and their versions, while `apt-get upgrade` installs the latest versions. You can learn basic Linux commands on websites like [this](https://www.hostinger.com/tutorials/linux-commands).
+:::
+
+The given command should be placed like this:
+  
+![](material/ch2/initial_update.mp4)
+
+After the updates are complete, restart your Raspberry Pi using this command:
+
+```bash
+sudo reboot
+```
+
+### Step 2: Update Your Pi
+
+Before starting any kind of system-wide transformation, it's important to have the necessary administrative privileges. On Raspberry Pi, you can enter the superuser mode (or root mode) by using the command:
+
+```bash
+sudo su
+```
+
+## 2.3.2. Transforming Your Pi into a File Server
 
 This process allows **easy sharing of files between a Raspberry Pi and other devices,**  such as laptops and PCs. `Samba`, an open-source secure network file-sharing system, enables this transfer. By setting up Samba, files can be conveniently transferred to and from a laptop within your network to a Raspberry Pi, via a direct Ethernet connection.
+
+
 
 ### Step 1. Install Samba
 
@@ -78,7 +124,7 @@ After typing anything (e.g., 'gg') in the file, press `Ctrl + x`, then `y`, foll
 ![](material/ch2/samba_check.mp4) 
 
 
-## 2.3.2. Setting Up Cloud Storage Access on Your Pi
+## 2.3.3. Setting Up Cloud Storage Access on Your Pi
 
 This step involves **configuring your Raspberry Pi to send status data to your cloud storage**. It's essential to ensure that your Pi is properly set up before or during its installation. Typically, you might consider connecting a monitor, mouse, and keyboard to your Pi to check its status, but that's not always practical or convenient. 
 
