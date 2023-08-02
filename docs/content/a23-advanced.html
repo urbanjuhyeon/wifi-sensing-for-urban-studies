@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>A Comprehensive Toolkit for WiFi Sensing: Decoding urban spaces - 2.3. Pi Sharing Setting</title>
+<title>A Comprehensive Toolkit for WiFi Sensing: Decoding urban spaces - 2.3. Raspberry Pi Setup</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -110,7 +110,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/a20-setting.html">2. Setting up WiFi Sensors</a></li><li class="breadcrumb-item"><a href="../content/a23-advanced.html">2.3. Pi Sharing Setting</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/a20-setting.html">2. Setting up WiFi Sensors</a></li><li class="breadcrumb-item"><a href="../content/a23-advanced.html">2.3. Raspberry Pi Setup</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -175,7 +175,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../content/a23-advanced.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">2.3. Pi Sharing Setting</span></a>
+ <span class="menu-text">2.3. Raspberry Pi Setup</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -270,7 +270,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#transforming-your-pi-into-a-file-server" id="toc-transforming-your-pi-into-a-file-server" class="nav-link active" data-scroll-target="#transforming-your-pi-into-a-file-server">2.3.1. Transforming Your Pi into a File Server</a>
+  <li><a href="#prepare-your-raspberry-pi-os" id="toc-prepare-your-raspberry-pi-os" class="nav-link active" data-scroll-target="#prepare-your-raspberry-pi-os">2.3.1. Prepare Your Raspberry Pi OS</a>
+  <ul class="collapse">
+  <li><a href="#step-1-update-your-pi" id="toc-step-1-update-your-pi" class="nav-link" data-scroll-target="#step-1-update-your-pi">Step 1: Update Your Pi</a></li>
+  <li><a href="#step-2-update-your-pi" id="toc-step-2-update-your-pi" class="nav-link" data-scroll-target="#step-2-update-your-pi">Step 2: Update Your Pi</a></li>
+  </ul></li>
+  <li><a href="#transforming-your-pi-into-a-file-server" id="toc-transforming-your-pi-into-a-file-server" class="nav-link" data-scroll-target="#transforming-your-pi-into-a-file-server">2.3.2. Transforming Your Pi into a File Server</a>
   <ul class="collapse">
   <li><a href="#step-1.-install-samba" id="toc-step-1.-install-samba" class="nav-link" data-scroll-target="#step-1.-install-samba">Step 1. Install Samba</a></li>
   <li><a href="#step-2.-modify-the-samba-config-file" id="toc-step-2.-modify-the-samba-config-file" class="nav-link" data-scroll-target="#step-2.-modify-the-samba-config-file">Step 2. Modify the Samba Config File</a></li>
@@ -279,7 +284,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#step-5.-access-the-pi-directory" id="toc-step-5.-access-the-pi-directory" class="nav-link" data-scroll-target="#step-5.-access-the-pi-directory">Step 5. Access the Pi Directory</a></li>
   <li><a href="#step-6.-create-and-verify-the-test-file" id="toc-step-6.-create-and-verify-the-test-file" class="nav-link" data-scroll-target="#step-6.-create-and-verify-the-test-file">Step 6. Create and Verify the Test File</a></li>
   </ul></li>
-  <li><a href="#setting-up-cloud-storage-access-on-your-pi" id="toc-setting-up-cloud-storage-access-on-your-pi" class="nav-link" data-scroll-target="#setting-up-cloud-storage-access-on-your-pi">2.3.2. Setting Up Cloud Storage Access on Your Pi</a>
+  <li><a href="#setting-up-cloud-storage-access-on-your-pi" id="toc-setting-up-cloud-storage-access-on-your-pi" class="nav-link" data-scroll-target="#setting-up-cloud-storage-access-on-your-pi">2.3.3. Setting Up Cloud Storage Access on Your Pi</a>
   <ul class="collapse">
   <li><a href="#step-1.-create-a-dropbox-app" id="toc-step-1.-create-a-dropbox-app" class="nav-link" data-scroll-target="#step-1.-create-a-dropbox-app">Step 1. Create a Dropbox App</a></li>
   <li><a href="#step-2.-modify-the-permission" id="toc-step-2.-modify-the-permission" class="nav-link" data-scroll-target="#step-2.-modify-the-permission">Step 2. Modify the Permission</a></li>
@@ -297,7 +302,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">2.3. Pi Sharing Setting</h1>
+<h1 class="title">2.3. Raspberry Pi Setup</h1>
 </div>
 
 
@@ -312,41 +317,89 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>This section details how to transform your Raspberry Pi into a file server for easy file sharing between it and other devices <em>(2.3.1.)</em>, and how to set it up to send status updates to cloud storage for remote monitoring <em>(2.3.2.)</em>.</p>
+<p>This section covers preparing your Raspberry Pi OS <em>(2.3.1)</em>, transforming it into a file server for easy file sharing <em>(2.3.2)</em>, and configuring it to send status updates to cloud storage for remote monitoring <em>(2.3.3)</em>.</p>
+<section id="prepare-your-raspberry-pi-os" class="level2">
+<h2 class="anchored" data-anchor-id="prepare-your-raspberry-pi-os">2.3.1. Prepare Your Raspberry Pi OS</h2>
+<section id="step-1-update-your-pi" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-update-your-pi">Step 1: Update Your Pi</h3>
+<p>Start by updating your Raspberry Pi’s operating system (OS) to its latest version. Open a terminal window and enter the following commands:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get update <span class="at">-y</span> <span class="kw">&amp;&amp;</span> <span class="fu">sudo</span> apt-get upgrade <span class="at">-y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+How to copy/paste in Linux terminal
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For copy, you could click this icon to copy the command:</p>
+<p><img src="material/ch2/ex_copy.png" class="img-fluid"></p>
+<p>For paste, there are various ways; please visit <a href="https://www.maketecheasier.com/enable-copy-paste-command-prompt-windows10/">this</a> when Ctrl+V doesn’t work in the terminal.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In Linux systems, <code>sudo</code> stands for “superuser do”, similar to “Run As Administrator” in Windows. The <code>-y</code> flag automatically confirms any prompts during the update process. The <code>apt-get update</code> command refreshes the list of available packages and their versions, while <code>apt-get upgrade</code> installs the latest versions. You can learn basic Linux commands on websites like <a href="https://www.hostinger.com/tutorials/linux-commands">this</a>.</p>
+</div>
+</div>
+<p>The given command should be placed like this:</p>
+<p><video src="material/ch2/initial_update.mp4" class="img-fluid" controls=""><a href="material/ch2/initial_update.mp4">Video</a></video></p>
+<p>After the updates are complete, restart your Raspberry Pi using this command:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> reboot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="step-2-update-your-pi" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-update-your-pi">Step 2: Update Your Pi</h3>
+<p>Before starting any kind of system-wide transformation, it’s important to have the necessary administrative privileges. On Raspberry Pi, you can enter the superuser mode (or root mode) by using the command:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> su</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
 <section id="transforming-your-pi-into-a-file-server" class="level2">
-<h2 class="anchored" data-anchor-id="transforming-your-pi-into-a-file-server">2.3.1. Transforming Your Pi into a File Server</h2>
+<h2 class="anchored" data-anchor-id="transforming-your-pi-into-a-file-server">2.3.2. Transforming Your Pi into a File Server</h2>
 <p>This process allows <strong>easy sharing of files between a Raspberry Pi and other devices,</strong> such as laptops and PCs. <code>Samba</code>, an open-source secure network file-sharing system, enables this transfer. By setting up Samba, files can be conveniently transferred to and from a laptop within your network to a Raspberry Pi, via a direct Ethernet connection.</p>
 <section id="step-1.-install-samba" class="level3">
 <h3 class="anchored" data-anchor-id="step-1.-install-samba">Step 1. Install Samba</h3>
 <p>Enter the following command in your terminal to install Samba:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install samba samba-common-bin <span class="at">-y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install samba samba-common-bin <span class="at">-y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><img src="material/ch2/install_samba.png" class="img-fluid"></p>
 </section>
 <section id="step-2.-modify-the-samba-config-file" class="level3">
 <h3 class="anchored" data-anchor-id="step-2.-modify-the-samba-config-file">Step 2. Modify the Samba Config File</h3>
 <p>To share the Pi’s folder, modify the Samba config file using the following command:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nano /etc/samba/smb.conf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nano /etc/samba/smb.conf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Move to the end line by pressing <code>Alt + /</code> and add this:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">[</span>share<span class="op">]</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>path <span class="op">=</span> <span class="op">/</span>home<span class="op">/</span>pi</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>writeable<span class="op">=</span>Yes</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>create mast<span class="op">=</span>0777</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>directory mast<span class="op">=</span>0777</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>public<span class="op">=</span>no</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="op">[</span>share<span class="op">]</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>path <span class="op">=</span> <span class="op">/</span>home<span class="op">/</span>pi</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>writeable<span class="op">=</span>Yes</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>create mast<span class="op">=</span>0777</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>directory mast<span class="op">=</span>0777</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>public<span class="op">=</span>no</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><img src="material/ch2/samba_setting.png" class="img-fluid"></p>
 <p>Press <code>Ctrl + X</code>, then <code>Y</code>, followed by <code>Enter</code> to save the changes.</p>
 </section>
 <section id="step-3.-set-up-a-samba-user" class="level3">
 <h3 class="anchored" data-anchor-id="step-3.-set-up-a-samba-user">Step 3. Set Up a Samba User</h3>
 <p>Set up a user for your Samba share on your Pi using this command:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> smbpasswd <span class="at">-a</span> pi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> smbpasswd <span class="at">-a</span> pi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Then, enter the password twice as prompted by the command. In this case, the password is <code>raspberry</code>.</p>
 </section>
 <section id="step-4.-restart-samba-services" class="level3">
 <h3 class="anchored" data-anchor-id="step-4.-restart-samba-services">Step 4. Restart Samba Services</h3>
 <p>Restart the Samba services to apply the changes by typing this:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> service smbd restart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> service nmbd restart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> service smbd restart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> service nmbd restart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="step-5.-access-the-pi-directory" class="level3">
 <h3 class="anchored" data-anchor-id="step-5.-access-the-pi-directory">Step 5. Access the Pi Directory</h3>
@@ -356,13 +409,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="step-6.-create-and-verify-the-test-file" class="level3">
 <h3 class="anchored" data-anchor-id="step-6.-create-and-verify-the-test-file">Step 6. Create and Verify the Test File</h3>
 <p>Create a text file in your Pi’s directory using the following command.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nano test.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nano test.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>After typing anything (e.g., ‘gg’) in the file, press <code>Ctrl + x</code>, then <code>y</code>, followed by <code>Enter</code>. You should then be able to see the file on your laptop.</p>
 <p><video src="material/ch2/samba_check.mp4" class="img-fluid" controls=""><a href="material/ch2/samba_check.mp4">Video</a></video></p>
 </section>
 </section>
 <section id="setting-up-cloud-storage-access-on-your-pi" class="level2">
-<h2 class="anchored" data-anchor-id="setting-up-cloud-storage-access-on-your-pi">2.3.2. Setting Up Cloud Storage Access on Your Pi</h2>
+<h2 class="anchored" data-anchor-id="setting-up-cloud-storage-access-on-your-pi">2.3.3. Setting Up Cloud Storage Access on Your Pi</h2>
 <p>This step involves <strong>configuring your Raspberry Pi to send status data to your cloud storage</strong>. It’s essential to ensure that your Pi is properly set up before or during its installation. Typically, you might consider connecting a monitor, mouse, and keyboard to your Pi to check its status, but that’s not always practical or convenient.</p>
 <p>Instead, we recommend setting up your Pi to relay status updates - such as available storage space - to your chosen cloud storage. Once your Pi starts sending these updates, you can easily monitor its status by accessing and reviewing these files in the cloud storage. This method allows you to remotely track the setup progress and address any potential issues promptly.</p>
 <section id="step-1.-create-a-dropbox-app" class="level3">
@@ -383,25 +436,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="step-3.-install-the-necessary-packages" class="level3">
 <h3 class="anchored" data-anchor-id="step-3.-install-the-necessary-packages">Step 3. Install the Necessary Packages</h3>
 <p>Switch to a superuser shell session by typing this command:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> su</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> su</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Make sure that curl and git packages are installed on your Pi. You can do this by entering the following command:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install curl git <span class="at">-y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install curl git <span class="at">-y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="step-4.-install-the-dropbox-uploader" class="level3">
 <h3 class="anchored" data-anchor-id="step-4.-install-the-dropbox-uploader">Step 4. Install the Dropbox Uploader</h3>
 <p>Download the <a href="https://github.com/andreafabrizi/Dropbox-Uploader/">Dropbox Uploader script</a> onto your Pi using this command:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/andreafabrizi/Dropbox-Uploader.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/andreafabrizi/Dropbox-Uploader.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="step-5.-assign-execution-permission" class="level3">
 <h3 class="anchored" data-anchor-id="step-5.-assign-execution-permission">Step 5. Assign Execution Permission</h3>
 <p>Move into the cloned directory and bestow the executable permission to the script by using these commands:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> Dropbox-Uploader</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> chmod +x dropbox_uploader.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> Dropbox-Uploader</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> chmod +x dropbox_uploader.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="step-6.-validate-app-permissions-on-your-pi" class="level3">
 <h3 class="anchored" data-anchor-id="step-6.-validate-app-permissions-on-your-pi">Step 6. Validate App Permissions on Your Pi</h3>
 <p>Begin the Dropbox Uploader configuration with the following command:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./dropbox_uploader.sh</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./dropbox_uploader.sh</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Enter your app key and app secret in the terminal:</p>
 <p><img src="material/ch2/dropbox_register1.png" class="img-fluid"></p>
 <p>Copy and paste the given URL into a web browser, then click ‘Continue’ and ‘Allow’ to authorize the permissions.</p>
@@ -412,11 +465,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="step-7.-verify-cloud-storage-access" class="level3">
 <h3 class="anchored" data-anchor-id="step-7.-verify-cloud-storage-access">Step 7. Verify Cloud Storage Access</h3>
 <p>Employ the upload function to transmit a ‘README.md’ file by executing this command:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./dropbox_uploader.sh</span> upload README.md /</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./dropbox_uploader.sh</span> upload README.md /</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>You should be able to view the file that was sent by executing the command.</p>
 <p><video src="material/ch2/test_dropbox_upload.mp4" class="img-fluid" controls=""><a href="material/ch2/test_dropbox_upload.mp4">Video</a></video></p>
 <p>Go back to the home directory by executing the command:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /home/pi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /home/pi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>

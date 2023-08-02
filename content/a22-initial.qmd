@@ -1,6 +1,10 @@
+---
+number-sections: true
+---
+
 # 2.2. Initial Setup {.unnumbered}
 
-This segment guides you through setting up a Raspberry Pi as a WiFi sensor. It includes steps for installing the operating system *(2.2.1.)*, connecting and accessing your Pi *(2.2.2.)*, and configuring it as a wireless sensor *(2.2.3.)*.
+This segment guides you through the complete process of setting up a Raspberry Pi, including the installation of the operating system *(2.2.1.)*, various methods for connecting and accessing your Pi remotely *(2.2.2., 2.2.4., 2.2.5.)*, and configuring it as a wireless sensor *(2.2.3.)*. Additional troubleshooting and advanced setup tips are also provided in section *(2.2.6.)*.
 
 ## 2.2.1. Setting Up the Raspberry Pi Operating System
 ### Step 1: Download the Pi Imager
@@ -17,17 +21,48 @@ Insert an SD card into your computer, then launch the Raspberry Pi Imager you ju
 
 ### Step 3: Flash the OS onto your SD Card
 
-Once your SD card is formatted, navigate back to the Raspberry Pi Imager main menu. Click `CHOOSE OS`, then select the Raspberry Pi OS version you wish to install. Afterward, select `CHOOSE SD CARD` and pick your SD card from the list.
+Once your SD card is formatted, you can proceed to install the Raspberry Pi OS: 
 
-Before you click `WRITE` to start the writing process, remember to enable `ssh` for remote access. You can do this by creating an empty file named `ssh` in the boot partition of the SD card. Also, set the username and password as 'pi' and 'raspberry' respectively in the settings.
+1. **Open Raspberry Pi Imager** : Navigate back to the Raspberry Pi Imager main menu. 
+2. **Choose the OS** : Click `CHOOSE OS` and select the Raspberry Pi OS version you wish to install. 
+3. **Choose the SD Card** : Select `CHOOSE SD CARD` and pick your SD card from the list. 
+4. **Enable SSH** : This will allow remote access to the Raspberry Pi. 
+5. **Set Username and Password** : The Raspberry Pi OS's default username and password are 'pi' and 'raspberry'. For security reasons, it's advisable to change these once your system is up and running. 
+6. **Configure Wireless LAN** : This step allows you to connect with WiFi. For this project, you will use your mobile hotspot as a network provider. This will synchronize the Pi's time at boot by connecting to the network. Please set this up using your mobile hotspot information. 
+7. **Write the OS** : Finally, click `WRITE` to start the writing process. This will flash the selected OS onto your SD card.
 
-::: {.callout-note}
-The Raspberry Pi OS's default username and password are 'pi' and 'raspberry'. However, it's advisable to change these for security reasons once your system is up and running.
-:::
-  
+Please note that the exact steps for enabling SSH and configuring the WLAN might vary depending on the version of the Raspberry Pi OS and the Imager tool you are using. Refer to the specific documentation if you encounter any issues.
+
 ![](material/ch2/write_SD.mp4)
 
-## 2.2.2. Connecting and Accessing Your Raspberry Pi
+Once the process is complete, your SD card will be ready, and you can insert it into the Raspberry Pi to boot up the new operating system.
+
+::: {.callout-note collapse=true}
+
+## Why Do We Use Our Mobile Hotspot for This Project?
+
+The Raspberry Pi lacks a real-time clock, which means it can't keep track of time when powered off. To fetch the current time when booting up, it needs access to the internet. More details on this can be found [here](https://dayne.broderson.org/2020/03/12/the_time_is_now.html).
+
+To provide the necessary internet connection for time synchronization, we'll use your mobile phone's hotspot. By establishing this connection, the Raspberry Pi can easily access the current time, ensuring accurate system operation. Here's how you can set up your hotspot:
+
+![](material/ch2/mobile_hotspot.png){width="50%"}
+
+This approach leverages your mobile phone's data connection, creating a seamless integration between the Raspberry Pi and the internet, which is vital for the project's success.
+
+:::
+
+## 2.2.2. Choose the Access Remotely Way
+
+Choosing the correct method for remote access depends on your specific setup and requirements. Below are the detailed instructions for both methods, allowing smooth access and control of the Raspberry Pi:
+
+![](material/ch2/choose_remote.png){width="85%"}
+
+- When you use a desktop (without WLAN card) to use access and control the Pi, choose the `(1)` and follow the instructions in Section 2.2.4., @sec-way1.
+
+- When you use a laptop (capable WLAN card) to use access and control the Pi, choose the `(2)` and follow the instructions in Section 2.2.5., @sec-way2.
+
+
+## 2.2.3. Access Your Pi Using an Ethernet Cable {#sec-way1}
 
 ### Step 1: Connect your Pi to your Laptop
 With the Pi-equipped SD card, connect your Pi to your laptop using an Ethernet cable.
@@ -54,9 +89,77 @@ ssh pi@raspberrypi
 
 ![](material/ch2/access_cmd.mp4)
 
-### Step 4: Locating Your Raspberry Pi's IP Address using MAC Address (If needed)
+## 2.2.4. Access Your Pi Using Your Phone as a Network Provider {#sec-way2}
 
-You can determine your Raspberry Pi's IP address using its MAC address. Here's how to do it: 
+### Step 1: Set Up Your Mobile Hotspot
+
+Enable your mobile hotspot with the same settings you used when flashing the SD card:
+
+![](material/ch2/hotspot_default.jpg){width="50%"}
+
+### Step 2: Power Up Your Pi
+
+Insert the prepared SD card into your Pi and plug in the power:
+
+![](material/ch2/plug_pi_wifi.jpg)
+
+### Step 3: Connect Your Laptop to Your Mobile Hotspot
+
+Configure your laptop's WiFi to connect to the mobile hotspot:
+
+![](material/ch2/laptop_wifi.png){width="50%"}
+
+### Step 3: Verify Connections in Your Mobile Hotspot Interface
+
+After waiting a few seconds, you should see two connected devices in your interface:
+
+**1. raspberrypi:** The Raspberry Pi - after waiting a few seconds, you should see the Raspberry Pi appear in your mobile hotspot interface.
+
+**2. your laptop:** Your laptop's name, as it appears on the network.
+
+### Step 4:  Access Your Pi via SSH
+
+First, open the Command Prompt. If you have installed the Windows Terminal from the Microsoft Store, you can access the Command Prompt by pressing Ctrl + R, typing cmd, and hitting Enter. Alternatively, you can open it by pressing Ctrl + Shift + P. You should see the following:
+  
+![](material/ch2/cmd_screen.png) 
+
+Now, establish an SSH connection with your Raspberry Pi by entering this command:
+
+
+```bash
+ssh pi@raspberrypi
+```
+
+![](material/ch2/ssh_laptop.mp4)
+
+## 2.2.5. Verify Your Pi's Internet Connectivity
+
+To confirm your Raspberry Pi's internet connection, use the ping command followed by the IP address of a well-known site. For example, ping Google's Public DNS Server by typing this command:
+
+```bash
+ping 8.8.8.8
+```
+
+If the Pi is connected to the internet, you will see lines starting with '64 bytes from 8.8.8.8' and a summary of the ping at the end.
+
+![](material/ch2/cmd_ping.mp4)
+
+You can stop the ping process by pressing `Ctrl + C`.
+
+::: {.callout-note}
+If you're using a **network with enhanced security**, such as a university network, you may need to register your Raspberry Pi's MAC address. The following figure is an example of what I did using my university network. If needed, consult your network administrator or IT support for the specific procedures of your network.
+
+![](material/ch2/network_unist.png){width=500}
+
+:::
+
+
+
+## 2.2.6. Issues of initial setup
+
+### 1. Locating Your Raspberry Pi's IP Address using MAC Address
+
+If you need to access your Pi with a specific IP address, especially when connected to multiple Pis, follow these guidelines:
 
 **1. Open Command Prompt:** Press the `Windows` key on your keyboard, type `cmd` and hit `Enter`. 
 
@@ -69,125 +172,16 @@ You can determine your Raspberry Pi's IP address using its MAC address. Here's h
 ![](material/ch2/access_with_mac.mp4)
 
 
-::: {.callout-caution collapse="true"}
+### 2. 'WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!'
 
-## 'WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!'
-
-This warning message means that the remote system you are trying to connect to has a different identification from what your system was expecting. This often happens when the system has been re-installed or the SSH key on the server has changed.
+This warning appears when the remote system has different identification than expected, such as after a system re-installation or SSH key change.
 
 ![](material/ch2/ssh_error.png)
 
-You can fix the error by editing your `~/.ssh/known_hosts` file and removing the old key for the Raspberry Pi. Here's how to remove the old key:
+You can fix this error by removing the old key for the Raspberry Pi:
 
 ```bash
 ssh-keygen -R raspberrypi
 ```
 
-Once done, try to re-establish the SSH connection.
-
-:::
-
-
-
-
-
-### Step 5: Verify Your Pi's Internet Connectivity
-
-To confirm your Raspberry Pi's internet connection, use the ping command followed by the IP address of a well-known site. For example, ping Google's Public DNS Server by typing this command:
-
-```bash
-ping 8.8.8.8
-```
-
-If the Pi is connected to the internet, you will see lines starting with '64 bytes from 8.8.8.8' and a summary of the ping at the end.
-
-![](material/ch2/cmd_ping.mp4)
-
-::: {.callout-note}
-If you're using a **network with enhanced security**, such as a university network, you may need to register your Raspberry Pi's MAC address. The following figure is an example of what I did using my university network. If needed, consult your network administrator or IT support for the specific procedures of your network.
-
-![Example of a Webpage Used to Register a MAC Address at a University](material/ch2/network_unist.png){width=500}
-
-:::
-
-
-## 2.2.3. Configuring Your Pi as a Wireless Sensor 
-
-This step allows **your Pi to synchronize its system time** with the internet during boot. Since Raspberry Pi doesn't have a real-time clock to keep track of time when it's not powered on (more details [here](https://dayne.broderson.org/2020/03/12/the_time_is_now.html)), it must fetch the current time from the internet upon booting.
-
-#### Step 1. Update Your Raspberry Pi OS
-
-Start by updating your Raspberry Pi's operating system (OS) to its latest version. Open a terminal window and enter the following commands:
-  
-```bash
-sudo apt-get update -y && sudo apt-get upgrade -y
-```
-
-
-::: {.callout-caution collapse="true"}
-## How to copy/paste in Linux terminal
-
-For copy, you could click this icon to copy the command:
-
-![](material/ch2/ex_copy.png)
-
-For paste, there are various ways; please visit [this](https://www.maketecheasier.com/enable-copy-paste-command-prompt-windows10/) when Ctrl+V doesn't work in the terminal.
-:::
-
-
-
-
-::: {.callout-note}
-In Linux systems, `sudo` stands for "superuser do", similar to "Run As Administrator" in Windows. The `-y` flag automatically confirms any prompts during the update process. The `apt-get update` command refreshes the list of available packages and their versions, while `apt-get upgrade` installs the latest versions. You can learn basic Linux commands on websites like [this](https://www.hostinger.com/tutorials/linux-commands).
-:::
-
-The given command should be placed like this:
-  
-![](material/ch2/initial_update.mp4)
-
-After the updates are complete, restart your Raspberry Pi using this command:
-
-```bash
-sudo reboot
-```
-
-### Step 2. Set Up Your Mobile's Hotspot
-
-We'll establish your mobile phone's hotspot as the network provider, which the Raspberry Pi will utilize for time synchronization. Set up your hotspot like this:
-
-![](material/ch2/mobile_hotspot.png){width=500}
-
-### Step 3. Edit the Pi's Network Configuration
-Access the network configuration information by entering this command:
-
-```bash
-sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
-```
-
-Add the following details (in this case, *juhyeon9087* is used for both SSID and password of my mobile phone hotspot).
-
-```powershell
-country=GB
-network={
-  ssid="juhyeon9087"
-  psk="juhyeon9087"
-  key_mgmt=WPA-PSK
-}
-```
-
-![](material/ch2/network_config.png) 
-
-After updating the WiFi connection details, press `Ctrl + X`, then `Y`, followed by `Enter` to save the changes. Reboot your Raspberry Pi to implement the changes.
-
-![](material/ch2/edit_network.mp4)
-
-
-
-
-
-
-
-
-
-
-
+Afterwards, try to re-establish the SSH connection.
