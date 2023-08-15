@@ -1,10 +1,10 @@
-# 2.3. Raspberry Pi Setup {.unnumbered}
+# Raspberry Pi Setup 
 
-This section covers preparing your Raspberry Pi OS *(2.3.1)*, transforming it into a file server for easy file sharing *(2.3.2)*, and configuring it to send status updates to cloud storage for remote monitoring *(2.3.3)*.
+This section covers preparing your Raspberry Pi OS *(3.1)*, transforming it into a file server for easy file sharing *(3.2)*, and configuring it to send status updates to cloud storage for remote monitoring *(3.3)*.
 
-## 2.3.1. Prepare Your Raspberry Pi OS
+## Prepare Your Raspberry Pi OS
 
-### Step 1: Update Your Pi
+### Update Your Pi
 
 Start by updating your Raspberry Pi's operating system (OS) to its latest version. Open a terminal window and enter the following commands:
   
@@ -38,7 +38,7 @@ After the updates are complete, restart your Raspberry Pi using this command:
 sudo reboot
 ```
 
-### Step 2: Update Your Pi
+### Update Your Pi
 
 Before starting any kind of system-wide transformation, it's important to have the necessary administrative privileges. On Raspberry Pi, you can enter the superuser mode (or root mode) by using the command:
 
@@ -46,23 +46,23 @@ Before starting any kind of system-wide transformation, it's important to have t
 sudo su
 ```
 
-## 2.3.2. Transforming Your Pi into a File Server
+## Transforming Your Pi into a File Server
 
 This process allows **easy sharing of files between a Raspberry Pi and other devices,**  such as laptops and PCs. `Samba`, an open-source secure network file-sharing system, enables this transfer. By setting up Samba, files can be conveniently transferred to and from a laptop within your network to a Raspberry Pi, via a direct Ethernet connection.
 
 
 
-### Step 1. Install Samba
+###  Install Samba
 
 Enter the following command in your terminal to install Samba:
 
 ```bash
-sudo apt-get install samba samba-common-bin -y
+sudo apt-get install -y -q samba samba-common-bin
 ```
 
 ![](material/ch2/install_samba.png)
 
-### Step 2. Modify the Samba Config File
+###  Modify the Samba Config File
 
 To share the Pi's folder, modify the Samba config file using the following command:
   
@@ -85,7 +85,7 @@ public=no
 
 Press `Ctrl + X`, then `Y`, followed by `Enter` to save the changes.
 
-### Step 3. Set Up a Samba User
+###  Set Up a Samba User
 Set up a user for your Samba share on your Pi using this command:
   
 ```bash
@@ -94,7 +94,7 @@ sudo smbpasswd -a pi
 
 Then, enter the password twice as prompted by the command. In this case, the password is `raspberry`.
 
-### Step 4. Restart Samba Services
+###  Restart Samba Services
 Restart the Samba services to apply the changes by typing this:
 
 ```bash
@@ -105,13 +105,13 @@ sudo service smbd restart
 sudo service nmbd restart
 ```
 
-### Step 5. Access the Pi Directory
+###  Access the Pi Directory
 
 Open the File Explorer (press `Win + E`), type in the address `raspberrypi/pi`, then enter the Pi's name and password as network credentials.
 
 ![](material/ch2/samba_access.mp4) 
 
-### Step 6. Create and Verify the Test File
+###  Create and Verify the Test File
 
 Create a text file in your Pi's directory using the following command.
 
@@ -124,13 +124,13 @@ After typing anything (e.g., 'gg') in the file, press `Ctrl + x`, then `y`, foll
 ![](material/ch2/samba_check.mp4) 
 
 
-## 2.3.3. Setting Up Cloud Storage Access on Your Pi
+## Setting Up Cloud Storage Access on Your Pi
 
 This step involves **configuring your Raspberry Pi to send status data to your cloud storage**. It's essential to ensure that your Pi is properly set up before or during its installation. Typically, you might consider connecting a monitor, mouse, and keyboard to your Pi to check its status, but that's not always practical or convenient. 
 
 Instead, we recommend setting up your Pi to relay status updates - such as available storage space - to your chosen cloud storage. Once your Pi starts sending these updates, you can easily monitor its status by accessing and reviewing these files in the cloud storage. This method allows you to remotely track the setup progress and address any potential issues promptly.
 
-### Step 1. Create a Dropbox App
+###  Create a Dropbox App
 
 In this guide, we will be utilizing Dropbox as our cloud storage service. You need to first set up an app on Dropbox to interface with the service. Follow the steps below:
 
@@ -140,13 +140,13 @@ In this guide, we will be utilizing Dropbox as our cloud storage service. You ne
 
 ![](material/ch2/dropbox_create.png) 
 
-### Step 2. Modify the Permission
+###  Modify the Permission
 
 Configure your application to permit the viewing and management of files and folders. In this instance, we've selected all the available options in the permission settings (for the **indivisual scope**).
 
 ![](material/ch2/dropbox_permission.png)
 
-### Step 3. Install the Necessary Packages
+###  Install the Necessary Packages
 
 Switch to a superuser shell session by typing this command:
 
@@ -160,7 +160,7 @@ Make sure that curl and git packages are installed on your Pi. You can do this b
 sudo apt install curl git -y
 ```
 
-### Step 4. Install the Dropbox Uploader
+###  Install the Dropbox Uploader
 
 Download the [Dropbox Uploader script](https://github.com/andreafabrizi/Dropbox-Uploader/) onto your Pi using this command:
 
@@ -168,9 +168,9 @@ Download the [Dropbox Uploader script](https://github.com/andreafabrizi/Dropbox-
 git clone https://github.com/andreafabrizi/Dropbox-Uploader.git
 ```
 
-### Step 5. Assign Execution Permission
+###  Assign Execution Permission
 
-Move into the cloned directory and bestow the executable permission to the script by using these commands:
+Move into the cloned directory and give the executable permission to the script by using these commands:
 
 ```bash
 cd Dropbox-Uploader
@@ -180,7 +180,7 @@ cd Dropbox-Uploader
 sudo chmod +x dropbox_uploader.sh
 ```
 
-### Step 6. Validate App Permissions on Your Pi
+###  Validate App Permissions on Your Pi
 
 Begin the Dropbox Uploader configuration with the following command:
 
@@ -200,7 +200,7 @@ Copy and paste the generated access code to the terminal.
 
 ![](material/ch2/dropbox_register3.png) 
 
-### Step 7. Verify Cloud Storage Access
+###  Verify Cloud Storage Access
 
 Employ the upload function to transmit a 'README.md' file by executing this command:
 

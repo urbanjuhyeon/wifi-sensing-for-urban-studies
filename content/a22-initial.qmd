@@ -2,24 +2,24 @@
 number-sections: true
 ---
 
-# 2.2. Initial Setup {.unnumbered}
+# Initial Setup
 
-This segment guides you through the complete process of setting up a Raspberry Pi, including the installation of the operating system *(2.2.1.)*, various methods for connecting and accessing your Pi remotely *(2.2.2., 2.2.4., 2.2.5.)*, and configuring it as a wireless sensor *(2.2.3.)*. Additional troubleshooting and advanced setup tips are also provided in section *(2.2.6.)*.
+This segment guides you through the complete process of setting up a Raspberry Pi, including the installation of the operating system *(2.1)*, various methods for connecting and accessing your Pi remotely *(2.2, 2.3, 2.4, 2.5)*. Additional troubleshooting and advanced setup tips are also provided in section *(2.6)*.
 
-## 2.2.1. Setting Up the Raspberry Pi Operating System
-### Step 1: Download the Pi Imager
+## Setting Up the Raspberry Pi Operating System
+### Download the Pi Imager
 
 Begin by downloading the Raspberry Pi Imager, a tool for installing the operating system on your Pi. This software is available on the [official Raspberry Pi website](https://www.raspberrypi.com/software/). Select the version compatible with your operating system (Windows, macOS, or Ubuntu) and install it on your computer.
 
 ![](material/ch2/raspi_imager.png)
 
-### Step 2: Format your SD Card
+### Format your SD Card
 
 Insert an SD card into your computer, then launch the Raspberry Pi Imager you just installed. Click `CHOOSE OS`, then select the `Erase` option followed by `Format SD Card`.
 
 ![](material/ch2/format_SD.mp4) 
 
-### Step 3: Flash the OS onto your SD Card
+### Flash the OS onto your SD Card
 
 Once your SD card is formatted, you can proceed to install the Raspberry Pi OS: 
 
@@ -51,7 +51,7 @@ This approach leverages your mobile phone's data connection, creating a seamless
 
 :::
 
-## 2.2.2. Choose the Access Remotely Way
+## Choose the Access Remotely Way
 
 Choosing the correct method for remote access depends on your specific setup and requirements. Below are the detailed instructions for both methods, allowing smooth access and control of the Raspberry Pi:
 
@@ -62,20 +62,20 @@ Choosing the correct method for remote access depends on your specific setup and
 - When you use a laptop (capable WLAN card) to use access and control the Pi, choose the `(2)` and follow the instructions in Section 2.2.5., @sec-way2.
 
 
-## 2.2.3. Access Your Pi Using an Ethernet Cable {#sec-way1}
+## Access Your Pi Using an Ethernet Cable {#sec-way1}
 
-### Step 1: Connect your Pi to your Laptop
+### Connect your Pi to your Laptop
 With the Pi-equipped SD card, connect your Pi to your laptop using an Ethernet cable.
 
 ![](material/ch2/connect_pi.jpg) 
 
-### Step 2: Enable Internet Connection Sharing
+### Enable Internet Connection Sharing
 
 Navigate to your laptop's network settings and enable the `Internet Connection Sharing` option. This will allow your laptop to share its internet connection with the Raspberry Pi via the Ethernet cable, provided it's connected to the internet.
 
 ![](material/ch2/share_network.mp4)
 
-### Step 3: Access Your Raspberry Pi via SSH
+### Access Your Raspberry Pi via SSH
 
 Having installed the Windows Terminal from the Microsoft Store, you can access the Command Prompt by pressing `Ctrl + R`, typing `cmd`, and hitting `Enter`. Alternatively, you can open it by pressing `Ctrl + Shift + P`. This is what you should see:
   
@@ -89,27 +89,33 @@ ssh pi@raspberrypi
 
 ![](material/ch2/access_cmd.mp4)
 
-## 2.2.4. Access Your Pi Using Your Phone as a Network Provider {#sec-way2}
+::: {.callout-note}
 
-### Step 1: Set Up Your Mobile Hotspot
+If you encounter any troubles with this section, please refer to the last section of this content, titled **Issues of Initial Setup**, for guidance and solutions.
+
+:::
+
+## Access Your Pi Using Your Phone as a Network Provider {#sec-way2}
+
+### Set Up Your Mobile Hotspot
 
 Enable your mobile hotspot with the same settings you used when flashing the SD card:
 
 ![](material/ch2/hotspot_default.jpg){width="50%"}
 
-### Step 2: Power Up Your Pi
+### Power Up Your Pi
 
 Insert the prepared SD card into your Pi and plug in the power:
 
 ![](material/ch2/plug_pi_wifi.jpg)
 
-### Step 3: Connect Your Laptop to Your Mobile Hotspot
+### Connect Your Laptop to Your Mobile Hotspot
 
 Configure your laptop's WiFi to connect to the mobile hotspot:
 
 ![](material/ch2/laptop_wifi.png){width="50%"}
 
-### Step 3: Verify Connections in Your Mobile Hotspot Interface
+### Verify Connections in Your Mobile Hotspot Interface
 
 After waiting a few seconds, you should see two connected devices in your interface:
 
@@ -117,7 +123,7 @@ After waiting a few seconds, you should see two connected devices in your interf
 
 **2. your laptop:** Your laptop's name, as it appears on the network.
 
-### Step 4:  Access Your Pi via SSH
+### Access Your Pi via SSH
 
 First, open the Command Prompt. If you have installed the Windows Terminal from the Microsoft Store, you can access the Command Prompt by pressing Ctrl + R, typing cmd, and hitting Enter. Alternatively, you can open it by pressing Ctrl + Shift + P. You should see the following:
   
@@ -132,7 +138,13 @@ ssh pi@raspberrypi
 
 ![](material/ch2/ssh_laptop.mp4)
 
-## 2.2.5. Verify Your Pi's Internet Connectivity
+::: {.callout-note}
+
+If you encounter any troubles with this section, please refer to the last section of this content, titled **Issues of Initial Setup**, for guidance and solutions.
+
+:::
+
+## Verify Your Pi's Internet Connectivity
 
 To confirm your Raspberry Pi's internet connection, use the ping command followed by the IP address of a well-known site. For example, ping Google's Public DNS Server by typing this command:
 
@@ -147,17 +159,24 @@ If the Pi is connected to the internet, you will see lines starting with '64 byt
 You can stop the ping process by pressing `Ctrl + C`.
 
 ::: {.callout-note}
-If you're using a **network with enhanced security**, such as a university network, you may need to register your Raspberry Pi's MAC address. The following figure is an example of what I did using my university network. If needed, consult your network administrator or IT support for the specific procedures of your network.
 
-![](material/ch2/network_unist.png){width=500}
+If you encounter any troubles with this section, please refer to the last section of this content, titled **Issues of Initial Setup**, for guidance and solutions.
 
 :::
 
+## Issues of initial setup
 
+### Connection and network error 
 
-## 2.2.6. Issues of initial setup
+If you encounter any errors accessing your Pi or the internet connectivity, please follow these steps:
 
-### 1. Locating Your Raspberry Pi's IP Address using MAC Address
+1. Enable and then disable the network on your laptop or desktop computer.
+2. Check and uncheck the "Enable Internet Connection Sharing" function in your network settings.
+3. Verify the network connection made by your Pi through the Ethernet.
+
+![](material/ch2/error_network.mp4)
+
+### Locating Your Raspberry Pi's IP Address using MAC Address
 
 If you need to access your Pi with a specific IP address, especially when connected to multiple Pis, follow these guidelines:
 
@@ -172,7 +191,7 @@ If you need to access your Pi with a specific IP address, especially when connec
 ![](material/ch2/access_with_mac.mp4)
 
 
-### 2. 'WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!'
+### 'WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!'
 
 This warning appears when the remote system has different identification than expected, such as after a system re-installation or SSH key change.
 
@@ -185,3 +204,10 @@ ssh-keygen -R raspberrypi
 ```
 
 Afterwards, try to re-establish the SSH connection.
+
+### Using an Enhanced Security Network
+
+If you're on a network with higher security, you may need to register your Raspberry Pi's MAC address. See the example below from a university network and consult with your network administrator or IT support for your specific procedures.
+
+![](material/ch2/network_unist.png){width=500}
+

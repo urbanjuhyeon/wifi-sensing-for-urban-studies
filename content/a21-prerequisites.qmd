@@ -1,8 +1,8 @@
-# 2.1. Prerequisites {.unnumbered}
+# Prerequisites
 
-Before beginning the process of setting up a WiFi sensor, it's essential to ensure you have the necessary hardware *(2.1.1.)*, software *(2.1.2.)*, and skills *(2.1.3.)*.
+Before beginning the process of setting up a WiFi sensor, it's essential to ensure you have the necessary hardware *(2.1)*, software *(2.2)*, and skills *(2.3)*.
 
-## 2.1.1. Hardware Components {.unnumbered}
+## Hardware Components
 
 This is the hardware setup illustrating the necessary components required for WiFi sensing:
 
@@ -26,7 +26,7 @@ Temperature and humidity sensor: Useful for environmental monitoring and adjusti
 - **Temperature and humidity sensor:** Useful for environmental monitoring and adjusting sensor performance based on climatic changes.
 
 
-## 2.1.2 Required Software {.unnumbered}
+## Required Software
 
 The key software programs necessary to build a WiFi sensor and manage the sensor data are:
 
@@ -37,7 +37,7 @@ The key software programs necessary to build a WiFi sensor and manage the sensor
 
 Feel free to download these programs in advance. If needed, we will provide the download links again when each step requires these tools.
 
-## 2.1.3. Necessary Skills {.unnumbered}
+## Necessary Skills
 
 Basic programming skills, specifically in R and Python, are required. You should be able to write, edit, and debug code. To improve these skills, consider the following courses:
 

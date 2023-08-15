@@ -12,11 +12,11 @@ book:
   chapters:
     - index.qmd
     - content/a10-intro.qmd
-    - part: content/a20-setting.qmd
+    - part: content/a20-installation.qmd
       chapters:
-      - content/a21-requirement.qmd
+      - content/a21-prerequisites.qmd
       - content/a22-initial.qmd
-      - content/a23-advanced.qmd
+      - content/a23-pisetup.qmd
       - content/a24-software.qmd
       - content/a25-imp.qmd
     - part: content/a30-collection.qmd
