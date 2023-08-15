@@ -1,94 +1,131 @@
-# 2.5. Implementation {.unnumbered}
+# Implementation
 
-This chapter describes how to implement and test the Urban Sensing Service on a Raspberry Pi, both locally and in real-world conditions.
+Dive into the step-by-step process of implementing and testing the Urban Sensing Service on your Raspberry Pi, both in a controlled environment *(6.1)* and in real-world scenarios *(6.2)*.
 
+## Sensing Service Testing in Controlled Environment 
 
+### Raspberry Pi Setup
 
-## 2.5.1. Testing the Sensing Service
+Before setting up, power off the Raspberry Pi. Once turned off, insert the additional WiFi adapter. Afterward, power the Raspberry Pi back on.
 
-### Step 1: Prepare the Environment
+![](material/ch2/pi_plugged.jpg)
 
-Before testing, ensure to restart your Raspberry Pi:
+Access the Raspberry Pi via ssh and check the wlan interface to check the internal wifi set to be wlan0 by excueting this:
 
 ```bash
-sudo reboot
+ifconfig
 ```
 
-After restarting your Pi, switch to a superuser shell session by typing this command:
+Ensure that the `wlan0` interface is correctly assigned. The internal interface should have a MAC address starting with `b8:27:eb`. Subsequent WiFi adapters should follow a sequence like `wlan1`, `wlan2`, and so on.
+
+![](material/ch2/ifconfig_wlan_check.png){width=50%}
+
+If the assignment isn't correct, refer to Section 2.4 for the appropriate setup instructions.
+
+### Script Execution
+
+Easily access the superuser shell with:
 
 ```bash
 sudo su
 ```
 
-Stop the Urban Sensing Service that automatically starts up due to `configure.sh`:
+
+Initiate the Urban Sensing code:
 
 ```bash
-systemctl stop sensing.service
+python3 urban-sensing-raspi/code/start.py
 ```
 
-![](material/ch2/prepare_envir.mp4)
+Let it run for about 2 minutes before halting it using `Ctrl+C`.
+
+![](material/ch2/run_script.mp4) 
+
+### Customizing Your Sensing
+
+The Urban Sensing Service isn't just about standard WiFi data collection; it offers a broader scope:
+
+- **Retain Raw WiFi Packets** : Use the `-i` option:
+
+  ```bash
+  python3 urban-sensing-raspi/code/start.py -i
+  ``` 
+
+- **Introduce Bluetooth Sensing** : Add the `-b` option:
+
+  ```bash
+  python3 urban-sensing-raspi/code/start.py -b
+  ``` 
+
+- **Discover More Options** : Read our the [GitHub Repository](https://github.com/jhyeonpark/urban-sensing-raspi).
+
+## Verifying the Results
+
+**1. Access the Pi folder:** type `\\raspberrypi\share` on file explore.
+
+**2. Look around 'stats' Folder** :
+
+- [ ]: Verify that file names reflect the exact execution time.
+- [ ]: Confirm files have been transferred to Dropbox Storage.
+
+![](material/ch2/verify_result_1.mp4) 
+ 
+**3. 'data' Folder** : 
+
+- If you used `-b`, expect a Bluetooth file. Otherwise, it won't appear. 
+- Check for the creation of the WiFi packet file. To delve deeper, use [DB Browser for SQLite](https://sqlitebrowser.org/).
+
+![](material/ch2/verify_result_2.mp4) 
+
+## Setting Up Sensing Service
+
+Once you've validated the sensing outputs, you can finalize the settings to fit your objectives. Notably, this will allow your Raspberry Pi to initiate the sensing service upon booting up. 
+
+Execute the following script:
+
+```bash
+bash urban-sensing-raspi/service.sh
+```
+
+Follow the on-screen prompts and ensure its proper functioning. Exit the status info using `ctrl+c`.
+
+![](material/ch2/bash_service.mp4)
 
 ::: {.callout-note}
-The `start.py` script contains a `time.sleep` function, which introduces a 30-second delay after the system's initialization to ensure stability. If the sensing service is manually interrupted within this window using `systemctl stop sensing.service`, the sensing operations and other processes encapsulated in `start.py` won't be initiated.
-:::
 
-### Step 2: Plug WiFi adapters on your Pi
-
-Connect a WIFI adapter capable of monitor mode to the Raspberry Pi as follows:
-
-![](material/ch2/pi_plugged.jpg)
-
-### Step 3: Run the script
-
-Run the Urban Sensing code using the following command:
+After running service.sh, your Raspberry Pi will start start.py on every boot. If you need to do tasks like file transfers, pause this service. The start.py has a 30-second delay at the start. If you stop the service within this time using `systemctl stop sensing.service`, the script won't perform any actions.
 
 ```bash
-python3 urban-sensing-raspi/code/default/start.py
+sudo systemctl stop sensing.service
 ```
 
-2 minutes later, use the `Ctrl+C` to stop the code.
+:::
 
-![](material/ch2/run_script.mp4)
+## Sensing Service Testing in Real-world Scenarios
 
-### Step 3: Verify the Results
+In this section, we'll test the sensing service without Ethernet, simulating a real-world application. Follow these detailed steps for a successful setup and operation:
 
-To stop the code, use the `ctrl+C` command.
+### Activate Mobile Hotspot
 
-Afterward, verify the following: 
-
-1. Inspect the 'stats' folder:
-- Has a file been generated?
-- Are the files named correctly, incorporating the date and time when you executed the script? 
-- Were the files from the 'stats' folder successfully transferred to your Dropbox Storage?
-
-![](material/ch2/verify_result_1.mp4)
-
-2. Look through the 'data' folder:
-- Was the Blueglog file generated?
-- Was the WiFi packet file created? Open the sqlite file by [DB Browser for SQLite
-](https://sqlitebrowser.org/)
-
-![](material/ch2/verify_result_2.mp4)
-
-## 2.5.2. Test the Sensing Service in Real World
-
-In this section, we'll test the sensing service without ethernet, mimicking a real-world application. Follow these detailed steps for a successful setup and operation.
-
-### Step 1. Activate Mobile Hotspot
-
-Activate the hotspot on your mobile device. It will provide internet connectivity to the Raspberry Pi, crucial for time synchronization and status updates via Dropbox.
+Activate the hotspot on your mobile device. This is essential for providing internet connectivity to the Raspberry Pi, which will enable time synchronization and status updates via Dropbox.
 
 ![](material/ch2/turnon_hotspot.jpg){width=50%}
 
-### Step 2. Connect the External Battery
+### Connect the External Battery
 
-Attach an external battery to power your Raspberry Pi and the WiFi adapters.
+Ensure you've connected an external battery to power both your Raspberry Pi and the WiFi adapters.
 
 ![](material/ch2/plug_external.jpg)
 
-### Step 3. Monitor WiFi Adapter Activity
+### Monitor WiFi Adapter Activity
 
 Check for indicator lights on the WiFi adapter. In station mode, when the adapter is networking, the lights should turn on. You should also see the Raspberry Pi appear on your mobile hotspot interface. 
+
+::: {.callout-note}
+
+If the status lights remain off or the Raspberry Pi does not appear on your hotspot interface, there might be an issue with your adapter. Consider getting a replacement.
+
+:::
 
 ![](material/ch2/adapter_light.jpg)
 
@@ -98,40 +135,36 @@ Observe the WiFi adapter's status lights. When networked (station mode), these s
 
 ::: {.callout-note}
 
-If the status lights remain off or no connections appear on your hotspot interface, the adapter may be faulty. Consider replacing it.
+When accessing your Raspberry Pi via a mobile phone, the `raspberrypi` network might not disappear immediately. This is attributed to the `wlan0` interface. A Python script will disconnect and turn off the `wlan0` function approximately 3 minutes later.
 
 :::
 
 
-### Step 4. Validate Dropbox Connectivity
+### Validate Dropbox Connectivity
 
-With a secure network connection and correct Dropbox settings, you'll start seeing files from your Raspberry Pi in your Dropbox.
+Once connected to the network with the correct Dropbox settings, you should start seeing files from your Raspberry Pi appear in your Dropbox.
 
 ![](material/ch2/check_dropbox_upload.png)
 
-### Step 5. Check the WiFi adapter going on monitor mode
+### Check the WiFi adapter going on monitor mode
 
-In monitor mode, the WiFi adapter's status light will turn off
+In monitor mode, the WiFi adapter's status light should turn off, and its connection will vanish from your mobile hotspot interface.
 
 ![](material/ch2/plug_external.jpg)
 
-Its connection will disappear from your mobile hotspot interface.
-
 ![](material/ch2/check_hotspot_off.jpg){width=50%}
 
-### Step 6. Wait for Sensing Operation
+### Wait for Sensing Operation
 
-During the designated sensing period, the service will collect WiFi and Bluetooth packets.
+Throughout the designated sensing duration, the service will capture packets.
 
-### Step 7. End Sensing Operation
+### End Sensing Operation
 
-Unplug the battery to halt the sensing operation when you're finished.
+To conclude the sensing operation, simply unplug the battery.
 
-### Step 8. Review Sensing Results
+### Review Sensing Results
 
-Use ethernet to access and review the generated sensing results, which include WiFi packet data and Bluetooth logs.
-
-
+Use Ethernet or your mobile phone hotspot to access and review the generated sensing results, as same to the controlled enviroment testing.
 
 ![](material/ch2/final_check.mp4)
 

@@ -1,76 +1,113 @@
-# 2.4. Software Setup {.unnumbered}
+# Sensing Setup
 
-This section introduces how to retrieve the necessary scripts from the GitHub repository and execute them for the setup of the Urban Sensing Service on your Raspberry Pi.
+This guide walks you through the setup of your Raspberry Pi for urban sensing. Learn how to fetch essential scripts, install required packages, and configure settings for optimal sensing performance. Ensure your device is uniquely identified and ready for data collection.
 
-## 2.4.1. Retrieve Required Scripts
+## Getting the Scripts
 
-To set up the sensing service on your Raspberry Pi, you'll need to access the scripts located in the [urban-sensing-raspi](https://github.com/jhyeonpark/urban-sensing-raspi) GitHub repository.
+Begin by fetching the scripts from the [urban-sensing-raspi](https://github.com/jhyeonpark/urban-sensing-raspi) GitHub repository.
 
-Before you proceed, ensure that your current directory is `/home/pi`. If you're in a different directory, use the following command to navigate to the correct location:
+Ensure you're in the `/home/pi` directory. If not, navigate there using:
 
 ```bash
 cd /home/pi
 ```
 
-Next, download the repository by executing the following command:
+Clone the repository with:
 
 ```bash
 git clone https://github.com/jhyeonpark/urban-sensing-raspi.git
 ```
 
-![](material/ch2/clone_raspi.png)
+![](material/ch2/clone_raspi.png) 
 
-#### Short description of repository
+### Repository Overview {.unnumbered}
 
-This repository contains several files, which are briefly explained below:
+The repository structure is as follows:
 
-```
+```bash
 .
-├── install.sh
-├── configure.sh
+├── service.sh
+├── name.sh
+├── envr.sh
+├── packages.sh
 ├── code
-│   ├── default
-│   │   └── start.py
-│   └── ... (additional directories/files as needed)
+│   └── start.py
 └── README.md
 ```
 
-- `install.sh`: This script automates the installation of the Urban Sensing Service. It handles tasks such as installing necessary system packages and Python libraries, setting up the Bluetooth logger, and conducting other initial setup tasks. 
+- `packages.sh`: Handles updates, installations, and other setup tasks. 
+- `name.sh`: Allows users to set or confirm the unique sensor name. 
+- `envr.sh`: Configures udev rules and prepares the Pi's environment. 
+- `service.sh`: Sets up the urban sensing service to launch on boot.
+- `start.py`: The main script for the Urban Sensing Service, located in 'code/default'.
 
-- `configure.sh`: This script manages the configuration of the Urban Sensing Service. It sets up udev rules for consistent network interface naming and creates a systemd service to run the sensing service automatically at boot. 
+## Installing Required Packages
 
-- `start.py`: Located in the 'code/default' directory, this Python script is the main program for the Urban Sensing Service. By default, it configures WiFi monitoring on three different channels, collects WiFi packet data, parses this data, and stores relevant information in a SQLite database. It also collects Bluetooth data.
-
-## 2.4.2. Install necessary packages
-
-Once you download the repository, move your working directory to the repository with the following command:
-
-```bash
-cd urban-sensing-raspi
-```
-
-Switch to a superuser shell session by typing this command:
+Elevate privileges to a superuser session:
 
 ```bash
 sudo su
 ```
 
-Next, run the `install.sh` script by executing this command:
+Navigate to the repository:
 
 ```bash
-bash install.sh
+cd /home/pi/urban-sensing-raspi
 ```
 
-![](material/ch2/bash_install.mp4)
-
-## 2.4.3. Configure setting
-
-run the `configure.sh` script by executing this command:
+Execute the `packages.sh` script:
 
 ```bash
-bash configure.sh
+bash packages.sh
 ```
 
-Once the installation script completes, proceed with the `configure.sh` script. This script sets up udev rules for consistent network interface naming and creates a systemd service to run the sensing service automatically at boot.
+![](material/ch2/bash_packages.mp4)
 
-Remember to start the service again when you're ready to resume sensing operations.
+## Setting the Sensor Name
+
+For organized data collection across multiple devices, it's essential to assign a unique identifier to each sensor. This segment aids you in naming your Raspberry Pi sensor and integrating it into a Python script.
+
+Navigate to the repository:
+
+```bash
+cd /home/pi/urban-sensing-raspi
+```
+
+Run the `name.sh` script. If no name is provided, the default (`raspberrypi`) will be applied:
+
+```bash
+bash name.sh
+```
+
+Post this, the sensor name can be retrieved from the `sensor_name.conf` file for usage.
+
+![](material/ch2/bash_naming.mp4) 
+
+## Configuring Settings
+
+Configure the Raspberry Pi to set its internal WiFi to `wlan0`. When you connect an external adapter, it will be assigned differently. To determine the MAC address of the internal WiFi, execute the following command:
+
+```bash
+ifconfig
+```
+
+In my setup, the WiFi with the MAC address `b8:27:eb:0c:70:38` was assigned to `wlan0`, while the external adapter received a different assignment.
+
+![](material/ch2/ifconfig_wlan0.png)
+
+
+Navigate to the repository:
+
+```bash
+cd /home/pi/urban-sensing-raspi
+```
+
+Run the `envr.sh` script:
+
+```bash
+bash envr.sh
+```
+
+This script ensures consistent network interface naming with udev rules at boot.
+
+![](material/ch2/bash_envr.mp4)
