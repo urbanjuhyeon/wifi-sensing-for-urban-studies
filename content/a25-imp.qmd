@@ -65,8 +65,8 @@ The Urban Sensing Service isn't just about standard WiFi data collection; it off
 
 **2. Look around 'stats' Folder** :
 
-- [ ]: Verify that file names reflect the exact execution time.
-- [ ]: Confirm files have been transferred to Dropbox Storage.
+- Verify that file names reflect the exact execution time.
+- Confirm files have been transferred to Dropbox Storage.
 
 ![](material/ch2/verify_result_1.mp4) 
  
