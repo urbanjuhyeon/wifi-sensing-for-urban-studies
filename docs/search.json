@@ -137,7 +137,7 @@
     "href": "content/a25-imp.html#verifying-the-results",
     "title": "5  Implementation",
     "section": "5.2 Verifying the Results",
-    "text": "5.2 Verifying the Results\n1. Access the Pi folder: type \\\\raspberrypi\\share on file explore.\n2. Look around ‘stats’ Folder :\n\n\n\n\nVideo\n3. ‘data’ Folder :\n\nIf you used -b, expect a Bluetooth file. Otherwise, it won’t appear.\nCheck for the creation of the WiFi packet file. To delve deeper, use DB Browser for SQLite.\n\nVideo"
+    "text": "5.2 Verifying the Results\n1. Access the Pi folder: type \\\\raspberrypi\\share on file explore.\n2. Look around ‘stats’ Folder :\n\nVerify that file names reflect the exact execution time.\nConfirm files have been transferred to Dropbox Storage.\n\nVideo\n3. ‘data’ Folder :\n\nIf you used -b, expect a Bluetooth file. Otherwise, it won’t appear.\nCheck for the creation of the WiFi packet file. To delve deeper, use DB Browser for SQLite.\n\nVideo"
   },
   {
     "objectID": "content/a25-imp.html#setting-up-sensing-service",
