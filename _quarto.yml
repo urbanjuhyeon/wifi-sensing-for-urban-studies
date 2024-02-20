@@ -8,7 +8,7 @@ book:
   search: true
   site-url: https://juhyeonpark.com/wifi-sensing-for-urban-studies/
   repo-url: https://github.com/urbanjuhyeon/wifi-sensing-for-urban-studies/
-  date: "2024. 2. 20."
+  date: "2024. 2. 22."
   chapters:
     - index.qmd
     - content/a10-intro.qmd
