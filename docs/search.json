@@ -2,14 +2,14 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "A Comprehensive Toolkit for WiFi Sensing: Decoding urban spaces",
+    "title": "A Comprehensive Guide to WiFi Sensing for Urban Studies",
     "section": "",
     "text": "Preface\nThis book is a dedicated resource for anyone interested in leveraging affordable, commercially available sensors to measure non-motorized traffic in urban environments.\nQuantifying non-motorized traffic—such as pedestrians and cyclists—plays a crucial role in urban studies. Understanding the flow and patterns of non-motorized traffic can inform urban planning strategies, enhance public safety, and contribute to the development of sustainable cities. Moreover, sensing technologies provide a robust and non-invasive method for capturing this vital information in real time, offering insights that traditional surveys or manual counts might miss.\nThe advent of the Internet-of-Things (IoT) has spurred a wave of urban sensing projects worldwide. Examples include the Array of Things (AoT) in Chicago, USA and S-DoT in Seoul, Korea, which utilize a network of sensors to gather a wide range of data.\nWith the increasing accessibility of DIY technologies, individuals now have the opportunity to engage with their urban environment in new and innovative ways. These tools democratize the field of urban sensing, previously the domain of expert scientists, by equipping anyone with the interest to build their own sensors.\nThis book is designed for those interested in understanding and monitoring non-motorized traffic. We provide comprehensive guidance on building your own urban DIY sensors for this purpose. With hands-on advice, practical examples, and detailed breakthroughs, our aim is to empower you with the skills and knowledge necessary to contribute to the rapidly evolving field of urban sensing."
   },
   {
     "objectID": "index.html#footnotes",
     "href": "index.html#footnotes",
-    "title": "A Comprehensive Toolkit for WiFi Sensing: Decoding urban spaces",
+    "title": "A Comprehensive Guide to WiFi Sensing for Urban Studies",
     "section": "",
     "text": "Duives, D. C., van Oijen, T., & Hoogendoorn, S. P. (2020). Enhancing Crowd Monitoring System Functionality through Data Fusion: Estimating Flow Rate from Wi-Fi Traces and Automated Counting System Data. Sensors (Basel), 20(21). https://doi.org/10.3390/s20216032↩︎\nSoundararaj, B., Cheshire, J., & Longley, P. (2019). Estimating real-time high-street footfall from Wi-Fi probe requests. International Journal of Geographical Information Science, 34(2), 325-343,. https://doi.org/10.1080/13658816.2019.1587616↩︎\nZhou, Y., Lau, B. P. L., Koh, Z., Yuen, C., & Ng, B. K. K. (2020). Understanding Crowd Behaviors in a Social Event by Passive WiFi Sensing and Data Mining. IEEE internet of things journal, 1-1,. https://doi.org/10.1109/jiot.2020.2972062↩︎"
   },
