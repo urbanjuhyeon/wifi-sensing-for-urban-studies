@@ -154,13 +154,6 @@
     "text": "5.4 Sensing Service Testing in Real-world Scenarios\nIn this section, we’ll test the sensing service without Ethernet, simulating a real-world application. Follow these detailed steps for a successful setup and operation:\n\n5.4.1 Activate Mobile Hotspot\nActivate the hotspot on your mobile device. This is essential for providing internet connectivity to the Raspberry Pi, which will enable time synchronization and status updates via Dropbox.\n\n\n\n5.4.2 Connect the External Battery\nEnsure you’ve connected an external battery to power both your Raspberry Pi and the WiFi adapters.\n\n\n\n5.4.3 Monitor WiFi Adapter Activity\nCheck for indicator lights on the WiFi adapter. In station mode, when the adapter is networking, the lights should turn on. You should also see the Raspberry Pi appear on your mobile hotspot interface.\n\n\n\n\n\n\nNote\n\n\n\nIf the status lights remain off or the Raspberry Pi does not appear on your hotspot interface, there might be an issue with your adapter. Consider getting a replacement.\n\n\n\nObserve the WiFi adapter’s status lights. When networked (station mode), these should illuminate. Concurrently, you’ll see the Raspberry Pi connect to your mobile hotspot interface.\n\n\n\n\n\n\n\nNote\n\n\n\nWhen accessing your Raspberry Pi via a mobile phone, the raspberrypi network might not disappear immediately. This is attributed to the wlan0 interface. A Python script will disconnect and turn off the wlan0 function approximately 3 minutes later.\n\n\n\n\n5.4.4 Validate Dropbox Connectivity\nOnce connected to the network with the correct Dropbox settings, you should start seeing files from your Raspberry Pi appear in your Dropbox.\n\n\n\n5.4.5 Check the WiFi adapter going on monitor mode\nIn monitor mode, the WiFi adapter’s status light should turn off, and its connection will vanish from your mobile hotspot interface.\n\n\n\n\n5.4.6 Wait for Sensing Operation\nThroughout the designated sensing duration, the service will capture packets.\n\n\n5.4.7 End Sensing Operation\nTo conclude the sensing operation, simply unplug the battery.\n\n\n5.4.8 Review Sensing Results\nUse Ethernet or your mobile phone hotspot to access and review the generated sensing results, as same to the controlled enviroment testing.\nVideo"
   },
   {
-    "objectID": "content/a41-overall.html",
-    "href": "content/a41-overall.html",
-    "title": "A Comprehensive Guide to WiFi Sensing for Urban Studies",
-    "section": "",
-    "text": "LEVEL"
-  },
-  {
     "objectID": "content/a61-paper.html#recovering-a-malformed-sqlite3-database",
     "href": "content/a61-paper.html#recovering-a-malformed-sqlite3-database",
     "title": "5.1. Further Consideration",
