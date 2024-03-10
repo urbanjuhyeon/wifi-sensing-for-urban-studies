@@ -2,14 +2,14 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "A Comprehensive Guide to WiFi Sensing for Urban Studies",
+    "title": "Sensing Urban Dynamics with WiFi: A Practical Guide",
     "section": "",
     "text": "Preface\nThis book is a dedicated resource for anyone interested in leveraging affordable, commercially available sensors to measure non-motorized traffic in urban environments.\nQuantifying non-motorized traffic—such as pedestrians and cyclists—plays a crucial role in urban studies. Understanding the flow and patterns of non-motorized traffic can inform urban planning strategies, enhance public safety, and contribute to the development of sustainable cities. Moreover, sensing technologies provide a robust and non-invasive method for capturing this vital information in real time, offering insights that traditional surveys or manual counts might miss.\nThe advent of the Internet-of-Things (IoT) has spurred a wave of urban sensing projects worldwide. Examples include the Array of Things (AoT) in Chicago, USA and S-DoT in Seoul, Korea, which utilize a network of sensors to gather a wide range of data.\nWith the increasing accessibility of DIY technologies, individuals now have the opportunity to engage with their urban environment in new and innovative ways. These tools democratize the field of urban sensing, previously the domain of expert scientists, by equipping anyone with the interest to build their own sensors.\nThis book is designed for those interested in understanding and monitoring non-motorized traffic. We provide comprehensive guidance on building your own urban DIY sensors for this purpose. With hands-on advice, practical examples, and detailed breakthroughs, our aim is to empower you with the skills and knowledge necessary to contribute to the rapidly evolving field of urban sensing."
   },
   {
     "objectID": "index.html#footnotes",
     "href": "index.html#footnotes",
-    "title": "A Comprehensive Guide to WiFi Sensing for Urban Studies",
+    "title": "Sensing Urban Dynamics with WiFi: A Practical Guide",
     "section": "",
     "text": "Duives, D. C., van Oijen, T., & Hoogendoorn, S. P. (2020). Enhancing Crowd Monitoring System Functionality through Data Fusion: Estimating Flow Rate from Wi-Fi Traces and Automated Counting System Data. Sensors (Basel), 20(21). https://doi.org/10.3390/s20216032↩︎\nSoundararaj, B., Cheshire, J., & Longley, P. (2019). Estimating real-time high-street footfall from Wi-Fi probe requests. International Journal of Geographical Information Science, 34(2), 325-343,. https://doi.org/10.1080/13658816.2019.1587616↩︎\nZhou, Y., Lau, B. P. L., Koh, Z., Yuen, C., & Ng, B. K. K. (2020). Understanding Crowd Behaviors in a Social Event by Passive WiFi Sensing and Data Mining. IEEE internet of things journal, 1-1,. https://doi.org/10.1109/jiot.2020.2972062↩︎"
   },
@@ -152,26 +152,5 @@
     "title": "5  Implementation",
     "section": "5.4 Sensing Service Testing in Real-world Scenarios",
     "text": "5.4 Sensing Service Testing in Real-world Scenarios\nIn this section, we’ll test the sensing service without Ethernet, simulating a real-world application. Follow these detailed steps for a successful setup and operation:\n\n5.4.1 Activate Mobile Hotspot\nActivate the hotspot on your mobile device. This is essential for providing internet connectivity to the Raspberry Pi, which will enable time synchronization and status updates via Dropbox.\n\n\n\n5.4.2 Connect the External Battery\nEnsure you’ve connected an external battery to power both your Raspberry Pi and the WiFi adapters.\n\n\n\n5.4.3 Monitor WiFi Adapter Activity\nCheck for indicator lights on the WiFi adapter. In station mode, when the adapter is networking, the lights should turn on. You should also see the Raspberry Pi appear on your mobile hotspot interface.\n\n\n\n\n\n\nNote\n\n\n\nIf the status lights remain off or the Raspberry Pi does not appear on your hotspot interface, there might be an issue with your adapter. Consider getting a replacement.\n\n\n\nObserve the WiFi adapter’s status lights. When networked (station mode), these should illuminate. Concurrently, you’ll see the Raspberry Pi connect to your mobile hotspot interface.\n\n\n\n\n\n\n\nNote\n\n\n\nWhen accessing your Raspberry Pi via a mobile phone, the raspberrypi network might not disappear immediately. This is attributed to the wlan0 interface. A Python script will disconnect and turn off the wlan0 function approximately 3 minutes later.\n\n\n\n\n5.4.4 Validate Dropbox Connectivity\nOnce connected to the network with the correct Dropbox settings, you should start seeing files from your Raspberry Pi appear in your Dropbox.\n\n\n\n5.4.5 Check the WiFi adapter going on monitor mode\nIn monitor mode, the WiFi adapter’s status light should turn off, and its connection will vanish from your mobile hotspot interface.\n\n\n\n\n5.4.6 Wait for Sensing Operation\nThroughout the designated sensing duration, the service will capture packets.\n\n\n5.4.7 End Sensing Operation\nTo conclude the sensing operation, simply unplug the battery.\n\n\n5.4.8 Review Sensing Results\nUse Ethernet or your mobile phone hotspot to access and review the generated sensing results, as same to the controlled enviroment testing.\nVideo"
-  },
-  {
-    "objectID": "content/a61-paper.html#recovering-a-malformed-sqlite3-database",
-    "href": "content/a61-paper.html#recovering-a-malformed-sqlite3-database",
-    "title": "5.1. Further Consideration",
-    "section": "Recovering a Malformed SQLite3 Database",
-    "text": "Recovering a Malformed SQLite3 Database\nAre you facing the “database disk image is malformed” error in SQLite3? This error indicates a corrupt database file, possibly due to an application crash, hardware failure, or programming error. This guide will walk you through the steps to recover as much data as possible from a corrupted SQLite3 database. ## Step 1: Update SQLite3 to the Latest Version {.unnumbered}\nTo begin, ensure you have a recent version of SQLite3 that supports the .recover command. Introduced in SQLite3 version 3.29.0 (released on 2019-07-10), this command aids in database recovery. Download the latest SQLite3 version from the official SQLite3 download page .\n\nDownload the sqlite3.exe file to the folder containing the malformed SQLite3 file."
-  },
-  {
-    "objectID": "content/a61-paper.html#step-2-generate-a-sql-dump-with-the-.recover-command",
-    "href": "content/a61-paper.html#step-2-generate-a-sql-dump-with-the-.recover-command",
-    "title": "5.1. Further Consideration",
-    "section": "Step 2: Generate a SQL Dump with the .recover Command",
-    "text": "Step 2: Generate a SQL Dump with the .recover Command\nThe SQLite3 .recover command recovers as much data as possible from a corrupted database file. It parses the database file byte-by-byte and generates SQL commands to recreate the database.\nOpen the Command Prompt and navigate to the directory containing the corrupted SQLite3 file. Assuming C:\\Users\\UNIST\\Documents\\malf is the directory containing broken.sqlite3, the corrupted database, use the following command:\ncd C:\\Users\\UNIST\\Documents\\malf\nThen, use the .recover command as follows:\nsqlite3 broken.sqlite3\nsqlite&gt; .mode insert\nsqlite&gt; .output recover.sql\nsqlite&gt; .recover\nsqlite&gt; .exit\nThese commands generate a recover.sql file containing SQL commands to recreate the database."
-  },
-  {
-    "objectID": "content/a61-paper.html#step-3-recreate-the-database-using-the-recovered-sql",
-    "href": "content/a61-paper.html#step-3-recreate-the-database-using-the-recovered-sql",
-    "title": "5.1. Further Consideration",
-    "section": "Step 3: Recreate the Database Using the Recovered SQL",
-    "text": "Step 3: Recreate the Database Using the Recovered SQL\nThe final step involves creating a new SQLite3 database using the SQL commands in recover.sql. Execute the following command:\nsqlite3 new_database.db &lt; recover.sql\nThis creates a new SQLite3 database named new_database.db using the SQL commands in recover.sql.\n\nNote: This method may not recover all your data, especially if the corruption is severe. Some rows or even entire tables might be missing or incomplete in the new database.\n\nWatch this video to understand the entire process:\nVideo"
   }
 ]

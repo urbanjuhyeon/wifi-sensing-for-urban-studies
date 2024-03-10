@@ -3,12 +3,12 @@ project:
   output-dir: docs
 
 book:
-  title: "A Comprehensive Guide to WiFi Sensing for Urban Studies"
+  title: "Sensing Urban Dynamics with WiFi: A Practical Guide"
   author: Juhyeon Park
   search: true
   site-url: https://juhyeonpark.com/wifi-sensing-for-urban-studies/
   repo-url: https://github.com/urbanjuhyeon/wifi-sensing-for-urban-studies/
-  date: "2024. 2. 22."
+  date: "2024. 3. 10."
   chapters:
     - index.qmd
     - content/a10-intro.qmd
@@ -19,18 +19,24 @@ book:
       - content/a23-pisetup.qmd
       - content/a24-software.qmd
       - content/a25-imp.qmd
-    - part: content/a30-collection.qmd
+    - part: content/a30-metric.qmd
       chapters:
-      - content/a31-guide.qmd
-    - part: content/a40-analysis.qmd
+      - content/a31-overview.qmd
+      - content/a32-location.qmd
+      - content/a33-count.qmd
+      - content/a34-track.qmd
+      - content/a35-identity.qmd
+      - content/a36-activities.qmd
+    - part: content/a40-casestudy.qmd
       chapters:
-      - content/a41-overall.qmd    
-    - part: content/a50-application.qmd
+      - content/a41-case1.qmd   
+      - content/a42-case2.qmd
+      - content/a43-case3.qmd
+    - part: content/a50-future.qmd
       chapters:
-      - content/a51-case.qmd
+      - content/a51-limitation.qmd
+      - content/a52-direction.qmd
     - part: content/a60-further.qmd
-      chapters:
-      - content/a61-paper.qmd
 
 bibliography: references.bib
 
