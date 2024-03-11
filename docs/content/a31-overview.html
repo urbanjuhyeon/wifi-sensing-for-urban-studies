@@ -267,7 +267,18 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#ground-truth" id="toc-ground-truth" class="nav-link active" data-scroll-target="#ground-truth">Ground Truth</a></li>
+  <li><a href="#location-wifi-signal-based-localization" id="toc-location-wifi-signal-based-localization" class="nav-link" data-scroll-target="#location-wifi-signal-based-localization">Location: WiFi Signal-based Localization</a></li>
+  <li><a href="#count-number-of-unique-mac-addresses" id="toc-count-number-of-unique-mac-addresses" class="nav-link" data-scroll-target="#count-number-of-unique-mac-addresses">Count: Number of Unique MAC Addresses</a></li>
+  <li><a href="#track-timestamp-location" id="toc-track-timestamp-location" class="nav-link" data-scroll-target="#track-timestamp-location">Track: Timestamp + Location</a></li>
+  <li><a href="#identify-historical-tracking-data" id="toc-identify-historical-tracking-data" class="nav-link" data-scroll-target="#identify-historical-tracking-data">Identify: Historical Tracking Data</a></li>
+  <li><a href="#activities-spatiotemporal-data-mining" id="toc-activities-spatiotemporal-data-mining" class="nav-link" data-scroll-target="#activities-spatiotemporal-data-mining">Activities: Spatiotemporal Data Mining</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -289,8 +300,54 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<p>We explore how WiFi gives us a snapshot of life in the city. It’s about finding where people are (<em><strong>Location</strong></em>), tallying up the numbers (<em><strong>Count</strong></em>), tracking movement (<em><strong>Track</strong></em>), identifying patterns (<em><strong>Identify</strong></em>), and figuring out actions (<em><strong>Activities</strong></em>). The upcoming graphic will lay out these concepts step by step:</p>
+<p><img src="material/metric.png" class="img-fluid"></p>
+<section id="ground-truth" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="ground-truth">Ground Truth</h3>
+<p>First off, we need to start with what we actually see—this is called the ‘Ground Truth’. Think of it like checking what’s happening in real life so we can compare it to what our WiFi tools tell us. It’s like a reality check for our data.</p>
+</section>
+<section id="location-wifi-signal-based-localization" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="location-wifi-signal-based-localization">Location: WiFi Signal-based Localization</h3>
+<p>Next up, we find out ‘Location’. Just like your phone finds WiFi, we can use WiFi to find where phones (and therefore people) are. We look at how strong the WiFi signal is and use that info to guess where the phone is located.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Why Location Comes Before Count">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Why Location Comes Before Count
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Location is essential for accurate and meaningful counting. Imagine a room with three people, just like in the diagram:</p>
+<ul>
+<li><strong>Without location data,</strong> counting detected device MAC addresses only tells you there are three devices total.</li>
+<li><strong>With even rough location data,</strong> you can determine that two devices are on the left and one on the right – providing much richer information.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="count-number-of-unique-mac-addresses" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="count-number-of-unique-mac-addresses">Count: Number of Unique MAC Addresses</h3>
+<p>After we know where people are, we start counting. Every phone has a unique ID called a MAC address. By counting these, we can figure out how many phones—so, likely, how many people—are in a spot at a given time.</p>
+</section>
+<section id="track-timestamp-location" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="track-timestamp-location">Track: Timestamp + Location</h3>
+<p>Now, it’s not just about where people are, but also when they were there. We keep track of the time when phones were at different spots. This helps us see the paths people take as they move around.</p>
+</section>
+<section id="identify-historical-tracking-data" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="identify-historical-tracking-data">Identify: Historical Tracking Data</h3>
+<p>By looking at the tracking info over time, we can start to see patterns. Maybe we notice that some phones show up in the same place every day—maybe during a morning commute. We can see the routines in the city’s daily life.</p>
+</section>
+<section id="activities-spatiotemporal-data-mining" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="activities-spatiotemporal-data-mining">Activities: Spatiotemporal Data Mining</h3>
+<p>Finally, we get to the most detailed part: ‘Activities’. Here, we use the movement and timing data to guess what people are doing. Are they rushing through, or are they hanging out for a while? This helps us understand how different areas of the city are used throughout the day</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
