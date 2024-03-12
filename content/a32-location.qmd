@@ -1,1 +1,4 @@
 # Location
+
+In this section, we focus on understanding how we can figure out **where people are in a city** using WiFi sensing. Finding the exact location of people based on WiFi signals is not always straightforward. There are **two main challenges**: picking the right amount of time to look at WiFi signals and choosing the best way to guess where these signals come from. This section explains these challenges and how we can overcome them. We will also look at the **effective methods** I proposed in my thesis for finding locations and how to put these ideas into practice using R code.
+

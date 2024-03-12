@@ -6,6 +6,9 @@ book:
   title: "Sensing Urban Dynamics with WiFi: A Practical Guide"
   author: Juhyeon Park
   search: true
+  sidebar:
+    collapse-level: 3
+    pinned: true
   site-url: https://juhyeonpark.com/wifi-sensing-for-urban-studies/
   repo-url: https://github.com/urbanjuhyeon/wifi-sensing-for-urban-studies/
   date: "2024. 3. 10."
@@ -42,9 +45,12 @@ bibliography: references.bib
 
 format:
   html:
-    theme:
-        light: [cosmo, theme.scss, anari-custom.scss]
-        dark: [cosmo, theme-dark.scss, anari-custom.scss]
-    css: styles.css
+    theme: [cosmo, custom.scss]
+  pdf:
+    documentclass: scrbook
+    # Fixes 'Undefined control sequence \cellcolor' error
+    include-in-header:
+      - text: |
+          \usepackage[table]{xcolor}
 
 editor: source

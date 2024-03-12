@@ -1,30 +1,32 @@
 # Metrics Overview
 
-We explore how WiFi gives us a snapshot of life in the city. It's about finding where people are (_**Location**_), tallying up the numbers (_**Count**_), tracking movement (_**Track**_), identifying patterns (_**Identify**_), and figuring out actions (_**Activities**_). The upcoming graphic will lay out these concepts step by step:
+We explore how WiFi gives us a snapshot of life in the city. It's about finding where people are (_**Location**_), tallying up the numbers (_**Count**_), tracking movement (_**Track**_), identifying patterns (_**Identify**_), and figuring out actions (_**Activities**_). A graphic will illustrate these concepts step by step:
 
-![](material/metric.png)
+![Overview of WiFi Sensing Metrics: From Pinpointing Locations to Understanding Urban Activities](material/ch4/metric-overview.png)
 
-### Ground Truth {.unnumbered}
-First off, we need to start with what we actually see—this is called the 'Ground Truth'. Think of it like checking what's happening in real life so we can compare it to what our WiFi tools tell us. It's like a reality check for our data.
+#### **Ground Truth: What’s really happening?** {.unnumbered}
+We start with the 'Ground Truth'—observing what's actually happening on the ground. This real-life observation helps us check and confirm our WiFi data findings. It's the benchmark against which we measure the accuracy of our WiFi sensing data.
 
-### Location: WiFi Signal-based Localization {.unnumbered}
-Next up, we find out 'Location'. Just like your phone finds WiFi, we can use WiFi to find where phones (and therefore people) are. We look at how strong the WiFi signal is and use that info to guess where the phone is located.
+#### **Location: Where are people at a specific time?** {.unnumbered}
+'Location' is determined by analyzing the characteristics of WiFi signals at a given time, like signal frequency and strength. Depending on the situation, we might assign locations based on sensor positions or estimate them in areas between sensors.
 
 ::: {.callout-note title="Why Location Comes Before Count" collapse="true"}
-Location is essential for accurate and meaningful counting. Imagine a room with three people, just like in the diagram:
+Before counting, we must pinpoint location. Without knowing where devices are, we just have a total count.
+
+Imagine a room with three people, just like in the diagram above:
 
 - **Without location data,** counting detected device MAC addresses only tells you there are three devices total.
 - **With even rough location data,** you can determine that two devices are on the left and one on the right – providing much richer information.
 :::
 
-### Count: Number of Unique MAC Addresses {.unnumbered}
-After we know where people are, we start counting. Every phone has a unique ID called a MAC address. By counting these, we can figure out how many phones—so, likely, how many people—are in a spot at a given time.
+#### **Count: How many over time?** {.unnumbered}
+'Count' focuses on tallying unique MAC addresses to estimate how many people are in an area over different timescales. This method allows for long-term tracking of device presence, offering insights into occupancy trends over extended periods.
 
-### Track: Timestamp + Location {.unnumbered}
-Now, it’s not just about where people are, but also when they were there. We keep track of the time when phones were at different spots. This helps us see the paths people take as they move around.
+#### **Track: Where and when did they move?** {.unnumbered}
+'Track' involves recording when and where phones are detected. This data lets us follow people's movements, highlighting the dynamic patterns of city life and offering insights into how different areas are used throughout the day.
 
-### Identify: Historical Tracking Data {.unnumbered}
-By looking at the tracking info over time, we can start to see patterns. Maybe we notice that some phones show up in the same place every day—maybe during a morning commute. We can see the routines in the city’s daily life.
+#### **Identify: Who visits regularly and what are their patterns?** {.unnumbered}
+With 'Identify', we analyze data over time to recognize regular visitors and understand their movement habits. This metric provides insights into recurring traffic patterns and the behaviors of different user groups within the city.
 
-### Activities: Spatiotemporal Data Mining {.unnumbered}
-Finally, we get to the most detailed part: 'Activities'. Here, we use the movement and timing data to guess what people are doing. Are they rushing through, or are they hanging out for a while? This helps us understand how different areas of the city are used throughout the day
+#### **Activities: What are they doing and how does it change?** {.unnumbered}
+'Activities' aims to understand actions by analyzing timing and movement data. We look at how people use different city areas, observing changes in activity patterns at different times and days, to get a deeper understanding of urban life.
