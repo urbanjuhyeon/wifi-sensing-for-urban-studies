@@ -4,7 +4,7 @@ This guide walks you through the setup of your Raspberry Pi for urban sensing. L
 
 ## Getting the Scripts
 
-Begin by fetching the scripts from the [urban-sensing-raspi](https://github.com/jhyeonpark/urban-sensing-raspi) GitHub repository.
+Begin by fetching the scripts from the [urban-sensing-raspi](https://github.com/urbanjuhyeon/urban-sensing-raspi) GitHub repository.
 
 Ensure you're in the `/home/pi` directory. If not, navigate there using:
 
@@ -15,7 +15,7 @@ cd /home/pi
 Clone the repository with:
 
 ```bash
-git clone https://github.com/jhyeonpark/urban-sensing-raspi.git
+git clone https://github.com/urbanjuhyeon/urban-sensing-raspi.git
 ```
 
 ![](material/ch2/clone_raspi.png) 

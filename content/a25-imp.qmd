@@ -57,7 +57,7 @@ The Urban Sensing Service isn't just about standard WiFi data collection; it off
   python3 urban-sensing-raspi/code/start.py -b
   ``` 
 
-- **Discover More Options** : Read our the [GitHub Repository](https://github.com/jhyeonpark/urban-sensing-raspi).
+- **Discover More Options** : Read our the [GitHub Repository](https://github.com/urbanjuhyeon/urban-sensing-raspi).
 
 ## Verifying the Results
 

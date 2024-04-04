@@ -334,7 +334,7 @@ cd /home/pi
 
 ### Step 1. Retrieve Required Scripts
 
-To set up the sensing service on your Raspberry Pi, you'll need to access the scripts located in the [urban-sensing-raspi](https://github.com/jhyeonpark/urban-sensing-raspi) GitHub repository.
+To set up the sensing service on your Raspberry Pi, you'll need to access the scripts located in the [urban-sensing-raspi](https://github.com/urbanjuhyeon/urban-sensing-raspi) GitHub repository.
 
 Before you proceed, ensure that your current directory is `/home/pi`. If you're in a different directory, use the following command to navigate to the correct location:
 
@@ -345,7 +345,7 @@ cd /home/pi
 Next, download the repository by executing the following command:
 
 ```bash
-git clone https://github.com/jhyeonpark/urban-sensing-raspi.git
+git clone https://github.com/urbanjuhyeon/urban-sensing-raspi.git
 ```
 
 This repository contains several files, which are briefly explained below:
