@@ -22,10 +22,14 @@ book:
       - content/a23-pisetup.qmd
       - content/a24-software.qmd
       - content/a25-imp.qmd
+    - part: content/a30-processing.qmd
+      chapters:
+      - content/a31-collection.qmd
+      - content/a32-extraction.qmd
+      - content/a33-preprocessing.qmd
     - part: content/a30-metric.qmd
       chapters:
       - content/a31-overview.qmd
-      - content/a32-location.qmd
       - content/a33-count.qmd
       - content/a34-track.qmd
       - content/a35-identity.qmd
