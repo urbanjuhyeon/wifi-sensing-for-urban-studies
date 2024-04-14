@@ -18,10 +18,8 @@ For a more streamlined and efficient process, we'll utilize the pacman package, 
 
 First, ensure the `pacman` package is installed and loaded:
 
-
 ```{r, warning = FALSE}
 if (!require(pacman)) install.packages("pacman")
-pacman::p_load(pacman)
 ```
 
 Next, use `p_load` from `pacman` to install and load the `RSQLite` and `DBI` packages, essential for interfacing with SQLite databases:
@@ -73,6 +71,12 @@ fwrite(wifi_data, "path/to/your/database.csv")
 ```
 
 Replace `"path/to/your/database.csv"` with the actual path to your SQLite3 database file.
+
+```{r}
+#| echo: false
+fwrite(wifi_data, "material/ch3/sample.csv")
+```
+
 
 ### Closing the Database Connection
 
