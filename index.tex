@@ -134,6 +134,8 @@
 \definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
 \makeatother
 \makeatletter
+\makeatother
+\makeatletter
 \@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
 \makeatother
 \makeatletter
@@ -172,16 +174,23 @@
 \newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
 \makeatother
 \makeatletter
-\makeatother
-\makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\makeatother
+\makeatletter
+\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
 \makeatother
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
-\usepackage{bookmark}
-
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same} % disable monospaced font for URLs
 \hypersetup{
@@ -197,6 +206,7 @@
 \begin{document}
 \frontmatter
 \maketitle
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[breakable, borderline west={3pt}{0pt}{shadecolor}, frame hidden, sharp corners, boxrule=0pt, enhanced, interior hidden]}{\end{tcolorbox}}\fi
 
 \renewcommand*\contentsname{Table of contents}
 {
@@ -206,7 +216,8 @@
 \mainmatter
 \bookmarksetup{startatroot}
 
-\chapter*{Preface}\label{preface}
+\hypertarget{preface}{%
+\chapter*{Preface}\label{preface}}
 \addcontentsline{toc}{chapter}{Preface}
 
 \markboth{Preface}{Preface}
@@ -244,7 +255,8 @@ advice, practical examples, and detailed breakthroughs, our aim is to
 empower you with the skills and knowledge necessary to contribute to the
 rapidly evolving field of urban sensing.
 
-\subsection*{Scope of this document}\label{scope-of-this-document}
+\hypertarget{scope-of-this-document}{%
+\subsection*{Scope of this document}\label{scope-of-this-document}}
 \addcontentsline{toc}{subsection}{Scope of this document}
 
 This document demonstrates 1) how to build a smart sensor that detects
@@ -261,7 +273,8 @@ resulting data to produce meaningful insights. This includes:
   WiFi data analysis
 \end{itemize}
 
-\subsection*{Why WiFi sensing?}\label{why-wifi-sensing}
+\hypertarget{why-wifi-sensing}{%
+\subsection*{Why WiFi sensing?}\label{why-wifi-sensing}}
 \addcontentsline{toc}{subsection}{Why WiFi sensing?}
 
 WiFi sensing technologies are among these tools, providing a
@@ -288,20 +301,23 @@ movements and behaviors\footnote{Duives, D. C., van Oijen, T., \&
 
 \bookmarksetup{startatroot}
 
-\chapter*{PART I: Introduction}\label{part-i-introduction}
+\hypertarget{part-i-introduction}{%
+\chapter*{PART I: Introduction}\label{part-i-introduction}}
 \addcontentsline{toc}{chapter}{PART I: Introduction}
 
 \markboth{PART I: Introduction}{PART I: Introduction}
 
 \part{PART II: WiFi Sensing Setup}
 
-\chapter{Prerequisites}\label{prerequisites}
+\hypertarget{prerequisites}{%
+\chapter{Prerequisites}\label{prerequisites}}
 
 Before beginning the process of setting up a WiFi sensor, it's essential
 to ensure you have the necessary hardware \emph{(2.1)}, software
 \emph{(2.2)}, and skills \emph{(2.3)}.
 
-\section{Hardware Components}\label{hardware-components}
+\hypertarget{hardware-components}{%
+\section{Hardware Components}\label{hardware-components}}
 
 This is the hardware setup illustrating the necessary components
 required for WiFi sensing:
@@ -355,7 +371,8 @@ the sensor depending on your project requirements, such as:
   monitoring and adjusting sensor performance based on climatic changes.
 \end{itemize}
 
-\section{Required Software}\label{required-software}
+\hypertarget{required-software}{%
+\section{Required Software}\label{required-software}}
 
 The key software programs necessary to build a WiFi sensor and manage
 the sensor data are:
@@ -385,7 +402,8 @@ packet file type) & \href{https://sqlitebrowser.org/}{Link} \\
 Feel free to download these programs in advance. If needed, we will
 provide the download links again when each step requires these tools.
 
-\section{Necessary Skills}\label{necessary-skills}
+\hypertarget{necessary-skills}{%
+\section{Necessary Skills}\label{necessary-skills}}
 
 Basic programming skills, specifically in R and Python, are required.
 You should be able to write, edit, and debug code. To improve these
@@ -402,7 +420,8 @@ skills, consider the following courses:
   Everybody Specialization} to learn programming basics in Python.
 \end{itemize}
 
-\chapter{Initial Setup}\label{initial-setup}
+\hypertarget{initial-setup}{%
+\chapter{Initial Setup}\label{initial-setup}}
 
 This segment guides you through the complete process of setting up a
 Raspberry Pi, including the installation of the operating system
@@ -410,10 +429,12 @@ Raspberry Pi, including the installation of the operating system
 remotely \emph{(2.2, 2.3, 2.4, 2.5)}. Additional troubleshooting and
 advanced setup tips are also provided in section \emph{(2.6)}.
 
+\hypertarget{setting-up-the-raspberry-pi-operating-system}{%
 \section{Setting Up the Raspberry Pi Operating
-System}\label{setting-up-the-raspberry-pi-operating-system}
+System}\label{setting-up-the-raspberry-pi-operating-system}}
 
-\subsection{Download the Pi Imager}\label{download-the-pi-imager}
+\hypertarget{download-the-pi-imager}{%
+\subsection{Download the Pi Imager}\label{download-the-pi-imager}}
 
 Begin by downloading the Raspberry Pi Imager, a tool for installing the
 operating system on your Pi. This software is available on the
@@ -423,7 +444,8 @@ website}. Select the version compatible with your operating system
 
 \includegraphics{content/material/ch2/raspi_imager.png}
 
-\subsection{Format your SD Card}\label{format-your-sd-card}
+\hypertarget{format-your-sd-card}{%
+\subsection{Format your SD Card}\label{format-your-sd-card}}
 
 Insert an SD card into your computer, then launch the Raspberry Pi
 Imager you just installed. Click \texttt{CHOOSE\ OS}, then select the
@@ -431,8 +453,9 @@ Imager you just installed. Click \texttt{CHOOSE\ OS}, then select the
 
 \includegraphics{content/material/ch2/format_SD.mp4}
 
+\hypertarget{flash-the-os-onto-your-sd-card}{%
 \subsection{Flash the OS onto your SD
-Card}\label{flash-the-os-onto-your-sd-card}
+Card}\label{flash-the-os-onto-your-sd-card}}
 
 Once your SD card is formatted, you can proceed to install the Raspberry
 Pi OS:
@@ -476,7 +499,7 @@ encounter any issues.
 Once the process is complete, your SD card will be ready, and you can
 insert it into the Raspberry Pi to boot up the new operating system.
 
-\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, opacitybacktitle=0.6, toprule=.15mm, colback=white, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Why Do We Use Our Mobile Hotspot for This Project?}, arc=.35mm, coltitle=black, opacityback=0, left=2mm, bottomtitle=1mm, colframe=quarto-callout-note-color-frame, titlerule=0mm, breakable, bottomrule=.15mm, rightrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, coltitle=black, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, colback=white, bottomtitle=1mm, breakable, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, toptitle=1mm, arc=.35mm, rightrule=.15mm, opacityback=0, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Why Do We Use Our Mobile Hotspot for This Project?}, toprule=.15mm, leftrule=.75mm, opacitybacktitle=0.6]
 
 The Raspberry Pi lacks a real-time clock, which means it can't keep
 track of time when powered off. To fetch the current time when booting
@@ -496,8 +519,9 @@ vital for the project's success.
 
 \end{tcolorbox}
 
+\hypertarget{choose-the-access-remotely-way}{%
 \section{Choose the Access Remotely
-Way}\label{choose-the-access-remotely-way}
+Way}\label{choose-the-access-remotely-way}}
 
 Choosing the correct method for remote access depends on your specific
 setup and requirements. Below are the detailed instructions for both
@@ -516,18 +540,21 @@ methods, allowing smooth access and control of the Raspberry Pi:
   2.2.5., Section~\ref{sec-way2}.
 \end{itemize}
 
-\section{Access Your Pi Using an Ethernet Cable}\label{sec-way1}
+\hypertarget{sec-way1}{%
+\section{Access Your Pi Using an Ethernet Cable}\label{sec-way1}}
 
+\hypertarget{connect-your-pi-to-your-laptop}{%
 \subsection{Connect your Pi to your
-Laptop}\label{connect-your-pi-to-your-laptop}
+Laptop}\label{connect-your-pi-to-your-laptop}}
 
 With the Pi-equipped SD card, connect your Pi to your laptop using an
 Ethernet cable.
 
 \includegraphics{content/material/ch2/connect_pi.jpg}
 
+\hypertarget{enable-internet-connection-sharing}{%
 \subsection{Enable Internet Connection
-Sharing}\label{enable-internet-connection-sharing}
+Sharing}\label{enable-internet-connection-sharing}}
 
 Navigate to your laptop's network settings and enable the
 \texttt{Internet\ Connection\ Sharing} option. This will allow your
@@ -536,8 +563,9 @@ Ethernet cable, provided it's connected to the internet.
 
 \includegraphics{content/material/ch2/share_network.mp4}
 
+\hypertarget{access-your-raspberry-pi-via-ssh}{%
 \subsection{Access Your Raspberry Pi via
-SSH}\label{access-your-raspberry-pi-via-ssh}
+SSH}\label{access-your-raspberry-pi-via-ssh}}
 
 Having installed the Windows Terminal from the Microsoft Store, you can
 access the Command Prompt by pressing \texttt{Ctrl\ +\ R}, typing
@@ -557,7 +585,7 @@ following command:
 
 \includegraphics{content/material/ch2/access_cmd.mp4}
 
-\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, opacitybacktitle=0.6, toprule=.15mm, colback=white, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, arc=.35mm, coltitle=black, opacityback=0, left=2mm, bottomtitle=1mm, colframe=quarto-callout-note-color-frame, titlerule=0mm, breakable, bottomrule=.15mm, rightrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, coltitle=black, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, colback=white, bottomtitle=1mm, breakable, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, toptitle=1mm, arc=.35mm, rightrule=.15mm, opacityback=0, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, toprule=.15mm, leftrule=.75mm, opacitybacktitle=0.6]
 
 If you encounter any troubles with this section, please refer to the
 last section of this content, titled \textbf{Issues of Initial Setup},
@@ -565,32 +593,37 @@ for guidance and solutions.
 
 \end{tcolorbox}
 
+\hypertarget{sec-way2}{%
 \section{Access Your Pi Using Your Phone as a Network
-Provider}\label{sec-way2}
+Provider}\label{sec-way2}}
 
+\hypertarget{set-up-your-mobile-hotspot}{%
 \subsection{Set Up Your Mobile
-Hotspot}\label{set-up-your-mobile-hotspot}
+Hotspot}\label{set-up-your-mobile-hotspot}}
 
 Enable your mobile hotspot with the same settings you used when flashing
 the SD card:
 
 \includegraphics[width=0.5\textwidth,height=\textheight]{content/material/ch2/hotspot_default.jpg}
 
-\subsection{Power Up Your Pi}\label{power-up-your-pi}
+\hypertarget{power-up-your-pi}{%
+\subsection{Power Up Your Pi}\label{power-up-your-pi}}
 
 Insert the prepared SD card into your Pi and plug in the power:
 
 \includegraphics{content/material/ch2/plug_pi_wifi.jpg}
 
+\hypertarget{connect-your-laptop-to-your-mobile-hotspot}{%
 \subsection{Connect Your Laptop to Your Mobile
-Hotspot}\label{connect-your-laptop-to-your-mobile-hotspot}
+Hotspot}\label{connect-your-laptop-to-your-mobile-hotspot}}
 
 Configure your laptop's WiFi to connect to the mobile hotspot:
 
 \includegraphics[width=0.5\textwidth,height=\textheight]{content/material/ch2/laptop_wifi.png}
 
+\hypertarget{verify-connections-in-your-mobile-hotspot-interface}{%
 \subsection{Verify Connections in Your Mobile Hotspot
-Interface}\label{verify-connections-in-your-mobile-hotspot-interface}
+Interface}\label{verify-connections-in-your-mobile-hotspot-interface}}
 
 After waiting a few seconds, you should see two connected devices in
 your interface:
@@ -601,7 +634,8 @@ you should see the Raspberry Pi appear in your mobile hotspot interface.
 \textbf{2. your laptop:} Your laptop's name, as it appears on the
 network.
 
-\subsection{Access Your Pi via SSH}\label{access-your-pi-via-ssh}
+\hypertarget{access-your-pi-via-ssh}{%
+\subsection{Access Your Pi via SSH}\label{access-your-pi-via-ssh}}
 
 First, open the Command Prompt. If you have installed the Windows
 Terminal from the Microsoft Store, you can access the Command Prompt by
@@ -621,7 +655,7 @@ command:
 
 \includegraphics{content/material/ch2/ssh_laptop.mp4}
 
-\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, opacitybacktitle=0.6, toprule=.15mm, colback=white, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, arc=.35mm, coltitle=black, opacityback=0, left=2mm, bottomtitle=1mm, colframe=quarto-callout-note-color-frame, titlerule=0mm, breakable, bottomrule=.15mm, rightrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, coltitle=black, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, colback=white, bottomtitle=1mm, breakable, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, toptitle=1mm, arc=.35mm, rightrule=.15mm, opacityback=0, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, toprule=.15mm, leftrule=.75mm, opacitybacktitle=0.6]
 
 If you encounter any troubles with this section, please refer to the
 last section of this content, titled \textbf{Issues of Initial Setup},
@@ -629,8 +663,9 @@ for guidance and solutions.
 
 \end{tcolorbox}
 
+\hypertarget{verify-your-pis-internet-connectivity}{%
 \section{Verify Your Pi's Internet
-Connectivity}\label{verify-your-pis-internet-connectivity}
+Connectivity}\label{verify-your-pis-internet-connectivity}}
 
 To confirm your Raspberry Pi's internet connection, use the ping command
 followed by the IP address of a well-known site. For example, ping
@@ -649,7 +684,7 @@ If the Pi is connected to the internet, you will see lines starting with
 
 You can stop the ping process by pressing \texttt{Ctrl\ +\ C}.
 
-\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, opacitybacktitle=0.6, toprule=.15mm, colback=white, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, arc=.35mm, coltitle=black, opacityback=0, left=2mm, bottomtitle=1mm, colframe=quarto-callout-note-color-frame, titlerule=0mm, breakable, bottomrule=.15mm, rightrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, coltitle=black, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, colback=white, bottomtitle=1mm, breakable, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, toptitle=1mm, arc=.35mm, rightrule=.15mm, opacityback=0, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, toprule=.15mm, leftrule=.75mm, opacitybacktitle=0.6]
 
 If you encounter any troubles with this section, please refer to the
 last section of this content, titled \textbf{Issues of Initial Setup},
@@ -657,10 +692,12 @@ for guidance and solutions.
 
 \end{tcolorbox}
 
-\section{Issues of initial setup}\label{issues-of-initial-setup}
+\hypertarget{issues-of-initial-setup}{%
+\section{Issues of initial setup}\label{issues-of-initial-setup}}
 
+\hypertarget{connection-and-network-error}{%
 \subsection{Connection and network
-error}\label{connection-and-network-error}
+error}\label{connection-and-network-error}}
 
 If you encounter any errors accessing your Pi or the internet
 connectivity, please follow these steps:
@@ -679,8 +716,9 @@ connectivity, please follow these steps:
 
 \includegraphics{content/material/ch2/error_network.mp4}
 
+\hypertarget{locating-your-raspberry-pis-ip-address-using-mac-address}{%
 \subsection{Locating Your Raspberry Pi's IP Address using MAC
-Address}\label{locating-your-raspberry-pis-ip-address-using-mac-address}
+Address}\label{locating-your-raspberry-pis-ip-address-using-mac-address}}
 
 If you need to access your Pi with a specific IP address, especially
 when connected to multiple Pis, follow these guidelines:
@@ -703,8 +741,9 @@ different prefix.
 
 \includegraphics{content/material/ch2/access_with_mac.mp4}
 
+\hypertarget{warning-remote-host-identification-has-changed}{%
 \subsection{`WARNING: REMOTE HOST IDENTIFICATION HAS
-CHANGED!'}\label{warning-remote-host-identification-has-changed}
+CHANGED!'}\label{warning-remote-host-identification-has-changed}}
 
 This warning appears when the remote system has different identification
 than expected, such as after a system re-installation or SSH key change.
@@ -721,8 +760,9 @@ You can fix this error by removing the old key for the Raspberry Pi:
 
 Afterwards, try to re-establish the SSH connection.
 
+\hypertarget{using-an-enhanced-security-network}{%
 \subsection{Using an Enhanced Security
-Network}\label{using-an-enhanced-security-network}
+Network}\label{using-an-enhanced-security-network}}
 
 If you're on a network with higher security, you may need to register
 your Raspberry Pi's MAC address. See the example below from a university
@@ -731,17 +771,20 @@ your specific procedures.
 
 \includegraphics[width=5.20833in,height=\textheight]{content/material/ch2/network_unist.png}
 
-\chapter{Raspberry Pi Setup}\label{raspberry-pi-setup}
+\hypertarget{raspberry-pi-setup}{%
+\chapter{Raspberry Pi Setup}\label{raspberry-pi-setup}}
 
 This section covers preparing your Raspberry Pi OS \emph{(3.1)},
 transforming it into a file server for easy file sharing \emph{(3.2)},
 and configuring it to send status updates to cloud storage for remote
 monitoring \emph{(3.3)}.
 
+\hypertarget{prepare-your-raspberry-pi-os}{%
 \section{Prepare Your Raspberry Pi
-OS}\label{prepare-your-raspberry-pi-os}
+OS}\label{prepare-your-raspberry-pi-os}}
 
-\subsection{Update Your Pi}\label{update-your-pi}
+\hypertarget{update-your-pi}{%
+\subsection{Update Your Pi}\label{update-your-pi}}
 
 Start by updating your Raspberry Pi's operating system (OS) to its
 latest version. Open a terminal window and enter the following commands:
@@ -752,7 +795,7 @@ latest version. Open a terminal window and enter the following commands:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, opacitybacktitle=0.6, toprule=.15mm, colback=white, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{How to copy/paste in Linux terminal}, arc=.35mm, coltitle=black, opacityback=0, left=2mm, bottomtitle=1mm, colframe=quarto-callout-note-color-frame, titlerule=0mm, breakable, bottomrule=.15mm, rightrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, coltitle=black, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, colback=white, bottomtitle=1mm, breakable, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, toptitle=1mm, arc=.35mm, rightrule=.15mm, opacityback=0, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{How to copy/paste in Linux terminal}, toprule=.15mm, leftrule=.75mm, opacitybacktitle=0.6]
 
 For copy, you could click this icon to copy the command:
 
@@ -764,7 +807,7 @@ when Ctrl+V doesn't work in the terminal.
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, opacitybacktitle=0.6, toprule=.15mm, colback=white, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, arc=.35mm, coltitle=black, opacityback=0, left=2mm, bottomtitle=1mm, colframe=quarto-callout-note-color-frame, titlerule=0mm, breakable, bottomrule=.15mm, rightrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, coltitle=black, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, colback=white, bottomtitle=1mm, breakable, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, toptitle=1mm, arc=.35mm, rightrule=.15mm, opacityback=0, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, toprule=.15mm, leftrule=.75mm, opacitybacktitle=0.6]
 
 In Linux systems, \texttt{sudo} stands for ``superuser do'', similar to
 ``Run As Administrator'' in Windows. The \texttt{-y} flag automatically
@@ -789,7 +832,8 @@ command:
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Update Your Pi}\label{update-your-pi-1}
+\hypertarget{update-your-pi-1}{%
+\subsection{Update Your Pi}\label{update-your-pi-1}}
 
 Before starting any kind of system-wide transformation, it's important
 to have the necessary administrative privileges. On Raspberry Pi, you
@@ -801,8 +845,9 @@ can enter the superuser mode (or root mode) by using the command:
 \end{Highlighting}
 \end{Shaded}
 
+\hypertarget{transforming-your-pi-into-a-file-server}{%
 \section{Transforming Your Pi into a File
-Server}\label{transforming-your-pi-into-a-file-server}
+Server}\label{transforming-your-pi-into-a-file-server}}
 
 This process allows \textbf{easy sharing of files between a Raspberry Pi
 and other devices,} such as laptops and PCs. \texttt{Samba}, an
@@ -811,7 +856,8 @@ By setting up Samba, files can be conveniently transferred to and from a
 laptop within your network to a Raspberry Pi, via a direct Ethernet
 connection.
 
-\subsection{Install Samba}\label{install-samba}
+\hypertarget{install-samba}{%
+\subsection{Install Samba}\label{install-samba}}
 
 Enter the following command in your terminal to install Samba:
 
@@ -823,8 +869,9 @@ Enter the following command in your terminal to install Samba:
 
 \includegraphics{content/material/ch2/install_samba.png}
 
+\hypertarget{modify-the-samba-config-file}{%
 \subsection{Modify the Samba Config
-File}\label{modify-the-samba-config-file}
+File}\label{modify-the-samba-config-file}}
 
 To share the Pi's folder, modify the Samba config file using the
 following command:
@@ -842,9 +889,9 @@ Move to the end line by pressing \texttt{Alt\ +\ /} and add this:
 \OperatorTok{[}\NormalTok{share}\OperatorTok{]}
 \NormalTok{path }\OperatorTok{=} \OperatorTok{/}\NormalTok{home}\OperatorTok{/}\NormalTok{pi}
 \NormalTok{writeable}\OperatorTok{=}\NormalTok{Yes}
-\NormalTok{create mast}\OperatorTok{=}\DecValTok{0777}
-\DataTypeTok{directory}\NormalTok{ mast}\OperatorTok{=}\DecValTok{0777}
-\DataTypeTok{public}\OperatorTok{=}\NormalTok{no}
+\NormalTok{create mast}\OperatorTok{=}\NormalTok{0777}
+\NormalTok{directory mast}\OperatorTok{=}\NormalTok{0777}
+\NormalTok{public}\OperatorTok{=}\NormalTok{no}
 \end{Highlighting}
 \end{Shaded}
 
@@ -853,7 +900,8 @@ Move to the end line by pressing \texttt{Alt\ +\ /} and add this:
 Press \texttt{Ctrl\ +\ X}, then \texttt{Y}, followed by \texttt{Enter}
 to save the changes.
 
-\subsection{Set Up a Samba User}\label{set-up-a-samba-user}
+\hypertarget{set-up-a-samba-user}{%
+\subsection{Set Up a Samba User}\label{set-up-a-samba-user}}
 
 Set up a user for your Samba share on your Pi using this command:
 
@@ -866,7 +914,8 @@ Set up a user for your Samba share on your Pi using this command:
 Then, enter the password twice as prompted by the command. In this case,
 the password is \texttt{raspberry}.
 
-\subsection{Restart Samba Services}\label{restart-samba-services}
+\hypertarget{restart-samba-services}{%
+\subsection{Restart Samba Services}\label{restart-samba-services}}
 
 Restart the Samba services to apply the changes by typing this:
 
@@ -882,7 +931,8 @@ Restart the Samba services to apply the changes by typing this:
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Access the Pi Directory}\label{access-the-pi-directory}
+\hypertarget{access-the-pi-directory}{%
+\subsection{Access the Pi Directory}\label{access-the-pi-directory}}
 
 Open the File Explorer (press \texttt{Win\ +\ E}), type in the address
 \texttt{raspberrypi/pi}, then enter the Pi's name and password as
@@ -890,8 +940,9 @@ network credentials.
 
 \includegraphics{content/material/ch2/samba_access.mp4}
 
+\hypertarget{create-and-verify-the-test-file}{%
 \subsection{Create and Verify the Test
-File}\label{create-and-verify-the-test-file}
+File}\label{create-and-verify-the-test-file}}
 
 Create a text file in your Pi's directory using the following command.
 
@@ -907,8 +958,9 @@ should then be able to see the file on your laptop.
 
 \includegraphics{content/material/ch2/samba_check.mp4}
 
+\hypertarget{setting-up-cloud-storage-access-on-your-pi}{%
 \section{Setting Up Cloud Storage Access on Your
-Pi}\label{setting-up-cloud-storage-access-on-your-pi}
+Pi}\label{setting-up-cloud-storage-access-on-your-pi}}
 
 This step involves \textbf{configuring your Raspberry Pi to send status
 data to your cloud storage}. It's essential to ensure that your Pi is
@@ -923,7 +975,8 @@ accessing and reviewing these files in the cloud storage. This method
 allows you to remotely track the setup progress and address any
 potential issues promptly.
 
-\subsection{Create a Dropbox App}\label{create-a-dropbox-app}
+\hypertarget{create-a-dropbox-app}{%
+\subsection{Create a Dropbox App}\label{create-a-dropbox-app}}
 
 In this guide, we will be utilizing Dropbox as our cloud storage
 service. You need to first set up an app on Dropbox to interface with
@@ -943,7 +996,8 @@ the service. Follow the steps below:
 
 \includegraphics{content/material/ch2/dropbox_create.png}
 
-\subsection{Modify the Permission}\label{modify-the-permission}
+\hypertarget{modify-the-permission}{%
+\subsection{Modify the Permission}\label{modify-the-permission}}
 
 Configure your application to permit the viewing and management of files
 and folders. In this instance, we've selected all the available options
@@ -951,8 +1005,9 @@ in the permission settings (for the \textbf{indivisual scope}).
 
 \includegraphics{content/material/ch2/dropbox_permission.png}
 
+\hypertarget{install-the-necessary-packages}{%
 \subsection{Install the Necessary
-Packages}\label{install-the-necessary-packages}
+Packages}\label{install-the-necessary-packages}}
 
 Switch to a superuser shell session by typing this command:
 
@@ -971,8 +1026,9 @@ do this by entering the following command:
 \end{Highlighting}
 \end{Shaded}
 
+\hypertarget{install-the-dropbox-uploader}{%
 \subsection{Install the Dropbox
-Uploader}\label{install-the-dropbox-uploader}
+Uploader}\label{install-the-dropbox-uploader}}
 
 Download the
 \href{https://github.com/andreafabrizi/Dropbox-Uploader/}{Dropbox
@@ -984,8 +1040,9 @@ Uploader script} onto your Pi using this command:
 \end{Highlighting}
 \end{Shaded}
 
+\hypertarget{assign-execution-permission}{%
 \subsection{Assign Execution
-Permission}\label{assign-execution-permission}
+Permission}\label{assign-execution-permission}}
 
 Move into the cloned directory and give the executable permission to the
 script by using these commands:
@@ -1002,8 +1059,9 @@ script by using these commands:
 \end{Highlighting}
 \end{Shaded}
 
+\hypertarget{validate-app-permissions-on-your-pi}{%
 \subsection{Validate App Permissions on Your
-Pi}\label{validate-app-permissions-on-your-pi}
+Pi}\label{validate-app-permissions-on-your-pi}}
 
 Begin the Dropbox Uploader configuration with the following command:
 
@@ -1026,8 +1084,9 @@ Copy and paste the generated access code to the terminal.
 
 \includegraphics{content/material/ch2/dropbox_register3.png}
 
+\hypertarget{verify-cloud-storage-access}{%
 \subsection{Verify Cloud Storage
-Access}\label{verify-cloud-storage-access}
+Access}\label{verify-cloud-storage-access}}
 
 Employ the upload function to transmit a `README.md' file by executing
 this command:
@@ -1051,7 +1110,8 @@ Go back to the home directory by executing the command:
 \end{Highlighting}
 \end{Shaded}
 
-\section{Getting the Scripts}\label{getting-the-scripts}
+\hypertarget{getting-the-scripts}{%
+\section{Getting the Scripts}\label{getting-the-scripts}}
 
 Begin by fetching the scripts from the
 \href{https://github.com/urbanjuhyeon/urban-sensing-raspi}{urban-sensing-raspi}
@@ -1076,7 +1136,8 @@ Clone the repository with:
 
 \includegraphics{content/material/ch2/clone_raspi.png}
 
-\subsection*{Repository Overview}\label{repository-overview}
+\hypertarget{repository-overview}{%
+\subsection*{Repository Overview}\label{repository-overview}}
 \addcontentsline{toc}{subsection}{Repository Overview}
 
 The repository structure is as follows:
@@ -1113,8 +1174,9 @@ The repository structure is as follows:
   located in `code/default'.
 \end{itemize}
 
+\hypertarget{installing-required-packages}{%
 \section{Installing Required
-Packages}\label{installing-required-packages}
+Packages}\label{installing-required-packages}}
 
 Elevate privileges to a superuser session:
 
@@ -1142,7 +1204,8 @@ Execute the \texttt{packages.sh} script:
 
 \includegraphics{content/material/ch2/bash_packages.mp4}
 
-\section{Setting the Sensor Name}\label{setting-the-sensor-name}
+\hypertarget{setting-the-sensor-name}{%
+\section{Setting the Sensor Name}\label{setting-the-sensor-name}}
 
 For organized data collection across multiple devices, it's essential to
 assign a unique identifier to each sensor. This segment aids you in
@@ -1170,7 +1233,8 @@ Post this, the sensor name can be retrieved from the
 
 \includegraphics{content/material/ch2/bash_naming.mp4}
 
-\section{Configuring Settings}\label{configuring-settings}
+\hypertarget{configuring-settings}{%
+\section{Configuring Settings}\label{configuring-settings}}
 
 Configure the Raspberry Pi to set its internal WiFi to \texttt{wlan0}.
 When you connect an external adapter, it will be assigned differently.
@@ -1210,10 +1274,12 @@ at boot.
 
 \includegraphics{content/material/ch2/bash_envr.mp4}
 
-\chapter{Data Collection Insights}\label{data-collection-insights}
+\hypertarget{data-collection-insights}{%
+\chapter{Data Collection Insights}\label{data-collection-insights}}
 
+\hypertarget{understanding-wifi-sensing-types}{%
 \section{Understanding WiFi Sensing
-Types}\label{understanding-wifi-sensing-types}
+Types}\label{understanding-wifi-sensing-types}}
 
 WiFi, a technology for wireless networking based on IEEE 802.11
 standards, can be used to measure people's location and behavior through
@@ -1241,8 +1307,9 @@ transmitted back to the device. Active sensing requires user consent and
 active participation, such as installing an application to collect and
 send WiFi logs.
 
+\hypertarget{passive-sensing-for-pedestrian-behavior-monitoring}{%
 \subsection*{Passive Sensing for Pedestrian Behavior
-Monitoring}\label{passive-sensing-for-pedestrian-behavior-monitoring}
+Monitoring}\label{passive-sensing-for-pedestrian-behavior-monitoring}}
 \addcontentsline{toc}{subsection}{Passive Sensing for Pedestrian
 Behavior Monitoring}
 
@@ -1272,8 +1339,9 @@ their devices may still raise privacy concerns. Researchers should
 ensure that the data collection process is transparent, secure, and
 complies with relevant privacy regulations.
 
+\hypertarget{sensor-installation-strategies}{%
 \section{Sensor Installation
-Strategies}\label{sensor-installation-strategies}
+Strategies}\label{sensor-installation-strategies}}
 
 One of the most convenient and discreet ways to install WiFi sensors
 outdoors is by attaching them to existing street furniture, such as
@@ -1283,7 +1351,9 @@ conditions or tampering. This approach allows you to leverage existing
 infrastructure in the urban environment while keeping the sensors out of
 sight. Figure 6-2 shows an example of a sensor attached to a lamppost.
 
-\section{Sensor Placement Strategies}\label{sensor-placement-strategies}
+\hypertarget{sensor-placement-strategies}{%
+\section{Sensor Placement
+Strategies}\label{sensor-placement-strategies}}
 
 To optimize coverage and minimize signal interference, consider the
 following strategies when deciding where to place your WiFi sensors:
@@ -1317,8 +1387,9 @@ following strategies when deciding where to place your WiFi sensors:
   the security of the sensors to prevent tampering or damage.
 \end{itemize}
 
+\hypertarget{optimizing-sensor-density-for-accuracy}{%
 \section{Optimizing Sensor Density for
-Accuracy}\label{optimizing-sensor-density-for-accuracy}
+Accuracy}\label{optimizing-sensor-density-for-accuracy}}
 
 The number and density of sensors play a crucial role in determining the
 accuracy and reliability of the WiFi sensing system. While a higher
@@ -1358,16 +1429,19 @@ localization performance. Remember, the key is to find the right balance
 between sensor density, placement, and practical considerations to
 create a reliable and efficient WiFi sensing system.
 
-\chapter{Testing and Validation}\label{testing-and-validation}
+\hypertarget{testing-and-validation}{%
+\chapter{Testing and Validation}\label{testing-and-validation}}
 
 This section covers the step-by-step process of implementing and testing
 the Urban Sensing Service on your Raspberry Pi, both in a controlled
 environment \emph{(6.1)} and in real-world scenarios \emph{(6.2)}.
 
+\hypertarget{controlled-environment-testing}{%
 \section{Controlled Environment
-Testing}\label{controlled-environment-testing}
+Testing}\label{controlled-environment-testing}}
 
-\subsection{Raspberry Pi Setup}\label{raspberry-pi-setup-1}
+\hypertarget{raspberry-pi-setup-1}{%
+\subsection{Raspberry Pi Setup}\label{raspberry-pi-setup-1}}
 
 Before setting up, power off the Raspberry Pi. Once turned off, insert
 the additional WiFi adapter. Afterward, power the Raspberry Pi back on.
@@ -1393,7 +1467,8 @@ like \texttt{wlan1}, \texttt{wlan2}, and so on.
 If the assignment isn't correct, refer to Section 2.4 for the
 appropriate setup instructions.
 
-\subsection{Script Execution}\label{script-execution}
+\hypertarget{script-execution}{%
+\subsection{Script Execution}\label{script-execution}}
 
 Easily access the superuser shell with:
 
@@ -1415,7 +1490,8 @@ Let it run for about 2 minutes before halting it using \texttt{Ctrl+C}.
 
 \includegraphics{content/material/ch2/run_script.mp4}
 
-\subsection{Customizing Your Sensing}\label{customizing-your-sensing}
+\hypertarget{customizing-your-sensing}{%
+\subsection{Customizing Your Sensing}\label{customizing-your-sensing}}
 
 The Urban Sensing Service isn't just about standard WiFi data
 collection; it offers a broader scope:
@@ -1443,7 +1519,8 @@ collection; it offers a broader scope:
   Repository}.
 \end{itemize}
 
-\section{Verifying the Results}\label{verifying-the-results}
+\hypertarget{verifying-the-results}{%
+\section{Verifying the Results}\label{verifying-the-results}}
 
 \textbf{1. Access the Pi folder:} type
 \texttt{\textbackslash{}\textbackslash{}raspberrypi\textbackslash{}share}
@@ -1475,7 +1552,8 @@ on file explore.
 
 \includegraphics{content/material/ch2/verify_result_2.mp4}
 
-\section{Setting Up Sensing Service}\label{setting-up-sensing-service}
+\hypertarget{setting-up-sensing-service}{%
+\section{Setting Up Sensing Service}\label{setting-up-sensing-service}}
 
 Once you've validated the sensing outputs, you can finalize the settings
 to fit your objectives. Notably, this will allow your Raspberry Pi to
@@ -1494,7 +1572,7 @@ status info using \texttt{ctrl+c}.
 
 \includegraphics{content/material/ch2/bash_service.mp4}
 
-\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, opacitybacktitle=0.6, toprule=.15mm, colback=white, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, arc=.35mm, coltitle=black, opacityback=0, left=2mm, bottomtitle=1mm, colframe=quarto-callout-note-color-frame, titlerule=0mm, breakable, bottomrule=.15mm, rightrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, coltitle=black, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, colback=white, bottomtitle=1mm, breakable, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, toptitle=1mm, arc=.35mm, rightrule=.15mm, opacityback=0, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, toprule=.15mm, leftrule=.75mm, opacitybacktitle=0.6]
 
 After running service.sh, your Raspberry Pi will start start.py on every
 boot. If you need to do tasks like file transfers, pause this service.
@@ -1510,13 +1588,15 @@ script won't perform any actions.
 
 \end{tcolorbox}
 
-\section{Real-world Testing}\label{real-world-testing}
+\hypertarget{real-world-testing}{%
+\section{Real-world Testing}\label{real-world-testing}}
 
 In this section, we'll test the sensing service without Ethernet,
 simulating a real-world application. Follow these detailed steps for a
 successful setup and operation:
 
-\subsection{Activating Mobile Hotspot}\label{activating-mobile-hotspot}
+\hypertarget{activating-mobile-hotspot}{%
+\subsection{Activating Mobile Hotspot}\label{activating-mobile-hotspot}}
 
 Activate the hotspot on your mobile device. This is essential for
 providing internet connectivity to the Raspberry Pi, which will enable
@@ -1524,22 +1604,24 @@ time synchronization and status updates via Dropbox.
 
 \includegraphics[width=0.5\textwidth,height=\textheight]{content/material/ch2/turnon_hotspot.jpg}
 
+\hypertarget{connecting-the-external-battery}{%
 \subsection{Connecting the External
-Battery}\label{connecting-the-external-battery}
+Battery}\label{connecting-the-external-battery}}
 
 Ensure you've connected an external battery to power both your Raspberry
 Pi and the WiFi adapters.
 
 \includegraphics{content/material/ch2/plug_external.jpg}
 
+\hypertarget{monitoring-wifi-adapter-activity}{%
 \subsection{Monitoring WiFi Adapter
-Activity}\label{monitoring-wifi-adapter-activity}
+Activity}\label{monitoring-wifi-adapter-activity}}
 
 Check for indicator lights on the WiFi adapter. In station mode, when
 the adapter is networking, the lights should turn on. You should also
 see the Raspberry Pi appear on your mobile hotspot interface.
 
-\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, opacitybacktitle=0.6, toprule=.15mm, colback=white, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, arc=.35mm, coltitle=black, opacityback=0, left=2mm, bottomtitle=1mm, colframe=quarto-callout-note-color-frame, titlerule=0mm, breakable, bottomrule=.15mm, rightrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, coltitle=black, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, colback=white, bottomtitle=1mm, breakable, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, toptitle=1mm, arc=.35mm, rightrule=.15mm, opacityback=0, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, toprule=.15mm, leftrule=.75mm, opacitybacktitle=0.6]
 
 If the status lights remain off or the Raspberry Pi does not appear on
 your hotspot interface, there might be an issue with your adapter.
@@ -1555,7 +1637,7 @@ connect to your mobile hotspot interface.
 
 \includegraphics[width=0.5\textwidth,height=\textheight]{content/material/ch2/check_hotspot.jpg}
 
-\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, opacitybacktitle=0.6, toprule=.15mm, colback=white, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, arc=.35mm, coltitle=black, opacityback=0, left=2mm, bottomtitle=1mm, colframe=quarto-callout-note-color-frame, titlerule=0mm, breakable, bottomrule=.15mm, rightrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, coltitle=black, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, colback=white, bottomtitle=1mm, breakable, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, toptitle=1mm, arc=.35mm, rightrule=.15mm, opacityback=0, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, toprule=.15mm, leftrule=.75mm, opacitybacktitle=0.6]
 
 When accessing your Raspberry Pi via a mobile phone, the
 \texttt{raspberrypi} network might not disappear immediately. This is
@@ -1565,16 +1647,18 @@ minutes later.
 
 \end{tcolorbox}
 
+\hypertarget{validating-dropbox-connectivity}{%
 \subsection{Validating Dropbox
-Connectivity}\label{validating-dropbox-connectivity}
+Connectivity}\label{validating-dropbox-connectivity}}
 
 Once connected to the network with the correct Dropbox settings, you
 should start seeing files from your Raspberry Pi appear in your Dropbox.
 
 \includegraphics{content/material/ch2/check_dropbox_upload.png}
 
+\hypertarget{checking-wifi-adapter-monitor-mode}{%
 \subsection{Checking WiFi Adapter Monitor
-Mode}\label{checking-wifi-adapter-monitor-mode}
+Mode}\label{checking-wifi-adapter-monitor-mode}}
 
 In monitor mode, the WiFi adapter's status light should turn off, and
 its connection will vanish from your mobile hotspot interface.
@@ -1583,13 +1667,15 @@ its connection will vanish from your mobile hotspot interface.
 
 \includegraphics[width=0.5\textwidth,height=\textheight]{content/material/ch2/check_hotspot_off.jpg}
 
+\hypertarget{performing-sensing-operation}{%
 \subsection{Performing Sensing
-Operation}\label{performing-sensing-operation}
+Operation}\label{performing-sensing-operation}}
 
 Throughout the designated sensing duration, the service will capture
 packets. To conclude the sensing operation, simply unplug the battery.
 
-\subsection{Review Sensing Results}\label{review-sensing-results}
+\hypertarget{review-sensing-results}{%
+\subsection{Review Sensing Results}\label{review-sensing-results}}
 
 Use Ethernet or your mobile phone hotspot to access and review the
 generated sensing results, as same to the controlled enviroment testing.
@@ -1598,7 +1684,8 @@ generated sensing results, as same to the controlled enviroment testing.
 
 \part{PART III: Data Processing}
 
-\chapter{Data Preparation}\label{data-preparation}
+\hypertarget{data-preparation}{%
+\chapter{Data Preparation}\label{data-preparation}}
 
 In this chapter, we will delve into the process of preparing the
 collected WiFi data for pedestrian behavior analysis. We will start by
@@ -1608,7 +1695,8 @@ into R using the RSQLite and DBI packages. Finally, we will explore the
 loaded WiFi data, understand its attributes, and discuss their
 significance in the context of pedestrian behavior analysis.
 
-\section{SQLite3 Database Overview}\label{sqlite3-database-overview}
+\hypertarget{sqlite3-database-overview}{%
+\section{SQLite3 Database Overview}\label{sqlite3-database-overview}}
 
 The WiFi data collected using the Urban Sensing system is typically
 stored in an \emph{SQLite3} database. SQLite3 is a lightweight,
@@ -1618,9 +1706,11 @@ accessed across different platforms and programming languages.
 
 \includegraphics{content/material/ch3/sqlite3_browser.png}
 
-\section{Loading WiFi Data into R}\label{loading-wifi-data-into-r}
+\hypertarget{loading-wifi-data-into-r}{%
+\section{Loading WiFi Data into R}\label{loading-wifi-data-into-r}}
 
-\subsection{Required R Packages}\label{required-r-packages}
+\hypertarget{required-r-packages}{%
+\subsection{Required R Packages}\label{required-r-packages}}
 
 To load the WiFi data from the SQLite3 database into R, we will use the
 RSQLite and DBI packages. These packages provide the necessary functions
@@ -1660,8 +1750,9 @@ with SQLite databases:
 \end{Highlighting}
 \end{Shaded}
 
+\hypertarget{establishing-sqlite3-database-connection}{%
 \subsection{Establishing SQLite3 Database
-Connection}\label{establishing-sqlite3-database-connection}
+Connection}\label{establishing-sqlite3-database-connection}}
 
 To establish a connection to the SQLite3 database, we use the
 \texttt{dbConnect()} function from the DBI package. This function takes
@@ -1677,14 +1768,15 @@ the database file as arguments.
 Replace \texttt{"path/to/your/database.sqlite"} with the actual path to
 your SQLite3 database file.
 
-\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, opacitybacktitle=0.6, toprule=.15mm, colback=white, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{If you don't have the WiFi DB}, arc=.35mm, coltitle=black, opacityback=0, left=2mm, bottomtitle=1mm, colframe=quarto-callout-note-color-frame, titlerule=0mm, breakable, bottomrule=.15mm, rightrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, coltitle=black, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, colback=white, bottomtitle=1mm, breakable, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, toptitle=1mm, arc=.35mm, rightrule=.15mm, opacityback=0, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{If you don't have the WiFi DB}, toprule=.15mm, leftrule=.75mm, opacitybacktitle=0.6]
 
 Download \href{material/ch3/sample.sqlite3}{this}
 
 \end{tcolorbox}
 
+\hypertarget{querying-wifi-data-from-the-database}{%
 \subsection{Querying WiFi Data from the
-Database}\label{querying-wifi-data-from-the-database}
+Database}\label{querying-wifi-data-from-the-database}}
 
 To load the WiFi data from the ``packets'' table, we use
 the\texttt{dbGetQuery()} function. This function takes the database
@@ -1777,20 +1869,40 @@ ff:ff:ff:ff:ff:ff & 1 & (n/a) & ff:ff:ff:ff:ff:ff & 1 & 991 & 1 & A01
 & \\
 \end{longtable}
 
+\hypertarget{saving-wifi-data-on-your-local}{%
+\subsection{Saving WiFi Data on Your
+Local}\label{saving-wifi-data-on-your-local}}
+
+When working with data in R, it's often necessary to save the data
+locally for future use or sharing with others. In this section, we'll
+explore three common methods for saving the \texttt{wifi\_data} dataset
+on your local machine.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{fwrite}\NormalTok{(wifi\_data, }\StringTok{"path/to/your/database.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Replace \texttt{"path/to/your/database.csv"} with the actual path to
+your SQLite3 database file.
+
+\hypertarget{closing-the-database-connection}{%
 \subsection{Closing the Database
-Connection}\label{closing-the-database-connection}
+Connection}\label{closing-the-database-connection}}
 
 After loading the data, it is important to close the database connection
 to free up resources:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{dbDisconnect}\NormalTok{(conn)}
+\FunctionTok{dbDisconnect}\NormalTok{(conn, }\StringTok{"path/to/your/database.csv"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
+\hypertarget{exploring-the-loaded-wifi-data}{%
 \section{Exploring the Loaded WiFi
-Data}\label{exploring-the-loaded-wifi-data}
+Data}\label{exploring-the-loaded-wifi-data}}
 
 The WiFi data loaded into R consists of several key attributes that
 provide valuable information for pedestrian behavior analysis. Let's
@@ -1862,16 +1974,25 @@ However, if you have followed the privacy guidelines in this book, the
 info column would be blanked out to protect sensitive information. \\
 \end{longtable}
 
-\chapter{Data Cleaning}\label{data-cleaning}
+\hypertarget{data-cleaning}{%
+\chapter{Data Cleaning}\label{data-cleaning}}
 
 In this section, we will first examine the raw WiFi data stored in an
 SQLite3 database and then demonstrate how to load this data into R for
 further processing.
 
-\section{Data Structure}\label{data-structure}
+\hypertarget{setup}{%
+\section{Setup}\label{setup}}
 
+\hypertarget{required-r-packages-1}{%
+\subsection{Required R Packages}\label{required-r-packages-1}}
+
+\hypertarget{data-structure}{%
+\section{Data Structure}\label{data-structure}}
+
+\hypertarget{overview-of-filtering-techniques}{%
 \section{Overview of Filtering
-Techniques}\label{overview-of-filtering-techniques}
+Techniques}\label{overview-of-filtering-techniques}}
 
 The three filtering techniques used for WiFi data preprocessing are:
 
@@ -1886,7 +2007,8 @@ that are detected for very short duration.
 
 \includegraphics{content/material/ch3/preprocessing.png}
 
-\section{Raw Data Structure}\label{raw-data-structure}
+\hypertarget{raw-data-structure}{%
+\section{Raw Data Structure}\label{raw-data-structure}}
 
 The raw data is typically stored in a structured format, such as a
 database or a comma-separated values (CSV) file. For this example, let's
@@ -1940,7 +2062,8 @@ columns provide various attributes of the packet:
   Sensor Name: The name of the sensor that captured the packet.
 \end{itemize}
 
-\chapter{Preprocessing Techniques}\label{preprocessing-techniques}
+\hypertarget{preprocessing-techniques}{%
+\chapter{Preprocessing Techniques}\label{preprocessing-techniques}}
 
 With a clear understanding of the raw WiFi data structure, we can now
 proceed with data preprocessing techniques to clean, transform, and
@@ -1948,7 +2071,8 @@ prepare the data for analysis. In this section, we will first
 demonstrate how to load the WiFi data into R and then discuss various
 preprocessing techniques to improve data quality and analysis results.
 
-\section{Filltering Techniques}\label{filltering-techniques}
+\hypertarget{filltering-techniques}{%
+\section{Filltering Techniques}\label{filltering-techniques}}
 
 The three filtering techniques used for WiFi data preprocessing are:
 
@@ -1963,8 +2087,9 @@ that are detected for very short duration.
 
 \includegraphics{content/material/ch3/preprocessing.png}
 
+\hypertarget{step-1-removal-of-random-mac-addresses}{%
 \subsection{(Step 1) Removal of Random MAC
-Addresses}\label{step-1-removal-of-random-mac-addresses}
+Addresses}\label{step-1-removal-of-random-mac-addresses}}
 
 Random MAC addresses are identified by matching the OUI
 (Organizationally Unique Identifier) portion of the MAC address with a
@@ -1972,15 +2097,18 @@ public database provided by IEEE. The OUI is the first 6 digits of a MAC
 address, representing the device manufacturer. Unmatched OUIs are
 considered random MAC addresses and are removed.
 
+\hypertarget{step-2-removal-of-non-mobile-devices}{%
 \subsection{(Step 2) Removal of Non-Mobile
-Devices}\label{step-2-removal-of-non-mobile-devices}
+Devices}\label{step-2-removal-of-non-mobile-devices}}
 
+\hypertarget{step-3-removal-of-rarely-detected-devices}{%
 \subsection{(Step 3) Removal of Rarely Detected
-Devices}\label{step-3-removal-of-rarely-detected-devices}
+Devices}\label{step-3-removal-of-rarely-detected-devices}}
 
 \part{PART IV: Understanding Metrics}
 
-\chapter{Metrics Overview}\label{metrics-overview}
+\hypertarget{metrics-overview}{%
+\chapter{Metrics Overview}\label{metrics-overview}}
 
 We explore how WiFi gives us a snapshot of life in the city. It's about
 finding where people are (\emph{\textbf{Location}}), tallying up the
@@ -1990,7 +2118,7 @@ numbers (\emph{\textbf{Count}}), tracking movement
 (\emph{\textbf{Activities}}). A graphic will illustrate these concepts
 step by step:
 
-\begin{figure}[H]
+\begin{figure}
 
 {\centering \includegraphics{content/material/ch4/metric-overview.png}
 
@@ -1999,10 +2127,11 @@ step by step:
 \caption{Overview of WiFi Sensing Metrics: From Pinpointing Locations to
 Understanding Urban Activities}
 
-\end{figure}%
+\end{figure}
 
+\hypertarget{ground-truth-whats-really-happening}{%
 \subsubsection*{\texorpdfstring{\textbf{Ground Truth: What's really
-happening?}}{Ground Truth: What's really happening?}}\label{ground-truth-whats-really-happening}
+happening?}}{Ground Truth: What's really happening?}}\label{ground-truth-whats-really-happening}}
 \addcontentsline{toc}{subsubsection}{\textbf{Ground Truth: What's really
 happening?}}
 
@@ -2011,9 +2140,10 @@ on the ground. This real-life observation helps us check and confirm our
 WiFi data findings. It's the benchmark against which we measure the
 accuracy of our WiFi sensing data.
 
+\hypertarget{location-where-are-people-at-a-specific-time}{%
 \subsubsection*{\texorpdfstring{\textbf{Location: Where are people at a
 specific
-time?}}{Location: Where are people at a specific time?}}\label{location-where-are-people-at-a-specific-time}
+time?}}{Location: Where are people at a specific time?}}\label{location-where-are-people-at-a-specific-time}}
 \addcontentsline{toc}{subsubsection}{\textbf{Location: Where are people
 at a specific time?}}
 
@@ -2022,7 +2152,7 @@ signals at a given time, like signal frequency and strength. Depending
 on the situation, we might assign locations based on sensor positions or
 estimate them in areas between sensors.
 
-\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, opacitybacktitle=0.6, toprule=.15mm, colback=white, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Why Location Comes Before Count}, arc=.35mm, coltitle=black, opacityback=0, left=2mm, bottomtitle=1mm, colframe=quarto-callout-note-color-frame, titlerule=0mm, breakable, bottomrule=.15mm, rightrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, coltitle=black, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, colback=white, bottomtitle=1mm, breakable, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, toptitle=1mm, arc=.35mm, rightrule=.15mm, opacityback=0, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Why Location Comes Before Count}, toprule=.15mm, leftrule=.75mm, opacitybacktitle=0.6]
 
 Before counting, we must pinpoint location. Without knowing where
 devices are, we just have a total count.
@@ -2042,8 +2172,9 @@ Imagine a room with three people, just like in the diagram above:
 
 \end{tcolorbox}
 
+\hypertarget{count-how-many-over-time}{%
 \subsubsection*{\texorpdfstring{\textbf{Count: How many over
-time?}}{Count: How many over time?}}\label{count-how-many-over-time}
+time?}}{Count: How many over time?}}\label{count-how-many-over-time}}
 \addcontentsline{toc}{subsubsection}{\textbf{Count: How many over
 time?}}
 
@@ -2052,8 +2183,9 @@ people are in an area over different timescales. This method allows for
 long-term tracking of device presence, offering insights into occupancy
 trends over extended periods.
 
+\hypertarget{track-where-and-when-did-they-move}{%
 \subsubsection*{\texorpdfstring{\textbf{Track: Where and when did they
-move?}}{Track: Where and when did they move?}}\label{track-where-and-when-did-they-move}
+move?}}{Track: Where and when did they move?}}\label{track-where-and-when-did-they-move}}
 \addcontentsline{toc}{subsubsection}{\textbf{Track: Where and when did
 they move?}}
 
@@ -2062,9 +2194,10 @@ lets us follow people's movements, highlighting the dynamic patterns of
 city life and offering insights into how different areas are used
 throughout the day.
 
+\hypertarget{identify-who-visits-regularly-and-what-are-their-patterns}{%
 \subsubsection*{\texorpdfstring{\textbf{Identify: Who visits regularly
 and what are their
-patterns?}}{Identify: Who visits regularly and what are their patterns?}}\label{identify-who-visits-regularly-and-what-are-their-patterns}
+patterns?}}{Identify: Who visits regularly and what are their patterns?}}\label{identify-who-visits-regularly-and-what-are-their-patterns}}
 \addcontentsline{toc}{subsubsection}{\textbf{Identify: Who visits
 regularly and what are their patterns?}}
 
@@ -2073,9 +2206,10 @@ and understand their movement habits. This metric provides insights into
 recurring traffic patterns and the behaviors of different user groups
 within the city.
 
+\hypertarget{activities-what-are-they-doing-and-how-does-it-change}{%
 \subsubsection*{\texorpdfstring{\textbf{Activities: What are they doing
 and how does it
-change?}}{Activities: What are they doing and how does it change?}}\label{activities-what-are-they-doing-and-how-does-it-change}
+change?}}{Activities: What are they doing and how does it change?}}\label{activities-what-are-they-doing-and-how-does-it-change}}
 \addcontentsline{toc}{subsubsection}{\textbf{Activities: What are they
 doing and how does it change?}}
 
@@ -2084,27 +2218,36 @@ data. We look at how people use different city areas, observing changes
 in activity patterns at different times and days, to get a deeper
 understanding of urban life.
 
-\chapter{Count}\label{count}
+\hypertarget{count}{%
+\chapter{Count}\label{count}}
 
-\chapter{Track}\label{track}
+\hypertarget{track}{%
+\chapter{Track}\label{track}}
 
-\chapter{Identity}\label{identity}
+\hypertarget{identity}{%
+\chapter{Identity}\label{identity}}
 
-\chapter{Activities}\label{activities}
+\hypertarget{activities}{%
+\chapter{Activities}\label{activities}}
 
 \part{PART VI: Applying Metrics}
 
-\chapter{Case Study 1}\label{case-study-1}
+\hypertarget{case-study-1}{%
+\chapter{Case Study 1}\label{case-study-1}}
 
-\chapter{Case Study 2}\label{case-study-2}
+\hypertarget{case-study-2}{%
+\chapter{Case Study 2}\label{case-study-2}}
 
-\chapter{Case Study 3}\label{case-study-3}
+\hypertarget{case-study-3}{%
+\chapter{Case Study 3}\label{case-study-3}}
 
 \part{PART V: Future Directions and Challenges}
 
-\chapter{Limitation}\label{limitation}
+\hypertarget{limitation}{%
+\chapter{Limitation}\label{limitation}}
 
-\chapter{Direction}\label{direction}
+\hypertarget{direction}{%
+\chapter{Direction}\label{direction}}
 
 \part{Further}
 

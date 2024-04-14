@@ -2,6 +2,12 @@
 
 In this section, we will first examine the raw WiFi data stored in an SQLite3 database and then demonstrate how to load this data into R for further processing.
 
+## Setup
+
+
+
+### Required R Packages
+
 
 ## Data Structure
 

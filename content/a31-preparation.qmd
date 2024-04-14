@@ -63,12 +63,23 @@ wifi_data <- dbGetQuery(conn, "SELECT * FROM packets")
 kable(data.table(wifi_data)[1:5])
 ```
 
+### Saving WiFi Data on Your Local
+
+When working with data in R, it's often necessary to save the data locally for future use or sharing with others. In this section, we'll explore three common methods for saving the `wifi_data` dataset on your local machine.
+
+```{r}
+#| eval: false
+fwrite(wifi_data, "path/to/your/database.csv")
+```
+
+Replace `"path/to/your/database.csv"` with the actual path to your SQLite3 database file.
+
 ### Closing the Database Connection
 
 After loading the data, it is important to close the database connection to free up resources:
 
 ```{r}
-dbDisconnect(conn)
+dbDisconnect(conn, "path/to/your/database.csv")
 ```
 
 ## Exploring the Loaded WiFi Data

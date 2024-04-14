@@ -72,17 +72,10 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-<<<<<<< Updated upstream:docs/content/a32-cleaning.html
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/a30-processing.html">PART III: Data Processing</a></li><li class="breadcrumb-item"><a href="../content/a32-cleaning.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Cleaning</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
-=======
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/a30-processing.html">PART III: Data Collection and Processing</a></li><li class="breadcrumb-item"><a href="../content/a32-extraction.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Structure and Loading</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/a30-processing.html">PART III: Data Processing</a></li><li class="breadcrumb-item"><a href="../content/a32-cleaning.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Cleaning</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
->>>>>>> Stashed changes:docs/content/a32-extraction.html
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -296,20 +289,20 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#data-structure" id="toc-data-structure" class="nav-link active" data-scroll-target="#data-structure"><span class="header-section-number">7.1</span> Data Structure</a></li>
-  <li><a href="#overview-of-filtering-techniques" id="toc-overview-of-filtering-techniques" class="nav-link" data-scroll-target="#overview-of-filtering-techniques"><span class="header-section-number">7.2</span> Overview of Filtering Techniques</a></li>
-  <li><a href="#raw-data-structure" id="toc-raw-data-structure" class="nav-link" data-scroll-target="#raw-data-structure"><span class="header-section-number">7.3</span> Raw Data Structure</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link active" data-scroll-target="#setup"><span class="header-section-number">7.1</span> Setup</a>
+  <ul class="collapse">
+  <li><a href="#required-r-packages" id="toc-required-r-packages" class="nav-link" data-scroll-target="#required-r-packages"><span class="header-section-number">7.1.1</span> Required R Packages</a></li>
+  </ul></li>
+  <li><a href="#data-structure" id="toc-data-structure" class="nav-link" data-scroll-target="#data-structure"><span class="header-section-number">7.2</span> Data Structure</a></li>
+  <li><a href="#overview-of-filtering-techniques" id="toc-overview-of-filtering-techniques" class="nav-link" data-scroll-target="#overview-of-filtering-techniques"><span class="header-section-number">7.3</span> Overview of Filtering Techniques</a></li>
+  <li><a href="#raw-data-structure" id="toc-raw-data-structure" class="nav-link" data-scroll-target="#raw-data-structure"><span class="header-section-number">7.4</span> Raw Data Structure</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<<<<<<< Updated upstream:docs/content/a32-cleaning.html
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/a30-processing.html">PART III: Data Processing</a></li><li class="breadcrumb-item"><a href="../content/a32-cleaning.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Cleaning</span></a></li></ol></nav>
-=======
 <header id="title-block-header" class="quarto-title-block default">
->>>>>>> Stashed changes:docs/content/a32-extraction.html
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Cleaning</span></h1>
 </div>
@@ -327,19 +320,25 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p>In this section, we will first examine the raw WiFi data stored in an SQLite3 database and then demonstrate how to load this data into R for further processing.</p>
-<section id="data-structure" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="data-structure"><span class="header-section-number">7.1</span> Data Structure</h2>
+<section id="setup" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="setup"><span class="header-section-number">7.1</span> Setup</h2>
+<section id="required-r-packages" class="level3" data-number="7.1.1">
+<h3 data-number="7.1.1" class="anchored" data-anchor-id="required-r-packages"><span class="header-section-number">7.1.1</span> Required R Packages</h3>
 </section>
-<section id="overview-of-filtering-techniques" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="overview-of-filtering-techniques"><span class="header-section-number">7.2</span> Overview of Filtering Techniques</h2>
+</section>
+<section id="data-structure" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="data-structure"><span class="header-section-number">7.2</span> Data Structure</h2>
+</section>
+<section id="overview-of-filtering-techniques" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="overview-of-filtering-techniques"><span class="header-section-number">7.3</span> Overview of Filtering Techniques</h2>
 <p>The three filtering techniques used for WiFi data preprocessing are:</p>
 <p><strong>1. Removal of random MAC addresses:</strong> Eliminates random MAC addresses to avoid duplicate counting.</p>
 <p><strong>2. Removal of non-mobile devices:</strong> Removes detection records of static devices to focus on mobility.</p>
 <p><strong>3. Removal of rarely detected devices:</strong> Excludes MAC addresses that are detected for very short duration.</p>
 <p><img src="material/ch3/preprocessing.png" class="img-fluid"></p>
 </section>
-<section id="raw-data-structure" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="raw-data-structure"><span class="header-section-number">7.3</span> Raw Data Structure</h2>
+<section id="raw-data-structure" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="raw-data-structure"><span class="header-section-number">7.4</span> Raw Data Structure</h2>
 <p>The raw data is typically stored in a structured format, such as a database or a comma-separated values (CSV) file. For this example, let’s assume the data is stored in an SQLite3 database. The database may contain one or more tables that capture the WiFi sensing data.</p>
 <p>Each row in the dataset represents a captured WiFi packet, and the columns provide various attributes of the packet:</p>
 <ul>
@@ -597,13 +596,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-<<<<<<< Updated upstream:docs/content/a32-cleaning.html
-      <a href="../content/a31-preparation.html" class="pagination-link" aria-label="Data Preparation">
+      <a href="../content/a31-preparation.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data Preparation</span></span>
-=======
-      <a href="../content/a31-collection.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data Collection Insights</span></span>
->>>>>>> Stashed changes:docs/content/a32-extraction.html
       </a>          
   </div>
   <div class="nav-page nav-page-next">
