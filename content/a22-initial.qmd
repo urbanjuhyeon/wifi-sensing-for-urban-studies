@@ -170,9 +170,9 @@ If you encounter any troubles with this section, please refer to the last sectio
 
 If you encounter any errors accessing your Pi or the internet connectivity, please follow these steps:
 
-1. Enable and then disable the network on your laptop or desktop computer.
-2. Check and uncheck the "Enable Internet Connection Sharing" function in your network settings.
-3. Verify the network connection made by your Pi through the Ethernet.
+1. Enable and then disable the network on your laptop or desktop computer
+2. Check and uncheck the "Enable Internet Connection Sharing" function in your network settings
+3. Verify the network connection made by your Pi through the Ethernet
 
 ![](material/ch2/error_network.mp4)
 

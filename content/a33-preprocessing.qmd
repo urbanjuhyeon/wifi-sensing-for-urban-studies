@@ -2,62 +2,6 @@
 
 With a clear understanding of the raw WiFi data structure, we can now proceed with data preprocessing techniques to clean, transform, and prepare the data for analysis. In this section, we will first demonstrate how to load the WiFi data into R and then discuss various preprocessing techniques to improve data quality and analysis results.
 
-## Loading WiFi Data with R
-
-We need to load the raw WiFi data from the SQLite3 database into R using the RSQLite and DBI packages. 
-
-For a more streamlined and efficient process, we'll utilize the pacman package, which offers the `p_load` function. This function automatically installs and loads the necessary packages if they are not already installed.
-
-First, ensure the `pacman` package is installed and loaded:
-
-
-```{r, warning = FALSE}
-if (!require(pacman)) install.packages("pacman")
-pacman::p_load(pacman)
-```
-
-Next, use `p_load` from `pacman` to install and load the `RSQLite` and `DBI` packages, essential for interfacing with SQLite databases:
-
-```{r}
-pacman::p_load(RSQLite, DBI, data.table, knitr)
-```
-
-Next, establish a connection to your SQLite3 database using the dbConnect() function:
-
-```{r}
-#| eval: false
-conn <- dbConnect(SQLite(), "path/to/your/database.sqlite")
-```
-
-Replace `"path/to/your/database.sqlite"` with the actual path to your SQLite3 database file.
-
-::: {.callout-note title="If you don't have the WiFi DB"}
-Download [this](material/ch3/sample.sqlite3)
-:::
-
-```{r}
-#| echo: false
-conn <- dbConnect(SQLite(), "material/ch3/sample.sqlite3")
-```
-
-
-To load the WiFi data from the "packets" table, use the dbGetQuery() function:
-
-```{r}
-wifi_data <- dbGetQuery(conn, "SELECT * FROM packets")
-```
-
-```{r}
-#| echo: false
-kable(data.table(wifi_data)[1:5])
-```
-
-
-After loading the data, remember to close the database connection:
-
-```{r}
-dbDisconnect(conn)
-```
 
 
 ## Filltering Techniques

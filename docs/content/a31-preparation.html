@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Sensing Urban Dynamics with WiFi: A Practical Guide - Further</title>
+<title>Sensing Urban Dynamics with WiFi: A Practical Guide - 6&nbsp; Data Preparation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -29,7 +63,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../content/a52-direction.html" rel="prev">
+<link href="../content/a32-cleaning.html" rel="next">
+<link href="../content/a30-processing.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -79,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/a60-further.html">Further</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/a30-processing.html">PART III: Data Processing</a></li><li class="breadcrumb-item"><a href="../content/a31-preparation.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data Preparation</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -122,7 +157,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../content/a20-installation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PART II: Installation steps</span></a>
+ <span class="menu-text">PART II: WiFi Sensing Setup</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -148,14 +183,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a24-software.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Sensing Setup</span></span></a>
+  <a href="../content/a24-deployment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Collection Insights</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a25-imp.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Implementation</span></span></a>
+  <a href="../content/a25-testing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Testing and Validation</span></span></a>
   </div>
 </li>
       </ul>
@@ -163,7 +198,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../content/a30-processing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PART III: Data Collection and Processing</span></a>
+ <span class="menu-text">PART III: Data Processing</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -171,14 +206,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a31-collection.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data Collection Insights</span></span></a>
+  <a href="../content/a31-preparation.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data Preparation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a32-extraction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Structure and Loading</span></span></a>
+  <a href="../content/a32-cleaning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Cleaning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -191,8 +226,8 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../content/a30-metric.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PART III: Understanding Metrics</span></a>
+            <a href="../content/a40-metric.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PART IV: Understanding Metrics</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -200,31 +235,31 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a31-overview.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/a41-overview.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Metrics Overview</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a33-count.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/a43-count.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Count</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a34-track.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/a44-track.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Track</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a35-identity.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/a45-identity.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Identity</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a36-activities.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/a46-activities.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Activities</span></span></a>
   </div>
 </li>
@@ -232,7 +267,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../content/a40-casestudy.html" class="sidebar-item-text sidebar-link">
+            <a href="../content/a50-casestudy.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PART VI: Applying Metrics</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -241,19 +276,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a41-case1.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/a51-case1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Case Study 1</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a42-case2.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/a52-case2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Case Study 2</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a43-case3.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/a53-case3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Case Study 3</span></span></a>
   </div>
 </li>
@@ -261,7 +296,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../content/a50-future.html" class="sidebar-item-text sidebar-link">
+            <a href="../content/a60-future.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PART V: Future Directions and Challenges</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -270,13 +305,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a51-limitation.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/a61-limitation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Limitation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a52-direction.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/a62-direction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Direction</span></span></a>
   </div>
 </li>
@@ -292,14 +327,28 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sqlite3-database-overview" id="toc-sqlite3-database-overview" class="nav-link active" data-scroll-target="#sqlite3-database-overview"><span class="header-section-number">6.1</span> SQLite3 Database Overview</a></li>
+  <li><a href="#loading-wifi-data-into-r" id="toc-loading-wifi-data-into-r" class="nav-link" data-scroll-target="#loading-wifi-data-into-r"><span class="header-section-number">6.2</span> Loading WiFi Data into R</a>
+  <ul class="collapse">
+  <li><a href="#required-r-packages" id="toc-required-r-packages" class="nav-link" data-scroll-target="#required-r-packages"><span class="header-section-number">6.2.1</span> Required R Packages</a></li>
+  <li><a href="#establishing-sqlite3-database-connection" id="toc-establishing-sqlite3-database-connection" class="nav-link" data-scroll-target="#establishing-sqlite3-database-connection"><span class="header-section-number">6.2.2</span> Establishing SQLite3 Database Connection</a></li>
+  <li><a href="#querying-wifi-data-from-the-database" id="toc-querying-wifi-data-from-the-database" class="nav-link" data-scroll-target="#querying-wifi-data-from-the-database"><span class="header-section-number">6.2.3</span> Querying WiFi Data from the Database</a></li>
+  <li><a href="#closing-the-database-connection" id="toc-closing-the-database-connection" class="nav-link" data-scroll-target="#closing-the-database-connection"><span class="header-section-number">6.2.4</span> Closing the Database Connection</a></li>
+  </ul></li>
+  <li><a href="#exploring-the-loaded-wifi-data" id="toc-exploring-the-loaded-wifi-data" class="nav-link" data-scroll-target="#exploring-the-loaded-wifi-data"><span class="header-section-number">6.3</span> Exploring the Loaded WiFi Data</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/a30-processing.html">PART III: Data Processing</a></li><li class="breadcrumb-item"><a href="../content/a31-preparation.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data Preparation</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Further</h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data Preparation</span></h1>
 </div>
 
 
@@ -316,8 +365,276 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>In this chapter, we will delve into the process of preparing the collected WiFi data for pedestrian behavior analysis. We will start by examining the structure of the SQLite3 database that contains the captured WiFi packets. Then, we will demonstrate how to load the data into R using the RSQLite and DBI packages. Finally, we will explore the loaded WiFi data, understand its attributes, and discuss their significance in the context of pedestrian behavior analysis.</p>
+<section id="sqlite3-database-overview" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="sqlite3-database-overview"><span class="header-section-number">6.1</span> SQLite3 Database Overview</h2>
+<p>The WiFi data collected using the Urban Sensing system is typically stored in an <em>SQLite3</em> database. SQLite3 is a lightweight, file-based database engine that provides a convenient way to store and manage structured data. The database file can be easily transferred and accessed across different platforms and programming languages.</p>
+<p><img src="material/ch3/sqlite3_browser.png" class="img-fluid"></p>
+</section>
+<section id="loading-wifi-data-into-r" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="loading-wifi-data-into-r"><span class="header-section-number">6.2</span> Loading WiFi Data into R</h2>
+<section id="required-r-packages" class="level3" data-number="6.2.1">
+<h3 data-number="6.2.1" class="anchored" data-anchor-id="required-r-packages"><span class="header-section-number">6.2.1</span> Required R Packages</h3>
+<p>To load the WiFi data from the SQLite3 database into R, we will use the RSQLite and DBI packages. These packages provide the necessary functions and interfaces to establish a connection to the database and execute SQL queries.</p>
+<p>For a more streamlined and efficient process, we’ll utilize the pacman package, which offers the <code>p_load</code> function. This function automatically installs and loads the necessary packages if they are not already installed.</p>
+<p>First, ensure the <code>pacman</code> package is installed and loaded:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(pacman)) <span class="fu">install.packages</span>(<span class="st">"pacman"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>필요한 패키지를 로딩중입니다: pacman</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(pacman)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Next, use <code>p_load</code> from <code>pacman</code> to install and load the <code>RSQLite</code> and <code>DBI</code> packages, essential for interfacing with SQLite databases:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(RSQLite, DBI, data.table, knitr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="establishing-sqlite3-database-connection" class="level3" data-number="6.2.2">
+<h3 data-number="6.2.2" class="anchored" data-anchor-id="establishing-sqlite3-database-connection"><span class="header-section-number">6.2.2</span> Establishing SQLite3 Database Connection</h3>
+<p>To establish a connection to the SQLite3 database, we use the <code>dbConnect()</code> function from the DBI package. This function takes the database driver (in this case, <code>SQLite()</code>) and the path to the database file as arguments.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>conn <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(<span class="fu">SQLite</span>(), <span class="st">"path/to/your/database.sqlite"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Replace <code>"path/to/your/database.sqlite"</code> with the actual path to your SQLite3 database file.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="If you don't have the WiFi DB">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+If you don’t have the WiFi DB
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Download <a href="material/ch3/sample.sqlite3">this</a></p>
+</div>
+</div>
+</section>
+<section id="querying-wifi-data-from-the-database" class="level3" data-number="6.2.3">
+<h3 data-number="6.2.3" class="anchored" data-anchor-id="querying-wifi-data-from-the-database"><span class="header-section-number">6.2.3</span> Querying WiFi Data from the Database</h3>
+<p>To load the WiFi data from the “packets” table, we use the<code>dbGetQuery()</code> function. This function takes the database connection object and an SQL query as arguments. The SQL query specifies the table and columns to retrieve.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>wifi_data <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(conn, <span class="st">"SELECT * FROM packets"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 2%">
+<col style="width: 3%">
+<col style="width: 2%">
+<col style="width: 15%">
+<col style="width: 6%">
+<col style="width: 15%">
+<col style="width: 7%">
+<col style="width: 5%">
+<col style="width: 15%">
+<col style="width: 7%">
+<col style="width: 3%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 1%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">timestamp</th>
+<th style="text-align: left;">type</th>
+<th style="text-align: left;">subtype</th>
+<th style="text-align: right;">strength</th>
+<th style="text-align: left;">source_address</th>
+<th style="text-align: right;">source_address_randomized</th>
+<th style="text-align: left;">destination_address</th>
+<th style="text-align: right;">destination_address_randomized</th>
+<th style="text-align: left;">access_point_name</th>
+<th style="text-align: left;">access_point_address</th>
+<th style="text-align: right;">access_point_address_randomized</th>
+<th style="text-align: right;">sequence_number</th>
+<th style="text-align: left;">channel</th>
+<th style="text-align: left;">sensor_name</th>
+<th style="text-align: left;">info</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">2024-04-09T19:17:27.536121</td>
+<td style="text-align: left;">management</td>
+<td style="text-align: left;">probe-response</td>
+<td style="text-align: right;">-65</td>
+<td style="text-align: left;">f0659bdd9305e4341afb9f55df7cd20a4adfd726f83a33c3857281dfa3de8575</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">767dcce0bef280209ebb9401ddd0694ebd4ca7c7703e3c0269cb86d6592e0012</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">SK_WiFiGIGA8161_2.4G</td>
+<td style="text-align: left;">f0659bdd9305e4341afb9f55df7cd20a4adfd726f83a33c3857281dfa3de8575</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">604</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">A01</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2024-04-09T19:17:27.541249</td>
+<td style="text-align: left;">management</td>
+<td style="text-align: left;">probe-response</td>
+<td style="text-align: right;">-67</td>
+<td style="text-align: left;">f0659bdd9305e4341afb9f55df7cd20a4adfd726f83a33c3857281dfa3de8575</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">767dcce0bef280209ebb9401ddd0694ebd4ca7c7703e3c0269cb86d6592e0012</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">SK_WiFiGIGA8161_2.4G</td>
+<td style="text-align: left;">f0659bdd9305e4341afb9f55df7cd20a4adfd726f83a33c3857281dfa3de8575</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">607</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">A01</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2024-04-09T19:17:27.635933</td>
+<td style="text-align: left;">management</td>
+<td style="text-align: left;">probe-response</td>
+<td style="text-align: right;">-67</td>
+<td style="text-align: left;">f0659bdd9305e4341afb9f55df7cd20a4adfd726f83a33c3857281dfa3de8575</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">00333fd8244862428d22a482df516ae0315c33a83a9d32e9bf8bc2b0de978467</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">SK_WiFiGIGA8161_2.4G</td>
+<td style="text-align: left;">f0659bdd9305e4341afb9f55df7cd20a4adfd726f83a33c3857281dfa3de8575</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">611</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">A01</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2024-04-09T19:17:27.746452</td>
+<td style="text-align: left;">management</td>
+<td style="text-align: left;">probe-request</td>
+<td style="text-align: right;">-67</td>
+<td style="text-align: left;">d94147cf12befe41bb40dd7957733c54442de7a9d45a75ec3c747856c4bdc129</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">ff:ff:ff:ff:ff:ff</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">(n/a)</td>
+<td style="text-align: left;">ff:ff:ff:ff:ff:ff</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">990</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">A01</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2024-04-09T19:17:27.765945</td>
+<td style="text-align: left;">management</td>
+<td style="text-align: left;">probe-request</td>
+<td style="text-align: right;">-65</td>
+<td style="text-align: left;">d94147cf12befe41bb40dd7957733c54442de7a9d45a75ec3c747856c4bdc129</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">ff:ff:ff:ff:ff:ff</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">(n/a)</td>
+<td style="text-align: left;">ff:ff:ff:ff:ff:ff</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">991</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">A01</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="closing-the-database-connection" class="level3" data-number="6.2.4">
+<h3 data-number="6.2.4" class="anchored" data-anchor-id="closing-the-database-connection"><span class="header-section-number">6.2.4</span> Closing the Database Connection</h3>
+<p>After loading the data, it is important to close the database connection to free up resources:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbDisconnect</span>(conn)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="exploring-the-loaded-wifi-data" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="exploring-the-loaded-wifi-data"><span class="header-section-number">6.3</span> Exploring the Loaded WiFi Data</h2>
+<p>The WiFi data loaded into R consists of several key attributes that provide valuable information for pedestrian behavior analysis. Let’s explore each of these attributes in more detail:</p>
+<table class="table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 89%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>timestamp</td>
+<td>The timestamp indicates the exact date and time when the packet was captured by the sensor. It allows for temporal analysis of pedestrian behavior patterns, such as identifying peak hours or days.</td>
+</tr>
+<tr class="even">
+<td>type</td>
+<td>The type column specifies the category of the captured packet. For example, “Management” indicates that the packet is a management frame used for network management and control purposes.</td>
+</tr>
+<tr class="odd">
+<td>subtype</td>
+<td>The subtype column provides more specific information about the type of packet. In this example, a subtype of “Probe Request” indicates that the device is actively searching for nearby access points.</td>
+</tr>
+<tr class="even">
+<td>strength</td>
+<td>The signal strength of the received packet is recorded in decibel-milliwatts (dBm). Lower values (e.g., -80 dBm) indicate weaker signals, while higher values (e.g., -30 dBm) indicate stronger signals, suggesting closer proximity to the sensor.</td>
+</tr>
+<tr class="odd">
+<td>source_address</td>
+<td>The source address represents the hashed MAC address of the device sending the packet. While the actual MAC address is anonymized for privacy reasons, the hashed value still enables unique identification of devices.</td>
+</tr>
+<tr class="even">
+<td>source_randomized</td>
+<td>This column indicates whether the source address is randomized (1) or not (0). Randomized addresses are used by devices to enhance privacy by frequently changing the MAC address.</td>
+</tr>
+<tr class="odd">
+<td>destination_address</td>
+<td>The destination address represents the hashed MAC address of the intended recipient of the packet, which could be an access point or another device.</td>
+</tr>
+<tr class="even">
+<td>destination_randomized</td>
+<td>This column indicates whether the destination address is randomized (1) or not (0), similar to the source_randomized attribute.</td>
+</tr>
+<tr class="odd">
+<td>access_point_name</td>
+<td>The access point name, also known as the SSID (Service Set Identifier), is the human-readable name of the access point that the device is trying to discover or connect to.</td>
+</tr>
+<tr class="even">
+<td>access_point_address</td>
+<td>The access point address represents the hashed MAC address of the access point. It uniquely identifies the access point within the network.</td>
+</tr>
+<tr class="odd">
+<td>access_point_randomized</td>
+<td>This column indicates whether the access point address is randomized (1) or not (0). Randomized access point addresses are less common but can be used in some scenarios.</td>
+</tr>
+<tr class="even">
+<td>sequence_number</td>
+<td>The sequence number is a unique identifier assigned to each packet within a sequence of packets. It helps in ordering and identifying packets, which can be useful for tracking device behavior over time.</td>
+</tr>
+<tr class="odd">
+<td>channel</td>
+<td>The channel attribute indicates the specific WiFi channel on which the packet was transmitted. WiFi channels are numbered from 1 to 14 (with some regional variations) and operate on different frequencies to minimize interference.</td>
+</tr>
+<tr class="even">
+<td>sensor_name</td>
+<td>The sensor name attribute identifies the specific sensor that captured the packet. It allows for spatial analysis and understanding of pedestrian behavior across different sensor locations.</td>
+</tr>
+<tr class="odd">
+<td>info</td>
+<td>The info column typically contains the raw WiFi packet data. However, if you have followed the privacy guidelines in this book, the info column would be blanked out to protect sensitive information.</td>
+</tr>
+</tbody>
+</table>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -731,11 +1048,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../content/a52-direction.html" class="pagination-link" aria-label="Direction">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Direction</span></span>
+      <a href="../content/a30-processing.html" class="pagination-link" aria-label="PART III: Data Processing">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">PART III: Data Processing</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../content/a32-cleaning.html" class="pagination-link" aria-label="Data Cleaning">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Cleaning</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

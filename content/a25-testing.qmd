@@ -1,8 +1,8 @@
-# Implementation
+# Testing and Validation
 
-Dive into the step-by-step process of implementing and testing the Urban Sensing Service on your Raspberry Pi, both in a controlled environment *(6.1)* and in real-world scenarios *(6.2)*.
+This section covers the step-by-step process of implementing and testing the Urban Sensing Service on your Raspberry Pi, both in a controlled environment *(6.1)* and in real-world scenarios *(6.2)*.
 
-## Sensing Service Testing in Controlled Environment 
+## Controlled Environment Testing
 
 ### Raspberry Pi Setup
 
@@ -101,23 +101,23 @@ sudo systemctl stop sensing.service
 
 :::
 
-## Sensing Service Testing in Real-world Scenarios
+## Real-world Testing
 
 In this section, we'll test the sensing service without Ethernet, simulating a real-world application. Follow these detailed steps for a successful setup and operation:
 
-### Activate Mobile Hotspot
+### Activating Mobile Hotspot
 
 Activate the hotspot on your mobile device. This is essential for providing internet connectivity to the Raspberry Pi, which will enable time synchronization and status updates via Dropbox.
 
 ![](material/ch2/turnon_hotspot.jpg){width=50%}
 
-### Connect the External Battery
+### Connecting the External Battery
 
 Ensure you've connected an external battery to power both your Raspberry Pi and the WiFi adapters.
 
 ![](material/ch2/plug_external.jpg)
 
-### Monitor WiFi Adapter Activity
+### Monitoring WiFi Adapter Activity
 
 Check for indicator lights on the WiFi adapter. In station mode, when the adapter is networking, the lights should turn on. You should also see the Raspberry Pi appear on your mobile hotspot interface. 
 
@@ -140,13 +140,13 @@ When accessing your Raspberry Pi via a mobile phone, the `raspberrypi` network m
 :::
 
 
-### Validate Dropbox Connectivity
+### Validating Dropbox Connectivity
 
 Once connected to the network with the correct Dropbox settings, you should start seeing files from your Raspberry Pi appear in your Dropbox.
 
 ![](material/ch2/check_dropbox_upload.png)
 
-### Check the WiFi adapter going on monitor mode
+### Checking WiFi Adapter Monitor Mode
 
 In monitor mode, the WiFi adapter's status light should turn off, and its connection will vanish from your mobile hotspot interface.
 
@@ -154,13 +154,9 @@ In monitor mode, the WiFi adapter's status light should turn off, and its connec
 
 ![](material/ch2/check_hotspot_off.jpg){width=50%}
 
-### Wait for Sensing Operation
+### Performing Sensing Operation
 
-Throughout the designated sensing duration, the service will capture packets.
-
-### End Sensing Operation
-
-To conclude the sensing operation, simply unplug the battery.
+Throughout the designated sensing duration, the service will capture packets. To conclude the sensing operation, simply unplug the battery.
 
 ### Review Sensing Results
 

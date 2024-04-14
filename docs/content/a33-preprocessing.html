@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -63,8 +29,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../content/a30-metric.html" rel="next">
-<link href="../content/a32-extraction.html" rel="prev">
+<link href="../content/a40-metric.html" rel="next">
+<link href="../content/a32-cleaning.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -114,7 +80,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/a30-processing.html">PART III: Data Collection and Processing</a></li><li class="breadcrumb-item"><a href="../content/a33-preprocessing.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Preprocessing Techniques</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/a30-processing.html">PART III: Data Processing</a></li><li class="breadcrumb-item"><a href="../content/a33-preprocessing.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Preprocessing Techniques</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -157,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../content/a20-installation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PART II: Installation steps</span></a>
+ <span class="menu-text">PART II: WiFi Sensing Setup</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -183,14 +149,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a24-software.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Sensing Setup</span></span></a>
+  <a href="../content/a24-deployment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Collection Insights</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a25-imp.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Implementation</span></span></a>
+  <a href="../content/a25-testing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Testing and Validation</span></span></a>
   </div>
 </li>
       </ul>
@@ -198,7 +164,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../content/a30-processing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PART III: Data Collection and Processing</span></a>
+ <span class="menu-text">PART III: Data Processing</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -206,14 +172,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a31-collection.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data Collection Insights</span></span></a>
+  <a href="../content/a31-preparation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data Preparation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a32-extraction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Structure and Loading</span></span></a>
+  <a href="../content/a32-cleaning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Cleaning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -226,8 +192,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../content/a30-metric.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PART III: Understanding Metrics</span></a>
+            <a href="../content/a40-metric.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PART IV: Understanding Metrics</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -235,31 +201,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a31-overview.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/a41-overview.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Metrics Overview</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a33-count.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/a43-count.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Count</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a34-track.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/a44-track.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Track</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a35-identity.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/a45-identity.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Identity</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a36-activities.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/a46-activities.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Activities</span></span></a>
   </div>
 </li>
@@ -267,7 +233,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../content/a40-casestudy.html" class="sidebar-item-text sidebar-link">
+            <a href="../content/a50-casestudy.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PART VI: Applying Metrics</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -276,19 +242,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a41-case1.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/a51-case1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Case Study 1</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a42-case2.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/a52-case2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Case Study 2</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a43-case3.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/a53-case3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Case Study 3</span></span></a>
   </div>
 </li>
@@ -296,7 +262,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../content/a50-future.html" class="sidebar-item-text sidebar-link">
+            <a href="../content/a60-future.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PART V: Future Directions and Challenges</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -305,13 +271,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a51-limitation.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/a61-limitation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Limitation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a52-direction.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/a62-direction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Direction</span></span></a>
   </div>
 </li>
@@ -331,12 +297,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#loading-wifi-data-with-r" id="toc-loading-wifi-data-with-r" class="nav-link active" data-scroll-target="#loading-wifi-data-with-r"><span class="header-section-number">8.1</span> Loading WiFi Data with R</a></li>
-  <li><a href="#filltering-techniques" id="toc-filltering-techniques" class="nav-link" data-scroll-target="#filltering-techniques"><span class="header-section-number">8.2</span> Filltering Techniques</a>
+  <li><a href="#filltering-techniques" id="toc-filltering-techniques" class="nav-link active" data-scroll-target="#filltering-techniques"><span class="header-section-number">8.1</span> Filltering Techniques</a>
   <ul class="collapse">
-  <li><a href="#step-1-removal-of-random-mac-addresses" id="toc-step-1-removal-of-random-mac-addresses" class="nav-link" data-scroll-target="#step-1-removal-of-random-mac-addresses"><span class="header-section-number">8.2.1</span> (Step 1) Removal of Random MAC Addresses</a></li>
-  <li><a href="#step-2-removal-of-non-mobile-devices" id="toc-step-2-removal-of-non-mobile-devices" class="nav-link" data-scroll-target="#step-2-removal-of-non-mobile-devices"><span class="header-section-number">8.2.2</span> (Step 2) Removal of Non-Mobile Devices</a></li>
-  <li><a href="#step-3-removal-of-rarely-detected-devices" id="toc-step-3-removal-of-rarely-detected-devices" class="nav-link" data-scroll-target="#step-3-removal-of-rarely-detected-devices"><span class="header-section-number">8.2.3</span> (Step 3) Removal of Rarely Detected Devices</a></li>
+  <li><a href="#step-1-removal-of-random-mac-addresses" id="toc-step-1-removal-of-random-mac-addresses" class="nav-link" data-scroll-target="#step-1-removal-of-random-mac-addresses"><span class="header-section-number">8.1.1</span> (Step 1) Removal of Random MAC Addresses</a></li>
+  <li><a href="#step-2-removal-of-non-mobile-devices" id="toc-step-2-removal-of-non-mobile-devices" class="nav-link" data-scroll-target="#step-2-removal-of-non-mobile-devices"><span class="header-section-number">8.1.2</span> (Step 2) Removal of Non-Mobile Devices</a></li>
+  <li><a href="#step-3-removal-of-rarely-detected-devices" id="toc-step-3-removal-of-rarely-detected-devices" class="nav-link" data-scroll-target="#step-3-removal-of-rarely-detected-devices"><span class="header-section-number">8.1.3</span> (Step 3) Removal of Rarely Detected Devices</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -344,7 +309,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/a30-processing.html">PART III: Data Collection and Processing</a></li><li class="breadcrumb-item"><a href="../content/a33-preprocessing.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Preprocessing Techniques</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/a30-processing.html">PART III: Data Processing</a></li><li class="breadcrumb-item"><a href="../content/a33-preprocessing.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Preprocessing Techniques</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Preprocessing Techniques</span></h1>
 </div>
@@ -364,194 +329,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>With a clear understanding of the raw WiFi data structure, we can now proceed with data preprocessing techniques to clean, transform, and prepare the data for analysis. In this section, we will first demonstrate how to load the WiFi data into R and then discuss various preprocessing techniques to improve data quality and analysis results.</p>
-<section id="loading-wifi-data-with-r" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="loading-wifi-data-with-r"><span class="header-section-number">8.1</span> Loading WiFi Data with R</h2>
-<p>We need to load the raw WiFi data from the SQLite3 database into R using the RSQLite and DBI packages.</p>
-<p>For a more streamlined and efficient process, we’ll utilize the pacman package, which offers the <code>p_load</code> function. This function automatically installs and loads the necessary packages if they are not already installed.</p>
-<p>First, ensure the <code>pacman</code> package is installed and loaded:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(pacman)) <span class="fu">install.packages</span>(<span class="st">"pacman"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>필요한 패키지를 로딩중입니다: pacman</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(pacman)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Next, use <code>p_load</code> from <code>pacman</code> to install and load the <code>RSQLite</code> and <code>DBI</code> packages, essential for interfacing with SQLite databases:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(RSQLite, DBI, data.table, knitr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Next, establish a connection to your SQLite3 database using the dbConnect() function:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>conn <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(<span class="fu">SQLite</span>(), <span class="st">"path/to/your/database.sqlite"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Replace <code>"path/to/your/database.sqlite"</code> with the actual path to your SQLite3 database file.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="If you don't have the WiFi DB">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-If you don’t have the WiFi DB
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Download <a href="material/ch3/sample.sqlite3">this</a></p>
-</div>
-</div>
-<p>To load the WiFi data from the “packets” table, use the dbGetQuery() function:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>wifi_data <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(conn, <span class="st">"SELECT * FROM packets"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<table class="table table-sm table-striped small">
-<colgroup>
-<col style="width: 6%">
-<col style="width: 2%">
-<col style="width: 3%">
-<col style="width: 2%">
-<col style="width: 15%">
-<col style="width: 6%">
-<col style="width: 15%">
-<col style="width: 7%">
-<col style="width: 5%">
-<col style="width: 15%">
-<col style="width: 7%">
-<col style="width: 3%">
-<col style="width: 1%">
-<col style="width: 2%">
-<col style="width: 1%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">timestamp</th>
-<th style="text-align: left;">type</th>
-<th style="text-align: left;">subtype</th>
-<th style="text-align: right;">strength</th>
-<th style="text-align: left;">source_address</th>
-<th style="text-align: right;">source_address_randomized</th>
-<th style="text-align: left;">destination_address</th>
-<th style="text-align: right;">destination_address_randomized</th>
-<th style="text-align: left;">access_point_name</th>
-<th style="text-align: left;">access_point_address</th>
-<th style="text-align: right;">access_point_address_randomized</th>
-<th style="text-align: right;">sequence_number</th>
-<th style="text-align: left;">channel</th>
-<th style="text-align: left;">sensor_name</th>
-<th style="text-align: left;">info</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">2024-04-09T19:17:27.536121</td>
-<td style="text-align: left;">management</td>
-<td style="text-align: left;">probe-response</td>
-<td style="text-align: right;">-65</td>
-<td style="text-align: left;">f0659bdd9305e4341afb9f55df7cd20a4adfd726f83a33c3857281dfa3de8575</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">767dcce0bef280209ebb9401ddd0694ebd4ca7c7703e3c0269cb86d6592e0012</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">SK_WiFiGIGA8161_2.4G</td>
-<td style="text-align: left;">f0659bdd9305e4341afb9f55df7cd20a4adfd726f83a33c3857281dfa3de8575</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">604</td>
-<td style="text-align: left;">6</td>
-<td style="text-align: left;">A01</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">2024-04-09T19:17:27.541249</td>
-<td style="text-align: left;">management</td>
-<td style="text-align: left;">probe-response</td>
-<td style="text-align: right;">-67</td>
-<td style="text-align: left;">f0659bdd9305e4341afb9f55df7cd20a4adfd726f83a33c3857281dfa3de8575</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">767dcce0bef280209ebb9401ddd0694ebd4ca7c7703e3c0269cb86d6592e0012</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">SK_WiFiGIGA8161_2.4G</td>
-<td style="text-align: left;">f0659bdd9305e4341afb9f55df7cd20a4adfd726f83a33c3857281dfa3de8575</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">607</td>
-<td style="text-align: left;">6</td>
-<td style="text-align: left;">A01</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">2024-04-09T19:17:27.635933</td>
-<td style="text-align: left;">management</td>
-<td style="text-align: left;">probe-response</td>
-<td style="text-align: right;">-67</td>
-<td style="text-align: left;">f0659bdd9305e4341afb9f55df7cd20a4adfd726f83a33c3857281dfa3de8575</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">00333fd8244862428d22a482df516ae0315c33a83a9d32e9bf8bc2b0de978467</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">SK_WiFiGIGA8161_2.4G</td>
-<td style="text-align: left;">f0659bdd9305e4341afb9f55df7cd20a4adfd726f83a33c3857281dfa3de8575</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">611</td>
-<td style="text-align: left;">6</td>
-<td style="text-align: left;">A01</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">2024-04-09T19:17:27.746452</td>
-<td style="text-align: left;">management</td>
-<td style="text-align: left;">probe-request</td>
-<td style="text-align: right;">-67</td>
-<td style="text-align: left;">d94147cf12befe41bb40dd7957733c54442de7a9d45a75ec3c747856c4bdc129</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">ff:ff:ff:ff:ff:ff</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">(n/a)</td>
-<td style="text-align: left;">ff:ff:ff:ff:ff:ff</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">990</td>
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">A01</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">2024-04-09T19:17:27.765945</td>
-<td style="text-align: left;">management</td>
-<td style="text-align: left;">probe-request</td>
-<td style="text-align: right;">-65</td>
-<td style="text-align: left;">d94147cf12befe41bb40dd7957733c54442de7a9d45a75ec3c747856c4bdc129</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">ff:ff:ff:ff:ff:ff</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">(n/a)</td>
-<td style="text-align: left;">ff:ff:ff:ff:ff:ff</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">991</td>
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">A01</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p>After loading the data, remember to close the database connection:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbDisconnect</span>(conn)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="filltering-techniques" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="filltering-techniques"><span class="header-section-number">8.2</span> Filltering Techniques</h2>
+<section id="filltering-techniques" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="filltering-techniques"><span class="header-section-number">8.1</span> Filltering Techniques</h2>
 <p>The three filtering techniques used for WiFi data preprocessing are:</p>
 <p><strong>1. Removal of random MAC addresses:</strong> Eliminates random MAC addresses to avoid duplicate counting.</p>
 <p><strong>2. Removal of non-mobile devices:</strong> Removes detection records of static devices to focus on mobility.</p>
 <p><strong>3. Removal of rarely detected devices:</strong> Excludes MAC addresses that are detected for very short duration.</p>
 <p><img src="material/ch3/preprocessing.png" class="img-fluid"></p>
-<section id="step-1-removal-of-random-mac-addresses" class="level3" data-number="8.2.1">
-<h3 data-number="8.2.1" class="anchored" data-anchor-id="step-1-removal-of-random-mac-addresses"><span class="header-section-number">8.2.1</span> (Step 1) Removal of Random MAC Addresses</h3>
+<section id="step-1-removal-of-random-mac-addresses" class="level3" data-number="8.1.1">
+<h3 data-number="8.1.1" class="anchored" data-anchor-id="step-1-removal-of-random-mac-addresses"><span class="header-section-number">8.1.1</span> (Step 1) Removal of Random MAC Addresses</h3>
 <p>Random MAC addresses are identified by matching the OUI (Organizationally Unique Identifier) portion of the MAC address with a public database provided by IEEE. The OUI is the first 6 digits of a MAC address, representing the device manufacturer. Unmatched OUIs are considered random MAC addresses and are removed.</p>
 </section>
-<section id="step-2-removal-of-non-mobile-devices" class="level3" data-number="8.2.2">
-<h3 data-number="8.2.2" class="anchored" data-anchor-id="step-2-removal-of-non-mobile-devices"><span class="header-section-number">8.2.2</span> (Step 2) Removal of Non-Mobile Devices</h3>
+<section id="step-2-removal-of-non-mobile-devices" class="level3" data-number="8.1.2">
+<h3 data-number="8.1.2" class="anchored" data-anchor-id="step-2-removal-of-non-mobile-devices"><span class="header-section-number">8.1.2</span> (Step 2) Removal of Non-Mobile Devices</h3>
 </section>
-<section id="step-3-removal-of-rarely-detected-devices" class="level3" data-number="8.2.3">
-<h3 data-number="8.2.3" class="anchored" data-anchor-id="step-3-removal-of-rarely-detected-devices"><span class="header-section-number">8.2.3</span> (Step 3) Removal of Rarely Detected Devices</h3>
+<section id="step-3-removal-of-rarely-detected-devices" class="level3" data-number="8.1.3">
+<h3 data-number="8.1.3" class="anchored" data-anchor-id="step-3-removal-of-rarely-detected-devices"><span class="header-section-number">8.1.3</span> (Step 3) Removal of Rarely Detected Devices</h3>
 
 
 </section>
@@ -969,13 +762,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../content/a32-extraction.html" class="pagination-link" aria-label="Data Structure and Loading">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Structure and Loading</span></span>
+      <a href="../content/a32-cleaning.html" class="pagination-link" aria-label="Data Cleaning">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Cleaning</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../content/a30-metric.html" class="pagination-link" aria-label="PART III: Understanding Metrics">
-        <span class="nav-page-text">PART III: Understanding Metrics</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../content/a40-metric.html" class="pagination-link" aria-label="PART IV: Understanding Metrics">
+        <span class="nav-page-text">PART IV: Understanding Metrics</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

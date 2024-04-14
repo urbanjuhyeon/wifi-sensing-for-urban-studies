@@ -1,1 +1,1 @@
-# PART II: Installation steps {.unnumbered}
+# PART II: WiFi Sensing Setup {.unnumbered}

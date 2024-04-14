@@ -293,7 +293,7 @@ movements and behaviors\footnote{Duives, D. C., van Oijen, T., \&
 
 \markboth{PART I: Introduction}{PART I: Introduction}
 
-\part{PART II: Installation steps}
+\part{PART II: WiFi Sensing Setup}
 
 \chapter{Prerequisites}\label{prerequisites}
 
@@ -476,7 +476,7 @@ encounter any issues.
 Once the process is complete, your SD card will be ready, and you can
 insert it into the Raspberry Pi to boot up the new operating system.
 
-\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, titlerule=0mm, arc=.35mm, left=2mm, opacityback=0, colframe=quarto-callout-note-color-frame, rightrule=.15mm, bottomtitle=1mm, breakable, leftrule=.75mm, toprule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Why Do We Use Our Mobile Hotspot for This Project?}, coltitle=black, colback=white, bottomrule=.15mm, opacitybacktitle=0.6]
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, opacitybacktitle=0.6, toprule=.15mm, colback=white, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Why Do We Use Our Mobile Hotspot for This Project?}, arc=.35mm, coltitle=black, opacityback=0, left=2mm, bottomtitle=1mm, colframe=quarto-callout-note-color-frame, titlerule=0mm, breakable, bottomrule=.15mm, rightrule=.15mm]
 
 The Raspberry Pi lacks a real-time clock, which means it can't keep
 track of time when powered off. To fetch the current time when booting
@@ -557,7 +557,7 @@ following command:
 
 \includegraphics{content/material/ch2/access_cmd.mp4}
 
-\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, titlerule=0mm, arc=.35mm, left=2mm, opacityback=0, colframe=quarto-callout-note-color-frame, rightrule=.15mm, bottomtitle=1mm, breakable, leftrule=.75mm, toprule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, coltitle=black, colback=white, bottomrule=.15mm, opacitybacktitle=0.6]
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, opacitybacktitle=0.6, toprule=.15mm, colback=white, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, arc=.35mm, coltitle=black, opacityback=0, left=2mm, bottomtitle=1mm, colframe=quarto-callout-note-color-frame, titlerule=0mm, breakable, bottomrule=.15mm, rightrule=.15mm]
 
 If you encounter any troubles with this section, please refer to the
 last section of this content, titled \textbf{Issues of Initial Setup},
@@ -621,7 +621,7 @@ command:
 
 \includegraphics{content/material/ch2/ssh_laptop.mp4}
 
-\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, titlerule=0mm, arc=.35mm, left=2mm, opacityback=0, colframe=quarto-callout-note-color-frame, rightrule=.15mm, bottomtitle=1mm, breakable, leftrule=.75mm, toprule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, coltitle=black, colback=white, bottomrule=.15mm, opacitybacktitle=0.6]
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, opacitybacktitle=0.6, toprule=.15mm, colback=white, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, arc=.35mm, coltitle=black, opacityback=0, left=2mm, bottomtitle=1mm, colframe=quarto-callout-note-color-frame, titlerule=0mm, breakable, bottomrule=.15mm, rightrule=.15mm]
 
 If you encounter any troubles with this section, please refer to the
 last section of this content, titled \textbf{Issues of Initial Setup},
@@ -649,7 +649,7 @@ If the Pi is connected to the internet, you will see lines starting with
 
 You can stop the ping process by pressing \texttt{Ctrl\ +\ C}.
 
-\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, titlerule=0mm, arc=.35mm, left=2mm, opacityback=0, colframe=quarto-callout-note-color-frame, rightrule=.15mm, bottomtitle=1mm, breakable, leftrule=.75mm, toprule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, coltitle=black, colback=white, bottomrule=.15mm, opacitybacktitle=0.6]
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, opacitybacktitle=0.6, toprule=.15mm, colback=white, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, arc=.35mm, coltitle=black, opacityback=0, left=2mm, bottomtitle=1mm, colframe=quarto-callout-note-color-frame, titlerule=0mm, breakable, bottomrule=.15mm, rightrule=.15mm]
 
 If you encounter any troubles with this section, please refer to the
 last section of this content, titled \textbf{Issues of Initial Setup},
@@ -669,13 +669,12 @@ connectivity, please follow these steps:
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Enable and then disable the network on your laptop or desktop
-  computer.
+  Enable and then disable the network on your laptop or desktop computer
 \item
   Check and uncheck the ``Enable Internet Connection Sharing'' function
-  in your network settings.
+  in your network settings
 \item
-  Verify the network connection made by your Pi through the Ethernet.
+  Verify the network connection made by your Pi through the Ethernet
 \end{enumerate}
 
 \includegraphics{content/material/ch2/error_network.mp4}
@@ -753,7 +752,7 @@ latest version. Open a terminal window and enter the following commands:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, titlerule=0mm, arc=.35mm, left=2mm, opacityback=0, colframe=quarto-callout-note-color-frame, rightrule=.15mm, bottomtitle=1mm, breakable, leftrule=.75mm, toprule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{How to copy/paste in Linux terminal}, coltitle=black, colback=white, bottomrule=.15mm, opacitybacktitle=0.6]
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, opacitybacktitle=0.6, toprule=.15mm, colback=white, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{How to copy/paste in Linux terminal}, arc=.35mm, coltitle=black, opacityback=0, left=2mm, bottomtitle=1mm, colframe=quarto-callout-note-color-frame, titlerule=0mm, breakable, bottomrule=.15mm, rightrule=.15mm]
 
 For copy, you could click this icon to copy the command:
 
@@ -765,7 +764,7 @@ when Ctrl+V doesn't work in the terminal.
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, titlerule=0mm, arc=.35mm, left=2mm, opacityback=0, colframe=quarto-callout-note-color-frame, rightrule=.15mm, bottomtitle=1mm, breakable, leftrule=.75mm, toprule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, coltitle=black, colback=white, bottomrule=.15mm, opacitybacktitle=0.6]
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, opacitybacktitle=0.6, toprule=.15mm, colback=white, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, arc=.35mm, coltitle=black, opacityback=0, left=2mm, bottomtitle=1mm, colframe=quarto-callout-note-color-frame, titlerule=0mm, breakable, bottomrule=.15mm, rightrule=.15mm]
 
 In Linux systems, \texttt{sudo} stands for ``superuser do'', similar to
 ``Run As Administrator'' in Windows. The \texttt{-y} flag automatically
@@ -1052,13 +1051,6 @@ Go back to the home directory by executing the command:
 \end{Highlighting}
 \end{Shaded}
 
-\chapter{Sensing Setup}\label{sensing-setup}
-
-This guide walks you through the setup of your Raspberry Pi for urban
-sensing. Learn how to fetch essential scripts, install required
-packages, and configure settings for optimal sensing performance. Ensure
-your device is uniquely identified and ready for data collection.
-
 \section{Getting the Scripts}\label{getting-the-scripts}
 
 Begin by fetching the scripts from the
@@ -1218,251 +1210,6 @@ at boot.
 
 \includegraphics{content/material/ch2/bash_envr.mp4}
 
-\chapter{Implementation}\label{implementation}
-
-Dive into the step-by-step process of implementing and testing the Urban
-Sensing Service on your Raspberry Pi, both in a controlled environment
-\emph{(6.1)} and in real-world scenarios \emph{(6.2)}.
-
-\section{Sensing Service Testing in Controlled
-Environment}\label{sensing-service-testing-in-controlled-environment}
-
-\subsection{Raspberry Pi Setup}\label{raspberry-pi-setup-1}
-
-Before setting up, power off the Raspberry Pi. Once turned off, insert
-the additional WiFi adapter. Afterward, power the Raspberry Pi back on.
-
-\includegraphics{content/material/ch2/pi_plugged.jpg}
-
-Access the Raspberry Pi via ssh and check the wlan interface to check
-the internal wifi set to be wlan0 by excueting this:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\ExtensionTok{ifconfig}
-\end{Highlighting}
-\end{Shaded}
-
-Ensure that the \texttt{wlan0} interface is correctly assigned. The
-internal interface should have a MAC address starting with
-\texttt{b8:27:eb}. Subsequent WiFi adapters should follow a sequence
-like \texttt{wlan1}, \texttt{wlan2}, and so on.
-
-\includegraphics[width=0.5\textwidth,height=\textheight]{content/material/ch2/ifconfig_wlan_check.png}
-
-If the assignment isn't correct, refer to Section 2.4 for the
-appropriate setup instructions.
-
-\subsection{Script Execution}\label{script-execution}
-
-Easily access the superuser shell with:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{sudo}\NormalTok{ su}
-\end{Highlighting}
-\end{Shaded}
-
-Initiate the Urban Sensing code:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\ExtensionTok{python3}\NormalTok{ urban{-}sensing{-}raspi/code/start.py}
-\end{Highlighting}
-\end{Shaded}
-
-Let it run for about 2 minutes before halting it using \texttt{Ctrl+C}.
-
-\includegraphics{content/material/ch2/run_script.mp4}
-
-\subsection{Customizing Your Sensing}\label{customizing-your-sensing}
-
-The Urban Sensing Service isn't just about standard WiFi data
-collection; it offers a broader scope:
-
-\begin{itemize}
-\item
-  \textbf{Retain Raw WiFi Packets} : Use the \texttt{-i} option:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\ExtensionTok{python3}\NormalTok{ urban{-}sensing{-}raspi/code/start.py }\AttributeTok{{-}i}
-\end{Highlighting}
-\end{Shaded}
-\item
-  \textbf{Introduce Bluetooth Sensing} : Add the \texttt{-b} option:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\ExtensionTok{python3}\NormalTok{ urban{-}sensing{-}raspi/code/start.py }\AttributeTok{{-}b}
-\end{Highlighting}
-\end{Shaded}
-\item
-  \textbf{Discover More Options} : Read our the
-  \href{https://github.com/urbanjuhyeon/urban-sensing-raspi}{GitHub
-  Repository}.
-\end{itemize}
-
-\section{Verifying the Results}\label{verifying-the-results}
-
-\textbf{1. Access the Pi folder:} type
-\texttt{\textbackslash{}\textbackslash{}raspberrypi\textbackslash{}share}
-on file explore.
-
-\textbf{2. Look around `stats' Folder} :
-
-\begin{itemize}
-\tightlist
-\item
-  Verify that file names reflect the exact execution time.
-\item
-  Confirm files have been transferred to Dropbox Storage.
-\end{itemize}
-
-\includegraphics{content/material/ch2/verify_result_1.mp4}
-
-\textbf{3. `data' Folder} :
-
-\begin{itemize}
-\tightlist
-\item
-  If you used \texttt{-b}, expect a Bluetooth file. Otherwise, it won't
-  appear.
-\item
-  Check for the creation of the WiFi packet file. To delve deeper, use
-  \href{https://sqlitebrowser.org/}{DB Browser for SQLite}.
-\end{itemize}
-
-\includegraphics{content/material/ch2/verify_result_2.mp4}
-
-\section{Setting Up Sensing Service}\label{setting-up-sensing-service}
-
-Once you've validated the sensing outputs, you can finalize the settings
-to fit your objectives. Notably, this will allow your Raspberry Pi to
-initiate the sensing service upon booting up.
-
-Execute the following script:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{bash}\NormalTok{ urban{-}sensing{-}raspi/service.sh}
-\end{Highlighting}
-\end{Shaded}
-
-Follow the on-screen prompts and ensure its proper functioning. Exit the
-status info using \texttt{ctrl+c}.
-
-\includegraphics{content/material/ch2/bash_service.mp4}
-
-\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, titlerule=0mm, arc=.35mm, left=2mm, opacityback=0, colframe=quarto-callout-note-color-frame, rightrule=.15mm, bottomtitle=1mm, breakable, leftrule=.75mm, toprule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, coltitle=black, colback=white, bottomrule=.15mm, opacitybacktitle=0.6]
-
-After running service.sh, your Raspberry Pi will start start.py on every
-boot. If you need to do tasks like file transfers, pause this service.
-The start.py has a 30-second delay at the start. If you stop the service
-within this time using \texttt{systemctl\ stop\ sensing.service}, the
-script won't perform any actions.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{sudo}\NormalTok{ systemctl stop sensing.service}
-\end{Highlighting}
-\end{Shaded}
-
-\end{tcolorbox}
-
-\section{Sensing Service Testing in Real-world
-Scenarios}\label{sensing-service-testing-in-real-world-scenarios}
-
-In this section, we'll test the sensing service without Ethernet,
-simulating a real-world application. Follow these detailed steps for a
-successful setup and operation:
-
-\subsection{Activate Mobile Hotspot}\label{activate-mobile-hotspot}
-
-Activate the hotspot on your mobile device. This is essential for
-providing internet connectivity to the Raspberry Pi, which will enable
-time synchronization and status updates via Dropbox.
-
-\includegraphics[width=0.5\textwidth,height=\textheight]{content/material/ch2/turnon_hotspot.jpg}
-
-\subsection{Connect the External
-Battery}\label{connect-the-external-battery}
-
-Ensure you've connected an external battery to power both your Raspberry
-Pi and the WiFi adapters.
-
-\includegraphics{content/material/ch2/plug_external.jpg}
-
-\subsection{Monitor WiFi Adapter
-Activity}\label{monitor-wifi-adapter-activity}
-
-Check for indicator lights on the WiFi adapter. In station mode, when
-the adapter is networking, the lights should turn on. You should also
-see the Raspberry Pi appear on your mobile hotspot interface.
-
-\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, titlerule=0mm, arc=.35mm, left=2mm, opacityback=0, colframe=quarto-callout-note-color-frame, rightrule=.15mm, bottomtitle=1mm, breakable, leftrule=.75mm, toprule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, coltitle=black, colback=white, bottomrule=.15mm, opacitybacktitle=0.6]
-
-If the status lights remain off or the Raspberry Pi does not appear on
-your hotspot interface, there might be an issue with your adapter.
-Consider getting a replacement.
-
-\end{tcolorbox}
-
-\includegraphics{content/material/ch2/adapter_light.jpg}
-
-Observe the WiFi adapter's status lights. When networked (station mode),
-these should illuminate. Concurrently, you'll see the Raspberry Pi
-connect to your mobile hotspot interface.
-
-\includegraphics[width=0.5\textwidth,height=\textheight]{content/material/ch2/check_hotspot.jpg}
-
-\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, titlerule=0mm, arc=.35mm, left=2mm, opacityback=0, colframe=quarto-callout-note-color-frame, rightrule=.15mm, bottomtitle=1mm, breakable, leftrule=.75mm, toprule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, coltitle=black, colback=white, bottomrule=.15mm, opacitybacktitle=0.6]
-
-When accessing your Raspberry Pi via a mobile phone, the
-\texttt{raspberrypi} network might not disappear immediately. This is
-attributed to the \texttt{wlan0} interface. A Python script will
-disconnect and turn off the \texttt{wlan0} function approximately 3
-minutes later.
-
-\end{tcolorbox}
-
-\subsection{Validate Dropbox
-Connectivity}\label{validate-dropbox-connectivity}
-
-Once connected to the network with the correct Dropbox settings, you
-should start seeing files from your Raspberry Pi appear in your Dropbox.
-
-\includegraphics{content/material/ch2/check_dropbox_upload.png}
-
-\subsection{Check the WiFi adapter going on monitor
-mode}\label{check-the-wifi-adapter-going-on-monitor-mode}
-
-In monitor mode, the WiFi adapter's status light should turn off, and
-its connection will vanish from your mobile hotspot interface.
-
-\includegraphics{content/material/ch2/plug_external.jpg}
-
-\includegraphics[width=0.5\textwidth,height=\textheight]{content/material/ch2/check_hotspot_off.jpg}
-
-\subsection{Wait for Sensing
-Operation}\label{wait-for-sensing-operation}
-
-Throughout the designated sensing duration, the service will capture
-packets.
-
-\subsection{End Sensing Operation}\label{end-sensing-operation}
-
-To conclude the sensing operation, simply unplug the battery.
-
-\subsection{Review Sensing Results}\label{review-sensing-results}
-
-Use Ethernet or your mobile phone hotspot to access and review the
-generated sensing results, as same to the controlled enviroment testing.
-
-\includegraphics{content/material/ch2/final_check.mp4}
-
-\part{PART III: Data Collection and Processing}
-
 \chapter{Data Collection Insights}\label{data-collection-insights}
 
 \section{Understanding WiFi Sensing
@@ -1611,96 +1358,274 @@ localization performance. Remember, the key is to find the right balance
 between sensor density, placement, and practical considerations to
 create a reliable and efficient WiFi sensing system.
 
-\chapter{Data Structure and Loading}\label{data-structure-and-loading}
+\chapter{Testing and Validation}\label{testing-and-validation}
 
-In this section, we will first examine the raw WiFi data stored in an
-SQLite3 database and then demonstrate how to load this data into R for
-further processing.
+This section covers the step-by-step process of implementing and testing
+the Urban Sensing Service on your Raspberry Pi, both in a controlled
+environment \emph{(6.1)} and in real-world scenarios \emph{(6.2)}.
 
-\section{Data Structure}\label{data-structure}
+\section{Controlled Environment
+Testing}\label{controlled-environment-testing}
 
-\section{Overview of Filtering
-Techniques}\label{overview-of-filtering-techniques}
+\subsection{Raspberry Pi Setup}\label{raspberry-pi-setup-1}
 
-The three filtering techniques used for WiFi data preprocessing are:
+Before setting up, power off the Raspberry Pi. Once turned off, insert
+the additional WiFi adapter. Afterward, power the Raspberry Pi back on.
 
-\textbf{1. Removal of random MAC addresses:} Eliminates random MAC
-addresses to avoid duplicate counting.
+\includegraphics{content/material/ch2/pi_plugged.jpg}
 
-\textbf{2. Removal of non-mobile devices:} Removes detection records of
-static devices to focus on mobility.
+Access the Raspberry Pi via ssh and check the wlan interface to check
+the internal wifi set to be wlan0 by excueting this:
 
-\textbf{3. Removal of rarely detected devices:} Excludes MAC addresses
-that are detected for very short duration.
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{ifconfig}
+\end{Highlighting}
+\end{Shaded}
 
-\includegraphics{content/material/ch3/preprocessing.png}
+Ensure that the \texttt{wlan0} interface is correctly assigned. The
+internal interface should have a MAC address starting with
+\texttt{b8:27:eb}. Subsequent WiFi adapters should follow a sequence
+like \texttt{wlan1}, \texttt{wlan2}, and so on.
 
-\section{Raw Data Structure}\label{raw-data-structure}
+\includegraphics[width=0.5\textwidth,height=\textheight]{content/material/ch2/ifconfig_wlan_check.png}
 
-The raw data is typically stored in a structured format, such as a
-database or a comma-separated values (CSV) file. For this example, let's
-assume the data is stored in an SQLite3 database. The database may
-contain one or more tables that capture the WiFi sensing data.
+If the assignment isn't correct, refer to Section 2.4 for the
+appropriate setup instructions.
 
-Each row in the dataset represents a captured WiFi packet, and the
-columns provide various attributes of the packet:
+\subsection{Script Execution}\label{script-execution}
+
+Easily access the superuser shell with:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sudo}\NormalTok{ su}
+\end{Highlighting}
+\end{Shaded}
+
+Initiate the Urban Sensing code:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{python3}\NormalTok{ urban{-}sensing{-}raspi/code/start.py}
+\end{Highlighting}
+\end{Shaded}
+
+Let it run for about 2 minutes before halting it using \texttt{Ctrl+C}.
+
+\includegraphics{content/material/ch2/run_script.mp4}
+
+\subsection{Customizing Your Sensing}\label{customizing-your-sensing}
+
+The Urban Sensing Service isn't just about standard WiFi data
+collection; it offers a broader scope:
+
+\begin{itemize}
+\item
+  \textbf{Retain Raw WiFi Packets} : Use the \texttt{-i} option:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{python3}\NormalTok{ urban{-}sensing{-}raspi/code/start.py }\AttributeTok{{-}i}
+\end{Highlighting}
+\end{Shaded}
+\item
+  \textbf{Introduce Bluetooth Sensing} : Add the \texttt{-b} option:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{python3}\NormalTok{ urban{-}sensing{-}raspi/code/start.py }\AttributeTok{{-}b}
+\end{Highlighting}
+\end{Shaded}
+\item
+  \textbf{Discover More Options} : Read our the
+  \href{https://github.com/urbanjuhyeon/urban-sensing-raspi}{GitHub
+  Repository}.
+\end{itemize}
+
+\section{Verifying the Results}\label{verifying-the-results}
+
+\textbf{1. Access the Pi folder:} type
+\texttt{\textbackslash{}\textbackslash{}raspberrypi\textbackslash{}share}
+on file explore.
+
+\textbf{2. Look around `stats' Folder} :
 
 \begin{itemize}
 \tightlist
 \item
-  Timestamp: The timestamp indicates when the packet was captured,
-  allowing for temporal analysis.
+  Verify that file names reflect the exact execution time.
 \item
-  Type and Subtype: These columns specify the type and subtype of the
-  captured packet. In this example, the packets are management frames
-  with a subtype of probe-request, indicating that devices are searching
-  for nearby APs.
-\item
-  Strength: The signal strength of the received packet is recorded in
-  dBm units, providing information about the proximity of the device to
-  the sensor.
-\item
-  Source Address: The source address is the hashed MAC address of the
-  device sending the packet, enabling device identification while
-  preserving privacy.
-\item
-  Source Randomized: This column indicates whether the source address is
-  randomized (1) or not (0).
-\item
-  Destination Address: The destination address is the hashed MAC address
-  of the intended recipient of the packet.
-\item
-  Destination Randomized: This column indicates whether the destination
-  address is randomized (1) or not (0).
-\item
-  Access Point Name: The name of the access point (AP) that the device
-  is trying to discover.
-\item
-  Access Point Address: The hashed MAC address of the AP.
-\item
-  Access Point Randomized: This column indicates whether the AP address
-  is randomized (1) or not (0).
-\item
-  Sequence Number: The sequence number of the packet, used for ordering
-  and identifying packets within a sequence.
-\item
-  Channel: The WiFi channel on which the packet was transmitted.
-\item
-  Sensor Name: The name of the sensor that captured the packet.
+  Confirm files have been transferred to Dropbox Storage.
 \end{itemize}
 
-\chapter{Preprocessing Techniques}\label{preprocessing-techniques}
+\includegraphics{content/material/ch2/verify_result_1.mp4}
 
-With a clear understanding of the raw WiFi data structure, we can now
-proceed with data preprocessing techniques to clean, transform, and
-prepare the data for analysis. In this section, we will first
-demonstrate how to load the WiFi data into R and then discuss various
-preprocessing techniques to improve data quality and analysis results.
+\textbf{3. `data' Folder} :
 
-\section{Loading WiFi Data with R}\label{loading-wifi-data-with-r}
+\begin{itemize}
+\tightlist
+\item
+  If you used \texttt{-b}, expect a Bluetooth file. Otherwise, it won't
+  appear.
+\item
+  Check for the creation of the WiFi packet file. To delve deeper, use
+  \href{https://sqlitebrowser.org/}{DB Browser for SQLite}.
+\end{itemize}
 
-We need to load the raw WiFi data from the SQLite3 database into R using
-the RSQLite and DBI packages.
+\includegraphics{content/material/ch2/verify_result_2.mp4}
+
+\section{Setting Up Sensing Service}\label{setting-up-sensing-service}
+
+Once you've validated the sensing outputs, you can finalize the settings
+to fit your objectives. Notably, this will allow your Raspberry Pi to
+initiate the sensing service upon booting up.
+
+Execute the following script:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{bash}\NormalTok{ urban{-}sensing{-}raspi/service.sh}
+\end{Highlighting}
+\end{Shaded}
+
+Follow the on-screen prompts and ensure its proper functioning. Exit the
+status info using \texttt{ctrl+c}.
+
+\includegraphics{content/material/ch2/bash_service.mp4}
+
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, opacitybacktitle=0.6, toprule=.15mm, colback=white, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, arc=.35mm, coltitle=black, opacityback=0, left=2mm, bottomtitle=1mm, colframe=quarto-callout-note-color-frame, titlerule=0mm, breakable, bottomrule=.15mm, rightrule=.15mm]
+
+After running service.sh, your Raspberry Pi will start start.py on every
+boot. If you need to do tasks like file transfers, pause this service.
+The start.py has a 30-second delay at the start. If you stop the service
+within this time using \texttt{systemctl\ stop\ sensing.service}, the
+script won't perform any actions.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sudo}\NormalTok{ systemctl stop sensing.service}
+\end{Highlighting}
+\end{Shaded}
+
+\end{tcolorbox}
+
+\section{Real-world Testing}\label{real-world-testing}
+
+In this section, we'll test the sensing service without Ethernet,
+simulating a real-world application. Follow these detailed steps for a
+successful setup and operation:
+
+\subsection{Activating Mobile Hotspot}\label{activating-mobile-hotspot}
+
+Activate the hotspot on your mobile device. This is essential for
+providing internet connectivity to the Raspberry Pi, which will enable
+time synchronization and status updates via Dropbox.
+
+\includegraphics[width=0.5\textwidth,height=\textheight]{content/material/ch2/turnon_hotspot.jpg}
+
+\subsection{Connecting the External
+Battery}\label{connecting-the-external-battery}
+
+Ensure you've connected an external battery to power both your Raspberry
+Pi and the WiFi adapters.
+
+\includegraphics{content/material/ch2/plug_external.jpg}
+
+\subsection{Monitoring WiFi Adapter
+Activity}\label{monitoring-wifi-adapter-activity}
+
+Check for indicator lights on the WiFi adapter. In station mode, when
+the adapter is networking, the lights should turn on. You should also
+see the Raspberry Pi appear on your mobile hotspot interface.
+
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, opacitybacktitle=0.6, toprule=.15mm, colback=white, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, arc=.35mm, coltitle=black, opacityback=0, left=2mm, bottomtitle=1mm, colframe=quarto-callout-note-color-frame, titlerule=0mm, breakable, bottomrule=.15mm, rightrule=.15mm]
+
+If the status lights remain off or the Raspberry Pi does not appear on
+your hotspot interface, there might be an issue with your adapter.
+Consider getting a replacement.
+
+\end{tcolorbox}
+
+\includegraphics{content/material/ch2/adapter_light.jpg}
+
+Observe the WiFi adapter's status lights. When networked (station mode),
+these should illuminate. Concurrently, you'll see the Raspberry Pi
+connect to your mobile hotspot interface.
+
+\includegraphics[width=0.5\textwidth,height=\textheight]{content/material/ch2/check_hotspot.jpg}
+
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, opacitybacktitle=0.6, toprule=.15mm, colback=white, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, arc=.35mm, coltitle=black, opacityback=0, left=2mm, bottomtitle=1mm, colframe=quarto-callout-note-color-frame, titlerule=0mm, breakable, bottomrule=.15mm, rightrule=.15mm]
+
+When accessing your Raspberry Pi via a mobile phone, the
+\texttt{raspberrypi} network might not disappear immediately. This is
+attributed to the \texttt{wlan0} interface. A Python script will
+disconnect and turn off the \texttt{wlan0} function approximately 3
+minutes later.
+
+\end{tcolorbox}
+
+\subsection{Validating Dropbox
+Connectivity}\label{validating-dropbox-connectivity}
+
+Once connected to the network with the correct Dropbox settings, you
+should start seeing files from your Raspberry Pi appear in your Dropbox.
+
+\includegraphics{content/material/ch2/check_dropbox_upload.png}
+
+\subsection{Checking WiFi Adapter Monitor
+Mode}\label{checking-wifi-adapter-monitor-mode}
+
+In monitor mode, the WiFi adapter's status light should turn off, and
+its connection will vanish from your mobile hotspot interface.
+
+\includegraphics{content/material/ch2/plug_external.jpg}
+
+\includegraphics[width=0.5\textwidth,height=\textheight]{content/material/ch2/check_hotspot_off.jpg}
+
+\subsection{Performing Sensing
+Operation}\label{performing-sensing-operation}
+
+Throughout the designated sensing duration, the service will capture
+packets. To conclude the sensing operation, simply unplug the battery.
+
+\subsection{Review Sensing Results}\label{review-sensing-results}
+
+Use Ethernet or your mobile phone hotspot to access and review the
+generated sensing results, as same to the controlled enviroment testing.
+
+\includegraphics{content/material/ch2/final_check.mp4}
+
+\part{PART III: Data Processing}
+
+\chapter{Data Preparation}\label{data-preparation}
+
+In this chapter, we will delve into the process of preparing the
+collected WiFi data for pedestrian behavior analysis. We will start by
+examining the structure of the SQLite3 database that contains the
+captured WiFi packets. Then, we will demonstrate how to load the data
+into R using the RSQLite and DBI packages. Finally, we will explore the
+loaded WiFi data, understand its attributes, and discuss their
+significance in the context of pedestrian behavior analysis.
+
+\section{SQLite3 Database Overview}\label{sqlite3-database-overview}
+
+The WiFi data collected using the Urban Sensing system is typically
+stored in an \emph{SQLite3} database. SQLite3 is a lightweight,
+file-based database engine that provides a convenient way to store and
+manage structured data. The database file can be easily transferred and
+accessed across different platforms and programming languages.
+
+\includegraphics{content/material/ch3/sqlite3_browser.png}
+
+\section{Loading WiFi Data into R}\label{loading-wifi-data-into-r}
+
+\subsection{Required R Packages}\label{required-r-packages}
+
+To load the WiFi data from the SQLite3 database into R, we will use the
+RSQLite and DBI packages. These packages provide the necessary functions
+and interfaces to establish a connection to the database and execute SQL
+queries.
 
 For a more streamlined and efficient process, we'll utilize the pacman
 package, which offers the \texttt{p\_load} function. This function
@@ -1735,8 +1660,13 @@ with SQLite databases:
 \end{Highlighting}
 \end{Shaded}
 
-Next, establish a connection to your SQLite3 database using the
-dbConnect() function:
+\subsection{Establishing SQLite3 Database
+Connection}\label{establishing-sqlite3-database-connection}
+
+To establish a connection to the SQLite3 database, we use the
+\texttt{dbConnect()} function from the DBI package. This function takes
+the database driver (in this case, \texttt{SQLite()}) and the path to
+the database file as arguments.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1747,14 +1677,19 @@ dbConnect() function:
 Replace \texttt{"path/to/your/database.sqlite"} with the actual path to
 your SQLite3 database file.
 
-\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, titlerule=0mm, arc=.35mm, left=2mm, opacityback=0, colframe=quarto-callout-note-color-frame, rightrule=.15mm, bottomtitle=1mm, breakable, leftrule=.75mm, toprule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{If you don't have the WiFi DB}, coltitle=black, colback=white, bottomrule=.15mm, opacitybacktitle=0.6]
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, opacitybacktitle=0.6, toprule=.15mm, colback=white, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{If you don't have the WiFi DB}, arc=.35mm, coltitle=black, opacityback=0, left=2mm, bottomtitle=1mm, colframe=quarto-callout-note-color-frame, titlerule=0mm, breakable, bottomrule=.15mm, rightrule=.15mm]
 
 Download \href{material/ch3/sample.sqlite3}{this}
 
 \end{tcolorbox}
 
-To load the WiFi data from the ``packets'' table, use the dbGetQuery()
-function:
+\subsection{Querying WiFi Data from the
+Database}\label{querying-wifi-data-from-the-database}
+
+To load the WiFi data from the ``packets'' table, we use
+the\texttt{dbGetQuery()} function. This function takes the database
+connection object and an SQL query as arguments. The SQL query specifies
+the table and columns to retrieve.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1842,13 +1777,176 @@ ff:ff:ff:ff:ff:ff & 1 & (n/a) & ff:ff:ff:ff:ff:ff & 1 & 991 & 1 & A01
 & \\
 \end{longtable}
 
-After loading the data, remember to close the database connection:
+\subsection{Closing the Database
+Connection}\label{closing-the-database-connection}
+
+After loading the data, it is important to close the database connection
+to free up resources:
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{dbDisconnect}\NormalTok{(conn)}
 \end{Highlighting}
 \end{Shaded}
+
+\section{Exploring the Loaded WiFi
+Data}\label{exploring-the-loaded-wifi-data}
+
+The WiFi data loaded into R consists of several key attributes that
+provide valuable information for pedestrian behavior analysis. Let's
+explore each of these attributes in more detail:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.1081}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.8919}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Attribute
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+timestamp & The timestamp indicates the exact date and time when the
+packet was captured by the sensor. It allows for temporal analysis of
+pedestrian behavior patterns, such as identifying peak hours or days. \\
+type & The type column specifies the category of the captured packet.
+For example, ``Management'' indicates that the packet is a management
+frame used for network management and control purposes. \\
+subtype & The subtype column provides more specific information about
+the type of packet. In this example, a subtype of ``Probe Request''
+indicates that the device is actively searching for nearby access
+points. \\
+strength & The signal strength of the received packet is recorded in
+decibel-milliwatts (dBm). Lower values (e.g., -80 dBm) indicate weaker
+signals, while higher values (e.g., -30 dBm) indicate stronger signals,
+suggesting closer proximity to the sensor. \\
+source\_address & The source address represents the hashed MAC address
+of the device sending the packet. While the actual MAC address is
+anonymized for privacy reasons, the hashed value still enables unique
+identification of devices. \\
+source\_randomized & This column indicates whether the source address is
+randomized (1) or not (0). Randomized addresses are used by devices to
+enhance privacy by frequently changing the MAC address. \\
+destination\_address & The destination address represents the hashed MAC
+address of the intended recipient of the packet, which could be an
+access point or another device. \\
+destination\_randomized & This column indicates whether the destination
+address is randomized (1) or not (0), similar to the source\_randomized
+attribute. \\
+access\_point\_name & The access point name, also known as the SSID
+(Service Set Identifier), is the human-readable name of the access point
+that the device is trying to discover or connect to. \\
+access\_point\_address & The access point address represents the hashed
+MAC address of the access point. It uniquely identifies the access point
+within the network. \\
+access\_point\_randomized & This column indicates whether the access
+point address is randomized (1) or not (0). Randomized access point
+addresses are less common but can be used in some scenarios. \\
+sequence\_number & The sequence number is a unique identifier assigned
+to each packet within a sequence of packets. It helps in ordering and
+identifying packets, which can be useful for tracking device behavior
+over time. \\
+channel & The channel attribute indicates the specific WiFi channel on
+which the packet was transmitted. WiFi channels are numbered from 1 to
+14 (with some regional variations) and operate on different frequencies
+to minimize interference. \\
+sensor\_name & The sensor name attribute identifies the specific sensor
+that captured the packet. It allows for spatial analysis and
+understanding of pedestrian behavior across different sensor
+locations. \\
+info & The info column typically contains the raw WiFi packet data.
+However, if you have followed the privacy guidelines in this book, the
+info column would be blanked out to protect sensitive information. \\
+\end{longtable}
+
+\chapter{Data Cleaning}\label{data-cleaning}
+
+In this section, we will first examine the raw WiFi data stored in an
+SQLite3 database and then demonstrate how to load this data into R for
+further processing.
+
+\section{Data Structure}\label{data-structure}
+
+\section{Overview of Filtering
+Techniques}\label{overview-of-filtering-techniques}
+
+The three filtering techniques used for WiFi data preprocessing are:
+
+\textbf{1. Removal of random MAC addresses:} Eliminates random MAC
+addresses to avoid duplicate counting.
+
+\textbf{2. Removal of non-mobile devices:} Removes detection records of
+static devices to focus on mobility.
+
+\textbf{3. Removal of rarely detected devices:} Excludes MAC addresses
+that are detected for very short duration.
+
+\includegraphics{content/material/ch3/preprocessing.png}
+
+\section{Raw Data Structure}\label{raw-data-structure}
+
+The raw data is typically stored in a structured format, such as a
+database or a comma-separated values (CSV) file. For this example, let's
+assume the data is stored in an SQLite3 database. The database may
+contain one or more tables that capture the WiFi sensing data.
+
+Each row in the dataset represents a captured WiFi packet, and the
+columns provide various attributes of the packet:
+
+\begin{itemize}
+\tightlist
+\item
+  Timestamp: The timestamp indicates when the packet was captured,
+  allowing for temporal analysis.
+\item
+  Type and Subtype: These columns specify the type and subtype of the
+  captured packet. In this example, the packets are management frames
+  with a subtype of probe-request, indicating that devices are searching
+  for nearby APs.
+\item
+  Strength: The signal strength of the received packet is recorded in
+  dBm units, providing information about the proximity of the device to
+  the sensor.
+\item
+  Source Address: The source address is the hashed MAC address of the
+  device sending the packet, enabling device identification while
+  preserving privacy.
+\item
+  Source Randomized: This column indicates whether the source address is
+  randomized (1) or not (0).
+\item
+  Destination Address: The destination address is the hashed MAC address
+  of the intended recipient of the packet.
+\item
+  Destination Randomized: This column indicates whether the destination
+  address is randomized (1) or not (0).
+\item
+  Access Point Name: The name of the access point (AP) that the device
+  is trying to discover.
+\item
+  Access Point Address: The hashed MAC address of the AP.
+\item
+  Access Point Randomized: This column indicates whether the AP address
+  is randomized (1) or not (0).
+\item
+  Sequence Number: The sequence number of the packet, used for ordering
+  and identifying packets within a sequence.
+\item
+  Channel: The WiFi channel on which the packet was transmitted.
+\item
+  Sensor Name: The name of the sensor that captured the packet.
+\end{itemize}
+
+\chapter{Preprocessing Techniques}\label{preprocessing-techniques}
+
+With a clear understanding of the raw WiFi data structure, we can now
+proceed with data preprocessing techniques to clean, transform, and
+prepare the data for analysis. In this section, we will first
+demonstrate how to load the WiFi data into R and then discuss various
+preprocessing techniques to improve data quality and analysis results.
 
 \section{Filltering Techniques}\label{filltering-techniques}
 
@@ -1880,7 +1978,7 @@ Devices}\label{step-2-removal-of-non-mobile-devices}
 \subsection{(Step 3) Removal of Rarely Detected
 Devices}\label{step-3-removal-of-rarely-detected-devices}
 
-\part{PART III: Understanding Metrics}
+\part{PART IV: Understanding Metrics}
 
 \chapter{Metrics Overview}\label{metrics-overview}
 
@@ -1924,7 +2022,7 @@ signals at a given time, like signal frequency and strength. Depending
 on the situation, we might assign locations based on sensor positions or
 estimate them in areas between sensors.
 
-\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, titlerule=0mm, arc=.35mm, left=2mm, opacityback=0, colframe=quarto-callout-note-color-frame, rightrule=.15mm, bottomtitle=1mm, breakable, leftrule=.75mm, toprule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Why Location Comes Before Count}, coltitle=black, colback=white, bottomrule=.15mm, opacitybacktitle=0.6]
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, opacitybacktitle=0.6, toprule=.15mm, colback=white, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Why Location Comes Before Count}, arc=.35mm, coltitle=black, opacityback=0, left=2mm, bottomtitle=1mm, colframe=quarto-callout-note-color-frame, titlerule=0mm, breakable, bottomrule=.15mm, rightrule=.15mm]
 
 Before counting, we must pinpoint location. Without knowing where
 devices are, we just have a total count.

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Sensing Urban Dynamics with WiFi: A Practical Guide - 4&nbsp; Sensing Setup</title>
+<title>Sensing Urban Dynamics with WiFi: A Practical Guide - 9&nbsp; Metrics Overview</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -63,8 +29,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../content/a25-imp.html" rel="next">
-<link href="../content/a23-pisetup.html" rel="prev">
+<link href="../content/a43-count.html" rel="next">
+<link href="../content/a40-metric.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -114,7 +80,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/a20-installation.html">PART II: Installation steps</a></li><li class="breadcrumb-item"><a href="../content/a24-software.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Sensing Setup</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/a40-metric.html">PART IV: Understanding Metrics</a></li><li class="breadcrumb-item"><a href="../content/a41-overview.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Metrics Overview</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -157,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../content/a20-installation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PART II: Installation steps</span></a>
+ <span class="menu-text">PART II: WiFi Sensing Setup</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -183,14 +149,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a24-software.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Sensing Setup</span></span></a>
+  <a href="../content/a24-deployment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Collection Insights</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a25-imp.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Implementation</span></span></a>
+  <a href="../content/a25-testing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Testing and Validation</span></span></a>
   </div>
 </li>
       </ul>
@@ -198,7 +164,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../content/a30-processing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PART III: Data Collection and Processing</span></a>
+ <span class="menu-text">PART III: Data Processing</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -206,14 +172,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a31-collection.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data Collection Insights</span></span></a>
+  <a href="../content/a31-preparation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data Preparation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a32-extraction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Structure and Loading</span></span></a>
+  <a href="../content/a32-cleaning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Cleaning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -226,8 +192,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../content/a30-metric.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PART III: Understanding Metrics</span></a>
+            <a href="../content/a40-metric.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PART IV: Understanding Metrics</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -235,31 +201,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a31-overview.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/a41-overview.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Metrics Overview</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a33-count.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/a43-count.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Count</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a34-track.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/a44-track.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Track</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a35-identity.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/a45-identity.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Identity</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a36-activities.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/a46-activities.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Activities</span></span></a>
   </div>
 </li>
@@ -267,7 +233,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../content/a40-casestudy.html" class="sidebar-item-text sidebar-link">
+            <a href="../content/a50-casestudy.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PART VI: Applying Metrics</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -276,19 +242,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a41-case1.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/a51-case1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Case Study 1</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a42-case2.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/a52-case2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Case Study 2</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a43-case3.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/a53-case3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Case Study 3</span></span></a>
   </div>
 </li>
@@ -296,7 +262,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../content/a50-future.html" class="sidebar-item-text sidebar-link">
+            <a href="../content/a60-future.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PART V: Future Directions and Challenges</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -305,13 +271,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a51-limitation.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/a61-limitation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Limitation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a52-direction.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/a62-direction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Direction</span></span></a>
   </div>
 </li>
@@ -327,26 +293,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#getting-the-scripts" id="toc-getting-the-scripts" class="nav-link active" data-scroll-target="#getting-the-scripts"><span class="header-section-number">4.1</span> Getting the Scripts</a>
-  <ul class="collapse">
-  <li><a href="#repository-overview" id="toc-repository-overview" class="nav-link" data-scroll-target="#repository-overview">Repository Overview</a></li>
-  </ul></li>
-  <li><a href="#installing-required-packages" id="toc-installing-required-packages" class="nav-link" data-scroll-target="#installing-required-packages"><span class="header-section-number">4.2</span> Installing Required Packages</a></li>
-  <li><a href="#setting-the-sensor-name" id="toc-setting-the-sensor-name" class="nav-link" data-scroll-target="#setting-the-sensor-name"><span class="header-section-number">4.3</span> Setting the Sensor Name</a></li>
-  <li><a href="#configuring-settings" id="toc-configuring-settings" class="nav-link" data-scroll-target="#configuring-settings"><span class="header-section-number">4.4</span> Configuring Settings</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/a20-installation.html">PART II: Installation steps</a></li><li class="breadcrumb-item"><a href="../content/a24-software.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Sensing Setup</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/a40-metric.html">PART IV: Understanding Metrics</a></li><li class="breadcrumb-item"><a href="../content/a41-overview.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Metrics Overview</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Sensing Setup</span></h1>
+<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Metrics Overview</span></h1>
 </div>
 
 
@@ -363,67 +317,57 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>This guide walks you through the setup of your Raspberry Pi for urban sensing. Learn how to fetch essential scripts, install required packages, and configure settings for optimal sensing performance. Ensure your device is uniquely identified and ready for data collection.</p>
-<section id="getting-the-scripts" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="getting-the-scripts"><span class="header-section-number">4.1</span> Getting the Scripts</h2>
-<p>Begin by fetching the scripts from the <a href="https://github.com/urbanjuhyeon/urban-sensing-raspi">urban-sensing-raspi</a> GitHub repository.</p>
-<p>Ensure you’re in the <code>/home/pi</code> directory. If not, navigate there using:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /home/pi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Clone the repository with:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/urbanjuhyeon/urban-sensing-raspi.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><img src="material/ch2/clone_raspi.png" class="img-fluid"></p>
-<section id="repository-overview" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="repository-overview">Repository Overview</h3>
-<p>The repository structure is as follows:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">.</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> service.sh</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> name.sh</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> envr.sh</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> packages.sh</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> code</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>   └── start.py</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="ex">└──</span> README.md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We explore how WiFi gives us a snapshot of life in the city. It’s about finding where people are (<em><strong>Location</strong></em>), tallying up the numbers (<em><strong>Count</strong></em>), tracking movement (<em><strong>Track</strong></em>), identifying patterns (<em><strong>Identify</strong></em>), and figuring out actions (<em><strong>Activities</strong></em>). A graphic will illustrate these concepts step by step:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="material/ch4/metric-overview.png" class="img-fluid figure-img"></p>
+<figcaption>Overview of WiFi Sensing Metrics: From Pinpointing Locations to Understanding Urban Activities</figcaption>
+</figure>
+</div>
+<section id="ground-truth-whats-really-happening" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="ground-truth-whats-really-happening"><strong>Ground Truth: What’s really happening?</strong></h4>
+<p>We start with the ‘Ground Truth’—observing what’s actually happening on the ground. This real-life observation helps us check and confirm our WiFi data findings. It’s the benchmark against which we measure the accuracy of our WiFi sensing data.</p>
+</section>
+<section id="location-where-are-people-at-a-specific-time" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="location-where-are-people-at-a-specific-time"><strong>Location: Where are people at a specific time?</strong></h4>
+<p>‘Location’ is determined by analyzing the characteristics of WiFi signals at a given time, like signal frequency and strength. Depending on the situation, we might assign locations based on sensor positions or estimate them in areas between sensors.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Why Location Comes Before Count">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Why Location Comes Before Count
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Before counting, we must pinpoint location. Without knowing where devices are, we just have a total count.</p>
+<p>Imagine a room with three people, just like in the diagram above:</p>
 <ul>
-<li><code>packages.sh</code>: Handles updates, installations, and other setup tasks.</li>
-<li><code>name.sh</code>: Allows users to set or confirm the unique sensor name.</li>
-<li><code>envr.sh</code>: Configures udev rules and prepares the Pi’s environment.</li>
-<li><code>service.sh</code>: Sets up the urban sensing service to launch on boot.</li>
-<li><code>start.py</code>: The main script for the Urban Sensing Service, located in ‘code/default’.</li>
+<li><strong>Without location data,</strong> counting detected device MAC addresses only tells you there are three devices total.</li>
+<li><strong>With even rough location data,</strong> you can determine that two devices are on the left and one on the right – providing much richer information.</li>
 </ul>
+</div>
+</div>
+</div>
 </section>
+<section id="count-how-many-over-time" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="count-how-many-over-time"><strong>Count: How many over time?</strong></h4>
+<p>‘Count’ focuses on tallying unique MAC addresses to estimate how many people are in an area over different timescales. This method allows for long-term tracking of device presence, offering insights into occupancy trends over extended periods.</p>
 </section>
-<section id="installing-required-packages" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="installing-required-packages"><span class="header-section-number">4.2</span> Installing Required Packages</h2>
-<p>Elevate privileges to a superuser session:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> su</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Navigate to the repository:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /home/pi/urban-sensing-raspi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Execute the <code>packages.sh</code> script:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> packages.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><video src="material/ch2/bash_packages.mp4" class="img-fluid" controls=""><a href="material/ch2/bash_packages.mp4">Video</a></video></p>
+<section id="track-where-and-when-did-they-move" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="track-where-and-when-did-they-move"><strong>Track: Where and when did they move?</strong></h4>
+<p>‘Track’ involves recording when and where phones are detected. This data lets us follow people’s movements, highlighting the dynamic patterns of city life and offering insights into how different areas are used throughout the day.</p>
 </section>
-<section id="setting-the-sensor-name" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="setting-the-sensor-name"><span class="header-section-number">4.3</span> Setting the Sensor Name</h2>
-<p>For organized data collection across multiple devices, it’s essential to assign a unique identifier to each sensor. This segment aids you in naming your Raspberry Pi sensor and integrating it into a Python script.</p>
-<p>Navigate to the repository:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /home/pi/urban-sensing-raspi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Run the <code>name.sh</code> script. If no name is provided, the default (<code>raspberrypi</code>) will be applied:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> name.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Post this, the sensor name can be retrieved from the <code>sensor_name.conf</code> file for usage.</p>
-<p><video src="material/ch2/bash_naming.mp4" class="img-fluid" controls=""><a href="material/ch2/bash_naming.mp4">Video</a></video></p>
+<section id="identify-who-visits-regularly-and-what-are-their-patterns" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="identify-who-visits-regularly-and-what-are-their-patterns"><strong>Identify: Who visits regularly and what are their patterns?</strong></h4>
+<p>With ‘Identify’, we analyze data over time to recognize regular visitors and understand their movement habits. This metric provides insights into recurring traffic patterns and the behaviors of different user groups within the city.</p>
 </section>
-<section id="configuring-settings" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="configuring-settings"><span class="header-section-number">4.4</span> Configuring Settings</h2>
-<p>Configure the Raspberry Pi to set its internal WiFi to <code>wlan0</code>. When you connect an external adapter, it will be assigned differently. To determine the MAC address of the internal WiFi, execute the following command:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ifconfig</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>In my setup, the WiFi with the MAC address <code>b8:27:eb:0c:70:38</code> was assigned to <code>wlan0</code>, while the external adapter received a different assignment.</p>
-<p><img src="material/ch2/ifconfig_wlan0.png" class="img-fluid"></p>
-<p>Navigate to the repository:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /home/pi/urban-sensing-raspi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Run the <code>envr.sh</code> script:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> envr.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This script ensures consistent network interface naming with udev rules at boot.</p>
-<p><video src="material/ch2/bash_envr.mp4" class="img-fluid" controls=""><a href="material/ch2/bash_envr.mp4">Video</a></video></p>
+<section id="activities-what-are-they-doing-and-how-does-it-change" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="activities-what-are-they-doing-and-how-does-it-change"><strong>Activities: What are they doing and how does it change?</strong></h4>
+<p>‘Activities’ aims to understand actions by analyzing timing and movement data. We look at how people use different city areas, observing changes in activity patterns at different times and days, to get a deeper understanding of urban life.</p>
 
 
 </section>
@@ -840,13 +784,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../content/a23-pisetup.html" class="pagination-link" aria-label="Raspberry Pi Setup">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Raspberry Pi Setup</span></span>
+      <a href="../content/a40-metric.html" class="pagination-link" aria-label="PART IV: Understanding Metrics">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">PART IV: Understanding Metrics</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../content/a25-imp.html" class="pagination-link" aria-label="Implementation">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Implementation</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../content/a43-count.html" class="pagination-link" aria-label="Count">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Count</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

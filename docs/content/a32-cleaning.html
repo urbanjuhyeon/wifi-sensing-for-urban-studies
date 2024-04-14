@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Sensing Urban Dynamics with WiFi: A Practical Guide - 10&nbsp; Count</title>
+<title>Sensing Urban Dynamics with WiFi: A Practical Guide - 7&nbsp; Data Cleaning</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -29,8 +29,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../content/a34-track.html" rel="next">
-<link href="../content/a31-overview.html" rel="prev">
+<link href="../content/a33-preprocessing.html" rel="next">
+<link href="../content/a31-preparation.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -80,7 +80,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/a30-metric.html">PART III: Understanding Metrics</a></li><li class="breadcrumb-item"><a href="../content/a33-count.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Count</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/a30-processing.html">PART III: Data Processing</a></li><li class="breadcrumb-item"><a href="../content/a32-cleaning.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Cleaning</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -123,7 +123,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../content/a20-installation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PART II: Installation steps</span></a>
+ <span class="menu-text">PART II: WiFi Sensing Setup</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -149,14 +149,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a24-software.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Sensing Setup</span></span></a>
+  <a href="../content/a24-deployment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Collection Insights</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a25-imp.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Implementation</span></span></a>
+  <a href="../content/a25-testing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Testing and Validation</span></span></a>
   </div>
 </li>
       </ul>
@@ -164,7 +164,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../content/a30-processing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PART III: Data Collection and Processing</span></a>
+ <span class="menu-text">PART III: Data Processing</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -172,14 +172,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a31-collection.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data Collection Insights</span></span></a>
+  <a href="../content/a31-preparation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data Preparation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a32-extraction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Structure and Loading</span></span></a>
+  <a href="../content/a32-cleaning.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Cleaning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -192,8 +192,8 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../content/a30-metric.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PART III: Understanding Metrics</span></a>
+            <a href="../content/a40-metric.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PART IV: Understanding Metrics</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -201,31 +201,31 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a31-overview.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/a41-overview.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Metrics Overview</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a33-count.html" class="sidebar-item-text sidebar-link active">
+  <a href="../content/a43-count.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Count</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a34-track.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/a44-track.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Track</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a35-identity.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/a45-identity.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Identity</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a36-activities.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/a46-activities.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Activities</span></span></a>
   </div>
 </li>
@@ -233,7 +233,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../content/a40-casestudy.html" class="sidebar-item-text sidebar-link">
+            <a href="../content/a50-casestudy.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PART VI: Applying Metrics</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -242,19 +242,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a41-case1.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/a51-case1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Case Study 1</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a42-case2.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/a52-case2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Case Study 2</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a43-case3.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/a53-case3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Case Study 3</span></span></a>
   </div>
 </li>
@@ -262,7 +262,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../content/a50-future.html" class="sidebar-item-text sidebar-link">
+            <a href="../content/a60-future.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PART V: Future Directions and Challenges</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -271,13 +271,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a51-limitation.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/a61-limitation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Limitation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/a52-direction.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/a62-direction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Direction</span></span></a>
   </div>
 </li>
@@ -293,14 +293,22 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#data-structure" id="toc-data-structure" class="nav-link active" data-scroll-target="#data-structure"><span class="header-section-number">7.1</span> Data Structure</a></li>
+  <li><a href="#overview-of-filtering-techniques" id="toc-overview-of-filtering-techniques" class="nav-link" data-scroll-target="#overview-of-filtering-techniques"><span class="header-section-number">7.2</span> Overview of Filtering Techniques</a></li>
+  <li><a href="#raw-data-structure" id="toc-raw-data-structure" class="nav-link" data-scroll-target="#raw-data-structure"><span class="header-section-number">7.3</span> Raw Data Structure</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/a30-metric.html">PART III: Understanding Metrics</a></li><li class="breadcrumb-item"><a href="../content/a33-count.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Count</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/a30-processing.html">PART III: Data Processing</a></li><li class="breadcrumb-item"><a href="../content/a32-cleaning.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Cleaning</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Count</span></h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Cleaning</span></h1>
 </div>
 
 
@@ -317,8 +325,40 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>In this section, we will first examine the raw WiFi data stored in an SQLite3 database and then demonstrate how to load this data into R for further processing.</p>
+<section id="data-structure" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="data-structure"><span class="header-section-number">7.1</span> Data Structure</h2>
+</section>
+<section id="overview-of-filtering-techniques" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="overview-of-filtering-techniques"><span class="header-section-number">7.2</span> Overview of Filtering Techniques</h2>
+<p>The three filtering techniques used for WiFi data preprocessing are:</p>
+<p><strong>1. Removal of random MAC addresses:</strong> Eliminates random MAC addresses to avoid duplicate counting.</p>
+<p><strong>2. Removal of non-mobile devices:</strong> Removes detection records of static devices to focus on mobility.</p>
+<p><strong>3. Removal of rarely detected devices:</strong> Excludes MAC addresses that are detected for very short duration.</p>
+<p><img src="material/ch3/preprocessing.png" class="img-fluid"></p>
+</section>
+<section id="raw-data-structure" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="raw-data-structure"><span class="header-section-number">7.3</span> Raw Data Structure</h2>
+<p>The raw data is typically stored in a structured format, such as a database or a comma-separated values (CSV) file. For this example, let’s assume the data is stored in an SQLite3 database. The database may contain one or more tables that capture the WiFi sensing data.</p>
+<p>Each row in the dataset represents a captured WiFi packet, and the columns provide various attributes of the packet:</p>
+<ul>
+<li>Timestamp: The timestamp indicates when the packet was captured, allowing for temporal analysis.</li>
+<li>Type and Subtype: These columns specify the type and subtype of the captured packet. In this example, the packets are management frames with a subtype of probe-request, indicating that devices are searching for nearby APs.</li>
+<li>Strength: The signal strength of the received packet is recorded in dBm units, providing information about the proximity of the device to the sensor.</li>
+<li>Source Address: The source address is the hashed MAC address of the device sending the packet, enabling device identification while preserving privacy.</li>
+<li>Source Randomized: This column indicates whether the source address is randomized (1) or not (0).</li>
+<li>Destination Address: The destination address is the hashed MAC address of the intended recipient of the packet.</li>
+<li>Destination Randomized: This column indicates whether the destination address is randomized (1) or not (0).</li>
+<li>Access Point Name: The name of the access point (AP) that the device is trying to discover.</li>
+<li>Access Point Address: The hashed MAC address of the AP.</li>
+<li>Access Point Randomized: This column indicates whether the AP address is randomized (1) or not (0).</li>
+<li>Sequence Number: The sequence number of the packet, used for ordering and identifying packets within a sequence.</li>
+<li>Channel: The WiFi channel on which the packet was transmitted.</li>
+<li>Sensor Name: The name of the sensor that captured the packet.</li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -732,13 +772,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../content/a31-overview.html" class="pagination-link" aria-label="Metrics Overview">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Metrics Overview</span></span>
+      <a href="../content/a31-preparation.html" class="pagination-link" aria-label="Data Preparation">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data Preparation</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../content/a34-track.html" class="pagination-link" aria-label="Track">
-        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Track</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../content/a33-preprocessing.html" class="pagination-link" aria-label="Preprocessing Techniques">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Preprocessing Techniques</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

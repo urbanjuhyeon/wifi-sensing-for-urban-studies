@@ -20,30 +20,30 @@ book:
       - content/a21-prerequisites.qmd
       - content/a22-initial.qmd
       - content/a23-pisetup.qmd
-      - content/a24-software.qmd
-      - content/a25-imp.qmd
+      - content/a24-deployment.qmd
+      - content/a25-testing.qmd
     - part: content/a30-processing.qmd
       chapters:
-      - content/a31-collection.qmd
-      - content/a32-extraction.qmd
+      - content/a31-preparation.qmd
+      - content/a32-cleaning.qmd
       - content/a33-preprocessing.qmd
-    - part: content/a30-metric.qmd
+    - part: content/a40-metric.qmd
       chapters:
-      - content/a31-overview.qmd
-      - content/a33-count.qmd
-      - content/a34-track.qmd
-      - content/a35-identity.qmd
-      - content/a36-activities.qmd
-    - part: content/a40-casestudy.qmd
+      - content/a41-overview.qmd
+      - content/a43-count.qmd
+      - content/a44-track.qmd
+      - content/a45-identity.qmd
+      - content/a46-activities.qmd
+    - part: content/a50-casestudy.qmd
       chapters:
-      - content/a41-case1.qmd   
-      - content/a42-case2.qmd
-      - content/a43-case3.qmd
-    - part: content/a50-future.qmd
+      - content/a51-case1.qmd   
+      - content/a52-case2.qmd
+      - content/a53-case3.qmd
+    - part: content/a60-future.qmd
       chapters:
-      - content/a51-limitation.qmd
-      - content/a52-direction.qmd
-    - part: content/a60-further.qmd
+      - content/a61-limitation.qmd
+      - content/a62-direction.qmd
+    - part: content/a70-further.qmd
 
 bibliography: references.bib
 
