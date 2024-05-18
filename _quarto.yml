@@ -11,7 +11,7 @@ book:
     pinned: true
   site-url: https://juhyeonpark.com/wifi-sensing-for-urban-studies/
   repo-url: https://github.com/urbanjuhyeon/wifi-sensing-for-urban-studies/
-  date: "2024. 3. 10."
+  date: "2024. 4. 10."
   chapters:
     - index.qmd
     - content/a10-intro.qmd
