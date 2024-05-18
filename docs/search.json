@@ -1,0 +1,484 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Sensing Urban Dynamics with WiFi: A Practical Guide",
+    "section": "",
+    "text": "Preface\nThis book is a dedicated resource for anyone interested in leveraging affordable, commercially available sensors to measure non-motorized traffic in urban environments.\nQuantifying non-motorized traffic—such as pedestrians and cyclists—plays a crucial role in urban studies. Understanding the flow and patterns of non-motorized traffic can inform urban planning strategies, enhance public safety, and contribute to the development of sustainable cities. Moreover, sensing technologies provide a robust and non-invasive method for capturing this vital information in real time, offering insights that traditional surveys or manual counts might miss.\nThe advent of the Internet-of-Things (IoT) has spurred a wave of urban sensing projects worldwide. Examples include the Array of Things (AoT) in Chicago, USA and S-DoT in Seoul, Korea, which utilize a network of sensors to gather a wide range of data.\nWith the increasing accessibility of DIY technologies, individuals now have the opportunity to engage with their urban environment in new and innovative ways. These tools democratize the field of urban sensing, previously the domain of expert scientists, by equipping anyone with the interest to build their own sensors.\nThis book is designed for those interested in understanding and monitoring non-motorized traffic. We provide comprehensive guidance on building your own urban DIY sensors for this purpose. With hands-on advice, practical examples, and detailed breakthroughs, our aim is to empower you with the skills and knowledge necessary to contribute to the rapidly evolving field of urban sensing.",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "index.html#footnotes",
+    "href": "index.html#footnotes",
+    "title": "Sensing Urban Dynamics with WiFi: A Practical Guide",
+    "section": "",
+    "text": "Duives, D. C., van Oijen, T., & Hoogendoorn, S. P. (2020). Enhancing Crowd Monitoring System Functionality through Data Fusion: Estimating Flow Rate from Wi-Fi Traces and Automated Counting System Data. Sensors (Basel), 20(21). https://doi.org/10.3390/s20216032↩︎\nSoundararaj, B., Cheshire, J., & Longley, P. (2019). Estimating real-time high-street footfall from Wi-Fi probe requests. International Journal of Geographical Information Science, 34(2), 325-343,. https://doi.org/10.1080/13658816.2019.1587616↩︎\nZhou, Y., Lau, B. P. L., Koh, Z., Yuen, C., & Ng, B. K. K. (2020). Understanding Crowd Behaviors in a Social Event by Passive WiFi Sensing and Data Mining. IEEE internet of things journal, 1-1,. https://doi.org/10.1109/jiot.2020.2972062↩︎",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "content/a21-prerequisites.html",
+    "href": "content/a21-prerequisites.html",
+    "title": "1  Prerequisites",
+    "section": "",
+    "text": "1.1 Hardware Components\nThis is the hardware setup illustrating the necessary components required for WiFi sensing:\nThe required hardware components for this WiFi sensor include:\nBesides these essentials, other hardware components may be attached to the sensor depending on your project requirements, such as:",
+    "crumbs": [
+      "PART II: WiFi Sensing Setup",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Prerequisites</span>"
+    ]
+  },
+  {
+    "objectID": "content/a21-prerequisites.html#hardware-components",
+    "href": "content/a21-prerequisites.html#hardware-components",
+    "title": "1  Prerequisites",
+    "section": "",
+    "text": "Hardware\nDescription\nSpecific Recommendation\n\n\n\n\nRaspberry Pi board\nCore of our sensor\nPi 3B/3B+ or higher\n\n\nWiFi adapter\nCaptures WiFi packets\nCheck chipset compatibility for ‘monitoring mode’\n\n\nMicro SD card and adapter\nFor system building and data storage\nAt least 16 GB\n\n\nLaptop and Ethernet cable\nFor accessing and controlling the sensor\n—\n\n\nPortable power bank\nPowers the sensor in outdoor environments\nBattery capacity: +20,000 mAh\n\n\n\n\n\nPi camera: This can be used to record the scene in front of the sensor.\nAir pollution sensor: If you want to monitor air quality in addition to WiFi sensing. Temperature and humidity sensor: Useful for environmental monitoring and adjusting sensor performance based on climatic changes.\nTemperature and humidity sensor: Useful for environmental monitoring and adjusting sensor performance based on climatic changes.",
+    "crumbs": [
+      "PART II: WiFi Sensing Setup",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Prerequisites</span>"
+    ]
+  },
+  {
+    "objectID": "content/a21-prerequisites.html#required-software",
+    "href": "content/a21-prerequisites.html#required-software",
+    "title": "1  Prerequisites",
+    "section": "1.2 Required Software",
+    "text": "1.2 Required Software\nThe key software programs necessary to build a WiFi sensor and manage the sensor data are:\n\n\n\nSoftware\nPurpose\nDownload Link\n\n\n\n\nRaspberry Pi Imager\nTool for writing Pi OS images onto SD cards\nLink\n\n\nDB Browser for SQLite\nTool for view database written as SQLlite (WiFi packet file type)\nLink\n\n\n\nFeel free to download these programs in advance. If needed, we will provide the download links again when each step requires these tools.",
+    "crumbs": [
+      "PART II: WiFi Sensing Setup",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Prerequisites</span>"
+    ]
+  },
+  {
+    "objectID": "content/a21-prerequisites.html#necessary-skills",
+    "href": "content/a21-prerequisites.html#necessary-skills",
+    "title": "1  Prerequisites",
+    "section": "1.3 Necessary Skills",
+    "text": "1.3 Necessary Skills\nBasic programming skills, specifically in R and Python, are required. You should be able to write, edit, and debug code. To improve these skills, consider the following courses:\n\nData Science: Foundations using R Specialization for a strong foundation in data science using R.\nPython for Everybody Specialization to learn programming basics in Python.",
+    "crumbs": [
+      "PART II: WiFi Sensing Setup",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Prerequisites</span>"
+    ]
+  },
+  {
+    "objectID": "content/a22-initial.html",
+    "href": "content/a22-initial.html",
+    "title": "2  Initial Setup",
+    "section": "",
+    "text": "2.1 Setting Up the Raspberry Pi Operating System",
+    "crumbs": [
+      "PART II: WiFi Sensing Setup",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Initial Setup</span>"
+    ]
+  },
+  {
+    "objectID": "content/a22-initial.html#setting-up-the-raspberry-pi-operating-system",
+    "href": "content/a22-initial.html#setting-up-the-raspberry-pi-operating-system",
+    "title": "2  Initial Setup",
+    "section": "",
+    "text": "2.1.1 Download the Pi Imager\nBegin by downloading the Raspberry Pi Imager, a tool for installing the operating system on your Pi. This software is available on the official Raspberry Pi website. Select the version compatible with your operating system (Windows, macOS, or Ubuntu) and install it on your computer.\n\n\n\n2.1.2 Format your SD Card\nInsert an SD card into your computer, then launch the Raspberry Pi Imager you just installed. Click CHOOSE OS, then select the Erase option followed by Format SD Card.\nVideo\n\n\n2.1.3 Flash the OS onto your SD Card\nOnce your SD card is formatted, you can proceed to install the Raspberry Pi OS:\n\nOpen Raspberry Pi Imager : Navigate back to the Raspberry Pi Imager main menu.\nChoose the OS : Click CHOOSE OS and select the Raspberry Pi OS version you wish to install.\nChoose the SD Card : Select CHOOSE SD CARD and pick your SD card from the list.\nEnable SSH : This will allow remote access to the Raspberry Pi.\nSet Username and Password : The Raspberry Pi OS’s default username and password are ‘pi’ and ‘raspberry’. For security reasons, it’s advisable to change these once your system is up and running.\nConfigure Wireless LAN : This step allows you to connect with WiFi. For this project, you will use your mobile hotspot as a network provider. This will synchronize the Pi’s time at boot by connecting to the network. Please set this up using your mobile hotspot information.\nWrite the OS : Finally, click WRITE to start the writing process. This will flash the selected OS onto your SD card.\n\nPlease note that the exact steps for enabling SSH and configuring the WLAN might vary depending on the version of the Raspberry Pi OS and the Imager tool you are using. Refer to the specific documentation if you encounter any issues.\nVideo\nOnce the process is complete, your SD card will be ready, and you can insert it into the Raspberry Pi to boot up the new operating system.\n\n\n\n\n\n\nWhy Do We Use Our Mobile Hotspot for This Project?\n\n\n\n\n\nThe Raspberry Pi lacks a real-time clock, which means it can’t keep track of time when powered off. To fetch the current time when booting up, it needs access to the internet. More details on this can be found here.\nTo provide the necessary internet connection for time synchronization, we’ll use your mobile phone’s hotspot. By establishing this connection, the Raspberry Pi can easily access the current time, ensuring accurate system operation. Here’s how you can set up your hotspot:\n\nThis approach leverages your mobile phone’s data connection, creating a seamless integration between the Raspberry Pi and the internet, which is vital for the project’s success.",
+    "crumbs": [
+      "PART II: WiFi Sensing Setup",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Initial Setup</span>"
+    ]
+  },
+  {
+    "objectID": "content/a22-initial.html#choose-the-access-remotely-way",
+    "href": "content/a22-initial.html#choose-the-access-remotely-way",
+    "title": "2  Initial Setup",
+    "section": "2.2 Choose the Access Remotely Way",
+    "text": "2.2 Choose the Access Remotely Way\nChoosing the correct method for remote access depends on your specific setup and requirements. Below are the detailed instructions for both methods, allowing smooth access and control of the Raspberry Pi:\n\n\nWhen you use a desktop (without WLAN card) to use access and control the Pi, choose the (1) and follow the instructions in Section 2.2.4., Section 2.3.\nWhen you use a laptop (capable WLAN card) to use access and control the Pi, choose the (2) and follow the instructions in Section 2.2.5., Section 2.4.",
+    "crumbs": [
+      "PART II: WiFi Sensing Setup",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Initial Setup</span>"
+    ]
+  },
+  {
+    "objectID": "content/a22-initial.html#sec-way1",
+    "href": "content/a22-initial.html#sec-way1",
+    "title": "2  Initial Setup",
+    "section": "2.3 Access Your Pi Using an Ethernet Cable",
+    "text": "2.3 Access Your Pi Using an Ethernet Cable\n\n2.3.1 Connect your Pi to your Laptop\nWith the Pi-equipped SD card, connect your Pi to your laptop using an Ethernet cable.\n\n\n\n2.3.2 Enable Internet Connection Sharing\nNavigate to your laptop’s network settings and enable the Internet Connection Sharing option. This will allow your laptop to share its internet connection with the Raspberry Pi via the Ethernet cable, provided it’s connected to the internet.\nVideo\n\n\n2.3.3 Access Your Raspberry Pi via SSH\nHaving installed the Windows Terminal from the Microsoft Store, you can access the Command Prompt by pressing Ctrl + R, typing cmd, and hitting Enter. Alternatively, you can open it by pressing Ctrl + Shift + P. This is what you should see:\n\nTo establish an SSH connection with your Raspberry Pi, enter the following command:\nssh pi@raspberrypi\nVideo\n\n\n\n\n\n\nNote\n\n\n\nIf you encounter any troubles with this section, please refer to the last section of this content, titled Issues of Initial Setup, for guidance and solutions.",
+    "crumbs": [
+      "PART II: WiFi Sensing Setup",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Initial Setup</span>"
+    ]
+  },
+  {
+    "objectID": "content/a22-initial.html#sec-way2",
+    "href": "content/a22-initial.html#sec-way2",
+    "title": "2  Initial Setup",
+    "section": "2.4 Access Your Pi Using Your Phone as a Network Provider",
+    "text": "2.4 Access Your Pi Using Your Phone as a Network Provider\n\n2.4.1 Set Up Your Mobile Hotspot\nEnable your mobile hotspot with the same settings you used when flashing the SD card:\n\n\n\n2.4.2 Power Up Your Pi\nInsert the prepared SD card into your Pi and plug in the power:\n\n\n\n2.4.3 Connect Your Laptop to Your Mobile Hotspot\nConfigure your laptop’s WiFi to connect to the mobile hotspot:\n\n\n\n2.4.4 Verify Connections in Your Mobile Hotspot Interface\nAfter waiting a few seconds, you should see two connected devices in your interface:\n1. raspberrypi: The Raspberry Pi - after waiting a few seconds, you should see the Raspberry Pi appear in your mobile hotspot interface.\n2. your laptop: Your laptop’s name, as it appears on the network.\n\n\n2.4.5 Access Your Pi via SSH\nFirst, open the Command Prompt. If you have installed the Windows Terminal from the Microsoft Store, you can access the Command Prompt by pressing Ctrl + R, typing cmd, and hitting Enter. Alternatively, you can open it by pressing Ctrl + Shift + P. You should see the following:\n\nNow, establish an SSH connection with your Raspberry Pi by entering this command:\nssh pi@raspberrypi\nVideo\n\n\n\n\n\n\nNote\n\n\n\nIf you encounter any troubles with this section, please refer to the last section of this content, titled Issues of Initial Setup, for guidance and solutions.",
+    "crumbs": [
+      "PART II: WiFi Sensing Setup",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Initial Setup</span>"
+    ]
+  },
+  {
+    "objectID": "content/a22-initial.html#verify-your-pis-internet-connectivity",
+    "href": "content/a22-initial.html#verify-your-pis-internet-connectivity",
+    "title": "2  Initial Setup",
+    "section": "2.5 Verify Your Pi’s Internet Connectivity",
+    "text": "2.5 Verify Your Pi’s Internet Connectivity\nTo confirm your Raspberry Pi’s internet connection, use the ping command followed by the IP address of a well-known site. For example, ping Google’s Public DNS Server by typing this command:\nping 8.8.8.8\nIf the Pi is connected to the internet, you will see lines starting with ‘64 bytes from 8.8.8.8’ and a summary of the ping at the end.\nVideo\nYou can stop the ping process by pressing Ctrl + C.\n\n\n\n\n\n\nNote\n\n\n\nIf you encounter any troubles with this section, please refer to the last section of this content, titled Issues of Initial Setup, for guidance and solutions.",
+    "crumbs": [
+      "PART II: WiFi Sensing Setup",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Initial Setup</span>"
+    ]
+  },
+  {
+    "objectID": "content/a22-initial.html#issues-of-initial-setup",
+    "href": "content/a22-initial.html#issues-of-initial-setup",
+    "title": "2  Initial Setup",
+    "section": "2.6 Issues of initial setup",
+    "text": "2.6 Issues of initial setup\n\n2.6.1 Connection and network error\nIf you encounter any errors accessing your Pi or the internet connectivity, please follow these steps:\n\nEnable and then disable the network on your laptop or desktop computer\nCheck and uncheck the “Enable Internet Connection Sharing” function in your network settings\nVerify the network connection made by your Pi through the Ethernet\n\nVideo\n\n\n2.6.2 Locating Your Raspberry Pi’s IP Address using MAC Address\nIf you need to access your Pi with a specific IP address, especially when connected to multiple Pis, follow these guidelines:\n1. Open Command Prompt: Press the Windows key on your keyboard, type cmd and hit Enter.\n2. Execute the arp -a command: This command displays the IP and MAC addresses of devices on your network.\n3. Identify your Raspberry Pi: Raspberry Pi devices have MAC addresses that start with B8:27:EB:xx:xx:xx or DC:A6:32:xx:xx:xx. Find the device in the list with a physical address that starts with these characters - that’s your Raspberry Pi’s IP address.\nNote: These are the MAC address prefixes specific to Raspberry Pi Foundation devices. Your device’s MAC address may start with a different prefix.\nVideo\n\n\n2.6.3 ‘WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!’\nThis warning appears when the remote system has different identification than expected, such as after a system re-installation or SSH key change.\n\nYou can fix this error by removing the old key for the Raspberry Pi:\nssh-keygen -R raspberrypi\nAfterwards, try to re-establish the SSH connection.\n\n\n2.6.4 Using an Enhanced Security Network\nIf you’re on a network with higher security, you may need to register your Raspberry Pi’s MAC address. See the example below from a university network and consult with your network administrator or IT support for your specific procedures.",
+    "crumbs": [
+      "PART II: WiFi Sensing Setup",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Initial Setup</span>"
+    ]
+  },
+  {
+    "objectID": "content/a23-pisetup.html",
+    "href": "content/a23-pisetup.html",
+    "title": "3  Raspberry Pi Setup",
+    "section": "",
+    "text": "3.1 Prepare Your Raspberry Pi OS",
+    "crumbs": [
+      "PART II: WiFi Sensing Setup",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Raspberry Pi Setup</span>"
+    ]
+  },
+  {
+    "objectID": "content/a23-pisetup.html#prepare-your-raspberry-pi-os",
+    "href": "content/a23-pisetup.html#prepare-your-raspberry-pi-os",
+    "title": "3  Raspberry Pi Setup",
+    "section": "",
+    "text": "3.1.1 Update Your Pi\nStart by updating your Raspberry Pi’s operating system (OS) to its latest version. Open a terminal window and enter the following commands:\nsudo apt-get update -y && sudo apt-get upgrade -y\n\n\n\n\n\n\nHow to copy/paste in Linux terminal\n\n\n\n\n\nFor copy, you could click this icon to copy the command:\n\nFor paste, there are various ways; please visit this when Ctrl+V doesn’t work in the terminal.\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nIn Linux systems, sudo stands for “superuser do”, similar to “Run As Administrator” in Windows. The -y flag automatically confirms any prompts during the update process. The apt-get update command refreshes the list of available packages and their versions, while apt-get upgrade installs the latest versions. You can learn basic Linux commands on websites like this.\n\n\nThe given command should be placed like this:\nVideo\nAfter the updates are complete, restart your Raspberry Pi using this command:\nsudo reboot\n\n\n3.1.2 Update Your Pi\nBefore starting any kind of system-wide transformation, it’s important to have the necessary administrative privileges. On Raspberry Pi, you can enter the superuser mode (or root mode) by using the command:\nsudo su",
+    "crumbs": [
+      "PART II: WiFi Sensing Setup",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Raspberry Pi Setup</span>"
+    ]
+  },
+  {
+    "objectID": "content/a23-pisetup.html#transforming-your-pi-into-a-file-server",
+    "href": "content/a23-pisetup.html#transforming-your-pi-into-a-file-server",
+    "title": "3  Raspberry Pi Setup",
+    "section": "3.2 Transforming Your Pi into a File Server",
+    "text": "3.2 Transforming Your Pi into a File Server\nThis process allows easy sharing of files between a Raspberry Pi and other devices, such as laptops and PCs. Samba, an open-source secure network file-sharing system, enables this transfer. By setting up Samba, files can be conveniently transferred to and from a laptop within your network to a Raspberry Pi, via a direct Ethernet connection.\n\n3.2.1 Install Samba\nEnter the following command in your terminal to install Samba:\nsudo apt-get install -y -q samba samba-common-bin\n\n\n\n3.2.2 Modify the Samba Config File\nTo share the Pi’s folder, modify the Samba config file using the following command:\nsudo nano /etc/samba/smb.conf\nMove to the end line by pressing Alt + / and add this:\n[share]\npath = /home/pi\nwriteable=Yes\ncreate mast=0777\ndirectory mast=0777\npublic=no\n\nPress Ctrl + X, then Y, followed by Enter to save the changes.\n\n\n3.2.3 Set Up a Samba User\nSet up a user for your Samba share on your Pi using this command:\nsudo smbpasswd -a pi\nThen, enter the password twice as prompted by the command. In this case, the password is raspberry.\n\n\n3.2.4 Restart Samba Services\nRestart the Samba services to apply the changes by typing this:\nsudo service smbd restart\nsudo service nmbd restart\n\n\n3.2.5 Access the Pi Directory\nOpen the File Explorer (press Win + E), type in the address raspberrypi/pi, then enter the Pi’s name and password as network credentials.\nVideo\n\n\n3.2.6 Create and Verify the Test File\nCreate a text file in your Pi’s directory using the following command.\nsudo nano test.txt\nAfter typing anything (e.g., ‘gg’) in the file, press Ctrl + x, then y, followed by Enter. You should then be able to see the file on your laptop.\nVideo",
+    "crumbs": [
+      "PART II: WiFi Sensing Setup",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Raspberry Pi Setup</span>"
+    ]
+  },
+  {
+    "objectID": "content/a23-pisetup.html#setting-up-cloud-storage-access-on-your-pi",
+    "href": "content/a23-pisetup.html#setting-up-cloud-storage-access-on-your-pi",
+    "title": "3  Raspberry Pi Setup",
+    "section": "3.3 Setting Up Cloud Storage Access on Your Pi",
+    "text": "3.3 Setting Up Cloud Storage Access on Your Pi\nThis step involves configuring your Raspberry Pi to send status data to your cloud storage. It’s essential to ensure that your Pi is properly set up before or during its installation. Typically, you might consider connecting a monitor, mouse, and keyboard to your Pi to check its status, but that’s not always practical or convenient.\nInstead, we recommend setting up your Pi to relay status updates - such as available storage space - to your chosen cloud storage. Once your Pi starts sending these updates, you can easily monitor its status by accessing and reviewing these files in the cloud storage. This method allows you to remotely track the setup progress and address any potential issues promptly.\n\n3.3.1 Create a Dropbox App\nIn this guide, we will be utilizing Dropbox as our cloud storage service. You need to first set up an app on Dropbox to interface with the service. Follow the steps below:\n\nNavigate to the Dropbox developer page.\nSign in or create an account if you haven’t done so already.\nOnce you’re logged in, proceed to create a new application.\n\n\n\n\n3.3.2 Modify the Permission\nConfigure your application to permit the viewing and management of files and folders. In this instance, we’ve selected all the available options in the permission settings (for the indivisual scope).\n\n\n\n3.3.3 Install the Necessary Packages\nSwitch to a superuser shell session by typing this command:\nsudo su\nMake sure that curl and git packages are installed on your Pi. You can do this by entering the following command:\nsudo apt install curl git -y\n\n\n3.3.4 Install the Dropbox Uploader\nDownload the Dropbox Uploader script onto your Pi using this command:\ngit clone https://github.com/andreafabrizi/Dropbox-Uploader.git\n\n\n3.3.5 Assign Execution Permission\nMove into the cloned directory and give the executable permission to the script by using these commands:\ncd Dropbox-Uploader\nsudo chmod +x dropbox_uploader.sh\n\n\n3.3.6 Validate App Permissions on Your Pi\nBegin the Dropbox Uploader configuration with the following command:\n./dropbox_uploader.sh\nEnter your app key and app secret in the terminal:\n\nCopy and paste the given URL into a web browser, then click ‘Continue’ and ‘Allow’ to authorize the permissions.\n\nCopy and paste the generated access code to the terminal.\n\n\n\n3.3.7 Verify Cloud Storage Access\nEmploy the upload function to transmit a ‘README.md’ file by executing this command:\n./dropbox_uploader.sh upload README.md /\nYou should be able to view the file that was sent by executing the command.\nVideo\nGo back to the home directory by executing the command:\ncd /home/pi",
+    "crumbs": [
+      "PART II: WiFi Sensing Setup",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Raspberry Pi Setup</span>"
+    ]
+  },
+  {
+    "objectID": "content/a23-pisetup.html#getting-the-scripts",
+    "href": "content/a23-pisetup.html#getting-the-scripts",
+    "title": "3  Raspberry Pi Setup",
+    "section": "3.4 Getting the Scripts",
+    "text": "3.4 Getting the Scripts\nBegin by fetching the scripts from the urban-sensing-raspi GitHub repository.\nEnsure you’re in the /home/pi directory. If not, navigate there using:\ncd /home/pi\nClone the repository with:\ngit clone https://github.com/urbanjuhyeon/urban-sensing-raspi.git\n\n\nRepository Overview\nThe repository structure is as follows:\n.\n├── service.sh\n├── name.sh\n├── envr.sh\n├── packages.sh\n├── code\n│   └── start.py\n└── README.md\n\npackages.sh: Handles updates, installations, and other setup tasks.\nname.sh: Allows users to set or confirm the unique sensor name.\nenvr.sh: Configures udev rules and prepares the Pi’s environment.\nservice.sh: Sets up the urban sensing service to launch on boot.\nstart.py: The main script for the Urban Sensing Service, located in ‘code/default’.",
+    "crumbs": [
+      "PART II: WiFi Sensing Setup",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Raspberry Pi Setup</span>"
+    ]
+  },
+  {
+    "objectID": "content/a23-pisetup.html#installing-required-packages",
+    "href": "content/a23-pisetup.html#installing-required-packages",
+    "title": "3  Raspberry Pi Setup",
+    "section": "3.5 Installing Required Packages",
+    "text": "3.5 Installing Required Packages\nElevate privileges to a superuser session:\nsudo su\nNavigate to the repository:\ncd /home/pi/urban-sensing-raspi\nExecute the packages.sh script:\nbash packages.sh\nVideo",
+    "crumbs": [
+      "PART II: WiFi Sensing Setup",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Raspberry Pi Setup</span>"
+    ]
+  },
+  {
+    "objectID": "content/a23-pisetup.html#setting-the-sensor-name",
+    "href": "content/a23-pisetup.html#setting-the-sensor-name",
+    "title": "3  Raspberry Pi Setup",
+    "section": "3.6 Setting the Sensor Name",
+    "text": "3.6 Setting the Sensor Name\nFor organized data collection across multiple devices, it’s essential to assign a unique identifier to each sensor. This segment aids you in naming your Raspberry Pi sensor and integrating it into a Python script.\nNavigate to the repository:\ncd /home/pi/urban-sensing-raspi\nRun the name.sh script. If no name is provided, the default (raspberrypi) will be applied:\nbash name.sh\nPost this, the sensor name can be retrieved from the sensor_name.conf file for usage.\nVideo",
+    "crumbs": [
+      "PART II: WiFi Sensing Setup",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Raspberry Pi Setup</span>"
+    ]
+  },
+  {
+    "objectID": "content/a23-pisetup.html#configuring-settings",
+    "href": "content/a23-pisetup.html#configuring-settings",
+    "title": "3  Raspberry Pi Setup",
+    "section": "3.7 Configuring Settings",
+    "text": "3.7 Configuring Settings\nConfigure the Raspberry Pi to set its internal WiFi to wlan0. When you connect an external adapter, it will be assigned differently. To determine the MAC address of the internal WiFi, execute the following command:\nifconfig\nIn my setup, the WiFi with the MAC address b8:27:eb:0c:70:38 was assigned to wlan0, while the external adapter received a different assignment.\n\nNavigate to the repository:\ncd /home/pi/urban-sensing-raspi\nRun the envr.sh script:\nbash envr.sh\nThis script ensures consistent network interface naming with udev rules at boot.\nVideo",
+    "crumbs": [
+      "PART II: WiFi Sensing Setup",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Raspberry Pi Setup</span>"
+    ]
+  },
+  {
+    "objectID": "content/a24-deployment.html",
+    "href": "content/a24-deployment.html",
+    "title": "4  Data Collection Insights",
+    "section": "",
+    "text": "4.1 Understanding WiFi Sensing Types\nWiFi, a technology for wireless networking based on IEEE 802.11 standards, can be used to measure people’s location and behavior through two main approaches: passive and active WiFi sensing.\nPassive WiFi sensing is a receive-only system that captures WiFi packets emitted from WiFi-enabled devices carried by individuals. It focuses on answering “Where is the station and its holder?” without requiring active participation from the person. Sensors (sniffers) or access points (APs) detect WiFi packets sent from nearby devices, which regularly emit WiFi packets to discover nearby APs, even when not connected (Bonné et al., 2013; Musa & Eriksson, 2012). The typical detection range is approximately 100 meters, considering commercial sensor specifications and WiFi device transmission range (Chilipirea, 2019).\nOn the other hand, active WiFi sensing is a geolocation system that uses WiFi packets from nearby APs to determine the location of a device. It focuses on answering “Where am I?” from the device’s perspective. The device scans for nearby WiFi APs and saves received packets, which are then sent to a server for location estimation and transmitted back to the device. Active sensing requires user consent and active participation, such as installing an application to collect and send WiFi logs.",
+    "crumbs": [
+      "PART II: WiFi Sensing Setup",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Data Collection Insights</span>"
+    ]
+  },
+  {
+    "objectID": "content/a24-deployment.html#understanding-wifi-sensing-types",
+    "href": "content/a24-deployment.html#understanding-wifi-sensing-types",
+    "title": "4  Data Collection Insights",
+    "section": "",
+    "text": "Passive Sensing for Pedestrian Behavior Monitoring\nThis book focuses on passive WiFi sensing for studying pedestrian behavior in urban environments. As illustrated in Figure 6-1, passive sensing aims to answer the question “Where is the station and its holder?” without requiring active participation from individuals. This approach is particularly suitable for urban planning and research, where it is impractical to ask for consent from the numerous pedestrians using public spaces.\nPassive sensing offers a non-intrusive and scalable method for gathering data on pedestrian behavior by capturing the WiFi packets emitted by devices carried by pedestrians. This data provides valuable insights into pedestrian movement patterns, space utilization, and social interactions in urban environments, enabling better planning, design, and management of public spaces. In contrast, active sensing focuses on answering “Where am I?” from the device’s perspective, which requires user consent and active participation. While active sensing allows for richer data on people’s mobility, it is less practical for large-scale pedestrian behavior monitoring in urban environments.\nHowever, it is essential to consider the limitations, privacy concerns, and ethical implications of passive WiFi sensing. While individuals are not actively providing information, the collection of WiFi packets from their devices may still raise privacy concerns. Researchers should ensure that the data collection process is transparent, secure, and complies with relevant privacy regulations.",
+    "crumbs": [
+      "PART II: WiFi Sensing Setup",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Data Collection Insights</span>"
+    ]
+  },
+  {
+    "objectID": "content/a24-deployment.html#sensor-installation-strategies",
+    "href": "content/a24-deployment.html#sensor-installation-strategies",
+    "title": "4  Data Collection Insights",
+    "section": "4.2 Sensor Installation Strategies",
+    "text": "4.2 Sensor Installation Strategies\nOne of the most convenient and discreet ways to install WiFi sensors outdoors is by attaching them to existing street furniture, such as trees or lampposts. Make sure to use waterproof enclosures and secure the sensors firmly to minimize the risk of damage from weather conditions or tampering. This approach allows you to leverage existing infrastructure in the urban environment while keeping the sensors out of sight. Figure 6-2 shows an example of a sensor attached to a lamppost.",
+    "crumbs": [
+      "PART II: WiFi Sensing Setup",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Data Collection Insights</span>"
+    ]
+  },
+  {
+    "objectID": "content/a24-deployment.html#sensor-placement-strategies",
+    "href": "content/a24-deployment.html#sensor-placement-strategies",
+    "title": "4  Data Collection Insights",
+    "section": "4.3 Sensor Placement Strategies",
+    "text": "4.3 Sensor Placement Strategies\nTo optimize coverage and minimize signal interference, consider the following strategies when deciding where to place your WiFi sensors:\n\nSingle street coverage: If your target area is a single street, place sensors at both ends and a few in the middle to ensure adequate coverage along the entire length of the street.\nDistrict-wide coverage: When monitoring a larger area such as a district, position sensors at intersections to maximize coverage and capture pedestrian movement patterns between different streets and areas.\nAvoiding interference: Steer clear of areas with high levels of electromagnetic interference, such as electrical equipment or large metal structures, to maintain signal quality and reliability.\nIndoor considerations: When installing sensors indoors, account for signal attenuation caused by walls and other obstacles, as this can affect the range and accuracy of the sensors.\nOutdoor protection: In outdoor environments, minimize the impact of weather conditions by shielding sensors from direct exposure to rain, snow, or extreme temperatures.\nAccessibility and security: Place sensors in locations that are easily accessible for maintenance and troubleshooting, while also ensuring the security of the sensors to prevent tampering or damage.",
+    "crumbs": [
+      "PART II: WiFi Sensing Setup",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Data Collection Insights</span>"
+    ]
+  },
+  {
+    "objectID": "content/a24-deployment.html#optimizing-sensor-density-for-accuracy",
+    "href": "content/a24-deployment.html#optimizing-sensor-density-for-accuracy",
+    "title": "4  Data Collection Insights",
+    "section": "4.4 Optimizing Sensor Density for Accuracy",
+    "text": "4.4 Optimizing Sensor Density for Accuracy\nThe number and density of sensors play a crucial role in determining the accuracy and reliability of the WiFi sensing system. While a higher number of sensors generally leads to improved accuracy, it is essential to strike a balance between performance and practical considerations, such as cost and maintenance.\nAs a general guideline for outdoor deployments, aim to install sensors at intervals of approximately 100 meters. This means placing one sensor for every 100 meters of the target area. While more sensors can enhance accuracy, this spacing has been found to provide a good balance between performance and resource efficiency based on experimental results.\n\n\nDetailed Experiment on Sensor Density (click to expand)\n\nA study conducted in the central street of the University of Ulsan retail district tested the effects of sensor density on localization performance and the number of detected samples. The study created scenarios with varying sensor densities (Table 6-1) and found that lower sensor density led to poorer localization performance (Figure 6-3) and a decreased percentage of detected samples (Figure 6-4).\nTable 6-1. Description of scenarios based on sensor locations and counts\nScenario Number of locations Number of sensors Average distance Description Baseline 7 8 53.6m Default experiment setting Scenario 1 4 5 107m Removes 3 locations Scenario 2 3 3 161m Removes 1 location Scenario 3 2 2 322m Removes 1 location Figure 6-3. Localization performance by scenario (30 seconds sampling time) Figure 6-4. Localization error and number of samples used by scenario when localized to 30 seconds of sampling\n\nBy following these sensor installation tips and strategies, even those new to WiFi sensing can effectively deploy sensors for pedestrian behavior monitoring, ensuring high-quality data collection and accurate localization performance. Remember, the key is to find the right balance between sensor density, placement, and practical considerations to create a reliable and efficient WiFi sensing system.",
+    "crumbs": [
+      "PART II: WiFi Sensing Setup",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Data Collection Insights</span>"
+    ]
+  },
+  {
+    "objectID": "content/a25-testing.html",
+    "href": "content/a25-testing.html",
+    "title": "5  Testing and Validation",
+    "section": "",
+    "text": "5.1 Controlled Environment Testing",
+    "crumbs": [
+      "PART II: WiFi Sensing Setup",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Testing and Validation</span>"
+    ]
+  },
+  {
+    "objectID": "content/a25-testing.html#controlled-environment-testing",
+    "href": "content/a25-testing.html#controlled-environment-testing",
+    "title": "5  Testing and Validation",
+    "section": "",
+    "text": "5.1.1 Raspberry Pi Setup\nBefore setting up, power off the Raspberry Pi. Once turned off, insert the additional WiFi adapter. Afterward, power the Raspberry Pi back on.\n\nAccess the Raspberry Pi via ssh and check the wlan interface to check the internal wifi set to be wlan0 by excueting this:\nifconfig\nEnsure that the wlan0 interface is correctly assigned. The internal interface should have a MAC address starting with b8:27:eb. Subsequent WiFi adapters should follow a sequence like wlan1, wlan2, and so on.\n\nIf the assignment isn’t correct, refer to Section 2.4 for the appropriate setup instructions.\n\n\n5.1.2 Script Execution\nEasily access the superuser shell with:\nsudo su\nInitiate the Urban Sensing code:\npython3 urban-sensing-raspi/code/start.py\nLet it run for about 2 minutes before halting it using Ctrl+C.\nVideo\n\n\n5.1.3 Customizing Your Sensing\nThe Urban Sensing Service isn’t just about standard WiFi data collection; it offers a broader scope:\n\nRetain Raw WiFi Packets : Use the -i option:\npython3 urban-sensing-raspi/code/start.py -i\nIntroduce Bluetooth Sensing : Add the -b option:\npython3 urban-sensing-raspi/code/start.py -b\nDiscover More Options : Read our the GitHub Repository.",
+    "crumbs": [
+      "PART II: WiFi Sensing Setup",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Testing and Validation</span>"
+    ]
+  },
+  {
+    "objectID": "content/a25-testing.html#verifying-the-results",
+    "href": "content/a25-testing.html#verifying-the-results",
+    "title": "5  Testing and Validation",
+    "section": "5.2 Verifying the Results",
+    "text": "5.2 Verifying the Results\n1. Access the Pi folder: type \\\\raspberrypi\\share on file explore.\n2. Look around ‘stats’ Folder :\n\nVerify that file names reflect the exact execution time.\nConfirm files have been transferred to Dropbox Storage.\n\nVideo\n3. ‘data’ Folder :\n\nIf you used -b, expect a Bluetooth file. Otherwise, it won’t appear.\nCheck for the creation of the WiFi packet file. To delve deeper, use DB Browser for SQLite.\n\nVideo",
+    "crumbs": [
+      "PART II: WiFi Sensing Setup",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Testing and Validation</span>"
+    ]
+  },
+  {
+    "objectID": "content/a25-testing.html#setting-up-sensing-service",
+    "href": "content/a25-testing.html#setting-up-sensing-service",
+    "title": "5  Testing and Validation",
+    "section": "5.3 Setting Up Sensing Service",
+    "text": "5.3 Setting Up Sensing Service\nOnce you’ve validated the sensing outputs, you can finalize the settings to fit your objectives. Notably, this will allow your Raspberry Pi to initiate the sensing service upon booting up.\nExecute the following script:\nbash urban-sensing-raspi/service.sh\nFollow the on-screen prompts and ensure its proper functioning. Exit the status info using ctrl+c.\nVideo\n\n\n\n\n\n\nNote\n\n\n\nAfter running service.sh, your Raspberry Pi will start start.py on every boot. If you need to do tasks like file transfers, pause this service. The start.py has a 30-second delay at the start. If you stop the service within this time using systemctl stop sensing.service, the script won’t perform any actions.\nsudo systemctl stop sensing.service",
+    "crumbs": [
+      "PART II: WiFi Sensing Setup",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Testing and Validation</span>"
+    ]
+  },
+  {
+    "objectID": "content/a25-testing.html#real-world-testing",
+    "href": "content/a25-testing.html#real-world-testing",
+    "title": "5  Testing and Validation",
+    "section": "5.4 Real-world Testing",
+    "text": "5.4 Real-world Testing\nIn this section, we’ll test the sensing service without Ethernet, simulating a real-world application. Follow these detailed steps for a successful setup and operation:\n\n5.4.1 Activating Mobile Hotspot\nActivate the hotspot on your mobile device. This is essential for providing internet connectivity to the Raspberry Pi, which will enable time synchronization and status updates via Dropbox.\n\n\n\n5.4.2 Connecting the External Battery\nEnsure you’ve connected an external battery to power both your Raspberry Pi and the WiFi adapters.\n\n\n\n5.4.3 Monitoring WiFi Adapter Activity\nCheck for indicator lights on the WiFi adapter. In station mode, when the adapter is networking, the lights should turn on. You should also see the Raspberry Pi appear on your mobile hotspot interface.\n\n\n\n\n\n\nNote\n\n\n\nIf the status lights remain off or the Raspberry Pi does not appear on your hotspot interface, there might be an issue with your adapter. Consider getting a replacement.\n\n\n\nObserve the WiFi adapter’s status lights. When networked (station mode), these should illuminate. Concurrently, you’ll see the Raspberry Pi connect to your mobile hotspot interface.\n\n\n\n\n\n\n\nNote\n\n\n\nWhen accessing your Raspberry Pi via a mobile phone, the raspberrypi network might not disappear immediately. This is attributed to the wlan0 interface. A Python script will disconnect and turn off the wlan0 function approximately 3 minutes later.\n\n\n\n\n5.4.4 Validating Dropbox Connectivity\nOnce connected to the network with the correct Dropbox settings, you should start seeing files from your Raspberry Pi appear in your Dropbox.\n\n\n\n5.4.5 Checking WiFi Adapter Monitor Mode\nIn monitor mode, the WiFi adapter’s status light should turn off, and its connection will vanish from your mobile hotspot interface.\n\n\n\n\n5.4.6 Performing Sensing Operation\nThroughout the designated sensing duration, the service will capture packets. To conclude the sensing operation, simply unplug the battery.\n\n\n5.4.7 Review Sensing Results\nUse Ethernet or your mobile phone hotspot to access and review the generated sensing results, as same to the controlled enviroment testing.\nVideo",
+    "crumbs": [
+      "PART II: WiFi Sensing Setup",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Testing and Validation</span>"
+    ]
+  },
+  {
+    "objectID": "content/a31-preparation.html",
+    "href": "content/a31-preparation.html",
+    "title": "6  Data Preparation",
+    "section": "",
+    "text": "6.1 SQLite3 Database Overview\nThe WiFi data collected using the Urban Sensing system is typically stored in an SQLite3 database. SQLite3 is a lightweight, file-based database engine that provides a convenient way to store and manage structured data. The database file can be easily transferred and accessed across different platforms and programming languages.",
+    "crumbs": [
+      "PART III: Data Processing",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Data Preparation</span>"
+    ]
+  },
+  {
+    "objectID": "content/a31-preparation.html#loading-wifi-data-into-r",
+    "href": "content/a31-preparation.html#loading-wifi-data-into-r",
+    "title": "6  Data Preparation",
+    "section": "6.2 Loading WiFi Data into R",
+    "text": "6.2 Loading WiFi Data into R\n\n6.2.1 Required R Packages\nTo load the WiFi data from the SQLite3 database into R, we will use the RSQLite and DBI packages. These packages provide the necessary functions and interfaces to establish a connection to the database and execute SQL queries. For a more streamlined and efficient process, we’ll utilize the pacman package, which offers the p_load function. This function automatically installs and loads the necessary packages if they are not already installed.\nFirst, ensure the pacman package is installed and loaded:\n\nif (!require(pacman)) install.packages(\"pacman\")\n\n필요한 패키지를 로딩중입니다: pacman\n\n\nNext, use p_load from pacman to install and load the RSQLite and DBI packages, essential for interfacing with SQLite databases:\n\npacman::p_load(RSQLite, DBI, data.table, knitr)\n\n\n\n6.2.2 Establishing SQLite3 Database Connection\nTo establish a connection to the SQLite3 database, we use the dbConnect() function from the DBI package. This function takes the database driver (in this case, SQLite()) and the path to the database file as arguments.\n\nconn &lt;- dbConnect(SQLite(), \"path/to/your/database.sqlite\")\n\nReplace \"path/to/your/database.sqlite\" with the actual path to your SQLite3 database file.\n\n\n\n\n\n\nIf you don’t have the WiFi DB\n\n\n\nDownload this\n\n\n\n\n6.2.3 Querying WiFi Data from the Database\nTo load the WiFi data from the “packets” table, we use thedbGetQuery() function. This function takes the database connection object and an SQL query as arguments. The SQL query specifies the table and columns to retrieve.\n\nwifi_data &lt;- dbGetQuery(conn, \"SELECT * FROM packets\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ntimestamp\ntype\nsubtype\nstrength\nsource_address\nsource_address_randomized\ndestination_address\ndestination_address_randomized\naccess_point_name\naccess_point_address\naccess_point_address_randomized\nsequence_number\nchannel\nsensor_name\ninfo\n\n\n\n\n2024-04-09T19:17:27.536121\nmanagement\nprobe-response\n-65\nf0659bdd9305e4341afb9f55df7cd20a4adfd726f83a33c3857281dfa3de8575\n0\n767dcce0bef280209ebb9401ddd0694ebd4ca7c7703e3c0269cb86d6592e0012\n1\nSK_WiFiGIGA8161_2.4G\nf0659bdd9305e4341afb9f55df7cd20a4adfd726f83a33c3857281dfa3de8575\n0\n604\n6\nA01\n\n\n\n2024-04-09T19:17:27.541249\nmanagement\nprobe-response\n-67\nf0659bdd9305e4341afb9f55df7cd20a4adfd726f83a33c3857281dfa3de8575\n0\n767dcce0bef280209ebb9401ddd0694ebd4ca7c7703e3c0269cb86d6592e0012\n1\nSK_WiFiGIGA8161_2.4G\nf0659bdd9305e4341afb9f55df7cd20a4adfd726f83a33c3857281dfa3de8575\n0\n607\n6\nA01\n\n\n\n2024-04-09T19:17:27.635933\nmanagement\nprobe-response\n-67\nf0659bdd9305e4341afb9f55df7cd20a4adfd726f83a33c3857281dfa3de8575\n0\n00333fd8244862428d22a482df516ae0315c33a83a9d32e9bf8bc2b0de978467\n1\nSK_WiFiGIGA8161_2.4G\nf0659bdd9305e4341afb9f55df7cd20a4adfd726f83a33c3857281dfa3de8575\n0\n611\n6\nA01\n\n\n\n2024-04-09T19:17:27.746452\nmanagement\nprobe-request\n-67\nd94147cf12befe41bb40dd7957733c54442de7a9d45a75ec3c747856c4bdc129\n1\nff:ff:ff:ff:ff:ff\n1\n(n/a)\nff:ff:ff:ff:ff:ff\n1\n990\n1\nA01\n\n\n\n2024-04-09T19:17:27.765945\nmanagement\nprobe-request\n-65\nd94147cf12befe41bb40dd7957733c54442de7a9d45a75ec3c747856c4bdc129\n1\nff:ff:ff:ff:ff:ff\n1\n(n/a)\nff:ff:ff:ff:ff:ff\n1\n991\n1\nA01\n\n\n\n\n\n\n\n\n6.2.4 Saving WiFi Data on Your Local\nWhen working with data in R, it’s often necessary to save the data locally for future use or sharing with others. In this section, we’ll explore three common methods for saving the wifi_data dataset on your local machine.\n\nfwrite(wifi_data, \"path/to/your/database.csv\")\n\nReplace \"path/to/your/database.csv\" with the actual path to your SQLite3 database file.\n\n\n6.2.5 Closing the Database Connection\nAfter loading the data, it is important to close the database connection to free up resources:\n\ndbDisconnect(conn)",
+    "crumbs": [
+      "PART III: Data Processing",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Data Preparation</span>"
+    ]
+  },
+  {
+    "objectID": "content/a31-preparation.html#exploring-the-loaded-wifi-data",
+    "href": "content/a31-preparation.html#exploring-the-loaded-wifi-data",
+    "title": "6  Data Preparation",
+    "section": "6.3 Exploring the Loaded WiFi Data",
+    "text": "6.3 Exploring the Loaded WiFi Data\nThe WiFi data loaded into R consists of several key attributes that provide valuable information for pedestrian behavior analysis. Let’s explore each of these attributes in more detail:\n\n\n\n\n\n\n\nAttribute\nDescription\n\n\n\n\ntimestamp\nThe timestamp indicates the exact date and time when the packet was captured by the sensor. It allows for temporal analysis of pedestrian behavior patterns.\n\n\ntype\nSpecifies the category of the captured packet. For example, “Management” indicates that the packet is a management frame used for network management and control.\n\n\nsubtype\nProvides more specific information about the type of packet. A subtype of “Probe Request” indicates that the device is actively searching for nearby access points.\n\n\nstrength\nThe signal strength of the received packet is recorded in decibel-milliwatts (dBm). Lower values indicate weaker signals, while higher values suggest closer proximity.\n\n\nsource_address\nRepresents the hashed MAC address of the device sending the packet. The hashed value enables unique identification while preserving privacy.\n\n\nsource_address_randomized\nIndicates whether the source address is randomized (1) or not (0). Randomized addresses enhance privacy by frequently changing the MAC address.\n\n\ndestination_address\nRepresents the hashed MAC address of the intended recipient of the packet, which could be an access point or another device.\n\n\ndestination_address_randomized\nIndicates whether the destination address is randomized (1) or not (0), similar to the source_address_randomized attribute.\n\n\naccess_point_name\nThe access point name (SSID) is the human-readable name of the access point that the device is trying to discover or connect to.\n\n\naccess_point_address\nRepresents the hashed MAC address of the access point. It uniquely identifies the access point within the network.\n\n\naccess_point_address_randomized\nIndicates whether the access point address is randomized (1) or not (0).\n\n\nsequence_number\nA unique identifier assigned to each packet within a sequence of packets. It helps in ordering and identifying packets, useful for tracking device behavior.\n\n\nchannel\nIndicates the specific WiFi channel on which the packet was transmitted. WiFi channels operate on different frequencies to minimize interference.\n\n\nsensor_name\nIdentifies the specific sensor that captured the packet. It allows for spatial analysis and understanding of pedestrian behavior across different sensor locations.\n\n\ninfo\nTypically contains the raw WiFi packet data. If privacy guidelines are followed, the info column would be blanked out to protect sensitive information.",
+    "crumbs": [
+      "PART III: Data Processing",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Data Preparation</span>"
+    ]
+  },
+  {
+    "objectID": "content/a32-aggregation.html",
+    "href": "content/a32-aggregation.html",
+    "title": "7  Data Aggregation",
+    "section": "",
+    "text": "7.1 Setup",
+    "crumbs": [
+      "PART III: Data Processing",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Aggregation</span>"
+    ]
+  },
+  {
+    "objectID": "content/a32-aggregation.html#setup",
+    "href": "content/a32-aggregation.html#setup",
+    "title": "7  Data Aggregation",
+    "section": "",
+    "text": "7.1.1 Loading Packages\nBefore we start, let’s ensure that we have all the necessary packages installed and loaded. We will use the pacman package to manage our package dependencies.\n\n# Install pacman package if not already installed\nif (!require(pacman)) install.packages(\"pacman\")\n\n# Load the necessary packages using pacman\npacman::p_load(RSQLite, DBI, data.table, lubridate)",
+    "crumbs": [
+      "PART III: Data Processing",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Aggregation</span>"
+    ]
+  },
+  {
+    "objectID": "content/a32-aggregation.html#step-by-step-data-aggregation",
+    "href": "content/a32-aggregation.html#step-by-step-data-aggregation",
+    "title": "7  Data Aggregation",
+    "section": "7.2 Step-by-Step Data Aggregation",
+    "text": "7.2 Step-by-Step Data Aggregation\n\n7.2.1 Step 1: Loading the Data\nFirst, we will load the WiFi data from the SQLite3 database.\n\n# Establish a connection to the SQLite3 database\nconn &lt;- dbConnect(SQLite(), \"material/ch3/sample_1.sqlite3\")\n\n# Query the WiFi data from the database\nwifi_data &lt;- dbGetQuery(conn, \"SELECT sensor_name, timestamp, type, subtype, strength AS rssi, source_address, source_address_randomized FROM packets\")\n\n# Convert to data.table\nsetDT(wifi_data)\n\n# Print the first few rows to verify\nhead(wifi_data)\n\n   sensor_name                  timestamp       type        subtype rssi\n1:         A01 2024-04-09T19:17:27.536121 management probe-response  -65\n2:         A01 2024-04-09T19:17:27.541249 management probe-response  -67\n3:         A01 2024-04-09T19:17:27.635933 management probe-response  -67\n4:         A01 2024-04-09T19:17:27.746452 management  probe-request  -67\n5:         A01 2024-04-09T19:17:27.765945 management  probe-request  -65\n6:         A01 2024-04-09T19:17:27.779055 management  probe-request  -75\n                                                     source_address\n1: f0659bdd9305e4341afb9f55df7cd20a4adfd726f83a33c3857281dfa3de8575\n2: f0659bdd9305e4341afb9f55df7cd20a4adfd726f83a33c3857281dfa3de8575\n3: f0659bdd9305e4341afb9f55df7cd20a4adfd726f83a33c3857281dfa3de8575\n4: d94147cf12befe41bb40dd7957733c54442de7a9d45a75ec3c747856c4bdc129\n5: d94147cf12befe41bb40dd7957733c54442de7a9d45a75ec3c747856c4bdc129\n6: 5e69a0bc9bd73c0b72642e2e0f4f99670b85e8fdf4616bc19fb1f8d63107bfe5\n   source_address_randomized\n1:                         0\n2:                         0\n3:                         0\n4:                         1\n5:                         1\n6:                         1\n\n\n\n\n7.2.2 Step 2: Filtering by Time\nTo focus on a specific time period for our analysis, we will define a start and end date using the ymd_hms function from the lubridate package. We will then filter the data to include only rows within our specified datetime range.\n\n# Define start and end datetime for filtering\nstart_date &lt;- ymd_hms(\"2024-04-09 19:17:00\")\nend_date &lt;- ymd_hms(\"2024-04-09 19:20:00\")\n\n# Convert timestamp to datetime format and filter data within the specified datetime range\nwifi_data_filtered_time &lt;- wifi_data[\n  between(ymd_hms(timestamp), start_date, end_date)\n]\n\n\n\n7.2.3 Step 3: Filtering by Frame Type\nCertain subtypes of packets may not be relevant for our purposes. We will remove rows where the subtype column contains the word “response”.\n\n# Remove rows where the subtype contains \"response\"\nwifi_data_filtered_frame &lt;- wifi_data_filtered_time[!grepl(\"response\", subtype)]\n\n\n\n\n\n\n\nWhy We Should Remove “Response” Packets\n\n\n\n\n\nWe remove “response” packets because they are sent from APs to devices, not from devices to APs. In the raw WiFi data collected over a month on a university campus (see the table below), “response” packets account for a large proportion (35.3% for “probe-response”). By filtering them out, we focus on the more relevant packets originating from devices, which provide information about the presence and movement of pedestrians.\n\n\n\n\n\n\n\n\n\nType\nSubtype\nRaw WiFi data Count\nRaw WiFi data Proportion\n\n\n\n\nManagement\nprobe-request\n714,353\n2.6%\n\n\nManagement\nprobe-response\n9,532,383\n35.3%\n\n\nManagement\nauthentication\n352,856\n1.3%\n\n\nManagement\ndeauthentication\n30,765\n0.1%\n\n\nManagement\nassociation-request\n16,043\n0.1%\n\n\nManagement\nassociation-response\n13,621\n0.1%\n\n\nManagement\nreassociation-request\n44,284\n0.2%\n\n\nManagement\nreassociation-response\n33,429\n0.1%\n\n\nManagement\ndisassociation\n24,525\n0.1%\n\n\nManagement\naction\n351,477\n1.3%\n\n\nData\ndata\n18,546\n0.1%\n\n\nData\nnull\n8,716,923\n32.3%\n\n\nData\nqos-data\n4,875,257\n18.1%\n\n\nData\nqos-null\n2,253,010\n8.4%\n\n\n\n\n\n\n\n\n7.2.4 Step 4: Filtering by Signal Strength\nThe signal strength (RSSI) of WiFi packets can provide valuable information about the proximity and location of devices. We will filter our data to include only rows where the rssi column falls between -30 and -80 dBm.\n\n# Filter data to include only rows with signal strength between -30 and -80 dBm\nwifi_data_filtered_strength &lt;- wifi_data_filtered_frame[between(rssi, -80, -30)]\n\n\n\n\n\n\n\nWhy We Should Filter Signal Strength\n\n\n\n\n\nWe filter the signal strength to remove extreme values. Very strong signals (above -30 dBm) may come from devices very close to the sensor, like a tablet right next to it, which may not represent typical pedestrian behavior. Very weak signals (below -80 dBm) may be less reliable, coming from far away or obstructed devices. Focusing on the -30 to -80 dBm range helps capture data more likely to represent pedestrians moving within a reasonable distance from the sensors.\n\n\n\n\n\n7.2.5 Step 5: Aggregating Data by Time Intervals\nWe will aggregate the data by sensor_name and source_address into specified time intervals. This involves rounding the timestamp to the nearest interval and then summarizing the data.\n\n# Define aggregation function\naggregate_intervals &lt;- function(data, interval) {\n  data[, timestamp := floor_date(ymd_hms(timestamp), unit = interval)]\n  aggregated_data &lt;- data[, .(\n    median_rssi = median(rssi),\n    count = .N\n  ), by = .(sensor_name, source_address, source_address_randomized, timestamp)]\n  return(aggregated_data)\n}\n\n# Aggregate the data by 1-second intervals\naggregated_data &lt;- aggregate_intervals(wifi_data_filtered_strength, \"second\")\n\n# Print the first few rows of the aggregated data\nhead(aggregated_data)\n\n   sensor_name                                                   source_address\n1:         A01 d94147cf12befe41bb40dd7957733c54442de7a9d45a75ec3c747856c4bdc129\n2:         A01 5e69a0bc9bd73c0b72642e2e0f4f99670b85e8fdf4616bc19fb1f8d63107bfe5\n3:         A01 05d29a432f4ff4c5f2e49e185334619d4365ef65370fcf9891bc7b1f8c0a68b6\n4:         A01 a6a0a285818a48c083c72c885283f1652208b3239f70e859f49067b36781acc6\n5:         A01 b3268f2d7ca90e7ea3ff549decbf484d478c3eaf28784a7bbfbd5aaee22d3a6a\n6:         A01 f6e4a5fce8432422779b9e68da551a19b24b749ddbd58735bd95334747258d66\n   source_address_randomized           timestamp median_rssi count\n1:                         1 2024-04-09 19:17:27         -66     2\n2:                         1 2024-04-09 19:17:27         -75     2\n3:                         0 2024-04-09 19:17:27         -78     2\n4:                         0 2024-04-09 19:17:27         -75     1\n5:                         1 2024-04-09 19:17:27         -78     2\n6:                         0 2024-04-09 19:17:28         -76     2\n\n\n\n\n7.2.6 Step 6: Saving Aggregated Data\nFinally, we will save the aggregated data to a CSV file for future use.\n\n# Save the aggregated data to a CSV file\nfwrite(aggregated_data, \"material/ch3/aggregated_sample_1.csv\")\n\n\n\n7.2.7 Step 7: Closing the Database Connection\nAfter loading and processing the data, it is important to close the database connection to free up resources:\n\ndbDisconnect(conn)",
+    "crumbs": [
+      "PART III: Data Processing",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Aggregation</span>"
+    ]
+  },
+  {
+    "objectID": "content/a32-aggregation.html#tracking-data-changes",
+    "href": "content/a32-aggregation.html#tracking-data-changes",
+    "title": "7  Data Aggregation",
+    "section": "7.3 Tracking Data Changes",
+    "text": "7.3 Tracking Data Changes\nWe will create a table that shows how the number of packets and unique source_address changes through each step of the data aggregation process.\n\n# Initialize summary table\nsummary_table &lt;- data.table(\n  Step = character(),\n  Packet_Count = integer(),\n  Unique_Source_Addresses = integer()\n)\n\n# Initial counts\nsummary_table &lt;- rbind(summary_table, data.table(\n  Step = \"Initial\",\n  Packet_Count = nrow(wifi_data),\n  Unique_Source_Addresses = length(unique(wifi_data$source_address))\n))\n\n# After filtering by datetime range\nsummary_table &lt;- rbind(summary_table, data.table(\n  Step = \"After Datetime Filter\",\n  Packet_Count = nrow(wifi_data_filtered_time),\n  Unique_Source_Addresses = length(unique(wifi_data_filtered_time$source_address))\n))\n\n# After filtering by frame type\nsummary_table &lt;- rbind(summary_table, data.table(\n  Step = \"After Frame Type Filter\",\n  Packet_Count = nrow(wifi_data_filtered_frame),\n  Unique_Source_Addresses = length(unique(wifi_data_filtered_frame$source_address))\n))\n\n# After filtering by signal strength\nsummary_table &lt;- rbind(summary_table, data.table(\n  Step = \"After Strength Filter\",\n  Packet_Count = nrow(wifi_data_filtered_strength),\n  Unique_Source_Addresses = length(unique(wifi_data_filtered_strength$source_address))\n))\n\n# After aggregation\nsummary_table &lt;- rbind(summary_table, data.table(\n  Step = \"After Aggregation\",\n  Packet_Count = nrow(aggregated_data),\n  Unique_Source_Addresses = length(unique(aggregated_data$source_address))\n))\n\n# Print the summary table\nprint(summary_table)\n\n                      Step Packet_Count Unique_Source_Addresses\n1:                 Initial        11490                     323\n2:   After Datetime Filter         5274                     163\n3: After Frame Type Filter         3380                     123\n4:   After Strength Filter         2904                     112\n5:       After Aggregation          522                     112\n\n\nHere is the interpretation:\n\nInitial: The raw data contains 11,490 packets from 323 unique devices.\nAfter Datetime Filter: Filtering by the specified datetime range reduces the data to 5,274 packets from 163 unique devices.\nAfter Frame Type Filter: Removing “response” frame types further reduces the data to 3,380 packets from 123 unique devices.\nAfter Strength Filter: Filtering by signal strength between -30 and -80 dBm results in 2,904 packets from 112 unique devices.\nAfter Aggregation: Aggregating the data into 1-second intervals leaves us with 522 aggregated data points from the same 112 unique devices.\n\nEach step of the filtering process significantly reduces the amount of data, refining it to include only the most relevant packets and maintaining the same number of unique devices after the final aggregation step.",
+    "crumbs": [
+      "PART III: Data Processing",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Aggregation</span>"
+    ]
+  },
+  {
+    "objectID": "content/a32-aggregation.html#automating-the-process-with-a-function",
+    "href": "content/a32-aggregation.html#automating-the-process-with-a-function",
+    "title": "7  Data Aggregation",
+    "section": "7.4 Automating the Process with a Function",
+    "text": "7.4 Automating the Process with a Function\nTo streamline the process, we will create a function that performs the entire data aggregation process. This function will: 1. Load the data from the SQLite3 database. 2. Perform basic filtering by datetime, frame type, and signal strength. 3. Aggregate the data by sensor_name and source_address into specified time intervals. 4. Save the aggregated data to a CSV file.\n\naggregate_data &lt;- function(db_path, start_date, end_date, interval = \"second\", output_suffix = \"_1second.csv\") {\n  # Establish a connection to the SQLite3 database\n  conn &lt;- dbConnect(SQLite(), db_path)\n  \n  # Query the WiFi data from the database\n  wifi_data &lt;- dbGetQuery(conn, \"SELECT sensor_name, timestamp, type, subtype, strength AS rssi, source_address, source_address_randomized FROM packets\")\n  setDT(wifi_data)\n  \n  # Filter by datetime range\n  wifi_data &lt;- wifi_data[between(ymd_hms(timestamp), start_date, end_date)]\n  \n  # Filter by frame type\n  wifi_data &lt;- wifi_data[!grepl(\"response\", subtype)]\n  \n  # Filter by signal strength\n  wifi_data &lt;- wifi_data[between(rssi, -80, -30)]\n  \n  # Aggregate the data by specified intervals\n  wifi_data[, timestamp := floor_date(ymd_hms(timestamp), unit = interval)]\n  aggregated_data &lt;- wifi_data[, .(median_rssi = median(rssi), count = .N), by = .(sensor_name, source_address, source_address_randomized, timestamp)]\n  \n  # Define the output path for the aggregated data\n  output_path &lt;- sub(\"\\\\.sqlite3$\", output_suffix, db_path)\n  \n  # Save the aggregated data to a CSV file\n  fwrite(aggregated_data, output_path)\n  \n  # Close the database connection\n  dbDisconnect(conn)\n\n}\n\n# Example usage\nstart_date &lt;- ymd_hms(\"2024-04-09 19:17:00\")\nend_date &lt;- ymd_hms(\"2024-04-09 19:20:00\")\naggregate_data(\"material/ch3/sample_1.sqlite3\", start_date, end_date, interval = \"second\")\n\n\n7.4.1 Applying the Function to Multiple Databases\nWe will apply the aggregate_data function to all SQLite3 databases in the ch3 folder that contain the word “sample” in their filenames. The resulting CSV files will be saved with “_1second” appended to their original names. Using lapply is effective for applying a function over a list, but we can also use purrr::map for better readability and functionality.\n\npacman::p_load(purrr)\n\n# List all SQLite3 files in the ch3 folder that contain \"sample_\"\ndb_files &lt;- list.files(\"material/ch3\", pattern = \"sample_.*\\\\.sqlite3$\", full.names = TRUE)\nprint(db_files)\n\n[1] \"material/ch3/sample_1.sqlite3\" \"material/ch3/sample_2.sqlite3\"\n\n# Define the start and end dates for filtering\nstart_date &lt;- ymd_hms(\"2024-04-09 19:17:00\")\nend_date &lt;- ymd_hms(\"2024-04-09 19:20:00\")\n\n# Apply the aggregation function to each database file\nmap(db_files, ~aggregate_data(.x, start_date, end_date, interval = \"second\"))\n\n[[1]]\n[1] TRUE\n\n[[2]]\n[1] TRUE",
+    "crumbs": [
+      "PART III: Data Processing",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Aggregation</span>"
+    ]
+  },
+  {
+    "objectID": "content/a33-cleaning.html",
+    "href": "content/a33-cleaning.html",
+    "title": "8  Data Cleaning",
+    "section": "",
+    "text": "8.1 Loading and Combining Aggregated Data\nWe will load the aggregated data from the previously created CSV files and combine them into a single dataset.\n# Load necessary packages\nif (!require(pacman)) install.packages(\"pacman\")\n\n필요한 패키지를 로딩중입니다: pacman\n\npacman::p_load(data.table, lubridate)\n\n# List all CSV files in the ch3 folder that contain \"1second\" in their filenames\ncsv_files &lt;- list.files(\"material/ch3\", pattern = \"1second.*\\\\.csv$\", full.names = TRUE)\n\n# Load aggregated data from the CSV files and combine them\nwf_combined &lt;- rbindlist(lapply(csv_files, fread))\n\n# Print the first few rows to verify\nhead(wf_combined, 5)\n\n   sensor_name                                                   source_address\n1:         A01 d94147cf12befe41bb40dd7957733c54442de7a9d45a75ec3c747856c4bdc129\n2:         A01 5e69a0bc9bd73c0b72642e2e0f4f99670b85e8fdf4616bc19fb1f8d63107bfe5\n3:         A01 05d29a432f4ff4c5f2e49e185334619d4365ef65370fcf9891bc7b1f8c0a68b6\n4:         A01 a6a0a285818a48c083c72c885283f1652208b3239f70e859f49067b36781acc6\n5:         A01 b3268f2d7ca90e7ea3ff549decbf484d478c3eaf28784a7bbfbd5aaee22d3a6a\n   source_address_randomized           timestamp median_rssi count\n1:                         1 2024-04-09 19:17:27         -66     2\n2:                         1 2024-04-09 19:17:27         -75     2\n3:                         0 2024-04-09 19:17:27         -78     2\n4:                         0 2024-04-09 19:17:27         -75     1\n5:                         1 2024-04-09 19:17:27         -78     2",
+    "crumbs": [
+      "PART III: Data Processing",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Cleaning</span>"
+    ]
+  },
+  {
+    "objectID": "content/a33-cleaning.html#filtering-by-device-characteristics",
+    "href": "content/a33-cleaning.html#filtering-by-device-characteristics",
+    "title": "8  Data Cleaning",
+    "section": "8.2 Filtering by Device Characteristics",
+    "text": "8.2 Filtering by Device Characteristics\n\n8.2.1 Removal of Random MAC Addresses\nRandom MAC addresses can lead to duplicate counting and inconsistent data. We will identify and remove entries with random MAC addresses where source_address_randomized is 1.\n\n# Remove entries with random MAC addresses\nwf_filtered_1 &lt;- wf_combined[source_address_randomized != 1]\n\n\n\n8.2.2 Removal of Non-Mobile Devices\nWe will filter out non-mobile devices from our dataset. Non-mobile devices typically exhibit characteristics such as being detected by fewer sensors and being present in the same location for extended periods. We will use two main criteria to identify and remove these non-mobile devices:\n\nDetected by fewer sensors: Devices detected by a small number of sensors are likely to be non-mobile.\nDetected for long durations: Devices detected for long periods in the same location are also likely to be non-mobile.\n\n\nStep 1: Define Filtering Thresholds\nDefine the thresholds for filtering. You can adjust these values based on your dataset and analysis needs.\n\n# Define thresholds for filtering non-mobile devices\nsensor_threshold_percentile &lt;- 0.3  # Devices detected by fewer sensors: the 30th percentile\nduration_threshold_hours &lt;- 12      # Devices detected for long durations: at least 12 hours in a day\n\n\n\nStep 2: Calculate the Number of Unique Sensors\nCalculate the number of unique sensors that detected each device.\n\n# Calculate the number of unique sensors detecting each device\ndevice_sensor_counts &lt;- wf_filtered_1[, .(sensor_count = uniqueN(sensor_name)), by = source_address]\n\n\n\nStep 3: Identify Devices Detected by Fewer Sensors\nIdentify devices that are detected by a small number of sensors, below the defined threshold.\n\n# Identify devices detected by fewer sensors (below the specified percentile)\nlow_detection_threshold &lt;- quantile(device_sensor_counts$sensor_count, sensor_threshold_percentile)\nlow_detection_devices &lt;- device_sensor_counts[sensor_count &lt;= low_detection_threshold, source_address]\n\n# Filter dataset to keep only devices detected by fewer sensors\nwf_filtered_2 &lt;- wf_filtered_1[source_address %in% low_detection_devices]\n\n\n\nStep 4: Identify Devices Detected for Long Durations\nIdentify devices that are detected for at least the specified number of hours in a day.\n\n# Further filter to identify devices detected for at least the specified duration in a day\nlong_duration_devices &lt;- wf_filtered_2[, .(date = as.Date(timestamp), hour = hour(ymd_hms(timestamp))), by = source_address][, .N, by = .(source_address, date, hour)][, .N, by = .(source_address, date)][N &gt;= duration_threshold_hours, source_address]\n\n\n\nStep 5: Remove Non-Mobile Devices\nCombine the criteria to identify non-mobile devices and remove them from the dataset.\n\n# Identify and remove non-mobile devices that are detected continuously\nnon_mobile_devices &lt;- intersect(low_detection_devices, long_duration_devices)\n\n# Remove non-mobile devices from the dataset\nwf_filtered_3 &lt;- wf_filtered_1[!source_address %in% non_mobile_devices]\n\n\n\n\n8.2.3 Removal of Rarely Detected Devices\nWe will filter out rarely detected devices from our dataset. Rarely detected devices typically have very few packet counts, which can introduce noise and reduce the reliability of our analysis. We will use the following steps to identify and remove these devices:\n\nCalculate total packet counts per device: Sum the number of packets detected for each device.\nDefine a threshold: Set a threshold based on a chosen percentile of the packet counts. Ensure a minimum threshold of 5.\nRemove rarely detected devices: Filter out devices with packet counts below the threshold.\n\n\nStep 1: Define Threshold\nDefine the threshold for filtering. You can adjust these values based on your dataset and analysis needs.\n\n# Define the percentile threshold for packet counts\npacket_threshold_percentile &lt;- 0.50  # 50th percentile for packet counts (adjust based on visualization)\n\n# Define the minimum threshold for packet counts\nmin_packet_threshold &lt;- 5            # Minimum threshold of 5 packets\n\n\n\nStep 2: Calculate Total Packet Counts\nCalculate the total number of packets detected for each device.\n\n# Calculate the total number of packets detected for each device\ndevice_packet_counts &lt;- wf_filtered_3[, .(sum_packet = .N), by = source_address]\n\n\n\nStep 3: Determine Final Threshold\nSet a final threshold based on the chosen percentile of the packet counts. Ensure a minimum threshold of 5.\n\n# Calculate the chosen percentile threshold for packet counts\nthresh_short &lt;- quantile(device_packet_counts$sum_packet, packet_threshold_percentile, na.rm = TRUE)\n\n# Ensure the threshold is not less than the minimum packet threshold\nif (is.na(thresh_short) || thresh_short &lt; min_packet_threshold) {\n  thresh_short &lt;- min_packet_threshold\n}\n\n\n\n\n\n\n\nExplanation for Choosing the 50th Percentile and a Minimum of 5\n\n\n\n\n\nTo better understand why the 50th percentile (median) and a minimum threshold of 5 were chosen, we visualize the distribution of packet counts per device.\n\n# Load necessary package for visualization\nlibrary(ggplot2)\n\n# Calculate the 50th percentile (median) of the packet counts\nmedian_packet_count &lt;- quantile(device_packet_counts$sum_packet, 0.50)\n\n# Plot the distribution of packet counts with the 50th percentile marked\nggplot(device_packet_counts, aes(x = sum_packet)) +\n  geom_histogram(binwidth = 10, fill = \"blue\", color = \"black\") +  # Histogram of packet counts\n  geom_vline(aes(xintercept = median_packet_count), color = \"red\", linetype = \"dashed\", size = 1) +  # Add a red dashed line for the 50th percentile\n  labs(title = \"Distribution of Packet Counts per Device\", \n       x = \"Total Packet Count\", \n       y = \"Frequency\") +\n  annotate(\"text\", x = median_packet_count + 10, y = max(table(device_packet_counts$sum_packet)), \n           label = paste(\"50th Percentile =\", median_packet_count), color = \"red\", vjust = -1, size = 3)  # Annotate the 50th percentile\n\nWarning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.\nℹ Please use `linewidth` instead.\n\n\n\n\n\n\n\n\n\nThe histogram shows the distribution of total packet counts per device. Each bar represents the frequency of devices with a certain range of packet counts. The red dashed line indicates the 50th percentile (median) of the packet counts, which is 2. This means that 50% of the devices have 2 or fewer packets. The annotation next to the red dashed line shows the exact value of the 50th percentile.\nChoosing the 50th percentile as the threshold balances the dataset by removing the least active 50% of devices, which are likely to introduce noise. It provides a reliable central tendency measure, robust against outliers.\nSetting a minimum threshold of 5 packets ensures that devices with very low activity are removed, even if they fall above the 50th percentile. This focuses the dataset on devices with sufficient data for meaningful analysis.\nThese thresholds enhance the quality and reliability of the WiFi data used for analysis. Adjust the packet_threshold_percentile variable as needed based on your dataset.\n\n\n\n\n\n8.2.3.1 Step 4: Remove Rarely Detected Devices\nFilter out devices with packet counts below the threshold.\n\n# Identify rarely detected devices with packet counts below the threshold\nrarely_detected_devices &lt;- device_packet_counts[sum_packet &lt;= thresh_short, source_address]\n\n# Remove rarely detected devices from the dataset\nwf_final &lt;- wf_filtered_3[!source_address %in% rarely_detected_devices]",
+    "crumbs": [
+      "PART III: Data Processing",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Cleaning</span>"
+    ]
+  },
+  {
+    "objectID": "content/a33-cleaning.html#verification-of-filtering-steps",
+    "href": "content/a33-cleaning.html#verification-of-filtering-steps",
+    "title": "8  Data Cleaning",
+    "section": "8.3 Verification of Filtering Steps",
+    "text": "8.3 Verification of Filtering Steps\nTo ensure that the filtering steps have been correctly applied, we will summarize the number of unique devices and the total packet counts at each step.\n\n# Create a summary table to verify filtering steps\nfilter_table &lt;- data.table(\n  step = c(\"Initial\", \"After Removal of Random MACs\", \"After Removal of Non-Mobile Devices\", \"After Removal of Rarely Detected Devices (Final)\"),\n  unique_MAC = c(length(unique(wf_combined$source_address)),  # Number of unique devices after each step\n                 length(unique(wf_filtered_1$source_address)),\n                 length(unique(wf_filtered_3$source_address)),\n                 length(unique(wf_final$source_address))),  # After final filtering\n  sum_packet = c(nrow(wf_combined),  # Total packet counts after each step\n                 nrow(wf_filtered_1),\n                 nrow(wf_filtered_3),\n                 nrow(wf_final))  # After final filtering\n)\n\n# Print the summary table to verify filtering steps\nprint(filter_table)\n\n                                               step unique_MAC sum_packet\n1:                                          Initial        243       2694\n2:                     After Removal of Random MACs        178       1300\n3:              After Removal of Non-Mobile Devices        178       1300\n4: After Removal of Rarely Detected Devices (Final)         41       1034\n\n\nThe verification table provides a summary of the filtering process, showing the impact of each filtering step:\n\nInitial: The combined dataset contains 243 unique MAC addresses with a total of 2,694 packets.\nAfter Removal of Random MACs: Removing random MAC addresses reduces the dataset to 178 unique MAC addresses and 1,300 packets.\nAfter Removal of Non-Mobile Devices: Filtering out non-mobile devices does not reduce the dataset further, indicating that no devices met the non-mobile criteria within this dataset’s timeframe.\nAfter Removal of Rarely Detected Devices (Final): The final step reduces the dataset to 41 unique MAC addresses and 1,034 packets, ensuring that only devices with sufficient data for meaningful analysis are included.\n\nThe reason for no reduction in the number of non-mobile devices in step 3 is likely due to the short duration of the example dataset. Non-mobile devices are typically identified over longer periods (e.g., 12 hours), and this dataset may not provide enough data to meet that criterion.",
+    "crumbs": [
+      "PART III: Data Processing",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Cleaning</span>"
+    ]
+  },
+  {
+    "objectID": "content/a33-cleaning.html#efficient-data-cleaning-with-a-function",
+    "href": "content/a33-cleaning.html#efficient-data-cleaning-with-a-function",
+    "title": "8  Data Cleaning",
+    "section": "8.4 Efficient Data Cleaning with a Function",
+    "text": "8.4 Efficient Data Cleaning with a Function\nTo streamline the data cleaning process, we will create a function that performs all the filtering steps in one go. This function will:\n\nLoad the aggregated data from the specified CSV files.\nRemove entries with random MAC addresses.\nIdentify and remove non-mobile devices based on the defined thresholds.\nIdentify and remove rarely detected devices based on the chosen percentile and minimum threshold.\nReturn the cleaned dataset.\n\n\nCreating the Data Cleaning Function\n\n# Load necessary packages\nif (!require(pacman)) install.packages(\"pacman\")\npacman::p_load(data.table, lubridate)\n\n# Define the data cleaning function\nclean_wifi_data &lt;- function(csv_files, sensor_threshold_percentile, duration_threshold_hours, packet_threshold_percentile, min_packet_threshold) {\n  # Load and combine the aggregated data\n  wf_combined &lt;- rbindlist(lapply(csv_files, fread))\n  \n  # Step 1: Remove entries with random MAC addresses\n  wf_filtered_1 &lt;- wf_combined[source_address_randomized != 1]\n  \n  # Step 2: Identify and remove non-mobile devices\n  device_sensor_counts &lt;- wf_filtered_1[, .(sensor_count = uniqueN(sensor_name)), by = source_address]\n  low_detection_threshold &lt;- quantile(device_sensor_counts$sensor_count, sensor_threshold_percentile)\n  low_detection_devices &lt;- device_sensor_counts[sensor_count &lt;= low_detection_threshold, source_address]\n  \n  wf_filtered_2 &lt;- wf_filtered_1[source_address %in% low_detection_devices]\n  long_duration_devices &lt;- wf_filtered_2[, .(date = as.Date(timestamp), hour = hour(ymd_hms(timestamp))), by = source_address][, .N, by = .(source_address, date, hour)][, .N, by = .(source_address, date)][N &gt;= duration_threshold_hours, source_address]\n  non_mobile_devices &lt;- intersect(low_detection_devices, long_duration_devices)\n  wf_filtered_3 &lt;- wf_filtered_1[!source_address %in% non_mobile_devices]\n  \n  # Step 3: Identify and remove rarely detected devices\n  device_packet_counts &lt;- wf_filtered_3[, .(sum_packet = .N), by = source_address]\n  thresh_short &lt;- quantile(device_packet_counts$sum_packet, packet_threshold_percentile, na.rm = TRUE)\n  if (is.na(thresh_short) || thresh_short &lt; min_packet_threshold) {\n    thresh_short &lt;- min_packet_threshold\n  }\n  \n  rarely_detected_devices &lt;- device_packet_counts[sum_packet &lt;= thresh_short, source_address]\n  wf_final &lt;- wf_filtered_3[!source_address %in% rarely_detected_devices]\n  \n  return(wf_final)\n}\n\n# Define parameters\nsensor_threshold_percentile &lt;- 0.3  # Devices detected by fewer sensors: the 30th percentile\nduration_threshold_hours &lt;- 12      # Devices detected for long durations: at least 12 hours in a day\npacket_threshold_percentile &lt;- 0.50  # 50th percentile for packet counts (adjust based on visualization)\nmin_packet_threshold &lt;- 5            # Minimum threshold of 5 packets\n\n# Example usage\ncsv_files &lt;- list.files(\"material/ch3\", pattern = \"1second.*\\\\.csv$\", full.names = TRUE)\ncleaned_data &lt;- clean_wifi_data(csv_files, sensor_threshold_percentile, duration_threshold_hours, packet_threshold_percentile, min_packet_threshold)\n\n# Print the first few rows of the cleaned data to verify\nhead(cleaned_data)\n\n   sensor_name                                                   source_address\n1:         A01 05d29a432f4ff4c5f2e49e185334619d4365ef65370fcf9891bc7b1f8c0a68b6\n2:         A01 4231b032c132f88544dd3911db51c02ec1c5b69384263fbac31877f2ae76e76f\n3:         A01 22bfd77a8079ab42a42c3dbdea797fa7162d7729dfe454392c6c89fed5d56306\n4:         A01 4231b032c132f88544dd3911db51c02ec1c5b69384263fbac31877f2ae76e76f\n5:         A01 4231b032c132f88544dd3911db51c02ec1c5b69384263fbac31877f2ae76e76f\n6:         A01 05d29a432f4ff4c5f2e49e185334619d4365ef65370fcf9891bc7b1f8c0a68b6\n   source_address_randomized           timestamp median_rssi count\n1:                         0 2024-04-09 19:17:27         -78     2\n2:                         0 2024-04-09 19:17:29         -75    15\n3:                         0 2024-04-09 19:17:29         -75     2\n4:                         0 2024-04-09 19:17:30         -77     9\n5:                         0 2024-04-09 19:17:31         -77     9\n6:                         0 2024-04-09 19:17:31         -76     2\n\n\nThis function automates the entire data cleaning process, making it easier and faster to clean large datasets. Adjust the parameters as needed based on your specific dataset and analysis requirements.",
+    "crumbs": [
+      "PART III: Data Processing",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Cleaning</span>"
+    ]
+  },
+  {
+    "objectID": "content/a41-overview.html",
+    "href": "content/a41-overview.html",
+    "title": "9  Metrics Overview",
+    "section": "",
+    "text": "We explore how WiFi gives us a snapshot of urban life. It’s about identifying where people are (Location), counting them (Count), tracking their movements (Track), identifying patterns (Identify), and understanding their actions (Activities). A graphic will illustrate these concepts step by step:\n\n\n\nOverview of WiFi Sensing Metrics: From Pinpointing Locations to Understanding Urban Activities\n\n\n\nGround Truth: What’s Really Happening?\nWe start with the ‘Ground Truth’—observing what’s actually happening on the ground. This real-life observation helps us validate our WiFi data findings. It’s the benchmark against which we measure the accuracy of our WiFi sensing data.\n\n\nLocation: Where Are People at a Specific Time?\n‘Location’ is determined by analyzing the characteristics of WiFi signals at a given time, such as signal frequency and strength. Depending on the situation, we might assign locations based on sensor positions or estimate them in areas between sensors.\n\n\n\n\n\n\nWhy Location Comes Before Count\n\n\n\n\n\nBefore counting, we must pinpoint location. Without knowing where devices are, we just have a total count.\nImagine a room with three people, just like in the diagram above:\n\nWithout location data, counting detected device MAC addresses only tells you there are three devices total.\nWith even rough location data, you can determine that two devices are on the left and one on the right – providing much richer information.\n\n\n\n\n\n\nCount: How Many Over Time?\n‘Count’ focuses on tallying unique MAC addresses to estimate how many people are in an area over different timescales. This method allows for long-term tracking of device presence, offering insights into occupancy trends over extended periods.\n\n\nTrack: Where and When Did They Move?\n‘Track’ involves recording when and where phones are detected. This data lets us follow people’s movements, highlighting the dynamic patterns of city life and offering insights into how different areas are used throughout the day.\n\n\nIdentify: Who Visits Regularly and What Are Their Patterns?\nWith ‘Identify’, we analyze data over time to recognize regular visitors and understand their movement habits. This metric provides insights into recurring traffic patterns and the behaviors of different user groups within the city.\n\n\nActivities: What Are They Doing and How Does It Change?\n‘Activities’ aims to understand actions by analyzing timing and movement data. We look at how people use different city areas, observing changes in activity patterns at different times and days to gain a deeper understanding of urban life.",
+    "crumbs": [
+      "PART IV: Understanding Metrics",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Metrics Overview</span>"
+    ]
+  }
+]

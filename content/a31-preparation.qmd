@@ -12,19 +12,17 @@ The WiFi data collected using the Urban Sensing system is typically stored in an
 
 ### Required R Packages
 
-To load the WiFi data from the SQLite3 database into R, we will use the RSQLite and DBI packages. These packages provide the necessary functions and interfaces to establish a connection to the database and execute SQL queries.
-
-For a more streamlined and efficient process, we'll utilize the pacman package, which offers the `p_load` function. This function automatically installs and loads the necessary packages if they are not already installed.
+To load the WiFi data from the SQLite3 database into R, we will use the RSQLite and DBI packages. These packages provide the necessary functions and interfaces to establish a connection to the database and execute SQL queries. For a more streamlined and efficient process, we'll utilize the pacman package, which offers the `p_load` function. This function automatically installs and loads the necessary packages if they are not already installed.
 
 First, ensure the `pacman` package is installed and loaded:
 
-```{r, warning = FALSE}
+``` {r}
 if (!require(pacman)) install.packages("pacman")
 ```
 
 Next, use `p_load` from `pacman` to install and load the `RSQLite` and `DBI` packages, essential for interfacing with SQLite databases:
 
-```{r}
+``` {r}
 pacman::p_load(RSQLite, DBI, data.table, knitr)
 ```
 
@@ -32,32 +30,30 @@ pacman::p_load(RSQLite, DBI, data.table, knitr)
 
 To establish a connection to the SQLite3 database, we use the `dbConnect()` function from the DBI package. This function takes the database driver (in this case, `SQLite()`) and the path to the database file as arguments.
 
-```{r}
-#| eval: false
+``` {r, eval = FALSE}
 conn <- dbConnect(SQLite(), "path/to/your/database.sqlite")
 ```
 
 Replace `"path/to/your/database.sqlite"` with the actual path to your SQLite3 database file.
 
 ::: {.callout-note title="If you don't have the WiFi DB"}
-Download [this](material/ch3/sample.sqlite3)
+Download [this](material/ch3/sample_1.sqlite3)
 :::
 
-```{r}
+``` {r}
 #| echo: false
-conn <- dbConnect(SQLite(), "material/ch3/sample.sqlite3")
+conn <- dbConnect(SQLite(), "material/ch3/sample_1.sqlite3")
 ```
 
 ### Querying WiFi Data from the Database
 
 To load the WiFi data from the "packets" table, we use the` dbGetQuery()` function. This function takes the database connection object and an SQL query as arguments. The SQL query specifies the table and columns to retrieve.
 
-```{r}
+``` {r}
 wifi_data <- dbGetQuery(conn, "SELECT * FROM packets")
 ```
 
-```{r}
-#| echo: false
+``` {r, echo = FALSE}
 kable(data.table(wifi_data)[1:5])
 ```
 
@@ -65,45 +61,43 @@ kable(data.table(wifi_data)[1:5])
 
 When working with data in R, it's often necessary to save the data locally for future use or sharing with others. In this section, we'll explore three common methods for saving the `wifi_data` dataset on your local machine.
 
-```{r}
+``` {r, eval = false}
 #| eval: false
 fwrite(wifi_data, "path/to/your/database.csv")
 ```
 
 Replace `"path/to/your/database.csv"` with the actual path to your SQLite3 database file.
 
-```{r}
-#| echo: false
-fwrite(wifi_data, "material/ch3/sample.csv")
+``` {r, echo = FALSE}
+fwrite(wifi_data, "material/ch3/sample_1_raw.csv")
 ```
-
 
 ### Closing the Database Connection
 
 After loading the data, it is important to close the database connection to free up resources:
 
-```{r}
-dbDisconnect(conn, "path/to/your/database.csv")
+``` {r}
+dbDisconnect(conn)
 ```
 
 ## Exploring the Loaded WiFi Data
 
 The WiFi data loaded into R consists of several key attributes that provide valuable information for pedestrian behavior analysis. Let's explore each of these attributes in more detail:
 
-| Attribute              | Description                                                                                                                                                                                          |
-|------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| timestamp              | The timestamp indicates the exact date and time when the packet was captured by the sensor. It allows for temporal analysis of pedestrian behavior patterns, such as identifying peak hours or days. |
-| type                   | The type column specifies the category of the captured packet. For example, "Management" indicates that the packet is a management frame used for network management and control purposes.           |
-| subtype                | The subtype column provides more specific information about the type of packet. In this example, a subtype of "Probe Request" indicates that the device is actively searching for nearby access points.|
-| strength               | The signal strength of the received packet is recorded in decibel-milliwatts (dBm). Lower values (e.g., -80 dBm) indicate weaker signals, while higher values (e.g., -30 dBm) indicate stronger signals, suggesting closer proximity to the sensor.|
-| source_address         | The source address represents the hashed MAC address of the device sending the packet. While the actual MAC address is anonymized for privacy reasons, the hashed value still enables unique identification of devices.|
-| source_randomized      | This column indicates whether the source address is randomized (1) or not (0). Randomized addresses are used by devices to enhance privacy by frequently changing the MAC address.                     |
-| destination_address    | The destination address represents the hashed MAC address of the intended recipient of the packet, which could be an access point or another device.                                                 |
-| destination_randomized | This column indicates whether the destination address is randomized (1) or not (0), similar to the source_randomized attribute.                                                                       |
-| access_point_name      | The access point name, also known as the SSID (Service Set Identifier), is the human-readable name of the access point that the device is trying to discover or connect to.                           |
-| access_point_address   | The access point address represents the hashed MAC address of the access point. It uniquely identifies the access point within the network.                                                          |
-| access_point_randomized| This column indicates whether the access point address is randomized (1) or not (0). Randomized access point addresses are less common but can be used in some scenarios.                             |
-| sequence_number        | The sequence number is a unique identifier assigned to each packet within a sequence of packets. It helps in ordering and identifying packets, which can be useful for tracking device behavior over time.|
-| channel                | The channel attribute indicates the specific WiFi channel on which the packet was transmitted. WiFi channels are numbered from 1 to 14 (with some regional variations) and operate on different frequencies to minimize interference.|
-| sensor_name            | The sensor name attribute identifies the specific sensor that captured the packet. It allows for spatial analysis and understanding of pedestrian behavior across different sensor locations.          |
-| info                   | The info column typically contains the raw WiFi packet data. However, if you have followed the privacy guidelines in this book, the info column would be blanked out to protect sensitive information.|
+| Attribute                      | Description                                                                                                                                                        |
+|-------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `timestamp`                   | The timestamp indicates the exact date and time when the packet was captured by the sensor. It allows for temporal analysis of pedestrian behavior patterns.       |
+| `type`                        | Specifies the category of the captured packet. For example, “Management” indicates that the packet is a management frame used for network management and control.   |
+| `subtype`                     | Provides more specific information about the type of packet. A subtype of “Probe Request” indicates that the device is actively searching for nearby access points. |
+| `strength`                    | The signal strength of the received packet is recorded in decibel-milliwatts (dBm). Lower values indicate weaker signals, while higher values suggest closer proximity.|
+| `source_address`              | Represents the hashed MAC address of the device sending the packet. The hashed value enables unique identification while preserving privacy.                         |
+| `source_address_randomized`   | Indicates whether the source address is randomized (1) or not (0). Randomized addresses enhance privacy by frequently changing the MAC address.                    |
+| `destination_address`         | Represents the hashed MAC address of the intended recipient of the packet, which could be an access point or another device.                                        |
+| `destination_address_randomized`| Indicates whether the destination address is randomized (1) or not (0), similar to the `source_address_randomized` attribute.                                      |
+| `access_point_name`           | The access point name (SSID) is the human-readable name of the access point that the device is trying to discover or connect to.                                     |
+| `access_point_address`        | Represents the hashed MAC address of the access point. It uniquely identifies the access point within the network.                                                 |
+| `access_point_address_randomized`| Indicates whether the access point address is randomized (1) or not (0).                                                                                         |
+| `sequence_number`             | A unique identifier assigned to each packet within a sequence of packets. It helps in ordering and identifying packets, useful for tracking device behavior.        |
+| `channel`                     | Indicates the specific WiFi channel on which the packet was transmitted. WiFi channels operate on different frequencies to minimize interference.                    |
+| `sensor_name`                 | Identifies the specific sensor that captured the packet. It allows for spatial analysis and understanding of pedestrian behavior across different sensor locations.  |
+| `info`                        | Typically contains the raw WiFi packet data. If privacy guidelines are followed, the `info` column would be blanked out to protect sensitive information.          |

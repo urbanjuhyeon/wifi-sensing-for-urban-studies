@@ -1,7 +1,7 @@
 project:
   type: book
   output-dir: docs
-
+  
 book:
   title: "Sensing Urban Dynamics with WiFi: A Practical Guide"
   author: Juhyeon Park
@@ -25,11 +25,12 @@ book:
     - part: content/a30-processing.qmd
       chapters:
       - content/a31-preparation.qmd
-      - content/a32-cleaning.qmd
-      - content/a33-preprocessing.qmd
+      - content/a32-aggregation.qmd
+      - content/a33-cleaning.qmd      
     - part: content/a40-metric.qmd
       chapters:
       - content/a41-overview.qmd
+      - content/a42-location.qmd
       - content/a43-count.qmd
       - content/a44-track.qmd
       - content/a45-identity.qmd
@@ -50,11 +51,5 @@ bibliography: references.bib
 format:
   html:
     theme: [cosmo, custom.scss]
-  pdf:
-    documentclass: scrbook
-    # Fixes 'Undefined control sequence \cellcolor' error
-    include-in-header:
-      - text: |
-          \usepackage[table]{xcolor}
 
 editor: source

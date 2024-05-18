@@ -2,6 +2,7 @@
 number-sections: true
 ---
 
+
 # Initial Setup
 
 This segment guides you through the complete process of setting up a Raspberry Pi, including the installation of the operating system *(2.1)*, various methods for connecting and accessing your Pi remotely *(2.2, 2.3, 2.4, 2.5)*. Additional troubleshooting and advanced setup tips are also provided in section *(2.6)*.
