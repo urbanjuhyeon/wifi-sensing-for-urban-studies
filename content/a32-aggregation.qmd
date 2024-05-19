@@ -8,7 +8,7 @@ If you have your own SQLite3 database file, you can use it for this process. If 
 If you don't have your own dataset, download our example SQLite3 database file [here](material/ch3/sample.zip).
 :::
 
-## Setup
+## Step-by-Step Data Aggregation
 
 ### Loading Packages
 
@@ -22,9 +22,7 @@ if (!require(pacman)) install.packages("pacman")
 pacman::p_load(RSQLite, DBI, data.table, lubridate)
 ```
 
-## Step-by-Step Data Aggregation
-
-### Step 1: Loading the Data
+### Loading the Data
 
 First, we will load the WiFi data from the SQLite3 database.
 
@@ -42,7 +40,7 @@ setDT(wifi_data)
 head(wifi_data)
 ```
 
-### Step 2: Filtering by Time
+### Filtering by Time
 
 To focus on a specific time period for our analysis, we will define a start and end date using the `ymd_hms` function from the `lubridate` package. We will then filter the data to include only rows within our specified datetime range.
 
@@ -57,7 +55,7 @@ wifi_data_filtered_time <- wifi_data[
 ]
 ```
 
-### Step 3: Filtering by Frame Type
+### Filtering by Frame Type
 
 Certain `subtypes` of packets may not be relevant for our purposes. We will remove rows where the `subtype` column contains the word "response".
 
@@ -88,7 +86,7 @@ We remove "response" packets because they are sent from APs to devices, not from
 | Data       | qos-null              | 2,253,010           | 8.4%                     |
 :::
 
-### Step 4: Filtering by Signal Strength
+### Filtering by Signal Strength
 
 The signal strength (RSSI) of WiFi packets can provide valuable information about the proximity and location of devices. We will filter our data to include only rows where the `rssi` column falls between -30 and -80 dBm.
 
@@ -103,7 +101,7 @@ We filter the signal strength to remove extreme values. Very strong signals (abo
 :::
 
 
-### Step 5: Aggregating Data by Time Intervals
+### Aggregating Data by Time Intervals
 
 We will aggregate the data by `sensor_name` and `source_address` into specified time intervals. This involves rounding the `timestamp` to the nearest interval and then summarizing the data.
 
@@ -125,7 +123,7 @@ aggregated_data <- aggregate_intervals(wifi_data_filtered_strength, "second")
 head(aggregated_data)
 ```
 
-### Step 6: Saving Aggregated Data
+### Saving Aggregated Data
 
 Finally, we will save the aggregated data to a CSV file for future use.
 
@@ -134,7 +132,7 @@ Finally, we will save the aggregated data to a CSV file for future use.
 fwrite(aggregated_data, "material/ch3/aggregated_sample_1.csv")
 ```
 
-### Step 7: Closing the Database Connection
+### Closing the Database Connection
 
 After loading and processing the data, it is important to close the database connection to free up resources:
 
@@ -251,7 +249,7 @@ aggregate_data("material/ch3/sample_1.sqlite3", start_date, end_date, interval =
 
 ```
 
-### Applying the Function to Multiple Databases
+### Applying the Function to Multiple Databases {.unnumbered}
 
 We will apply the `aggregate_data` function to all SQLite3 databases in the `ch3` folder that contain the word "sample" in their filenames. The resulting CSV files will be saved with "_1second" appended to their original names. Using `lapply` is effective for applying a function over a list, but we can also use `purrr::map` for better readability and functionality.
 

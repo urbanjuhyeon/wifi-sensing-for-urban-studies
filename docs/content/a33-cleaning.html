@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.554">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -342,13 +342,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#removal-of-random-mac-addresses" id="toc-removal-of-random-mac-addresses" class="nav-link" data-scroll-target="#removal-of-random-mac-addresses"><span class="header-section-number">8.2.1</span> Removal of Random MAC Addresses</a></li>
   <li><a href="#removal-of-non-mobile-devices" id="toc-removal-of-non-mobile-devices" class="nav-link" data-scroll-target="#removal-of-non-mobile-devices"><span class="header-section-number">8.2.2</span> Removal of Non-Mobile Devices</a></li>
-  <li><a href="#removal-of-rarely-detected-devices" id="toc-removal-of-rarely-detected-devices" class="nav-link" data-scroll-target="#removal-of-rarely-detected-devices"><span class="header-section-number">8.2.3</span> Removal of Rarely Detected Devices</a></li>
+  <li><a href="#verification-of-filtering-steps" id="toc-verification-of-filtering-steps" class="nav-link" data-scroll-target="#verification-of-filtering-steps"><span class="header-section-number">8.2.3</span> Verification of Filtering Steps</a></li>
   </ul></li>
-  <li><a href="#verification-of-filtering-steps" id="toc-verification-of-filtering-steps" class="nav-link" data-scroll-target="#verification-of-filtering-steps"><span class="header-section-number">8.3</span> Verification of Filtering Steps</a></li>
-  <li><a href="#efficient-data-cleaning-with-a-function" id="toc-efficient-data-cleaning-with-a-function" class="nav-link" data-scroll-target="#efficient-data-cleaning-with-a-function"><span class="header-section-number">8.4</span> Efficient Data Cleaning with a Function</a>
-  <ul class="collapse">
-  <li><a href="#creating-the-data-cleaning-function" id="toc-creating-the-data-cleaning-function" class="nav-link" data-scroll-target="#creating-the-data-cleaning-function">Creating the Data Cleaning Function</a></li>
-  </ul></li>
+  <li><a href="#efficient-data-cleaning-with-a-function" id="toc-efficient-data-cleaning-with-a-function" class="nav-link" data-scroll-target="#efficient-data-cleaning-with-a-function"><span class="header-section-number">8.3</span> Efficient Data Cleaning with a Function</a></li>
   </ul>
 </nav>
     </div>
@@ -374,7 +370,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>In this section, we will clean the aggregated WiFi data to ensure it is suitable for analysis. We will start by loading the aggregated data from CSV files, combine them, and then apply various filtering techniques to remove random MAC addresses, non-mobile devices, and rarely detected devices.</p>
+<p>In this section, we will clean the aggregated WiFi data to ensure it is suitable for analysis. We will start by loading the aggregated data from CSV files, combine them, and then apply various filtering techniques to remove random MAC addresses and non-mobile devices.</p>
 <section id="loading-and-combining-aggregated-data" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="loading-and-combining-aggregated-data"><span class="header-section-number">8.1</span> Loading and Combining Aggregated Data</h2>
 <p>We will load the aggregated data from the previously created CSV files and combine them into a single dataset.</p>
@@ -384,19 +380,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-stderr">
 <pre><code>필요한 패키지를 로딩중입니다: pacman</code></pre>
 </div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: 패키지 'pacman'는 R 버전 4.2.3에서 작성되었습니다</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(data.table, lubridate)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># List all CSV files in the ch3 folder that contain "1second" in their filenames</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>csv_files <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="st">"material/ch3"</span>, <span class="at">pattern =</span> <span class="st">"1second.*</span><span class="sc">\\</span><span class="st">.csv$"</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Load aggregated data from the CSV files and combine them</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>wf_combined <span class="ot">&lt;-</span> <span class="fu">rbindlist</span>(<span class="fu">lapply</span>(csv_files, fread))</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the first few rows to verify</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(wf_combined, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(data.table, lubridate)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># List all CSV files in the ch3 folder that contain "1second" in their filenames</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>csv_files <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="st">"material/ch3"</span>, <span class="at">pattern =</span> <span class="st">"1second.*</span><span class="sc">\\</span><span class="st">.csv$"</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Load aggregated data from the CSV files and combine them</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>wf_combined <span class="ot">&lt;-</span> <span class="fu">rbindlist</span>(<span class="fu">lapply</span>(csv_files, fread))</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the first few rows to verify</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(wf_combined, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   sensor_name                                                   source_address
 1:         A01 d94147cf12befe41bb40dd7957733c54442de7a9d45a75ec3c747856c4bdc129
@@ -419,8 +412,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-number="8.2.1" class="anchored" data-anchor-id="removal-of-random-mac-addresses"><span class="header-section-number">8.2.1</span> Removal of Random MAC Addresses</h3>
 <p>Random MAC addresses can lead to duplicate counting and inconsistent data. We will identify and remove entries with random MAC addresses where <code>source_address_randomized</code> is 1.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove entries with random MAC addresses</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>wf_filtered_1 <span class="ot">&lt;-</span> wf_combined[source_address_randomized <span class="sc">!=</span> <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove entries with random MAC addresses</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>wf_filtered_1 <span class="ot">&lt;-</span> wf_combined[source_address_randomized <span class="sc">!=</span> <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="removal-of-non-mobile-devices" class="level3" data-number="8.2.2">
@@ -430,275 +423,178 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Detected by fewer sensors</strong>: Devices detected by a small number of sensors are likely to be non-mobile.</li>
 <li><strong>Detected for long durations</strong>: Devices detected for long periods in the same location are also likely to be non-mobile.</li>
 </ol>
+<p>The following steps outline the process of identifying and removing non-mobile devices using these criteria.</p>
 <section id="step-1-define-filtering-thresholds" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="step-1-define-filtering-thresholds"><strong>Step 1: Define Filtering Thresholds</strong></h4>
 <p>Define the thresholds for filtering. You can adjust these values based on your dataset and analysis needs.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define thresholds for filtering non-mobile devices</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>sensor_threshold_percentile <span class="ot">&lt;-</span> <span class="fl">0.3</span>  <span class="co"># Devices detected by fewer sensors: the 30th percentile</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>duration_threshold_hours <span class="ot">&lt;-</span> <span class="dv">12</span>      <span class="co"># Devices detected for long durations: at least 12 hours in a day</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define thresholds for filtering non-mobile devices</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>sensor_threshold_percentile <span class="ot">&lt;-</span> <span class="fl">0.3</span>  <span class="co"># Devices detected by fewer sensors: the 30th percentile</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>continuous_detection_threshold <span class="ot">&lt;-</span> <span class="dv">300</span>  <span class="co"># 5 minutes (300 seconds)</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>total_detection_time_threshold <span class="ot">&lt;-</span> <span class="dv">3600</span> <span class="sc">*</span> <span class="dv">2</span>  <span class="co"># Total 2 hours (7200 seconds)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="step-2-calculate-the-number-of-unique-sensors" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="step-2-calculate-the-number-of-unique-sensors"><strong>Step 2: Calculate the Number of Unique Sensors</strong></h4>
 <p>Calculate the number of unique sensors that detected each device.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the number of unique sensors detecting each device</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>device_sensor_counts <span class="ot">&lt;-</span> wf_filtered_1[, .(<span class="at">sensor_count =</span> <span class="fu">uniqueN</span>(sensor_name)), by <span class="ot">=</span> source_address]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the number of unique sensors detecting each device</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>device_sensor_counts <span class="ot">&lt;-</span> wf_filtered_1[, .(<span class="at">sensor_count =</span> <span class="fu">uniqueN</span>(sensor_name)), by <span class="ot">=</span> source_address]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="step-3-identify-devices-detected-by-fewer-sensors" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="step-3-identify-devices-detected-by-fewer-sensors"><strong>Step 3: Identify Devices Detected by Fewer Sensors</strong></h4>
 <p>Identify devices that are detected by a small number of sensors, below the defined threshold.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Identify devices detected by fewer sensors (below the specified percentile)</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>low_detection_threshold <span class="ot">&lt;-</span> <span class="fu">quantile</span>(device_sensor_counts<span class="sc">$</span>sensor_count, sensor_threshold_percentile)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>low_detection_devices <span class="ot">&lt;-</span> device_sensor_counts[sensor_count <span class="sc">&lt;=</span> low_detection_threshold, source_address]</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter dataset to keep only devices detected by fewer sensors</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>wf_filtered_2 <span class="ot">&lt;-</span> wf_filtered_1[source_address <span class="sc">%in%</span> low_detection_devices]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Identify devices detected by fewer sensors (below the specified percentile)</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>low_detection_threshold <span class="ot">&lt;-</span> <span class="fu">quantile</span>(device_sensor_counts<span class="sc">$</span>sensor_count, sensor_threshold_percentile)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>low_detection_devices <span class="ot">&lt;-</span> device_sensor_counts[sensor_count <span class="sc">&lt;=</span> low_detection_threshold, source_address]</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter dataset to keep only devices detected by fewer sensors</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>wf_filtered_1 <span class="ot">&lt;-</span> wf_filtered_1[source_address <span class="sc">%in%</span> low_detection_devices]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="step-4-identify-devices-detected-for-long-durations" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="step-4-identify-devices-detected-for-long-durations"><strong>Step 4: Identify Devices Detected for Long Durations</strong></h4>
-<p>Identify devices that are detected for at least the specified number of hours in a day.</p>
+<section id="step-4-calculate-time-differences-between-detections" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="step-4-calculate-time-differences-between-detections"><strong>Step 4: Calculate Time Differences Between Detections</strong></h4>
+<p>Calculate the time difference between consecutive detections for each device.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Further filter to identify devices detected for at least the specified duration in a day</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>long_duration_devices <span class="ot">&lt;-</span> wf_filtered_2[, .(<span class="at">date =</span> <span class="fu">as.Date</span>(timestamp), <span class="at">hour =</span> <span class="fu">hour</span>(<span class="fu">ymd_hms</span>(timestamp))), by <span class="ot">=</span> source_address][, .N, by <span class="ot">=</span> .(source_address, date, hour)][, .N, by <span class="ot">=</span> .(source_address, date)][N <span class="sc">&gt;=</span> duration_threshold_hours, source_address]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the time difference between consecutive detections</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>wf_filtered_1[, time_diff <span class="sc">:</span><span class="er">=</span> <span class="fu">as.numeric</span>(<span class="fu">difftime</span>(timestamp, <span class="fu">shift</span>(timestamp, <span class="at">type =</span> <span class="st">"lag"</span>), <span class="at">units =</span> <span class="st">"secs"</span>)), by <span class="ot">=</span> .(source_address)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="step-5-remove-non-mobile-devices" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="step-5-remove-non-mobile-devices"><strong>Step 5: Remove Non-Mobile Devices</strong></h4>
-<p>Combine the criteria to identify non-mobile devices and remove them from the dataset.</p>
+<section id="step-5-identify-continuous-detection-periods" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="step-5-identify-continuous-detection-periods"><strong>Step 5: Identify Continuous Detection Periods</strong></h4>
+<p>Identify periods of continuous detection based on the defined threshold.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Identify and remove non-mobile devices that are detected continuously</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>non_mobile_devices <span class="ot">&lt;-</span> <span class="fu">intersect</span>(low_detection_devices, long_duration_devices)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove non-mobile devices from the dataset</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>wf_filtered_3 <span class="ot">&lt;-</span> wf_filtered_1[<span class="sc">!</span>source_address <span class="sc">%in%</span> non_mobile_devices]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Identify continuous detection periods</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>wf_filtered_1[, continuous_detection <span class="sc">:</span><span class="er">=</span> <span class="fu">cumsum</span>(time_diff <span class="sc">&gt;</span> continuous_detection_threshold <span class="sc">|</span> <span class="fu">is.na</span>(time_diff)), by <span class="ot">=</span> .(source_address)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-</section>
-<section id="removal-of-rarely-detected-devices" class="level3" data-number="8.2.3">
-<h3 data-number="8.2.3" class="anchored" data-anchor-id="removal-of-rarely-detected-devices"><span class="header-section-number">8.2.3</span> Removal of Rarely Detected Devices</h3>
-<p>We will filter out rarely detected devices from our dataset. Rarely detected devices typically have very few packet counts, which can introduce noise and reduce the reliability of our analysis. We will use the following steps to identify and remove these devices:</p>
-<ol type="1">
-<li><strong>Calculate total packet counts per device</strong>: Sum the number of packets detected for each device.</li>
-<li><strong>Define a threshold</strong>: Set a threshold based on a chosen percentile of the packet counts. Ensure a minimum threshold of 5.</li>
-<li><strong>Remove rarely detected devices</strong>: Filter out devices with packet counts below the threshold.</li>
-</ol>
-<section id="step-1-define-threshold" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="step-1-define-threshold"><strong>Step 1: Define Threshold</strong></h4>
-<p>Define the threshold for filtering. You can adjust these values based on your dataset and analysis needs.</p>
+<section id="step-6-calculate-total-continuous-detection-time" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="step-6-calculate-total-continuous-detection-time"><strong>Step 6: Calculate Total Continuous Detection Time</strong></h4>
+<p>Calculate the total continuous detection time for each period.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the percentile threshold for packet counts</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>packet_threshold_percentile <span class="ot">&lt;-</span> <span class="fl">0.50</span>  <span class="co"># 50th percentile for packet counts (adjust based on visualization)</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the minimum threshold for packet counts</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>min_packet_threshold <span class="ot">&lt;-</span> <span class="dv">5</span>            <span class="co"># Minimum threshold of 5 packets</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate total continuous detection time for each period</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>wf_filtered_1[, total_continuous_time <span class="sc">:</span><span class="er">=</span> <span class="fu">sum</span>(time_diff[time_diff <span class="sc">&lt;=</span> continuous_detection_threshold], <span class="at">na.rm =</span> <span class="cn">TRUE</span>), by <span class="ot">=</span> .(sensor_name, source_address, continuous_detection)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="step-2-calculate-total-packet-counts" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="step-2-calculate-total-packet-counts"><strong>Step 2: Calculate Total Packet Counts</strong></h4>
-<p>Calculate the total number of packets detected for each device.</p>
+<section id="step-7-remove-non-mobile-devices" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="step-7-remove-non-mobile-devices"><strong>Step 7: Remove Non-Mobile Devices</strong></h4>
+<p>Identify and remove non-mobile devices based on the total continuous detection time.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the total number of packets detected for each device</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>device_packet_counts <span class="ot">&lt;-</span> wf_filtered_3[, .(<span class="at">sum_packet =</span> .N), by <span class="ot">=</span> source_address]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Identify and remove non-mobile devices</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>non_mobile_devices <span class="ot">&lt;-</span> wf_filtered_1[total_continuous_time <span class="sc">&gt;=</span> total_detection_time_threshold, .(source_address)]</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>non_mobile_devices <span class="ot">&lt;-</span> <span class="fu">unique</span>(non_mobile_devices<span class="sc">$</span>source_address)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter out non-mobile devices from the dataset</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>wf_filtered_3 <span class="ot">&lt;-</span> wf_filtered_1[<span class="sc">!</span>source_address <span class="sc">%in%</span> non_mobile_devices]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>This updated method allows for a more nuanced identification of non-mobile devices, ensuring that devices detected by fewer sensors and for extended periods are accurately filtered out. Adjust the <code>continuous_detection_threshold</code> and <code>total_detection_time_threshold</code> parameters as needed based on the specifics of your dataset and analysis requirements.</p>
 </section>
-<section id="step-3-determine-final-threshold" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="step-3-determine-final-threshold"><strong>Step 3: Determine Final Threshold</strong></h4>
-<p>Set a final threshold based on the chosen percentile of the packet counts. Ensure a minimum threshold of 5.</p>
+</section>
+<section id="verification-of-filtering-steps" class="level3" data-number="8.2.3">
+<h3 data-number="8.2.3" class="anchored" data-anchor-id="verification-of-filtering-steps"><span class="header-section-number">8.2.3</span> Verification of Filtering Steps</h3>
+<p>To ensure that the filtering steps have been correctly applied, we will summarize the number of unique devices and the total detection times at each step.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the chosen percentile threshold for packet counts</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>thresh_short <span class="ot">&lt;-</span> <span class="fu">quantile</span>(device_packet_counts<span class="sc">$</span>sum_packet, packet_threshold_percentile, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure the threshold is not less than the minimum packet threshold</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">is.na</span>(thresh_short) <span class="sc">||</span> thresh_short <span class="sc">&lt;</span> min_packet_threshold) {</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  thresh_short <span class="ot">&lt;-</span> min_packet_threshold</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Explanation for Choosing the 50th Percentile and a Minimum of 5
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>To better understand why the 50th percentile (median) and a minimum threshold of 5 were chosen, we visualize the distribution of packet counts per device.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary package for visualization</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: 패키지 'ggplot2'는 R 버전 4.2.3에서 작성되었습니다</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the 50th percentile (median) of the packet counts</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>median_packet_count <span class="ot">&lt;-</span> <span class="fu">quantile</span>(device_packet_counts<span class="sc">$</span>sum_packet, <span class="fl">0.50</span>)</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the distribution of packet counts with the 50th percentile marked</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(device_packet_counts, <span class="fu">aes</span>(<span class="at">x =</span> sum_packet)) <span class="sc">+</span></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">10</span>, <span class="at">fill =</span> <span class="st">"blue"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span>  <span class="co"># Histogram of packet counts</span></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> median_packet_count), <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span>  <span class="co"># Add a red dashed line for the 50th percentile</span></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Packet Counts per Device"</span>, </span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Total Packet Count"</span>, </span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Frequency"</span>) <span class="sc">+</span></span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> median_packet_count <span class="sc">+</span> <span class="dv">10</span>, <span class="at">y =</span> <span class="fu">max</span>(<span class="fu">table</span>(device_packet_counts<span class="sc">$</span>sum_packet)), </span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="fu">paste</span>(<span class="st">"50th Percentile ="</span>, median_packet_count), <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">vjust =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">size =</span> <span class="dv">3</span>)  <span class="co"># Annotate the 50th percentile</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
-ℹ Please use `linewidth` instead.</code></pre>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="a33-cleaning_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>The histogram shows the distribution of total packet counts per device. Each bar represents the frequency of devices with a certain range of packet counts. The red dashed line indicates the 50th percentile (median) of the packet counts, which is 2. This means that 50% of the devices have 2 or fewer packets. The annotation next to the red dashed line shows the exact value of the 50th percentile.</p>
-<p>Choosing the 50th percentile as the threshold balances the dataset by removing the least active 50% of devices, which are likely to introduce noise. It provides a reliable central tendency measure, robust against outliers.</p>
-<p>Setting a minimum threshold of 5 packets ensures that devices with very low activity are removed, even if they fall above the 50th percentile. This focuses the dataset on devices with sufficient data for meaningful analysis.</p>
-<p>These thresholds enhance the quality and reliability of the WiFi data used for analysis. Adjust the <code>packet_threshold_percentile</code> variable as needed based on your dataset.</p>
-</div>
-</div>
-</div>
-</section>
-<section id="step-4-remove-rarely-detected-devices" class="level4" data-number="8.2.3.1">
-<h4 data-number="8.2.3.1" class="anchored" data-anchor-id="step-4-remove-rarely-detected-devices"><span class="header-section-number">8.2.3.1</span> Step 4: Remove Rarely Detected Devices</h4>
-<p>Filter out devices with packet counts below the threshold.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Identify rarely detected devices with packet counts below the threshold</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>rarely_detected_devices <span class="ot">&lt;-</span> device_packet_counts[sum_packet <span class="sc">&lt;=</span> thresh_short, source_address]</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove rarely detected devices from the dataset</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>wf_final <span class="ot">&lt;-</span> wf_filtered_3[<span class="sc">!</span>source_address <span class="sc">%in%</span> rarely_detected_devices]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-</section>
-</section>
-<section id="verification-of-filtering-steps" class="level2" data-number="8.3">
-<h2 data-number="8.3" class="anchored" data-anchor-id="verification-of-filtering-steps"><span class="header-section-number">8.3</span> Verification of Filtering Steps</h2>
-<p>To ensure that the filtering steps have been correctly applied, we will summarize the number of unique devices and the total packet counts at each step.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a summary table to verify filtering steps</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>filter_table <span class="ot">&lt;-</span> <span class="fu">data.table</span>(</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">step =</span> <span class="fu">c</span>(<span class="st">"Initial"</span>, <span class="st">"After Removal of Random MACs"</span>, <span class="st">"After Removal of Non-Mobile Devices"</span>, <span class="st">"After Removal of Rarely Detected Devices (Final)"</span>),</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">unique_MAC =</span> <span class="fu">c</span>(<span class="fu">length</span>(<span class="fu">unique</span>(wf_combined<span class="sc">$</span>source_address)),  <span class="co"># Number of unique devices after each step</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">length</span>(<span class="fu">unique</span>(wf_filtered_1<span class="sc">$</span>source_address)),</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">length</span>(<span class="fu">unique</span>(wf_filtered_3<span class="sc">$</span>source_address)),</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">length</span>(<span class="fu">unique</span>(wf_final<span class="sc">$</span>source_address))),  <span class="co"># After final filtering</span></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">sum_packet =</span> <span class="fu">c</span>(<span class="fu">nrow</span>(wf_combined),  <span class="co"># Total packet counts after each step</span></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">nrow</span>(wf_filtered_1),</span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">nrow</span>(wf_filtered_3),</span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">nrow</span>(wf_final))  <span class="co"># After final filtering</span></span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the summary table to verify filtering steps</span></span>
-<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(filter_table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a summary table to verify filtering steps</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>filter_table <span class="ot">&lt;-</span> <span class="fu">data.table</span>(</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">step =</span> <span class="fu">c</span>(<span class="st">"Initial"</span>, <span class="st">"After Removal of Random MACs"</span>, <span class="st">"After Removal of Non-Mobile Devices (Final)"</span>),</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">unique_MAC =</span> <span class="fu">c</span>(<span class="fu">length</span>(<span class="fu">unique</span>(wf_combined<span class="sc">$</span>source_address)),  <span class="co"># Number of unique devices after each step</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">length</span>(<span class="fu">unique</span>(wf_filtered_1<span class="sc">$</span>source_address)),</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">length</span>(<span class="fu">unique</span>(wf_filtered_3<span class="sc">$</span>source_address))),  <span class="co"># After final filtering</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">detection_time =</span> <span class="fu">c</span>(<span class="fu">nrow</span>(wf_combined),  <span class="co"># Total detection times after each step</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">nrow</span>(wf_filtered_1),</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">nrow</span>(wf_filtered_3))  <span class="co"># After final filtering</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the summary table to verify filtering steps</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(filter_table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                                               step unique_MAC sum_packet
-1:                                          Initial        243       2694
-2:                     After Removal of Random MACs        178       1300
-3:              After Removal of Non-Mobile Devices        178       1300
-4: After Removal of Rarely Detected Devices (Final)         41       1034</code></pre>
+<pre><code>                                          step unique_MAC detection_time
+1:                                     Initial        243           2694
+2:                After Removal of Random MACs        151            859
+3: After Removal of Non-Mobile Devices (Final)        151            859</code></pre>
 </div>
 </div>
 <p>The verification table provides a summary of the filtering process, showing the impact of each filtering step:</p>
 <ol type="1">
-<li><strong>Initial</strong>: The combined dataset contains 243 unique MAC addresses with a total of 2,694 packets.</li>
-<li><strong>After Removal of Random MACs</strong>: Removing random MAC addresses reduces the dataset to 178 unique MAC addresses and 1,300 packets.</li>
-<li><strong>After Removal of Non-Mobile Devices</strong>: Filtering out non-mobile devices does not reduce the dataset further, indicating that no devices met the non-mobile criteria within this dataset’s timeframe.</li>
-<li><strong>After Removal of Rarely Detected Devices (Final)</strong>: The final step reduces the dataset to 41 unique MAC addresses and 1,034 packets, ensuring that only devices with sufficient data for meaningful analysis are included.</li>
+<li><strong>Initial</strong>: The combined dataset contains 243 unique MAC addresses with a total of 2,694 detection times.</li>
+<li><strong>After Removal of Random MACs</strong>: Removing random MAC addresses reduces the dataset to 151 unique MAC addresses and 859 detection times.</li>
+<li><strong>After Removal of Non-Mobile Devices (Final)</strong>: The final step retains 151 unique MAC addresses and 859 detection times, indicating that no devices met the non-mobile criteria within this dataset’s timeframe.</li>
 </ol>
 <p>The reason for no reduction in the number of non-mobile devices in step 3 is likely due to the short duration of the example dataset. Non-mobile devices are typically identified over longer periods (e.g., 12 hours), and this dataset may not provide enough data to meet that criterion.</p>
 </section>
-<section id="efficient-data-cleaning-with-a-function" class="level2" data-number="8.4">
-<h2 data-number="8.4" class="anchored" data-anchor-id="efficient-data-cleaning-with-a-function"><span class="header-section-number">8.4</span> Efficient Data Cleaning with a Function</h2>
+</section>
+<section id="efficient-data-cleaning-with-a-function" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="efficient-data-cleaning-with-a-function"><span class="header-section-number">8.3</span> Efficient Data Cleaning with a Function</h2>
 <p>To streamline the data cleaning process, we will create a function that performs all the filtering steps in one go. This function will:</p>
 <ol type="1">
 <li>Load the aggregated data from the specified CSV files.</li>
 <li>Remove entries with random MAC addresses.</li>
 <li>Identify and remove non-mobile devices based on the defined thresholds.</li>
-<li>Identify and remove rarely detected devices based on the chosen percentile and minimum threshold.</li>
 <li>Return the cleaned dataset.</li>
 </ol>
-<section id="creating-the-data-cleaning-function" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="creating-the-data-cleaning-function">Creating the Data Cleaning Function</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary packages</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(pacman)) <span class="fu">install.packages</span>(<span class="st">"pacman"</span>)</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(data.table, lubridate)</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the data cleaning function</span></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>clean_wifi_data <span class="ot">&lt;-</span> <span class="cf">function</span>(csv_files, sensor_threshold_percentile, duration_threshold_hours, packet_threshold_percentile, min_packet_threshold) {</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Load and combine the aggregated data</span></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  wf_combined <span class="ot">&lt;-</span> <span class="fu">rbindlist</span>(<span class="fu">lapply</span>(csv_files, fread))</span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Step 1: Remove entries with random MAC addresses</span></span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>  wf_filtered_1 <span class="ot">&lt;-</span> wf_combined[source_address_randomized <span class="sc">!=</span> <span class="dv">1</span>]</span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Step 2: Identify and remove non-mobile devices</span></span>
-<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>  device_sensor_counts <span class="ot">&lt;-</span> wf_filtered_1[, .(<span class="at">sensor_count =</span> <span class="fu">uniqueN</span>(sensor_name)), by <span class="ot">=</span> source_address]</span>
-<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>  low_detection_threshold <span class="ot">&lt;-</span> <span class="fu">quantile</span>(device_sensor_counts<span class="sc">$</span>sensor_count, sensor_threshold_percentile)</span>
-<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>  low_detection_devices <span class="ot">&lt;-</span> device_sensor_counts[sensor_count <span class="sc">&lt;=</span> low_detection_threshold, source_address]</span>
-<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>  wf_filtered_2 <span class="ot">&lt;-</span> wf_filtered_1[source_address <span class="sc">%in%</span> low_detection_devices]</span>
-<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>  long_duration_devices <span class="ot">&lt;-</span> wf_filtered_2[, .(<span class="at">date =</span> <span class="fu">as.Date</span>(timestamp), <span class="at">hour =</span> <span class="fu">hour</span>(<span class="fu">ymd_hms</span>(timestamp))), by <span class="ot">=</span> source_address][, .N, by <span class="ot">=</span> .(source_address, date, hour)][, .N, by <span class="ot">=</span> .(source_address, date)][N <span class="sc">&gt;=</span> duration_threshold_hours, source_address]</span>
-<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>  non_mobile_devices <span class="ot">&lt;-</span> <span class="fu">intersect</span>(low_detection_devices, long_duration_devices)</span>
-<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>  wf_filtered_3 <span class="ot">&lt;-</span> wf_filtered_1[<span class="sc">!</span>source_address <span class="sc">%in%</span> non_mobile_devices]</span>
-<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Step 3: Identify and remove rarely detected devices</span></span>
-<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>  device_packet_counts <span class="ot">&lt;-</span> wf_filtered_3[, .(<span class="at">sum_packet =</span> .N), by <span class="ot">=</span> source_address]</span>
-<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>  thresh_short <span class="ot">&lt;-</span> <span class="fu">quantile</span>(device_packet_counts<span class="sc">$</span>sum_packet, packet_threshold_percentile, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.na</span>(thresh_short) <span class="sc">||</span> thresh_short <span class="sc">&lt;</span> min_packet_threshold) {</span>
-<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>    thresh_short <span class="ot">&lt;-</span> min_packet_threshold</span>
-<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a>  rarely_detected_devices <span class="ot">&lt;-</span> device_packet_counts[sum_packet <span class="sc">&lt;=</span> thresh_short, source_address]</span>
-<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a>  wf_final <span class="ot">&lt;-</span> wf_filtered_3[<span class="sc">!</span>source_address <span class="sc">%in%</span> rarely_detected_devices]</span>
-<span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(wf_final)</span>
-<span id="cb22-34"><a href="#cb22-34" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb22-35"><a href="#cb22-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-36"><a href="#cb22-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Define parameters</span></span>
-<span id="cb22-37"><a href="#cb22-37" aria-hidden="true" tabindex="-1"></a>sensor_threshold_percentile <span class="ot">&lt;-</span> <span class="fl">0.3</span>  <span class="co"># Devices detected by fewer sensors: the 30th percentile</span></span>
-<span id="cb22-38"><a href="#cb22-38" aria-hidden="true" tabindex="-1"></a>duration_threshold_hours <span class="ot">&lt;-</span> <span class="dv">12</span>      <span class="co"># Devices detected for long durations: at least 12 hours in a day</span></span>
-<span id="cb22-39"><a href="#cb22-39" aria-hidden="true" tabindex="-1"></a>packet_threshold_percentile <span class="ot">&lt;-</span> <span class="fl">0.50</span>  <span class="co"># 50th percentile for packet counts (adjust based on visualization)</span></span>
-<span id="cb22-40"><a href="#cb22-40" aria-hidden="true" tabindex="-1"></a>min_packet_threshold <span class="ot">&lt;-</span> <span class="dv">5</span>            <span class="co"># Minimum threshold of 5 packets</span></span>
-<span id="cb22-41"><a href="#cb22-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-42"><a href="#cb22-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Example usage</span></span>
-<span id="cb22-43"><a href="#cb22-43" aria-hidden="true" tabindex="-1"></a>csv_files <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="st">"material/ch3"</span>, <span class="at">pattern =</span> <span class="st">"1second.*</span><span class="sc">\\</span><span class="st">.csv$"</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb22-44"><a href="#cb22-44" aria-hidden="true" tabindex="-1"></a>cleaned_data <span class="ot">&lt;-</span> <span class="fu">clean_wifi_data</span>(csv_files, sensor_threshold_percentile, duration_threshold_hours, packet_threshold_percentile, min_packet_threshold)</span>
-<span id="cb22-45"><a href="#cb22-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-46"><a href="#cb22-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the first few rows of the cleaned data to verify</span></span>
-<span id="cb22-47"><a href="#cb22-47" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(cleaned_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary packages</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(pacman)) <span class="fu">install.packages</span>(<span class="st">"pacman"</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(data.table, lubridate)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the data cleaning function</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>clean_wifi_data <span class="ot">&lt;-</span> <span class="cf">function</span>(csv_files, sensor_threshold_percentile, continuous_detection_threshold, total_detection_time_threshold) {</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Load and combine the aggregated data</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  wf_combined <span class="ot">&lt;-</span> <span class="fu">rbindlist</span>(<span class="fu">lapply</span>(csv_files, fread))</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Step 1: Remove entries with random MAC addresses</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  wf_filtered_1 <span class="ot">&lt;-</span> wf_combined[source_address_randomized <span class="sc">!=</span> <span class="dv">1</span>]</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Step 2: Identify and remove non-mobile devices</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>  device_sensor_counts <span class="ot">&lt;-</span> wf_filtered_1[, .(<span class="at">sensor_count =</span> <span class="fu">uniqueN</span>(sensor_name)), by <span class="ot">=</span> source_address]</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>  low_detection_threshold <span class="ot">&lt;-</span> <span class="fu">quantile</span>(device_sensor_counts<span class="sc">$</span>sensor_count, sensor_threshold_percentile)</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>  low_detection_devices <span class="ot">&lt;-</span> device_sensor_counts[sensor_count <span class="sc">&lt;=</span> low_detection_threshold, source_address]</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>  wf_filtered_2 <span class="ot">&lt;-</span> wf_filtered_1[source_address <span class="sc">%in%</span> low_detection_devices]</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>  wf_filtered_2[, time_diff <span class="sc">:</span><span class="er">=</span> <span class="fu">as.numeric</span>(<span class="fu">difftime</span>(timestamp, <span class="fu">shift</span>(timestamp, <span class="at">type =</span> <span class="st">"lag"</span>), <span class="at">units =</span> <span class="st">"secs"</span>)), by <span class="ot">=</span> .(source_address)]</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>  wf_filtered_2[, continuous_detection <span class="sc">:</span><span class="er">=</span> <span class="fu">cumsum</span>(time_diff <span class="sc">&gt;</span> continuous_detection_threshold <span class="sc">|</span> <span class="fu">is.na</span>(time_diff)), by <span class="ot">=</span> .(source_address)]</span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>  wf_filtered_2[, total_continuous_time <span class="sc">:</span><span class="er">=</span> <span class="fu">sum</span>(time_diff[time_diff <span class="sc">&lt;=</span> continuous_detection_threshold], <span class="at">na.rm =</span> <span class="cn">TRUE</span>), by <span class="ot">=</span> .(sensor_name, source_address, continuous_detection)]</span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>  non_mobile_devices <span class="ot">&lt;-</span> wf_filtered_2[total_continuous_time <span class="sc">&gt;=</span> total_detection_time_threshold, .(source_address)]</span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>  non_mobile_devices <span class="ot">&lt;-</span> <span class="fu">unique</span>(non_mobile_devices<span class="sc">$</span>source_address)</span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>  wf_final <span class="ot">&lt;-</span> wf_filtered_1[<span class="sc">!</span>source_address <span class="sc">%in%</span> non_mobile_devices]</span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(wf_final)</span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Define parameters</span></span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>sensor_threshold_percentile <span class="ot">&lt;-</span> <span class="fl">0.3</span>  <span class="co"># Devices detected by fewer sensors: the 30th percentile</span></span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a>continuous_detection_threshold <span class="ot">&lt;-</span> <span class="dv">300</span>  <span class="co"># 5 minutes (300 seconds)</span></span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a>total_detection_time_threshold <span class="ot">&lt;-</span> <span class="dv">3600</span> <span class="sc">*</span> <span class="dv">2</span>  <span class="co"># Total 2 hours (7200 seconds)</span></span>
+<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-35"><a href="#cb15-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Example usage</span></span>
+<span id="cb15-36"><a href="#cb15-36" aria-hidden="true" tabindex="-1"></a>csv_files <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="st">"material/ch3"</span>, <span class="at">pattern =</span> <span class="st">"1second.*</span><span class="sc">\\</span><span class="st">.csv$"</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb15-37"><a href="#cb15-37" aria-hidden="true" tabindex="-1"></a>cleaned_data <span class="ot">&lt;-</span> <span class="fu">clean_wifi_data</span>(csv_files, sensor_threshold_percentile, continuous_detection_threshold, total_detection_time_threshold)</span>
+<span id="cb15-38"><a href="#cb15-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-39"><a href="#cb15-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the first few rows of the cleaned data to verify</span></span>
+<span id="cb15-40"><a href="#cb15-40" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(cleaned_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   sensor_name                                                   source_address
 1:         A01 05d29a432f4ff4c5f2e49e185334619d4365ef65370fcf9891bc7b1f8c0a68b6
-2:         A01 4231b032c132f88544dd3911db51c02ec1c5b69384263fbac31877f2ae76e76f
-3:         A01 22bfd77a8079ab42a42c3dbdea797fa7162d7729dfe454392c6c89fed5d56306
-4:         A01 4231b032c132f88544dd3911db51c02ec1c5b69384263fbac31877f2ae76e76f
-5:         A01 4231b032c132f88544dd3911db51c02ec1c5b69384263fbac31877f2ae76e76f
-6:         A01 05d29a432f4ff4c5f2e49e185334619d4365ef65370fcf9891bc7b1f8c0a68b6
+2:         A01 a6a0a285818a48c083c72c885283f1652208b3239f70e859f49067b36781acc6
+3:         A01 f6e4a5fce8432422779b9e68da551a19b24b749ddbd58735bd95334747258d66
+4:         A01 c419f59d5917e15bd08b3ac2bd37467e8ecc076d44fc138856f3c9178718e118
+5:         A01 14bb59b4ee06a8c1c27d72811d39d856ea9c98003ed1f563f9d3680cc1d9b63a
+6:         A01 fa37ab8e615eb19b7a2cdbcea288c51271da5f418e74d892597e9b0b6226f118
    source_address_randomized           timestamp median_rssi count
 1:                         0 2024-04-09 19:17:27         -78     2
-2:                         0 2024-04-09 19:17:29         -75    15
-3:                         0 2024-04-09 19:17:29         -75     2
-4:                         0 2024-04-09 19:17:30         -77     9
-5:                         0 2024-04-09 19:17:31         -77     9
-6:                         0 2024-04-09 19:17:31         -76     2</code></pre>
+2:                         0 2024-04-09 19:17:27         -75     1
+3:                         0 2024-04-09 19:17:28         -76     2
+4:                         0 2024-04-09 19:17:28         -71     1
+5:                         0 2024-04-09 19:17:29         -73     1
+6:                         0 2024-04-09 19:17:29         -73     1</code></pre>
 </div>
 </div>
 <p>This function automates the entire data cleaning process, making it easier and faster to clean large datasets. Adjust the parameters as needed based on your specific dataset and analysis requirements.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

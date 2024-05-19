@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.554">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -337,24 +337,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#setup" id="toc-setup" class="nav-link active" data-scroll-target="#setup"><span class="header-section-number">7.1</span> Setup</a>
+  <li><a href="#step-by-step-data-aggregation" id="toc-step-by-step-data-aggregation" class="nav-link active" data-scroll-target="#step-by-step-data-aggregation"><span class="header-section-number">7.1</span> Step-by-Step Data Aggregation</a>
   <ul class="collapse">
   <li><a href="#loading-packages" id="toc-loading-packages" class="nav-link" data-scroll-target="#loading-packages"><span class="header-section-number">7.1.1</span> Loading Packages</a></li>
+  <li><a href="#loading-the-data" id="toc-loading-the-data" class="nav-link" data-scroll-target="#loading-the-data"><span class="header-section-number">7.1.2</span> Loading the Data</a></li>
+  <li><a href="#filtering-by-time" id="toc-filtering-by-time" class="nav-link" data-scroll-target="#filtering-by-time"><span class="header-section-number">7.1.3</span> Filtering by Time</a></li>
+  <li><a href="#filtering-by-frame-type" id="toc-filtering-by-frame-type" class="nav-link" data-scroll-target="#filtering-by-frame-type"><span class="header-section-number">7.1.4</span> Filtering by Frame Type</a></li>
+  <li><a href="#filtering-by-signal-strength" id="toc-filtering-by-signal-strength" class="nav-link" data-scroll-target="#filtering-by-signal-strength"><span class="header-section-number">7.1.5</span> Filtering by Signal Strength</a></li>
+  <li><a href="#aggregating-data-by-time-intervals" id="toc-aggregating-data-by-time-intervals" class="nav-link" data-scroll-target="#aggregating-data-by-time-intervals"><span class="header-section-number">7.1.6</span> Aggregating Data by Time Intervals</a></li>
+  <li><a href="#saving-aggregated-data" id="toc-saving-aggregated-data" class="nav-link" data-scroll-target="#saving-aggregated-data"><span class="header-section-number">7.1.7</span> Saving Aggregated Data</a></li>
+  <li><a href="#closing-the-database-connection" id="toc-closing-the-database-connection" class="nav-link" data-scroll-target="#closing-the-database-connection"><span class="header-section-number">7.1.8</span> Closing the Database Connection</a></li>
   </ul></li>
-  <li><a href="#step-by-step-data-aggregation" id="toc-step-by-step-data-aggregation" class="nav-link" data-scroll-target="#step-by-step-data-aggregation"><span class="header-section-number">7.2</span> Step-by-Step Data Aggregation</a>
+  <li><a href="#tracking-data-changes" id="toc-tracking-data-changes" class="nav-link" data-scroll-target="#tracking-data-changes"><span class="header-section-number">7.2</span> Tracking Data Changes</a></li>
+  <li><a href="#automating-the-process-with-a-function" id="toc-automating-the-process-with-a-function" class="nav-link" data-scroll-target="#automating-the-process-with-a-function"><span class="header-section-number">7.3</span> Automating the Process with a Function</a>
   <ul class="collapse">
-  <li><a href="#step-1-loading-the-data" id="toc-step-1-loading-the-data" class="nav-link" data-scroll-target="#step-1-loading-the-data"><span class="header-section-number">7.2.1</span> Step 1: Loading the Data</a></li>
-  <li><a href="#step-2-filtering-by-time" id="toc-step-2-filtering-by-time" class="nav-link" data-scroll-target="#step-2-filtering-by-time"><span class="header-section-number">7.2.2</span> Step 2: Filtering by Time</a></li>
-  <li><a href="#step-3-filtering-by-frame-type" id="toc-step-3-filtering-by-frame-type" class="nav-link" data-scroll-target="#step-3-filtering-by-frame-type"><span class="header-section-number">7.2.3</span> Step 3: Filtering by Frame Type</a></li>
-  <li><a href="#step-4-filtering-by-signal-strength" id="toc-step-4-filtering-by-signal-strength" class="nav-link" data-scroll-target="#step-4-filtering-by-signal-strength"><span class="header-section-number">7.2.4</span> Step 4: Filtering by Signal Strength</a></li>
-  <li><a href="#step-5-aggregating-data-by-time-intervals" id="toc-step-5-aggregating-data-by-time-intervals" class="nav-link" data-scroll-target="#step-5-aggregating-data-by-time-intervals"><span class="header-section-number">7.2.5</span> Step 5: Aggregating Data by Time Intervals</a></li>
-  <li><a href="#step-6-saving-aggregated-data" id="toc-step-6-saving-aggregated-data" class="nav-link" data-scroll-target="#step-6-saving-aggregated-data"><span class="header-section-number">7.2.6</span> Step 6: Saving Aggregated Data</a></li>
-  <li><a href="#step-7-closing-the-database-connection" id="toc-step-7-closing-the-database-connection" class="nav-link" data-scroll-target="#step-7-closing-the-database-connection"><span class="header-section-number">7.2.7</span> Step 7: Closing the Database Connection</a></li>
-  </ul></li>
-  <li><a href="#tracking-data-changes" id="toc-tracking-data-changes" class="nav-link" data-scroll-target="#tracking-data-changes"><span class="header-section-number">7.3</span> Tracking Data Changes</a></li>
-  <li><a href="#automating-the-process-with-a-function" id="toc-automating-the-process-with-a-function" class="nav-link" data-scroll-target="#automating-the-process-with-a-function"><span class="header-section-number">7.4</span> Automating the Process with a Function</a>
-  <ul class="collapse">
-  <li><a href="#applying-the-function-to-multiple-databases" id="toc-applying-the-function-to-multiple-databases" class="nav-link" data-scroll-target="#applying-the-function-to-multiple-databases"><span class="header-section-number">7.4.1</span> Applying the Function to Multiple Databases</a></li>
+  <li><a href="#applying-the-function-to-multiple-databases" id="toc-applying-the-function-to-multiple-databases" class="nav-link" data-scroll-target="#applying-the-function-to-multiple-databases">Applying the Function to Multiple Databases</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -396,8 +393,8 @@ Download Example Data
 <p>If you don’t have your own dataset, download our example SQLite3 database file <a href="material/ch3/sample.zip">here</a>.</p>
 </div>
 </div>
-<section id="setup" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="setup"><span class="header-section-number">7.1</span> Setup</h2>
+<section id="step-by-step-data-aggregation" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="step-by-step-data-aggregation"><span class="header-section-number">7.1</span> Step-by-Step Data Aggregation</h2>
 <section id="loading-packages" class="level3" data-number="7.1.1">
 <h3 data-number="7.1.1" class="anchored" data-anchor-id="loading-packages"><span class="header-section-number">7.1.1</span> Loading Packages</h3>
 <p>Before we start, let’s ensure that we have all the necessary packages installed and loaded. We will use the <code>pacman</code> package to manage our package dependencies.</p>
@@ -409,11 +406,8 @@ Download Example Data
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(RSQLite, DBI, data.table, lubridate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-</section>
-<section id="step-by-step-data-aggregation" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="step-by-step-data-aggregation"><span class="header-section-number">7.2</span> Step-by-Step Data Aggregation</h2>
-<section id="step-1-loading-the-data" class="level3" data-number="7.2.1">
-<h3 data-number="7.2.1" class="anchored" data-anchor-id="step-1-loading-the-data"><span class="header-section-number">7.2.1</span> Step 1: Loading the Data</h3>
+<section id="loading-the-data" class="level3" data-number="7.1.2">
+<h3 data-number="7.1.2" class="anchored" data-anchor-id="loading-the-data"><span class="header-section-number">7.1.2</span> Loading the Data</h3>
 <p>First, we will load the WiFi data from the SQLite3 database.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Establish a connection to the SQLite3 database</span></span>
@@ -452,8 +446,8 @@ Download Example Data
 </div>
 </div>
 </section>
-<section id="step-2-filtering-by-time" class="level3" data-number="7.2.2">
-<h3 data-number="7.2.2" class="anchored" data-anchor-id="step-2-filtering-by-time"><span class="header-section-number">7.2.2</span> Step 2: Filtering by Time</h3>
+<section id="filtering-by-time" class="level3" data-number="7.1.3">
+<h3 data-number="7.1.3" class="anchored" data-anchor-id="filtering-by-time"><span class="header-section-number">7.1.3</span> Filtering by Time</h3>
 <p>To focus on a specific time period for our analysis, we will define a start and end date using the <code>ymd_hms</code> function from the <code>lubridate</code> package. We will then filter the data to include only rows within our specified datetime range.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define start and end datetime for filtering</span></span>
@@ -466,8 +460,8 @@ Download Example Data
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="step-3-filtering-by-frame-type" class="level3" data-number="7.2.3">
-<h3 data-number="7.2.3" class="anchored" data-anchor-id="step-3-filtering-by-frame-type"><span class="header-section-number">7.2.3</span> Step 3: Filtering by Frame Type</h3>
+<section id="filtering-by-frame-type" class="level3" data-number="7.1.4">
+<h3 data-number="7.1.4" class="anchored" data-anchor-id="filtering-by-frame-type"><span class="header-section-number">7.1.4</span> Filtering by Frame Type</h3>
 <p>Certain <code>subtypes</code> of packets may not be relevant for our purposes. We will remove rows where the <code>subtype</code> column contains the word “response”.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove rows where the subtype contains "response"</span></span>
@@ -592,8 +586,8 @@ Why We Should Remove “Response” Packets
 </div>
 </div>
 </section>
-<section id="step-4-filtering-by-signal-strength" class="level3" data-number="7.2.4">
-<h3 data-number="7.2.4" class="anchored" data-anchor-id="step-4-filtering-by-signal-strength"><span class="header-section-number">7.2.4</span> Step 4: Filtering by Signal Strength</h3>
+<section id="filtering-by-signal-strength" class="level3" data-number="7.1.5">
+<h3 data-number="7.1.5" class="anchored" data-anchor-id="filtering-by-signal-strength"><span class="header-section-number">7.1.5</span> Filtering by Signal Strength</h3>
 <p>The signal strength (RSSI) of WiFi packets can provide valuable information about the proximity and location of devices. We will filter our data to include only rows where the <code>rssi</code> column falls between -30 and -80 dBm.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter data to include only rows with signal strength between -30 and -80 dBm</span></span>
@@ -616,8 +610,8 @@ Why We Should Filter Signal Strength
 </div>
 </div>
 </section>
-<section id="step-5-aggregating-data-by-time-intervals" class="level3" data-number="7.2.5">
-<h3 data-number="7.2.5" class="anchored" data-anchor-id="step-5-aggregating-data-by-time-intervals"><span class="header-section-number">7.2.5</span> Step 5: Aggregating Data by Time Intervals</h3>
+<section id="aggregating-data-by-time-intervals" class="level3" data-number="7.1.6">
+<h3 data-number="7.1.6" class="anchored" data-anchor-id="aggregating-data-by-time-intervals"><span class="header-section-number">7.1.6</span> Aggregating Data by Time Intervals</h3>
 <p>We will aggregate the data by <code>sensor_name</code> and <code>source_address</code> into specified time intervals. This involves rounding the <code>timestamp</code> to the nearest interval and then summarizing the data.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define aggregation function</span></span>
@@ -653,24 +647,24 @@ Why We Should Filter Signal Strength
 </div>
 </div>
 </section>
-<section id="step-6-saving-aggregated-data" class="level3" data-number="7.2.6">
-<h3 data-number="7.2.6" class="anchored" data-anchor-id="step-6-saving-aggregated-data"><span class="header-section-number">7.2.6</span> Step 6: Saving Aggregated Data</h3>
+<section id="saving-aggregated-data" class="level3" data-number="7.1.7">
+<h3 data-number="7.1.7" class="anchored" data-anchor-id="saving-aggregated-data"><span class="header-section-number">7.1.7</span> Saving Aggregated Data</h3>
 <p>Finally, we will save the aggregated data to a CSV file for future use.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the aggregated data to a CSV file</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fwrite</span>(aggregated_data, <span class="st">"material/ch3/aggregated_sample_1.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="step-7-closing-the-database-connection" class="level3" data-number="7.2.7">
-<h3 data-number="7.2.7" class="anchored" data-anchor-id="step-7-closing-the-database-connection"><span class="header-section-number">7.2.7</span> Step 7: Closing the Database Connection</h3>
+<section id="closing-the-database-connection" class="level3" data-number="7.1.8">
+<h3 data-number="7.1.8" class="anchored" data-anchor-id="closing-the-database-connection"><span class="header-section-number">7.1.8</span> Closing the Database Connection</h3>
 <p>After loading and processing the data, it is important to close the database connection to free up resources:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbDisconnect</span>(conn)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
-<section id="tracking-data-changes" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="tracking-data-changes"><span class="header-section-number">7.3</span> Tracking Data Changes</h2>
+<section id="tracking-data-changes" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="tracking-data-changes"><span class="header-section-number">7.2</span> Tracking Data Changes</h2>
 <p>We will create a table that shows how the number of packets and unique <code>source_address</code> changes through each step of the data aggregation process.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize summary table</span></span>
@@ -736,8 +730,8 @@ Why We Should Filter Signal Strength
 </ol>
 <p>Each step of the filtering process significantly reduces the amount of data, refining it to include only the most relevant packets and maintaining the same number of unique devices after the final aggregation step.</p>
 </section>
-<section id="automating-the-process-with-a-function" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="automating-the-process-with-a-function"><span class="header-section-number">7.4</span> Automating the Process with a Function</h2>
+<section id="automating-the-process-with-a-function" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="automating-the-process-with-a-function"><span class="header-section-number">7.3</span> Automating the Process with a Function</h2>
 <p>To streamline the process, we will create a function that performs the entire data aggregation process. This function will: 1. Load the data from the SQLite3 database. 2. Perform basic filtering by datetime, frame type, and signal strength. 3. Aggregate the data by <code>sensor_name</code> and <code>source_address</code> into specified time intervals. 4. Save the aggregated data to a CSV file.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>aggregate_data <span class="ot">&lt;-</span> <span class="cf">function</span>(db_path, start_date, end_date, <span class="at">interval =</span> <span class="st">"second"</span>, <span class="at">output_suffix =</span> <span class="st">"_1second.csv"</span>) {</span>
@@ -777,8 +771,8 @@ Why We Should Filter Signal Strength
 <span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a>end_date <span class="ot">&lt;-</span> <span class="fu">ymd_hms</span>(<span class="st">"2024-04-09 19:20:00"</span>)</span>
 <span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate_data</span>(<span class="st">"material/ch3/sample_1.sqlite3"</span>, start_date, end_date, <span class="at">interval =</span> <span class="st">"second"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="applying-the-function-to-multiple-databases" class="level3" data-number="7.4.1">
-<h3 data-number="7.4.1" class="anchored" data-anchor-id="applying-the-function-to-multiple-databases"><span class="header-section-number">7.4.1</span> Applying the Function to Multiple Databases</h3>
+<section id="applying-the-function-to-multiple-databases" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="applying-the-function-to-multiple-databases">Applying the Function to Multiple Databases</h3>
 <p>We will apply the <code>aggregate_data</code> function to all SQLite3 databases in the <code>ch3</code> folder that contain the word “sample” in their filenames. The resulting CSV files will be saved with “_1second” appended to their original names. Using <code>lapply</code> is effective for applying a function over a list, but we can also use <code>purrr::map</code> for better readability and functionality.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(purrr)</span>

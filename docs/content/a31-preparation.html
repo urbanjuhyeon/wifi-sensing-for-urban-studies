@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.554">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -389,20 +389,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-stderr">
 <pre><code>필요한 패키지를 로딩중입니다: pacman</code></pre>
 </div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: 패키지 'pacman'는 R 버전 4.2.3에서 작성되었습니다</code></pre>
-</div>
 </div>
 <p>Next, use <code>p_load</code> from <code>pacman</code> to install and load the <code>RSQLite</code> and <code>DBI</code> packages, essential for interfacing with SQLite databases:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(RSQLite, DBI, data.table, knitr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(RSQLite, DBI, data.table, knitr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="establishing-sqlite3-database-connection" class="level3" data-number="6.2.2">
 <h3 data-number="6.2.2" class="anchored" data-anchor-id="establishing-sqlite3-database-connection"><span class="header-section-number">6.2.2</span> Establishing SQLite3 Database Connection</h3>
 <p>To establish a connection to the SQLite3 database, we use the <code>dbConnect()</code> function from the DBI package. This function takes the database driver (in this case, <code>SQLite()</code>) and the path to the database file as arguments.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>conn <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(<span class="fu">SQLite</span>(), <span class="st">"path/to/your/database.sqlite"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>conn <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(<span class="fu">SQLite</span>(), <span class="st">"path/to/your/database.sqlite"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Replace <code>"path/to/your/database.sqlite"</code> with the actual path to your SQLite3 database file.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="If you don't have the WiFi DB">
@@ -423,7 +420,7 @@ If you don’t have the WiFi DB
 <h3 data-number="6.2.3" class="anchored" data-anchor-id="querying-wifi-data-from-the-database"><span class="header-section-number">6.2.3</span> Querying WiFi Data from the Database</h3>
 <p>To load the WiFi data from the “packets” table, we use the<code>dbGetQuery()</code> function. This function takes the database connection object and an SQL query as arguments. The SQL query specifies the table and columns to retrieve.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>wifi_data <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(conn, <span class="st">"SELECT * FROM packets"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>wifi_data <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(conn, <span class="st">"SELECT * FROM packets"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
@@ -559,7 +556,7 @@ If you don’t have the WiFi DB
 <h3 data-number="6.2.4" class="anchored" data-anchor-id="saving-wifi-data-on-your-local"><span class="header-section-number">6.2.4</span> Saving WiFi Data on Your Local</h3>
 <p>When working with data in R, it’s often necessary to save the data locally for future use or sharing with others. In this section, we’ll explore three common methods for saving the <code>wifi_data</code> dataset on your local machine.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fwrite</span>(wifi_data, <span class="st">"path/to/your/database.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fwrite</span>(wifi_data, <span class="st">"path/to/your/database.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Replace <code>"path/to/your/database.csv"</code> with the actual path to your SQLite3 database file.</p>
 </section>
@@ -567,7 +564,7 @@ If you don’t have the WiFi DB
 <h3 data-number="6.2.5" class="anchored" data-anchor-id="closing-the-database-connection"><span class="header-section-number">6.2.5</span> Closing the Database Connection</h3>
 <p>After loading the data, it is important to close the database connection to free up resources:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbDisconnect</span>(conn)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbDisconnect</span>(conn)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
