@@ -1,1 +1,32 @@
-# location
+# Location
+
+## Background
+
+Determining the location of WiFi-emitting devices is a crucial step in our urban pedestrian tracking system. This section explores our approach to localization, balancing accuracy with the practical constraints of outdoor environments and commercial WiFi sensors.
+
+Our location estimation methods are:
+
+- **Proximity-based localization**: Estimates a device's location within a sensor's detection range.
+- **Centroid-based localization**: Refines location estimates using weighted averages from multiple detecting sensors.
+
+![Various geometrical localization methods. Our approach  Proximity (g) and Centroid (f) methods. (Adapted from Li et al., 2021)](material/ch4/localization_geometrical.png){width=85%}
+
+We've chosen these methods for their practical balance between performance and system constraints. Proximity-based localization offers simplicity and robustness in noisy outdoor environments, providing reliable coarse estimates with minimal computational overhead. Centroid-based localization builds upon this, improving accuracy while maintaining efficiency when multiple sensors detect a device.
+
+These approaches are particularly suitable for our use case as they're resilient to signal fluctuations common in outdoor settings and can be easily scaled across varying sensor densities. While they may not offer the highest theoretical accuracy compared to more complex methods like multilateration or fingerprinting, they provide a robust and practical solution for outdoor pedestrian tracking using commercial WiFi sensors.
+
+::: {.callout-note collapse="true"}
+## Want to know more about localization methods?
+
+For a comprehensive overview of IoT localization techniques, refer to Li et al. (2021). They categorize methods into database-matching (DB-M) and geometrical approaches, as illustrated in a figure bleow:
+
+![Localization algorithms (Li et al., 2021)](material/ch4/localization_methods.png){width=80%}
+
+While methods like multilateration can provide high accuracy, they often require precise time synchronization or multiple antenna arrays, which are impractical in our scenario. DB-M methods, though effective in complex environments, require extensive pre-deployment effort to create and maintain signal maps.
+
+Our chosen methods (proximity and centroid) may not offer the highest theoretical accuracy, but they provide a robust and practical solution for outdoor pedestrian tracking using commercial WiFi sensors.
+
+Reference:
+LI, You, *et al.* Toward location-enabled IoT (LE-IoT): IoT positioning techniques, error sources, and error mitigation. *IEEE Internet of Things Journal*, 2020, 8.6: 4035-4062.
+:::
+

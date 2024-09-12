@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.551">
+<meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Sensing Urban Dynamics with WiFi: A Practical Guide - 7&nbsp; Data Aggregation</title>
+<title>7&nbsp; Data Aggregation – Sensing Urban Dynamics with WiFi: A Practical Guide</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -111,13 +111,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/a30-processing.html">PART III: Data Processing</a></li><li class="breadcrumb-item"><a href="../content/a32-aggregation.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Aggregation</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -158,7 +158,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../content/a20-installation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PART II: WiFi Sensing Setup</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -199,7 +199,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../content/a30-processing.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PART III: Data Processing</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -228,7 +228,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../content/a40-metric.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PART IV: Understanding Metrics</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -242,7 +242,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../content/a42-location.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">location</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Location</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -275,7 +275,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../content/a50-casestudy.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PART VI: Applying Metrics</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -304,7 +304,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../content/a60-future.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PART V: Future Directions and Challenges</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -422,14 +422,16 @@ Download Example Data
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the first few rows to verify</span></span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(wifi_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   sensor_name                  timestamp       type        subtype rssi
-1:         A01 2024-04-09T19:17:27.536121 management probe-response  -65
-2:         A01 2024-04-09T19:17:27.541249 management probe-response  -67
-3:         A01 2024-04-09T19:17:27.635933 management probe-response  -67
-4:         A01 2024-04-09T19:17:27.746452 management  probe-request  -67
-5:         A01 2024-04-09T19:17:27.765945 management  probe-request  -65
-6:         A01 2024-04-09T19:17:27.779055 management  probe-request  -75
+<pre><code>   sensor_name                  timestamp       type        subtype  rssi
+        &lt;char&gt;                     &lt;char&gt;     &lt;char&gt;         &lt;char&gt; &lt;int&gt;
+1:         A01 2024-04-09T19:17:27.536121 management probe-response   -65
+2:         A01 2024-04-09T19:17:27.541249 management probe-response   -67
+3:         A01 2024-04-09T19:17:27.635933 management probe-response   -67
+4:         A01 2024-04-09T19:17:27.746452 management  probe-request   -67
+5:         A01 2024-04-09T19:17:27.765945 management  probe-request   -65
+6:         A01 2024-04-09T19:17:27.779055 management  probe-request   -75
                                                      source_address
+                                                             &lt;char&gt;
 1: f0659bdd9305e4341afb9f55df7cd20a4adfd726f83a33c3857281dfa3de8575
 2: f0659bdd9305e4341afb9f55df7cd20a4adfd726f83a33c3857281dfa3de8575
 3: f0659bdd9305e4341afb9f55df7cd20a4adfd726f83a33c3857281dfa3de8575
@@ -437,6 +439,7 @@ Download Example Data
 5: d94147cf12befe41bb40dd7957733c54442de7a9d45a75ec3c747856c4bdc129
 6: 5e69a0bc9bd73c0b72642e2e0f4f99670b85e8fdf4616bc19fb1f8d63107bfe5
    source_address_randomized
+                       &lt;int&gt;
 1:                         0
 2:                         0
 3:                         0
@@ -480,7 +483,7 @@ Why We Should Remove “Response” Packets
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>We remove “response” packets because they are sent from APs to devices, not from devices to APs. In the raw WiFi data collected over a month on a university campus (see the table below), “response” packets account for a large proportion (35.3% for “probe-response”). By filtering them out, we focus on the more relevant packets originating from devices, which provide information about the presence and movement of pedestrians.</p>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 14%">
 <col style="width: 28%">
@@ -631,6 +634,7 @@ Why We Should Filter Signal Strength
 <span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(aggregated_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   sensor_name                                                   source_address
+        &lt;char&gt;                                                           &lt;char&gt;
 1:         A01 d94147cf12befe41bb40dd7957733c54442de7a9d45a75ec3c747856c4bdc129
 2:         A01 5e69a0bc9bd73c0b72642e2e0f4f99670b85e8fdf4616bc19fb1f8d63107bfe5
 3:         A01 05d29a432f4ff4c5f2e49e185334619d4365ef65370fcf9891bc7b1f8c0a68b6
@@ -638,6 +642,7 @@ Why We Should Filter Signal Strength
 5:         A01 b3268f2d7ca90e7ea3ff549decbf484d478c3eaf28784a7bbfbd5aaee22d3a6a
 6:         A01 f6e4a5fce8432422779b9e68da551a19b24b749ddbd58735bd95334747258d66
    source_address_randomized           timestamp median_rssi count
+                       &lt;int&gt;              &lt;POSc&gt;       &lt;num&gt; &lt;int&gt;
 1:                         1 2024-04-09 19:17:27         -66     2
 2:                         1 2024-04-09 19:17:27         -75     2
 3:                         0 2024-04-09 19:17:27         -78     2
@@ -713,6 +718,7 @@ Why We Should Filter Signal Strength
 <span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(summary_table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                      Step Packet_Count Unique_Source_Addresses
+                    &lt;char&gt;        &lt;int&gt;                   &lt;int&gt;
 1:                 Initial        11490                     323
 2:   After Datetime Filter         5274                     163
 3: After Frame Type Filter         3380                     123
@@ -838,18 +844,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -881,7 +876,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp("https:\/\/juhyeonpark\.com\/wifi-sensing-for-urban-studies\/");
@@ -889,7 +906,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
